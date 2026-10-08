@@ -134,3 +134,25 @@ retains independent exact audits but has no subprocess timeout/preemption. A
 stalled experiment needs caller-enforced process termination and leaves evidence
 incomplete. Setup and nested per-stage timers are not disjoint total costs;
 component ceilings are cooperative, not OS memory/time enforcement.
+
+The new external-window driver applies Windows process/job committed-memory
+ceilings before resuming a suspended worker and terminates its Job at a deadline.
+It is a controlled-experiment resource boundary, not a hostile-code sandbox or
+hard real-time guarantee. Scheduling, low-power states and cleanup can affect
+elapsed time; overshoot is retained. Commit usage is not RSS or a memory-hardness
+proof. Fixed-order processes share OS cache and load despite empty Python caches.
+
+Immutable stage files have bounded length/digest completion markers. These detect
+partial writes, not malicious file tampering; directories remain ignored forensic
+artifacts. Aborted work is unknown, complete-window hit totals exclude recovered
+aborted stages, and unconditional logical cost per hit is null when censored.
+Unclassified native aborts must not be relabeled memory exhaustion without evidence.
+Source/protocol errors invalidate the whole survey rather than becoming limit wins.
+
+Trusted LabRules fix profile/context, timestamp interval, payload commitments
+and score target outside submitted proofs. Forbidden surfaces are rejected before
+instance generation. Rules do not prove parent-chain existence, payload-body
+validity or consensus time. Fresh-parent schedules are deterministic lab inputs,
+not a live chain; stages reset budgets and vector acquisition. Rust verifies bound
+SIS validity but still does not independently enforce the Python score/admission.
+The next gates in ADR 0009 remain necessary before choosing difficulty or chainwork.

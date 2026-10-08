@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: paid practical lattice policies and preprocessing reuse.
+Date: 2026-10-08. Phase: external resource windows and trusted laboratory admission.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -21,6 +21,9 @@ enumeration now completes bounded kernel searches with explicit caps; joint
 header families and target grids expose competing descriptive cost models.
 Streaming visitors and an explicitly isolated in-process native backend now
 connect practical LLL/sphere to paid first/all/reuse/cache-all policies.
+Windows Jobs now enforce process/job commit ceilings before worker execution and
+terminate externally bounded attempts. Immutable checkpoints preserve interrupted
+evidence. Fresh schedules and LabRules constrain the independently trusted surface.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
@@ -196,12 +199,35 @@ diagnostic runs show eviction removing the replay saving on larger profiles.
 Cached complete pools use exact profile/matrix keys and never retain scores.
 Discovery order, overlapping timing scopes and correlated replays are explicit.
 
+### External windows and fresh-context admission
+
+The [external-window study](research/external-windows-and-fresh-context-v1.md)
+runs 192 workers at 200/400/1200 ms and 48/128 MiB committed-memory limits.
+Of 192 input header occurrences, 160 headers and 128 profile/matrix identities
+are distinct. Independent generation and complete native oracles agree.
+98 workers complete; 94 time out. Completed stages contain 105 hit occurrences;
+112 including seven recovered aborted-stage hits pass Rust bound validity and
+Python score/admission. The seven do not enter completed-window win totals.
+
+All 200-ms workers stop before a stage checkpoint; all 1200-ms workers complete.
+Intermediate windows recover 38 stages from interrupted workers. Aborted logical
+work remains unknown and unconditional per-hit work is null. OS elapsed costs
+retain every attempt. Commit metrics are not RSS or a memory-hardness claim.
+Actual tests separately confirm timed termination and denied large allocation.
+
+Fresh schedules carry no repeated headers within a schedule. In full windows,
+all 58 exact-cache hits come from the tiny-q collision control; larger profiles
+have none in this cohort. Stage budgets/acquisition reset; only the cache persists.
+Fixed-order one-pass results and shared OS cache state do not rank mining speeds.
+Trusted rules fix context/profile/target, timestamp range and allowed commitments
+outside packets, without implementing payload-body validity or a live chain.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 109 Python tests and 13 Rust tests;
+- 120 Python tests and 13 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -244,6 +270,10 @@ hit precedence, warm rescoring, exact-key misses, empty-pool caching, eviction,
 partial-pool rejection, local corruption rejection and evidence invalidation.
 Visitor stops retain verified vectors and do not claim completeness; state is
 released without cyclic GC. Explicit native surveys exercise the shared reducer.
+External-window tests cover suspended-launch ABI/limits, actual stalled-worker
+termination and allocation denial, bounded completion markers, fresh contexts,
+conditional censored totals and evidence invalidation. Admission tests cover
+early forbidden-surface rejection, strict external scores and malformed rules.
 
 Separate source reviews covered the completed milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
@@ -273,8 +303,11 @@ adds native solver competition and paid header selection to future cost models.
 [ADR 0007](decisions/0007-sphere-and-work-models.md) keeps ideal eligible-score
 trials distinct from actual SIS work. [ADR 0008](decisions/0008-paid-lattice-preprocessing.md)
 keeps optimized search inside paid policies and bounds exact-instance preparation
-reuse. Next compare common externally enforced resource windows and fresh-context
-preprocessing schedules, then define allowed time/payload surfaces. Difficulty
+reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
+external resource enforcement, fresh schedules, immutable evidence and trusted
+lab admission. Next repeat independent/rotated windows, study persistent
+cross-context acquisition and stronger solvers, then specify chain-derived targets
+and body/time validity before retarget/fork-choice simulation. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.
