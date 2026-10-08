@@ -1,0 +1,28 @@
+[
+  {
+    "name": "boundary-valid",
+    "profile": {"q": 7, "n": 1, "m": 2, "b2": 5},
+    "matrix": [[1, 2]], "vector": [2, -1], "valid": true,
+    "packet_hex": "5349533107000000010002000500000000000000010000000200000002000000ffffffff"
+  },
+  {
+    "name": "zero-vector",
+    "profile": {"q": 7, "n": 1, "m": 2, "b2": 5},
+    "matrix": [[1, 2]], "vector": [0, 0], "valid": false
+  },
+  {
+    "name": "equivalent-negative-sign",
+    "profile": {"q": 7, "n": 1, "m": 2, "b2": 5},
+    "matrix": [[1, 2]], "vector": [-2, 1], "valid": false
+  },
+  {
+    "name": "norm-too-large",
+    "profile": {"q": 7, "n": 1, "m": 2, "b2": 4},
+    "matrix": [[1, 2]], "vector": [2, -1], "valid": false
+  },
+  {
+    "name": "modular-wrap-valid",
+    "profile": {"q": 7, "n": 1, "m": 2, "b2": 2},
+    "matrix": [[6, 1]], "vector": [1, 1], "valid": true
+  }
+]

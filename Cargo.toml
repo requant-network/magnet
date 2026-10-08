@@ -1,0 +1,18 @@
+[package]
+name = "sis-verifier"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+path = "crates/sis-verifier/src/lib.rs"
+
+[[bin]]
+name = "sis-verify"
+path = "crates/sis-verifier/src/main.rs"
+
+[profile.release]
+overflow-checks = true
+
+[lints.rust]
+unsafe_code = "forbid"
