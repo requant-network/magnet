@@ -13,11 +13,29 @@ from solvers.sphere import coefficient_interval, enumerate_kernel
 
 
 class SphereTests(unittest.TestCase):
+    def test_visitor_stops_after_verified_proof_without_claiming_completion(self):
+        p, matrix = Profile(7, 1, 2, 5), [[0, 0]]
+        reduced, seen = reduce_kernel(p, matrix), []
+        def visitor(vector):
+            seen.append(vector)
+            return True
+        first = enumerate_kernel(p, matrix, reduced, on_proof=visitor)
+        self.assertEqual(first["reason"], "visitor-stop")
+        self.assertEqual(first["proofs"], seen)
+        self.assertEqual(len(seen), 1)
+        complete = enumerate_kernel(p, matrix, reduced, on_proof=lambda _: False)
+        self.assertEqual(complete["proofs"], enumerate_kernel(p, matrix, reduced)["proofs"])
+        with self.assertRaises(ValueError):
+            enumerate_kernel(p, matrix, reduced, on_proof=True)
+        with self.assertRaises(ValueError):
+            enumerate_kernel(p, matrix, reduced, on_proof=lambda _: 1)
+
     def test_completed_and_capped_search_release_without_cyclic_gc(self):
         was_enabled = gc.isenabled()
         gc.disable()
         try:
-            for budget in ({}, {"node_limit": 1}, {"proof_limit": 1}, {"bit_limit": 1}):
+            for budget in ({}, {"node_limit": 1}, {"proof_limit": 1}, {"bit_limit": 1},
+                           {"on_proof": lambda _: True}):
                 p = Profile(7, 1, 2, 5)
                 reduction = reduce_kernel(p, [[0, 0]])
                 observed = weakref.ref(p)

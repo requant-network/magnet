@@ -56,27 +56,31 @@ def backend_metadata():
                             for p in sorted(files, key=str)}}
 
 
-def run(cases):
+def reduce_case(profile, matrix):
+    """Shared native reduction; callers validate inputs and audit outputs."""
     import flint  # No import/install in the standard-library local check gate.
+    start = time.perf_counter_ns()
+    initial, rank = kernel_basis(profile, matrix)
+    construction_ns = time.perf_counter_ns() - start
+    start = time.perf_counter_ns()
+    basis, transform = flint.fmpz_mat(initial).lll(
+        transform=True, delta=0.75, eta=0.5, rep="zbasis", gram="approx")
+    reduced = tuple(tuple(int(x) for x in row) for row in basis.tolist())
+    operation = tuple(tuple(int(x) for x in row) for row in transform.tolist())
+    reduction_ns = time.perf_counter_ns() - start
+    if any(abs(x).bit_length() > MAX_BITS for square in (reduced, operation) for row in square for x in row):
+        raise ValueError("FLINT output arithmetic bound")
+    return {"profile": asdict(profile), "initial_basis": initial, "basis": reduced,
+            "transform": operation, "rank": rank, "reason": "lll-reduced",
+            "construction_ns": construction_ns, "reduction_ns": reduction_ns}
+
+
+def run(cases):
+    import flint
     metadata = backend_metadata()
     # Warm the code path once; neither import nor this warmup is in core timers.
     flint.fmpz_mat([[1]]).lll(transform=True, delta=0.75, eta=0.5)
-    results = []
-    for profile, matrix in cases:
-        start = time.perf_counter_ns()
-        initial, rank = kernel_basis(profile, matrix)
-        construction_ns = time.perf_counter_ns() - start
-        start = time.perf_counter_ns()
-        basis, transform = flint.fmpz_mat(initial).lll(
-            transform=True, delta=0.75, eta=0.5, rep="zbasis", gram="approx")
-        reduced = tuple(tuple(int(x) for x in row) for row in basis.tolist())
-        operation = tuple(tuple(int(x) for x in row) for row in transform.tolist())
-        reduction_ns = time.perf_counter_ns() - start
-        if any(abs(x).bit_length() > MAX_BITS for square in (reduced, operation) for row in square for x in row):
-            raise ValueError("FLINT output arithmetic bound")
-        results.append({"profile": asdict(profile), "initial_basis": initial, "basis": reduced,
-                        "transform": operation, "rank": rank, "reason": "lll-reduced",
-                        "construction_ns": construction_ns, "reduction_ns": reduction_ns})
+    results = [reduce_case(profile, matrix) for profile, matrix in cases]
     return {"version": "MFR1", "backend": metadata, "results": results}
 
 

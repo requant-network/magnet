@@ -22,9 +22,11 @@ def coefficient_interval(center, radius_squared):
 
 
 def enumerate_kernel(profile, matrix, reduction, *, node_limit=1_000_000,
-                     proof_limit=100_000, bit_limit=4096):
+                     proof_limit=100_000, bit_limit=4096, on_proof=None):
     if not isinstance(profile, Profile):
         raise ValueError("invalid sphere profile")
+    if on_proof is not None and not callable(on_proof):
+        raise ValueError("invalid sphere visitor")
     for value, maximum in ((node_limit, 1_000_000), (proof_limit, 100_000), (bit_limit, 4096)):
         if type(value) is not int or not 1 <= value <= maximum:
             raise ValueError("invalid sphere budget")
@@ -66,6 +68,12 @@ def enumerate_kernel(profile, matrix, reduction, *, node_limit=1_000_000,
             if len(proofs) == proof_limit:
                 raise _Limit("proof-limit")
             proofs.append(vector)
+            if on_proof is not None:
+                stop = on_proof(vector)
+                if type(stop) is not bool:
+                    raise ValueError("sphere visitor must return bool")
+                if stop:
+                    raise _Limit("visitor-stop")
             return
         center = bounded(-sum((mu[j][level]*coefficients[j] for j in range(level+1, profile.m)), Fraction(0)))
         radius_squared = bounded(remaining/norms[level])
