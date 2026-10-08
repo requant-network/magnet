@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: native exact CPU baselines and larger toy instances.
+Date: 2026-10-08. Phase: exact CPU search and lattice-reduction baselines.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -13,6 +13,8 @@ policies that acquire their own initial solutions; bounded exact meet-in-the-
 middle search; incremental norm-ball enumeration; common cooperative time and
 traced-allocation budgets; native Rust ball/MITM solvers and a bounded local
 search protocol; larger toy CPU studies; a local check command.
+Exact-rational LLL on full modular-kernel bases, independent lattice certificates
+and a finite row/pair probe now provide a competing solver family.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
@@ -111,12 +113,26 @@ toy observations, not independent units of consensus work. Native time excludes
 expansion/decoding/IPC/scoring/audits; selected Vec capacity charges exclude
 stack and allocator/process overhead. No memory-hardness claim is made.
 
+### Exact LLL study
+
+python scripts/lattice_survey.py studies 1000 cheap and 100 larger matrices,
+including all 36 historical native-v1 inputs. All lattice certificates and
+complete-oracle comparisons pass. Of 458 solvable matrices, the row/pair probe
+finds a vector on 457. One certified reduced basis misses the existing norm-12
+vector; a frozen regression preserves that case. See the
+[report](research/lattice-reduction-v1.md) and [summary](research/results/lattice-survey-v1.json).
+
+All 1100 reductions, probes and oracles complete in this run. In general,
+availability/probe-success counts exclude capped oracles while retaining
+reduction status. Exact rational reference time is not optimized reduction speed;
+no memory, energy, mining-rate or hardness claim is made.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 55 Python tests and 8 Rust tests;
+- 65 Python tests and 8 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -136,16 +152,20 @@ marks its report running-or-incomplete rather than leaving stale success.
 Native tests include maximal modulus/norm and exactly sufficient cap boundaries.
 Native reruns invalidate both reports before building; a regression test forces
 a failed build to check this lifecycle.
+Lattice tests cover noninitial pivots, rank deficiency, certificate tampering,
+independent reducedness, exact caps, arithmetic exhaustion after a committed
+swap, heuristic misses, evidence invalidation and conditional denominators.
 
-Separate source reviews covered all six milestones. The initial Cargo executable-
+Separate source reviews covered all seven milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
 
 ## Still absent
 
-An independent Rust SHAKE generator, long-running fuzzing, LLL/BKZ/sieve baselines,
-GPU mining, header binding, a work function, retarget, blockchain, wallet and
+An independent Rust SHAKE generator, long-running fuzzing, practical optimized
+LLL/BKZ/sieve baselines, GPU mining, header binding, a work function, retarget,
+blockchain, wallet and
 MagnetGate integration. E1 is not claimed fully closed under the broader plan.
 
 ## Decision and next step
@@ -156,8 +176,10 @@ not reject every possible SIS-based PoW.
 
 [ADR 0003](decisions/0003-enumeration-cost.md) also rejects pricing an SIS proof
 by naive box enumeration. Native baselines now extend the CPU parameter scale.
-Next add a competing lattice-reduction or sieving solver and characterize
-availability/preprocessing/reuse before proposing a work model. Difficulty
+The exact LLL baseline now supplies a competing family; [ADR 0004](decisions/0004-lattice-probes.md)
+keeps its misses inconclusive. Next independently test header-to-instance binding
+and generation alongside a practical reduction comparison and further
+availability/preprocessing/reuse studies. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

@@ -18,6 +18,9 @@ wallet keys, user balances or real funds in this laboratory.
 | Solver → budget harness | Stalled checks, overshoot, leaked global tracing | Cooperative checkpoints; explicit failure reason; unconditional trace cleanup |
 | Bytes → native search | Invalid profiles, huge frames, supplied known proofs | Exact bounded decoding; zero placeholder; separate native protocol |
 | Native enumeration → retained data | Excessive table/output or recursion | Half-box/entry/pair/proof/node caps; depth <= 128; explicit stop codes |
+| Modular matrix → integer lattice | Incomplete kernel lifts or wrong rank | Full RREF lifts; q*pivot rows; independent membership/index audit |
+| LLL → certificate | Lost lattice, numerical error or false reducedness | Exact fractions; unimodular U; independent Bareiss/Gram-LDL audit |
+| Reduced basis → discovery claim | Empty heuristic mistaken for nonexistence | Separate finite-probe status; exhaustive comparison; frozen missed-solution fixture |
 
 Caller-controlled A makes this format unsuitable for network PoW. A future
 header-to-instance binding is a separate security boundary with separate tests.
@@ -58,3 +61,9 @@ library entry point obtains instances through bounded decoding. The CLI has no
 network listeners and needs a caller-enforced deadline for untrusted streams.
 Both native survey outputs become incomplete before a rerun; source hashes
 and explicit cap statuses distinguish completed evidence from partial searches.
+
+Lattice reduction bounds dimension, outer steps, size reductions and checked
+integer/fraction growth. Arithmetic checks can overshoot transiently and do not
+impose OS memory/time limits. A cap after a committed operation retains an
+equivalent basis, not a reducedness claim. Discovery counts exclude incomplete
+oracles; successful probes do not imply complete reduction or intrinsic work.

@@ -1,0 +1,463 @@
+{
+  "status": "passed",
+  "experiment": "lattice-survey-v1",
+  "setups": [
+    [
+      17,
+      2,
+      4,
+      8,
+      500
+    ],
+    [
+      17,
+      2,
+      6,
+      16,
+      8
+    ],
+    [
+      17,
+      2,
+      8,
+      8,
+      8
+    ],
+    [
+      257,
+      3,
+      10,
+      8,
+      8
+    ],
+    [
+      257,
+      3,
+      12,
+      12,
+      8
+    ],
+    [
+      257,
+      3,
+      14,
+      12,
+      9
+    ],
+    [
+      17,
+      2,
+      12,
+      12,
+      9
+    ]
+  ],
+  "batches": 2,
+  "repetitions": 1,
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+  "native_executable_sha256": "bb538b3900d74fc66e73d50af772e8dba00e965dbc2e34637c6515336213c330",
+  "source_sha256": {
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "85018515e240563445f48f043334d7365b47da4997820b53515000d9d2317d23",
+    "crates/sis-verifier/src/lib.rs": "82c3f893329fbe29c6799812b5cb439acb4dd2b0d9b24c9308074fd4cdebbbf2",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "2ddec226e20892a31af1203307852c4e78eb5df7d2db589155ff65b915f55631",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "spec/01-sis-lab-v1.md": "da2fdd437f7526816bf400be00477a64d16d5542c4701615598d38f609c61326",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "measurement": {
+    "reduction": "basis construction and exact LLL; pre-expanded A",
+    "probe": "rows/pairs, sign/norm checks, SIS verification and deduplication",
+    "excluded": "SHAKE expansion, certificate audit and oracle comparison",
+    "oracle": "native release MITM solver timer; decoding/IPC/audits excluded",
+    "interpretation": "single-pass local reference timings; not a speed ranking",
+    "memory": "no allocation/RSS measurement; bit maxima are not byte ceilings"
+  },
+  "studies": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "instances": 1000,
+      "per_batch": 500,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 1000,
+          "lll_capped": 0,
+          "oracle_complete": 1000,
+          "oracle_capped": 0,
+          "with_solution": 398,
+          "without_solution": 602,
+          "basis_success": 398,
+          "pair_only_success": 0,
+          "probe_success": 398,
+          "miss_with_solution": 0,
+          "oracle_vectors": 512,
+          "probe_vectors": 457
+        },
+        "work_totals": {
+          "pivots": 2000,
+          "elimination_terms": 15396,
+          "gso_calls": 17250,
+          "dot_terms": 690000,
+          "steps": 15243,
+          "size_reductions": 8966,
+          "swaps": 7284
+        },
+        "reduction_stops": {
+          "lll-reduced": 1000
+        },
+        "probe_stops": {
+          "probe-exhausted": 1000
+        },
+        "oracle_stops": {
+          "domain-exhausted": 1000
+        },
+        "max_integer_bits": 5,
+        "max_fraction_bits": 15,
+        "reduction_median_ns": 1676150.0,
+        "probe_median_ns": 102300.0,
+        "reduction_sum_ns": 1731862100,
+        "probe_sum_ns": 108013100
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "instances": 16,
+      "per_batch": 8,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 16,
+          "lll_capped": 0,
+          "oracle_complete": 16,
+          "oracle_capped": 0,
+          "with_solution": 16,
+          "without_solution": 0,
+          "basis_success": 16,
+          "pair_only_success": 0,
+          "probe_success": 16,
+          "miss_with_solution": 0,
+          "oracle_vectors": 662,
+          "probe_vectors": 355
+        },
+        "work_totals": {
+          "pivots": 32,
+          "elimination_terms": 366,
+          "gso_calls": 685,
+          "dot_terms": 86310,
+          "steps": 565,
+          "size_reductions": 400,
+          "swaps": 269
+        },
+        "reduction_stops": {
+          "lll-reduced": 16
+        },
+        "probe_stops": {
+          "probe-exhausted": 16
+        },
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "max_integer_bits": 5,
+        "max_fraction_bits": 16,
+        "reduction_median_ns": 12175350.0,
+        "probe_median_ns": 377750.0,
+        "reduction_sum_ns": 203131400,
+        "probe_sum_ns": 6377000
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "instances": 16,
+      "per_batch": 8,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 16,
+          "lll_capped": 0,
+          "oracle_complete": 16,
+          "oracle_capped": 0,
+          "with_solution": 16,
+          "without_solution": 0,
+          "basis_success": 16,
+          "pair_only_success": 0,
+          "probe_success": 16,
+          "miss_with_solution": 0,
+          "oracle_vectors": 590,
+          "probe_vectors": 357
+        },
+        "work_totals": {
+          "pivots": 32,
+          "elimination_terms": 488,
+          "gso_calls": 1176,
+          "dot_terms": 338688,
+          "steps": 982,
+          "size_reductions": 699,
+          "swaps": 461
+        },
+        "reduction_stops": {
+          "lll-reduced": 16
+        },
+        "probe_stops": {
+          "probe-exhausted": 16
+        },
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "max_integer_bits": 5,
+        "max_fraction_bits": 16,
+        "reduction_median_ns": 44921600.0,
+        "probe_median_ns": 588600.0,
+        "reduction_sum_ns": 685190300,
+        "probe_sum_ns": 9795600
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "instances": 16,
+      "per_batch": 8,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 16,
+          "lll_capped": 0,
+          "oracle_complete": 16,
+          "oracle_capped": 0,
+          "with_solution": 0,
+          "without_solution": 16,
+          "basis_success": 0,
+          "pair_only_success": 0,
+          "probe_success": 0,
+          "miss_with_solution": 0,
+          "oracle_vectors": 0,
+          "probe_vectors": 0
+        },
+        "work_totals": {
+          "pivots": 48,
+          "elimination_terms": 1430,
+          "gso_calls": 3685,
+          "dot_terms": 2026750,
+          "steps": 2770,
+          "size_reductions": 2296,
+          "swaps": 1373
+        },
+        "reduction_stops": {
+          "lll-reduced": 16
+        },
+        "probe_stops": {
+          "probe-exhausted": 16
+        },
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "max_integer_bits": 9,
+        "max_fraction_bits": 43,
+        "reduction_median_ns": 275338700.0,
+        "probe_median_ns": 774550.0,
+        "reduction_sum_ns": 4320316600,
+        "probe_sum_ns": 12381600
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "instances": 16,
+      "per_batch": 8,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 16,
+          "lll_capped": 0,
+          "oracle_complete": 16,
+          "oracle_capped": 0,
+          "with_solution": 0,
+          "without_solution": 16,
+          "basis_success": 0,
+          "pair_only_success": 0,
+          "probe_success": 0,
+          "miss_with_solution": 0,
+          "oracle_vectors": 0,
+          "probe_vectors": 0
+        },
+        "work_totals": {
+          "pivots": 48,
+          "elimination_terms": 1716,
+          "gso_calls": 5279,
+          "dot_terms": 4941144,
+          "steps": 3783,
+          "size_reductions": 3391,
+          "swaps": 1872
+        },
+        "reduction_stops": {
+          "lll-reduced": 16
+        },
+        "probe_stops": {
+          "probe-exhausted": 16
+        },
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "max_integer_bits": 9,
+        "max_fraction_bits": 45,
+        "reduction_median_ns": 677750500.0,
+        "probe_median_ns": 1288250.0,
+        "reduction_sum_ns": 10832256500,
+        "probe_sum_ns": 20614600
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "instances": 18,
+      "per_batch": 9,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 18,
+          "lll_capped": 0,
+          "oracle_complete": 18,
+          "oracle_capped": 0,
+          "with_solution": 10,
+          "without_solution": 8,
+          "basis_success": 8,
+          "pair_only_success": 1,
+          "probe_success": 9,
+          "miss_with_solution": 1,
+          "oracle_vectors": 12,
+          "probe_vectors": 11
+        },
+        "work_totals": {
+          "pivots": 54,
+          "elimination_terms": 2268,
+          "gso_calls": 7893,
+          "dot_terms": 11602710,
+          "steps": 5302,
+          "size_reductions": 5258,
+          "swaps": 2617
+        },
+        "reduction_stops": {
+          "lll-reduced": 18
+        },
+        "probe_stops": {
+          "probe-exhausted": 18
+        },
+        "oracle_stops": {
+          "domain-exhausted": 18
+        },
+        "max_integer_bits": 9,
+        "max_fraction_bits": 47,
+        "reduction_median_ns": 1400301000.0,
+        "probe_median_ns": 1832900.0,
+        "reduction_sum_ns": 25378983300,
+        "probe_sum_ns": 33412200
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "instances": 18,
+      "per_batch": 9,
+      "aggregate": {
+        "counts": {
+          "lll_complete": 18,
+          "lll_capped": 0,
+          "oracle_complete": 18,
+          "oracle_capped": 0,
+          "with_solution": 18,
+          "without_solution": 0,
+          "basis_success": 18,
+          "pair_only_success": 0,
+          "probe_success": 18,
+          "miss_with_solution": 0,
+          "oracle_vectors": 157049,
+          "probe_vectors": 2738
+        },
+        "work_totals": {
+          "pivots": 36,
+          "elimination_terms": 840,
+          "gso_calls": 2437,
+          "dot_terms": 2281032,
+          "steps": 1735,
+          "size_reductions": 1616,
+          "swaps": 803
+        },
+        "reduction_stops": {
+          "lll-reduced": 18
+        },
+        "probe_stops": {
+          "probe-exhausted": 18
+        },
+        "oracle_stops": {
+          "domain-exhausted": 18
+        },
+        "max_integer_bits": 5,
+        "max_fraction_bits": 16,
+        "reduction_median_ns": 253624150.0,
+        "probe_median_ns": 2267350.0,
+        "reduction_sum_ns": 4508600800,
+        "probe_sum_ns": 40646400
+      }
+    }
+  ]
+}

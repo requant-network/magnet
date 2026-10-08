@@ -18,6 +18,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Exact bounded meet-in-the-middle search and local time/allocation comparisons.
 - Incremental norm-ball search and common cooperative time/allocation budgets.
 - Native Rust ball/MITM search, bounded local protocol and larger toy CPU studies.
+- Exact LLL kernel reduction, independently audited certificates and finite probes.
 
 Only standard libraries are used. Cargo builds offline without third-party crates.
 GitHub Actions are intentionally absent; checks and experiments run locally.
@@ -35,6 +36,7 @@ python scripts/strategy_survey.py
 python scripts/mitm_survey.py
 python scripts/budget_survey.py
 python scripts/native_survey.py
+python scripts/lattice_survey.py
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -52,6 +54,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Norm-ball search and common local budgets](docs/research/ball-and-budgets-v1.md).
 - [Native CPU search and larger toy instances](docs/research/native-cpu-search-v1.md).
 - [Native search laboratory protocol](spec/02-native-search-v1.md).
+- [Exact lattice-reduction specification](spec/03-lattice-reduction-v1.md).
+- [LLL availability and missed-solution study](docs/research/lattice-reduction-v1.md).
+- [Lattice-probe decision](docs/decisions/0004-lattice-probes.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).
