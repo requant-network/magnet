@@ -12,6 +12,7 @@ wallet keys, user balances or real funds in this laboratory.
 | Stream → CLI | Oversized frame or incomplete input | Frame cap; process deadline supplied by caller |
 | Verifier → verifier | Shared implementation error | Different implementations, manual and exhaustive checks |
 | Known solutions → reuse probe | Excessive derivation work | At most two seeds, bounded coefficients and candidate budgets |
+| Policy → local search | Unbounded attempts or proof retention | Instance-space cap, proposal cap and explicit stop reason |
 
 Caller-controlled A makes this format unsuitable for network PoW. A future
 header-to-instance binding is a separate security boundary with separate tests.
@@ -23,6 +24,11 @@ classes with overloaded behavior. Untrusted bytes use bounded decoding.
 Reports must distinguish valid solutions from independent work and state when
 initial solutions were supplied by an exhaustive oracle. Derived proof counts
 are not end-to-end speedups. Sparse screening can have false negatives.
+
+The strategy experiment generates its own matrices and binds profile, seed and
+proof in a domain-separated score. It has no network header or monetary rules.
+Component counters are not calibrated work; their acquisition subtotals exclude
+unsolved instances, while all-instance totals retain unsuccessful search costs.
 
 These controls do not establish SIS hardness, secure PoW work accounting, ASIC
 resistance or quantum security. Independent cryptographic review remains necessary.

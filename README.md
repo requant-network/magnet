@@ -14,6 +14,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Exhaustive solver for tiny instances with a hard search budget.
 - Manual, boundary, exhaustive and cross-language differential tests.
 - Reproducible studies of solution availability, reuse and sparse screening.
+- Bounded search policies with initial-acquisition and component accounting.
 
 Only standard libraries are used. Cargo builds offline without third-party crates.
 GitHub Actions are intentionally absent; checks and experiments run locally.
@@ -27,10 +28,11 @@ Other platforms must repeat the checks before claiming support.
 python scripts/check.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py
+python scripts/strategy_survey.py
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
-Python/Rust differential corpus. Surveys exhaust tiny finite spaces; they do not
+Python/Rust differential corpus. Surveys study bounded toy instances; they do not
 benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
@@ -39,6 +41,7 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Implemented SIS-LAB-v1 specification](spec/01-sis-lab-v1.md).
 - [Current status and verification](docs/STATUS.md).
 - [Solution reuse study](docs/research/solution-reuse-v1.md).
+- [Search strategies and component accounting](docs/research/search-strategies-v1.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).

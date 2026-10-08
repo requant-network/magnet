@@ -1,0 +1,623 @@
+{
+  "status": "complete",
+  "version": "strategy-survey-v1",
+  "warning": "Toy component accounting. No calibrated work, hashrate or security claim.",
+  "proposal_limit_per_instance": 100000,
+  "target_hex": "0x1000000000000000000000000000000000000000000000000000000000000000",
+  "score_rule": "SHA256(domain || LE profile || seed || LE vector) < target; big-endian digest",
+  "method": "Same seeds per policy; stop at first score hit, policy restart, exhaustion or cap.",
+  "setups": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 3,
+        "b2": 8
+      },
+      "instances": 128,
+      "strategies": {
+        "first-restart": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 15482,
+            "norm_terms": 46446,
+            "sign_terms": 14995,
+            "matrix_terms": 33312,
+            "row_reductions": 11104,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 15,
+            "score_input_bytes": 1500
+          },
+          "first_solution_work": {
+            "matrix_expansions": 15,
+            "shake_output_bytes": 31440,
+            "proposals": 1357,
+            "norm_terms": 4071,
+            "sign_terms": 1435,
+            "matrix_terms": 2124,
+            "row_reductions": 708,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 113,
+            "policy-restart": 15
+          },
+          "instances_with_solution": 15
+        },
+        "first-reuse": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 15504,
+            "norm_terms": 46557,
+            "sign_terms": 15026,
+            "matrix_terms": 33444,
+            "row_reductions": 11148,
+            "reuse_setups": 15,
+            "gcd_inputs": 45,
+            "reuse_coordinate_ops": 111,
+            "score_hashes": 22,
+            "score_input_bytes": 2200
+          },
+          "first_solution_work": {
+            "matrix_expansions": 15,
+            "shake_output_bytes": 31440,
+            "proposals": 1357,
+            "norm_terms": 4071,
+            "sign_terms": 1435,
+            "matrix_terms": 2124,
+            "row_reductions": 708,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 113,
+            "policy-restart": 14,
+            "score-hit": 1
+          },
+          "instances_with_solution": 15
+        },
+        "full-search": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 15986,
+            "norm_terms": 47958,
+            "sign_terms": 15352,
+            "matrix_terms": 35280,
+            "row_reductions": 11760,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 22,
+            "score_input_bytes": 2200
+          },
+          "first_solution_work": {
+            "matrix_expansions": 15,
+            "shake_output_bytes": 31440,
+            "proposals": 1357,
+            "norm_terms": 4071,
+            "sign_terms": 1435,
+            "matrix_terms": 2124,
+            "row_reductions": 708,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 127,
+            "score-hit": 1
+          },
+          "instances_with_solution": 15
+        },
+        "sparse-reuse-full": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 19723,
+            "norm_terms": 59214,
+            "sign_terms": 20881,
+            "matrix_terms": 58140,
+            "row_reductions": 19380,
+            "reuse_setups": 15,
+            "gcd_inputs": 45,
+            "reuse_coordinate_ops": 111,
+            "score_hashes": 22,
+            "score_input_bytes": 2200
+          },
+          "first_solution_work": {
+            "matrix_expansions": 15,
+            "shake_output_bytes": 31440,
+            "proposals": 687,
+            "norm_terms": 2061,
+            "sign_terms": 820,
+            "matrix_terms": 2448,
+            "row_reductions": 816,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 127,
+            "score-hit": 1
+          },
+          "instances_with_solution": 15
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 3,
+        "b2": 64
+      },
+      "instances": 128,
+      "strategies": {
+        "first-restart": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 364280,
+            "norm_terms": 1092840,
+            "sign_terms": 194836,
+            "matrix_terms": 199254,
+            "row_reductions": 66418,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 128,
+            "score_input_bytes": 12800
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 364280,
+            "norm_terms": 1092840,
+            "sign_terms": 194836,
+            "matrix_terms": 199254,
+            "row_reductions": 66418,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 118,
+            "score-hit": 10
+          },
+          "instances_with_solution": 128
+        },
+        "first-reuse": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 364451,
+            "norm_terms": 1093707,
+            "sign_terms": 195015,
+            "matrix_terms": 200280,
+            "row_reductions": 66760,
+            "reuse_setups": 118,
+            "gcd_inputs": 354,
+            "reuse_coordinate_ops": 867,
+            "score_hashes": 181,
+            "score_input_bytes": 18100
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 364280,
+            "norm_terms": 1092840,
+            "sign_terms": 194836,
+            "matrix_terms": 199254,
+            "row_reductions": 66418,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 116,
+            "score-hit": 12
+          },
+          "instances_with_solution": 128
+        },
+        "full-search": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 589460,
+            "norm_terms": 1768380,
+            "sign_terms": 283850,
+            "matrix_terms": 730812,
+            "row_reductions": 243604,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 391,
+            "score_input_bytes": 39100
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 364280,
+            "norm_terms": 1092840,
+            "sign_terms": 194836,
+            "matrix_terms": 199254,
+            "row_reductions": 66418,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 103,
+            "score-hit": 25
+          },
+          "instances_with_solution": 128
+        },
+        "sparse-reuse-full": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 629102,
+            "norm_terms": 1887660,
+            "sign_terms": 324971,
+            "matrix_terms": 920346,
+            "row_reductions": 306782,
+            "reuse_setups": 118,
+            "gcd_inputs": 354,
+            "reuse_coordinate_ops": 867,
+            "score_hashes": 391,
+            "score_input_bytes": 39100
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 268288,
+            "proposals": 372689,
+            "norm_terms": 1118067,
+            "sign_terms": 218583,
+            "matrix_terms": 379098,
+            "row_reductions": 126366,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "domain-exhausted": 103,
+            "score-hit": 25
+          },
+          "instances_with_solution": 128
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 32
+      },
+      "instances": 128,
+      "strategies": {
+        "first-restart": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 982164,
+            "norm_terms": 3928656,
+            "sign_terms": 442091,
+            "matrix_terms": 237136,
+            "row_reductions": 59284,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 128,
+            "score_input_bytes": 13312
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 982164,
+            "norm_terms": 3928656,
+            "sign_terms": 442091,
+            "matrix_terms": 237136,
+            "row_reductions": 59284,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 114,
+            "score-hit": 14
+          },
+          "instances_with_solution": 128
+        },
+        "first-reuse": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 982301,
+            "norm_terms": 3929660,
+            "sign_terms": 442347,
+            "matrix_terms": 238232,
+            "row_reductions": 59558,
+            "reuse_setups": 114,
+            "gcd_inputs": 456,
+            "reuse_coordinate_ops": 1004,
+            "score_hashes": 151,
+            "score_input_bytes": 15704
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 982164,
+            "norm_terms": 3928656,
+            "sign_terms": 442091,
+            "matrix_terms": 237136,
+            "row_reductions": 59284,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 112,
+            "score-hit": 16
+          },
+          "instances_with_solution": 128
+        },
+        "full-search": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 1557329,
+            "norm_terms": 6229316,
+            "sign_terms": 663780,
+            "matrix_terms": 1862128,
+            "row_reductions": 465532,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 812,
+            "score_input_bytes": 84448
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 982164,
+            "norm_terms": 3928656,
+            "sign_terms": 442091,
+            "matrix_terms": 237136,
+            "row_reductions": 59284,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "score-hit": 59,
+            "domain-exhausted": 69
+          },
+          "instances_with_solution": 128
+        },
+        "sparse-reuse-full": {
+          "work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 1532994,
+            "norm_terms": 6132444,
+            "sign_terms": 690032,
+            "matrix_terms": 2095376,
+            "row_reductions": 523844,
+            "reuse_setups": 117,
+            "gcd_inputs": 468,
+            "reuse_coordinate_ops": 1064,
+            "score_hashes": 832,
+            "score_input_bytes": 86528
+          },
+          "first_solution_work": {
+            "matrix_expansions": 128,
+            "shake_output_bytes": 270336,
+            "proposals": 711581,
+            "norm_terms": 2846324,
+            "sign_terms": 352819,
+            "matrix_terms": 394776,
+            "row_reductions": 98694,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "score-hit": 59,
+            "domain-exhausted": 69
+          },
+          "instances_with_solution": 128
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 31,
+        "n": 2,
+        "m": 4,
+        "b2": 64
+      },
+      "instances": 64,
+      "strategies": {
+        "first-restart": {
+          "work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2774288,
+            "norm_terms": 11097152,
+            "sign_terms": 810346,
+            "matrix_terms": 376832,
+            "row_reductions": 94208,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 64,
+            "score_input_bytes": 6656
+          },
+          "first_solution_work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2774288,
+            "norm_terms": 11097152,
+            "sign_terms": 810346,
+            "matrix_terms": 376832,
+            "row_reductions": 94208,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 59,
+            "score-hit": 5
+          },
+          "instances_with_solution": 64
+        },
+        "first-reuse": {
+          "work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2774363,
+            "norm_terms": 11097688,
+            "sign_terms": 810476,
+            "matrix_terms": 377432,
+            "row_reductions": 94358,
+            "reuse_setups": 59,
+            "gcd_inputs": 236,
+            "reuse_coordinate_ops": 536,
+            "score_hashes": 80,
+            "score_input_bytes": 8320
+          },
+          "first_solution_work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2774288,
+            "norm_terms": 11097152,
+            "sign_terms": 810346,
+            "matrix_terms": 376832,
+            "row_reductions": 94208,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "policy-restart": 59,
+            "score-hit": 5
+          },
+          "instances_with_solution": 64
+        },
+        "full-search": {
+          "work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 4397635,
+            "norm_terms": 17590540,
+            "sign_terms": 1270125,
+            "matrix_terms": 3826016,
+            "row_reductions": 956504,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 530,
+            "score_input_bytes": 55120
+          },
+          "first_solution_work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2774288,
+            "norm_terms": 11097152,
+            "sign_terms": 810346,
+            "matrix_terms": 376832,
+            "row_reductions": 94208,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "score-hit": 33,
+            "domain-exhausted": 31
+          },
+          "instances_with_solution": 64
+        },
+        "sparse-reuse-full": {
+          "work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 4381318,
+            "norm_terms": 17525512,
+            "sign_terms": 1305736,
+            "matrix_terms": 4019936,
+            "row_reductions": 1004984,
+            "reuse_setups": 60,
+            "gcd_inputs": 240,
+            "reuse_coordinate_ops": 564,
+            "score_hashes": 533,
+            "score_input_bytes": 55432
+          },
+          "first_solution_work": {
+            "matrix_expansions": 64,
+            "shake_output_bytes": 135168,
+            "proposals": 2268195,
+            "norm_terms": 9072780,
+            "sign_terms": 705016,
+            "matrix_terms": 579784,
+            "row_reductions": 144946,
+            "reuse_setups": 0,
+            "gcd_inputs": 0,
+            "reuse_coordinate_ops": 0,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "stops": {
+            "score-hit": 33,
+            "domain-exhausted": 31
+          },
+          "instances_with_solution": 64
+        }
+      }
+    }
+  ],
+  "source_sha256": {
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71"
+  }
+}
