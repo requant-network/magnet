@@ -3,6 +3,8 @@
 
 pub const MAX_PACKET: usize = 20 + 4 * 64 * 128 + 4 * 128;
 
+pub mod search;
+
 fn is_prime(q: u32) -> bool {
     if !(2..=65_521).contains(&q) {
         return false;

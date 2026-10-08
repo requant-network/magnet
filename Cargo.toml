@@ -11,6 +11,10 @@ path = "crates/sis-verifier/src/lib.rs"
 name = "sis-verify"
 path = "crates/sis-verifier/src/main.rs"
 
+[[bin]]
+name = "sis-search"
+path = "crates/sis-verifier/src/search_main.rs"
+
 [profile.release]
 overflow-checks = true
 

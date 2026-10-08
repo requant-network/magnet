@@ -13,6 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from reference.sis import MAX_PACKET, Profile, encode_case, verify_packet
+from scripts.native_checks import differential_search
 
 
 def run(command, capture_output=False):
@@ -95,8 +96,15 @@ def main():
     if len(executables) != 1:
         raise RuntimeError("Cargo did not identify exactly one sis-verify executable")
     executable = Path(executables[0])
+    search_paths = [item["executable"] for item in artifacts
+                    if item.get("reason") == "compiler-artifact" and item.get("executable")
+                    and item["target"]["name"] == "sis-search" and "bin" in item["target"]["kind"]]
+    if len(search_paths) != 1:
+        raise RuntimeError("Cargo did not identify exactly one sis-search executable")
+    native = differential_search(Path(search_paths[0]))
+    print(f"Native differential: {native}", flush=True)
     report = {"python": platform.python_version(), "platform": platform.platform(),
-              "differential": differential(executable), "status": "passed"}
+              "differential": differential(executable), "native_search": native, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock"]
     for folder, pattern in [("reference", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:
