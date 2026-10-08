@@ -1,9 +1,13 @@
-//! Independent integer verifier for SIS-LAB-v1. This accepts lab matrices,
-//! not blockchain headers; it MUST NOT be used as a network PoW verifier.
+//! Independent SIS laboratory verifier, generator and research header binding.
+//! No chain validation or work pricing; MUST NOT be used as a network PoW verifier.
 
 pub const MAX_PACKET: usize = 20 + 4 * 64 * 128 + 4 * 128;
 
+pub mod generator;
+pub mod header;
+pub mod lab;
 pub mod search;
+pub mod shake;
 
 fn is_prime(q: u32) -> bool {
     if !(2..=65_521).contains(&q) {
