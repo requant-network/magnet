@@ -24,6 +24,9 @@ wallet keys, user balances or real funds in this laboratory.
 | Header → instance | Supplied easy A or unbound fields | Canonical MGH1; independent seed/matrix generation; vector-only proof |
 | Proof → expected policy | Miner selects easy profile or irrelevant parent | Separate trusted network/parent/height/profile context; match before generation |
 | XOF → stream | Padding/domain/byte-order mistakes | NIST prefix; independent cross-language rate-boundary and maximum-length tests |
+| Optional native LLL → certificate | Inexact arithmetic or lost lattice | Unchanged independent exact audit of B,U,index and reducedness for every repeat |
+| Local worker → experiment | Wrong dependency, hang, oversized input/output | Explicit isolated version/hash pin; bounded JSON; process timeout; incomplete report on failure |
+| Header selection → score | Free acquisition, oracle lookahead or incomplete commitment | Paid policies; separate oracle audit; hash entire proof; trusted external target/context |
 
 Caller-controlled A makes SIS1 unsuitable for network PoW. The separate MGH1
 research proof binds its instance to header bytes with separate tests. It does
@@ -80,3 +83,15 @@ silently selected. Bound proofs check context, length and norm/sign before
 generation. SHAKE/matrix adapters have per-frame bounds and require controlled
 local processes with caller timeouts. The handwritten Rust SHAKE is not certified
 or independently cryptographically audited. Header binding is not service proof.
+
+The optional FLINT backend is research-only, not part of verification/consensus.
+Approximate internal Gram arithmetic does not weaken exact acceptance checks.
+Installed binary/license hashes are evidence; wheel pinning is installation
+provenance, not a hostile-environment runtime authenticity proof. Worker output
+capture and native transient allocation are not OS memory limits.
+
+The grinding score is a Python research predicate and remains absent from Rust
+bound verification. Counters describe instrumented policy work; family preparation
+and full oracle audits are separate. Arbitrary time/payload variants do not imply
+valid future blocks. Early hit totals and repeated base headers are not independent
+network weight, and heuristic family exhaustion is not nonexistence evidence.

@@ -114,7 +114,7 @@ def main():
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native,
               "header_binding": binding, "status": "passed"}
-    paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock"]
+    paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock", ROOT / "benchmarks/flint-win.lock"]
     for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:
         paths.extend((ROOT / folder).rglob(pattern))

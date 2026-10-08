@@ -1,0 +1,1207 @@
+{
+  "status": "passed",
+  "experiment": "flint-survey-v1",
+  "repeats": 3,
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "backend": {
+    "package": "python-flint",
+    "version": "0.9.0",
+    "worker_python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "worker_platform": "Windows-10-10.0.19045-SP0",
+    "license_expression": "MIT AND LGPL-3.0-or-later AND (MIT AND BSD-3-Clause-Clear) AND (GPL-3.0-or-later WITH GCC-exception-3.1 AND LGPL-2.1-or-later)",
+    "file_sha256": {
+      "flint/flint_base/flint_base.pyd": "cb8fffb322708f770b73d0ec4d322cb0e85b396ec02ca282770109e19b23cb7a",
+      "flint/flint_base/flint_context.pyd": "88d83bdf31add7779e8f9e15185d18977cb3d32ffc144a55c6f69fa6682a1112",
+      "flint/functions/showgood.pyd": "593b6d6cc9986128e757743d371b253bb8f9ea93e2beb55c62626c98b9694053",
+      "flint/pyflint.pyd": "f1427349d712cb17a6aa1cd19dcce469417462fa66bd7edd6d049b5d11138a55",
+      "flint/types/_gr.pyd": "2e546f92c5188e0d018534acaeebfae194fa24784519b80fc5309a3f4405cc9c",
+      "flint/types/acb.pyd": "6559277133403ebdc06730c50f2768570568ce0a2d5d9084d527f5d85ed0b93c",
+      "flint/types/acb_mat.pyd": "7101fb1549d94da162bd029d1e5278d7637018288dce6f41a037fda3004ca716",
+      "flint/types/acb_poly.pyd": "27997d1dce6e869e1242b0f4d985a0d203e751d751cfa99e0735085fc97f6d3f",
+      "flint/types/acb_series.pyd": "353a75b54fcf83530b3c5633ff7c2ebfcea05724665ea0b67c370524fca12595",
+      "flint/types/acb_theta.pyd": "17c886333765f18328b1534726f9c873f5f8a549bbdd8804a800b62ac8a62fda",
+      "flint/types/arb.pyd": "8216e9ab3fd7358234bbc3aec620998bf4a637ed93baadb2acfabd0a82428360",
+      "flint/types/arb_mat.pyd": "ae68a710f826366d0f0ece01f79fbf8d4a97fae7de34f0f16eb0ed740590c821",
+      "flint/types/arb_poly.pyd": "ae58bff417d89274132a0daee15eee0dc8db3f685d2b32c0b002d0d3c9d3d795",
+      "flint/types/arb_series.pyd": "123464b87628208dc2586ef71e3b8d481f7e2b1e601d3e89de579b6d02d864a4",
+      "flint/types/arf.pyd": "50581c442f4122301c4cf4e0324b97b5596ce399319cd72299307df69372a86e",
+      "flint/types/dirichlet.pyd": "a57a1046bf7ae0fbfa08f625530d8eb6a56bffdf6ba3be0d4e97bcfff7ae2381",
+      "flint/types/fmpq.pyd": "b480310ef0126c937170650dce5bc30442b0d6b3cb0560d2751edd93928ce15b",
+      "flint/types/fmpq_mat.pyd": "069c658fb7c984483f7befe451157da22722c367d456aa49aa127818d6055b56",
+      "flint/types/fmpq_mpoly.pyd": "5ee8fc039915ecbb1a1bca4be6a989e4dae5f446b38f0ed886c02509492ecd25",
+      "flint/types/fmpq_poly.pyd": "eb5f00243b93a49d86b4c6080cfc2f49e8afa4fe1e22bc8435a16f2aa8a08087",
+      "flint/types/fmpq_series.pyd": "6ace0c8ac7860484a9b9c9dced6b8b9b89122be54d8f1becb1cfda8c21b24fad",
+      "flint/types/fmpq_vec.pyd": "ed9c98cd497750def04fc955459f5054bc053a2597321cdb4a0f9466cc152af1",
+      "flint/types/fmpz.pyd": "98c1791d1374d067e7af124a7e2235f787ac20a0c784d7e6effaad46c526a53d",
+      "flint/types/fmpz_mat.pyd": "71d70ab91529fbe050e6e864f4a6029c24c6a0548d4fe559f84ff2f9b631046c",
+      "flint/types/fmpz_mod.pyd": "0f6b76557c4bfb80367ae216082a924fbdf736151c34490875fed8173c05d4f3",
+      "flint/types/fmpz_mod_mat.pyd": "6611f0be6a2d3467b0d37b1dd7a1eaad91749d213fa5ef5cef8b96a74543b383",
+      "flint/types/fmpz_mod_mpoly.pyd": "59cf2971a08f9e029e18964d43757e217aa2ff5b20e7cf88d33b6c5b6529865c",
+      "flint/types/fmpz_mod_poly.pyd": "a23719e0d70ff4d15fbd3fba615a4a37aec2eedefb54c23ddb868be8b792a423",
+      "flint/types/fmpz_mpoly.pyd": "cc98e6373791ca6c802ae6d8a03990033f402da6e1ca909a30273b976428b721",
+      "flint/types/fmpz_poly.pyd": "62282cb1b2ebb98bf74f2fa2a41d35d6ec2574e345736c126328ce3cc59180f0",
+      "flint/types/fmpz_series.pyd": "472ab331df82e2fe1d0c03c4a844b63fc6bbaffa5dd73304b174b800cae048cf",
+      "flint/types/fmpz_vec.pyd": "f8c3c4a09bf4de5b33a56f41041f3042387665f776e09ebab78b7319d5f65d4b",
+      "flint/types/fq_default.pyd": "d0e1f8dcb793950e4943ef207f6fe7856c7ff990671ce3bdd368b39abf2750ca",
+      "flint/types/fq_default_poly.pyd": "c3d07a44a8bdaa10e521809529137bdfcf2f23116c3ec2b5da4b53a220280e62",
+      "flint/types/nmod.pyd": "d2db1c5a790978e341a811ed3d6f5e14181e2bf3526e77020470c41671060dd7",
+      "flint/types/nmod_mat.pyd": "665bec3b90f0959a6de7604136dfbcd429defb5079de74448168b130de007f3d",
+      "flint/types/nmod_mpoly.pyd": "bfa9a70724c4fd13f4ee6d0a3c66b58f4cbbc207d26e58f44c3d506fb8fdcccd",
+      "flint/types/nmod_poly.pyd": "4ad643d2d9c1fc22008d3d7e3890e2cf0986f057ff8453bd2b0ceb65ee7dd53b",
+      "flint/types/nmod_series.pyd": "7b318b370791acc2e145e9ee69b06575db721b4298b4fbe8a5e269483bd95036",
+      "python_flint-0.9.0.dist-info/METADATA": "5916181439cbc4d71a2e033aa50f8809cff66a641879da630023500eaef34901",
+      "python_flint-0.9.0.dist-info/licenses/LICENSE": "a887c9adb6aa9906eb9b89a98516fb64e611a4c3fd656123bc4f3860e639749c",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.LIB": "362aa1af296393556b4c77891986cc62ef2b55caf5b9dfd2ab9102e742d880b7",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.RUNTIME": "90077ba306ee9d8ed966cab1b4abd69b6e728acf08777283cc50283cd9503fa6",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING3": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/winpthreads/COPYING": "1c8d23063c3772b9435831410b31b51fef3d9cf2138a442dc367ef5d72239f67",
+      "python_flint.libs/libflint.24.0.0-9b2d98b6da8eded35def7bc3b288ff65.dll": "aac725ed1c5dbb74c57230dda97634a87d6475e46acd54b3849d16c134a23e57",
+      "python_flint.libs/libgcc_s_seh-1-ca70890bbc5723b6d0ea31e9c9cded2b.dll": "4661795a1debb1448f2ccfecc054fc369561f44c616ff3dfa25650327555037f",
+      "python_flint.libs/libgmp-10-b84ebdfad40b1a203ac4096a9c8425c2.dll": "b84ebdfad40b1a203ac4096a9c8425c288d88f1ebc71e052e048ada8a46975b0",
+      "python_flint.libs/libmpfr-6-681398cede0f6f27feb0cbd931b38241.dll": "dddd060671cc9adfd6e7c78b44b0daff3957abe9f4831212805aebf4cd7bff05",
+      "python_flint.libs/libwinpthread-1-f5042e8e3d21edce20c1bc99445f551b.dll": "f5042e8e3d21edce20c1bc99445f551b89212403164e9388d2c6f48d6d6bcb78"
+    }
+  },
+  "native_executable_sha256": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6",
+  "worker_process_sum_ns": 9098089500,
+  "aggregate": {
+    "instances": 1201,
+    "oracle_complete": 1201,
+    "oracle_capped": 0,
+    "oracle_stops": {
+      "domain-exhausted": 1201
+    },
+    "with_solution": 468,
+    "without_solution": 733,
+    "probe_success": 468,
+    "miss_with_solution": 0,
+    "construction_median_ns": 8800,
+    "reduction_median_ns": 20200,
+    "probe_median_ns": 87700,
+    "reduced_basis_changed_across_repeats": 0
+  },
+  "source_sha256": {
+    "benchmarks/flint-win.lock": "fbd7df37819531d0f7581ff4a3a37b9b822dd459e2dcfd2c3096c8c42cd55707",
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "bdd3e418a109172b8687d9079b95ef626ed19e072435c8feee346a630a137863",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "6f98fbe54128cbeb284ae7fbf3e48cfe6d04427c4fadf6471740d87e1d3dfb8c",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/binding_checks.py": "7880bc0e64f93fe365f65e648164d18114a8ac942d6da62f7bc790ee32947bc0",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "c85687f3cca8b3137bdd06c082caf62162df6ef9da517b84b2ee55cf918f53d2",
+    "scripts/flint_driver.py": "3b247bd2f0223cfb57df2cd0a42fe20becbb9c1397a20d46e1df4d096913f78b",
+    "scripts/flint_survey.py": "36ddd1c313f6d00d7d98899d94c202cfe1c32ff52c1ff24d71f9ab781b915ac4",
+    "scripts/grinding_survey.py": "2e36cb4c9a852c5ce888c7c3c19d49e7e6337d3729e497f8bd49aab5a47e0466",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/flint_worker.py": "fe4efb3a06089868f0cdb232b23bbbb0e36ddbb9dea683fe89d4aee0b67411d6",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "spec/01-sis-lab-v1.md": "6450af2439f9b72b32f95a92d379d8decfb2ca36af25285080d98f44c033ffb7",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "spec/05-practical-lll-and-grinding-v1.md": "d1a5f99e852c3d58ec50264f939d96bc8ad653c0c63ded39bee43362d8be9946",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_flint_protocol.py": "d1127b32a448008528f27aa35fa6a675f491720cea21162210a4baa10a8322c9",
+    "tests/test_grinding.py": "3d9cded7d2db62f994653f142e8cf7ce18d0f33b9f29c1125505ff746e137389",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_new_surveys.py": "1f4dad23b09a0f9f17cb5df55e3dc017aa7c9b119953d97f8b38e10f3c6ab528",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "profiles": {
+    "17,2,4,8": {
+      "instances": 1000,
+      "oracle_complete": 1000,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 1000
+      },
+      "with_solution": 398,
+      "without_solution": 602,
+      "probe_success": 398,
+      "miss_with_solution": 0,
+      "construction_median_ns": 8400.0,
+      "reduction_median_ns": 19000.0,
+      "probe_median_ns": 86300.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "17,2,6,16": {
+      "instances": 16,
+      "oracle_complete": 16,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 16
+      },
+      "with_solution": 16,
+      "without_solution": 0,
+      "probe_success": 16,
+      "miss_with_solution": 0,
+      "construction_median_ns": 13650.0,
+      "reduction_median_ns": 76800.0,
+      "probe_median_ns": 324900.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "17,2,8,8": {
+      "instances": 16,
+      "oracle_complete": 16,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 16
+      },
+      "with_solution": 16,
+      "without_solution": 0,
+      "probe_success": 16,
+      "miss_with_solution": 0,
+      "construction_median_ns": 13100.0,
+      "reduction_median_ns": 134850.0,
+      "probe_median_ns": 563100.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "257,3,10,8": {
+      "instances": 16,
+      "oracle_complete": 16,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 16
+      },
+      "with_solution": 0,
+      "without_solution": 16,
+      "probe_success": 0,
+      "miss_with_solution": 0,
+      "construction_median_ns": 23050.0,
+      "reduction_median_ns": 81750.0,
+      "probe_median_ns": 763050.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "257,3,12,12": {
+      "instances": 16,
+      "oracle_complete": 16,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 16
+      },
+      "with_solution": 0,
+      "without_solution": 16,
+      "probe_success": 0,
+      "miss_with_solution": 0,
+      "construction_median_ns": 26300.0,
+      "reduction_median_ns": 124850.0,
+      "probe_median_ns": 1257850.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "257,3,14,12": {
+      "instances": 44,
+      "oracle_complete": 44,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 44
+      },
+      "with_solution": 20,
+      "without_solution": 24,
+      "probe_success": 20,
+      "miss_with_solution": 0,
+      "construction_median_ns": 30650.0,
+      "reduction_median_ns": 173900.0,
+      "probe_median_ns": 1866800.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "17,2,12,12": {
+      "instances": 18,
+      "oracle_complete": 18,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 18
+      },
+      "with_solution": 18,
+      "without_solution": 0,
+      "probe_success": 18,
+      "miss_with_solution": 0,
+      "construction_median_ns": 19300.0,
+      "reduction_median_ns": 346600.0,
+      "probe_median_ns": 2399550.0,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "65521,4,16,8": {
+      "instances": 25,
+      "oracle_complete": 25,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 25
+      },
+      "with_solution": 0,
+      "without_solution": 25,
+      "probe_success": 0,
+      "miss_with_solution": 0,
+      "construction_median_ns": 58200,
+      "reduction_median_ns": 322900,
+      "probe_median_ns": 2968500,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "257,4,16,8": {
+      "instances": 25,
+      "oracle_complete": 25,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 25
+      },
+      "with_solution": 0,
+      "without_solution": 25,
+      "probe_success": 0,
+      "miss_with_solution": 0,
+      "construction_median_ns": 43400,
+      "reduction_median_ns": 244900,
+      "probe_median_ns": 2632900,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "32771,4,12,8": {
+      "instances": 25,
+      "oracle_complete": 25,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 25
+      },
+      "with_solution": 0,
+      "without_solution": 25,
+      "probe_success": 0,
+      "miss_with_solution": 0,
+      "construction_median_ns": 39700,
+      "reduction_median_ns": 160800,
+      "probe_median_ns": 1461900,
+      "reduced_basis_changed_across_repeats": 0
+    }
+  },
+  "reference_comparisons": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "70c6f011e13f27869ca20fc7548ac6b381bdbd6c987edf958f5e40edf49d7065",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 14671600,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 22,
+        "proof_set_sha256": "2d254236ce3782bd430bcacf9d43deb25b03f6c14670afe7feecb0ce1ce548a3"
+      },
+      "flint_proofs": 24,
+      "flint_construction_reduction_median_ns": 458400
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "2cdba697a503038dcb7209abb1f8e2e7ab22f951c2911dc8a11fd3fb6c45a49a",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 12481300,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 21,
+        "proof_set_sha256": "e896ded6bc7fa46adfffe4374f1b7ddde07755b3f1ba9b6d0cfd232b8603e79a"
+      },
+      "flint_proofs": 21,
+      "flint_construction_reduction_median_ns": 61900
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "13eecc8ba3afcdc38184d43171cd4562ff37f8d025c89cc44c2838fa160c421e",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 11200000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 20,
+        "proof_set_sha256": "8b5a25f3a68d133bad0ea2ecddbe072a9a2d8ad90b84dc06a020bda81ebfba83"
+      },
+      "flint_proofs": 19,
+      "flint_construction_reduction_median_ns": 111700
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "cc2d2852740773e69b6f43dbb6fbb233ace48c5d58ab4d92c2c50b4ea9d30d5d",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 9253000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 19,
+        "proof_set_sha256": "84e4440969d1c182e70f402b6080bd155c07ccfec642b00bf6a0ad63841a7788"
+      },
+      "flint_proofs": 19,
+      "flint_construction_reduction_median_ns": 41900
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "4f9bd5045e2174db7d4db87df37a453e143c86ba9378333083185624ca22cc58",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 10520900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 21,
+        "proof_set_sha256": "c793dd1833b9bcec8183471e93262223413006cde81936cbef841dc08a20d6fd"
+      },
+      "flint_proofs": 21,
+      "flint_construction_reduction_median_ns": 89900
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "seed": "f2a28a4c30ddb56617048926583af1e6f479308e8722aaedba9f6de2e33c9fff",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 10020900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 21,
+        "proof_set_sha256": "ed140cbf7558780ae5cbc40a16387e307ae5b77d6a1748be671ecdc2a4d84f46"
+      },
+      "flint_proofs": 22,
+      "flint_construction_reduction_median_ns": 89300
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "81e8bb9a118c0a7f01c22849ff7452cb0598498b4b9e57be28d53d89708d615e",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 45885500,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 20,
+        "proof_set_sha256": "09e921d84b7c28dc99c50eb24d299d0ada90cd748c0930e653a5c2e2b7f2a010"
+      },
+      "flint_proofs": 20,
+      "flint_construction_reduction_median_ns": 167500
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "35c2c0986b32ebdc17edb6f65cfddfba76e25135c49311f382bba35d3f91a9a8",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 33351400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 21,
+        "proof_set_sha256": "ebfb3c2d3a17c0c9755ff4d4ec2b9b35869b5d63b3f9eea571fc3f2434f9f279"
+      },
+      "flint_proofs": 21,
+      "flint_construction_reduction_median_ns": 60400
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "44d65c3f8939ef13e73fb9e0ec2db3528cfad82ae14bb0651b3b53c20b4564b1",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 40700400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 24,
+        "proof_set_sha256": "f948128fef950099602a23d74a852ecb2007bbc2db2072f4913dca2983c8dded"
+      },
+      "flint_proofs": 24,
+      "flint_construction_reduction_median_ns": 146200
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "72247ba33474b9245218b8c64d39dc1b660e31a08771851b7446df8af2502efa",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 46694800,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 21,
+        "proof_set_sha256": "8af3178de987cb27d189395aee783617e0dfd19a00bb84c2bfa8efec87bed200"
+      },
+      "flint_proofs": 21,
+      "flint_construction_reduction_median_ns": 59000
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "a03b6cd9304459a1b78656a5b1e666c734ffef5e7ba97f3a42f822f998692fa8",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 27373400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 25,
+        "proof_set_sha256": "800b59a7833b8cba5945deaa8ec5ebf41bc43e0bb2fa8ebad4aa97b17c50049c"
+      },
+      "flint_proofs": 25,
+      "flint_construction_reduction_median_ns": 133400
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "seed": "f0009ec5020000a3799894440e3fa239f0fdbb2929e3c53f6e6bd2119014dd8b",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 37844000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 23,
+        "proof_set_sha256": "f6ab42f025ac586d4a7588383ffa8aa661e1157b9ee2cb3b8f6dfd1d7f42f830"
+      },
+      "flint_proofs": 25,
+      "flint_construction_reduction_median_ns": 169000
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "c53f0d28328b0e269c4d885864c54ddf05cc400d37332f84b942ca1d2f8c3ffb",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 245663900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 123400
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "5515acb38d1eb0d125568f513375017e5ddaad021a066818e71f4ea77a7d8b5e",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 245713300,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 103200
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "200116c214fd80e345e4d605fde77ce945a7a37b7d0256d147c897cb06b81c80",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 239645900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 99700
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "dca985dcbf3d8f50a33f76bdaa51a361fd0f6ce8386644f72b7e9bb24ccb6d12",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 263344400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 107700
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "db45d7ec34a68a45df3b52e4e855c59414dd2c3160bce36f550b89482bc25ccc",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 241594200,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 100500
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "seed": "3498057c4fde41d39676f7b17d7e177d55e5e621569db1cfd516881676ad0958",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 295732400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 104000
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "69ea6cf3e96138bb4781e3497d3562c5c1b006bb20b84ef518881de69f16cdc2",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 681727400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 166500
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "c213aa5e722da68c4cdb6f981d038db0adad3314889adab95785f3d1a4dff714",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 592595500,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 152000
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "6f07549f3294898e021fafae0a31954be0d492b83b2b9b3273c28b173886d93e",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 637946900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 152800
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "85eeaa2f318f65663b262d828f8050db1075268ab0dce4b7627c19a064492b36",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 669079900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 143200
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "0b0ef950c47df6fc6c2e10a2afe62cf4c448750baae3479abcb605c9f9a67426",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 591480900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 150000
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "227a56353c70cd3bb324a3f54159ab95231b813549661e307ba8aceb4f131893",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 677081600,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 140200
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "8b009bbdce3104beadec6cbf95e06a5f89d76930383efc11319f530b1040ac55",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1401606400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 577400
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "a2d5383a75378a8b13631c85d85ef1013e452a4e116addc0c45f1b88a4b7f224",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1516823500,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 1,
+        "proof_set_sha256": "a93ede55f0ba0bee0f7340c9b1cd8c1ebec595b9d851a3c0e8ad6c7b7bda9028"
+      },
+      "flint_proofs": 1,
+      "flint_construction_reduction_median_ns": 1011100
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "3199f45ac5cbd2d82455f2137d2d04cfba89c7d63fc1b13368d60d190227f8a1",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1457947000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 2,
+        "proof_set_sha256": "dfcdb84246f5b904b62fe3d62b6bff3c3f3906b280ff1ef43375a1dc91a492d9"
+      },
+      "flint_proofs": 2,
+      "flint_construction_reduction_median_ns": 553700
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "9c80911f1a048c901af25c358ea143b65d4756cc5ce49aaa0990857504d382c1",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1297215800,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 1,
+        "proof_set_sha256": "f7c7c79fc9263aa90bfdb51bc6bcc09edeea189b67411e678c7b0d1a789ecd73"
+      },
+      "flint_proofs": 1,
+      "flint_construction_reduction_median_ns": 542000
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "43c60398fab2489b5fc93a7e1df30c2026fc4765db11d2235892608622d47432",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1390215000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 1,
+      "flint_construction_reduction_median_ns": 558900
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "b74b0be2e512dc41bb503d0ab6853671634783010bd6d59c37b7b7aa794d5e6c",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1406075700,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 0,
+      "flint_construction_reduction_median_ns": 211300
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "5f5a180f99266dd63f6472c5305cbc2b4c240fb04881204f543e4e5c9d952e03",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 228787100,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 158,
+        "proof_set_sha256": "3ef039b9a7daf3d5978d8a0c0eebf53ac1a015f1ea18f97ff7b9acbafaf31c97"
+      },
+      "flint_proofs": 173,
+      "flint_construction_reduction_median_ns": 489300
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "d1e5c20d0c37b06dcfd5bdff22c11944306274e1831cce7fee0c298dd31cefa1",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 258007900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 128,
+        "proof_set_sha256": "f8e4307087b361431fdc973697a8285b2e3ea336c828b57bb28705967c8fcd38"
+      },
+      "flint_proofs": 138,
+      "flint_construction_reduction_median_ns": 347500
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "82e45d2d34f5f20791d3de7e9e9ef2e86d101aa412b6207e8b93319a71c6e47b",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 210608400,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 179,
+        "proof_set_sha256": "44c26a0a6f6a18da00441f25b77962d72acb2dda41f38804cca6874229f3f54f"
+      },
+      "flint_proofs": 179,
+      "flint_construction_reduction_median_ns": 319000
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "b1de8ddc2271f67f8cb86d8177e8f4a8c75f45d1e36231b71812b2334751c6aa",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 219141000,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 128,
+        "proof_set_sha256": "b514028301ff149e002216e0d36dbbfafa3cc62eaadf65593ad76b50768e616b"
+      },
+      "flint_proofs": 135,
+      "flint_construction_reduction_median_ns": 352500
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "101a287a92268adaad793a83409680d372deda82209f416d0c03e3ef386d155f",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 263643200,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 141,
+        "proof_set_sha256": "ffde54d781a6493f8558bd7bc5127936026632dce9487b8fa052d6e150525a6e"
+      },
+      "flint_proofs": 156,
+      "flint_construction_reduction_median_ns": 344500
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "seed": "7648e8d335356fcb2f6a2b0bbf31fb2e82e3369896680892cc1045deaf22054c",
+      "group": "lattice-v1",
+      "exact_reference": {
+        "reduction_ns_including_construction": 240199100,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 2,
+          "lattice_index": 289,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 153,
+        "proof_set_sha256": "4904ffd953ee72757c8cfcbd7e621c05031924d4386b1e64f3dafb8a2218ce16"
+      },
+      "flint_proofs": 164,
+      "flint_construction_reduction_median_ns": 174800
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "seed": "43c60398fab2489b5fc93a7e1df30c2026fc4765db11d2235892608622d47432",
+      "group": "frozen-miss",
+      "exact_reference": {
+        "reduction_ns_including_construction": 1413453900,
+        "reason": "lll-reduced",
+        "audit": {
+          "rank": 3,
+          "lattice_index": 16974593,
+          "unimodular": true,
+          "lll_reduced": true
+        },
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "flint_proofs": 1,
+      "flint_construction_reduction_median_ns": 1043100
+    }
+  ]
+}

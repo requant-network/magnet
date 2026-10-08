@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: independent generation and research header binding.
+Date: 2026-10-08. Phase: practical LLL and paid header selection.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -19,8 +19,9 @@ Canonical MGH1 headers and context-bound proofs derive A internally; the
 separate SIS1 format remains supplied-matrix research input.
 
 The private repository is danifest751/magnet. The workspace is
-C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
-contains only the sis-verifier package. No paid CI or cloud GPUs were used.
+C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
+the ordinary check gate has no third-party dependencies. Explicit practical LLL
+experiments use isolated, hash-pinned python-flint 0.9.0. No paid CI or cloud GPUs were used.
 CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
@@ -146,12 +147,27 @@ counts are reconstructed logical checks, not elapsed cost. Raw ignored evidence
 retains every header and outcome; compact committed evidence preserves seeds'
 deterministic schedule, source/config/executable hashes and denominators.
 
+### Practical LLL and paid header selection
+
+The [new study](research/practical-lll-and-grinding-v1.md) audits 3603 native FLINT
+reductions over 1201 records (1100 historical inputs, 100 extensions and an
+explicit repeated frozen miss). All native MITM oracles complete: 468 records
+are solvable and 733 empty. The FLINT row/pair probe succeeds on all 468 in this
+sample, including the old exact-reference miss. No completeness claim follows.
+
+A separate 24-family experiment varies nonce/time/payload on four toy profiles:
+1536 header occurrences, 1520 unique; 580 have a solution and 145 an eligible
+score. Paid unit/first/all/reuse policies succeed on 2/10/12/3 families respectively.
+All 27 hits pass Rust bound validity and the Python lab score. Native LLL is not
+used by these grinding policies, and the research score is not a network target.
+Counters and local timings disclose preparation, acquisition and audit boundaries.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 74 Python tests and 13 Rust tests;
+- 84 Python tests and 13 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -180,15 +196,19 @@ swap, heuristic misses, evidence invalidation and conditional denominators.
 Binding tests cover absorb/squeeze boundaries, XOF bounds, rejection sampling,
 all committed fields, externally expected policy, early sign/norm/context
 rejection, frozen encoding, malformed inputs and both transplant outcomes.
+New tests reject malformed optional-backend requests, tampered certificates and
+inexact reducedness, and preserve evidence invalidation, capped-oracle denominators,
+family/context bounds, strict scores, paid acquisition and last-proposal precedence.
+The explicit practical survey separately exercises the actual pinned FLINT backend.
 
-Separate source reviews covered all eight milestones. The initial Cargo executable-
+Separate source reviews covered all nine milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
 
 ## Still absent
 
-Long-running fuzzing, practical optimized LLL/BKZ/sieve baselines, GPU mining,
+Long-running fuzzing, other practical LLL/BKZ/sieve baselines, GPU mining,
 a work function, retarget,
 blockchain, wallet and
 MagnetGate integration. E1 is not claimed fully closed under the broader plan.
@@ -204,8 +224,10 @@ by naive box enumeration. Native baselines now extend the CPU parameter scale.
 The exact LLL baseline now supplies a competing family; [ADR 0004](decisions/0004-lattice-probes.md)
 keeps its misses inconclusive. Header binding and independent generation now
 have separate tested interfaces; [ADR 0005](decisions/0005-header-binding.md)
-keeps binding distinct from work pricing. Next compare practical reduction and
-further availability/preprocessing/grinding/reuse strategies. Difficulty
+keeps binding distinct from work pricing. [ADR 0006](decisions/0006-practical-solvers-and-grinding.md)
+adds native solver competition and paid header selection to future cost models.
+Next compare stronger solvers and combined availability/preprocessing/grinding/reuse
+strategies under explicit competing work models. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

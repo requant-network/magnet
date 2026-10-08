@@ -119,8 +119,8 @@ contains at most 1 000 000 candidates. Apply norm, sign and modular equations.
 
 A completed empty enumeration proves nonexistence only for that particular tiny
 instance. Budget exhaustion is an error, not a proof of nonexistence.
-An exact rational LLL baseline is implemented (spec/03); optimized LLL/BKZ and
-GPU search are not implemented.
+An exact rational LLL baseline is implemented (spec/03); an optional native FLINT
+LLL research baseline is specified in spec/05. BKZ and GPU search are not implemented.
 
 ## 6. Verification boundary
 

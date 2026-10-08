@@ -20,8 +20,12 @@ see the [Russian documentation index](docs/ru/README.md).
 - Native Rust ball/MITM search, bounded local protocol and larger toy CPU studies.
 - Exact LLL kernel reduction, independently audited certificates and finite probes.
 - Canonical research headers, trusted-context proofs and nonce/reuse studies.
+- Optional pinned native FLINT LLL with exact certificate audits and practical comparisons.
+- Paid nonce/time/payload selection policies with a separate research score predicate.
 
-Only standard libraries are used. Cargo builds offline without third-party crates.
+The ordinary check gate uses standard libraries. Cargo builds offline without
+third-party crates. Explicit practical-LLL surveys additionally use an isolated
+hash-pinned python-flint research environment; see the report below.
 GitHub Actions are intentionally absent; checks and experiments run locally.
 
 ## Run locally
@@ -39,6 +43,7 @@ python scripts/budget_survey.py
 python scripts/native_survey.py
 python scripts/lattice_survey.py
 python scripts/binding_survey.py
+python scripts/grinding_survey.py
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -62,6 +67,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Research header and local generator protocol](spec/04-header-binding-v1.md).
 - [Independent generation and header-binding study](docs/research/header-binding-v1.md).
 - [Header binding and work-pricing decision](docs/decisions/0005-header-binding.md).
+- [Practical LLL and paid header-selection study](docs/research/practical-lll-and-grinding-v1.md).
+- [Optional backend and grinding interfaces](spec/05-practical-lll-and-grinding-v1.md).
+- [Optimized-solving and header-selection decision](docs/decisions/0006-practical-solvers-and-grinding.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).

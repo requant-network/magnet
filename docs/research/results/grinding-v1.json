@@ -1,0 +1,3043 @@
+{
+  "status": "passed",
+  "experiment": "grinding-v1",
+  "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+  "setups": [
+    [
+      7,
+      1,
+      3,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      3
+    ],
+    [
+      257,
+      2,
+      4,
+      8
+    ]
+  ],
+  "batches": 2,
+  "headers_per_family": 64,
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "aggregate": {
+    "families": 24,
+    "header_occurrences": 1536,
+    "unique_headers": 1520,
+    "with_solution": 580,
+    "with_score_hit": 145,
+    "policies": {
+      "unit": {
+        "runs": 24,
+        "score_hits": 2,
+        "stops": {
+          "family-exhausted": 22,
+          "score-hit": 2
+        },
+        "work": {
+          "headers_processed": 1521,
+          "matrix_entries_expanded": 10323,
+          "vector_checks": 1521,
+          "score_hashes": 55,
+          "score_input_bytes": 10568
+        }
+      },
+      "first": {
+        "runs": 24,
+        "score_hits": 10,
+        "stops": {
+          "score-hit": 10,
+          "family-exhausted": 14
+        },
+        "work": {
+          "headers_processed": 1085,
+          "matrix_entries_expanded": 8145,
+          "vector_checks": 100661,
+          "score_hashes": 235,
+          "score_input_bytes": 45632
+        }
+      },
+      "all": {
+        "runs": 24,
+        "score_hits": 12,
+        "stops": {
+          "score-hit": 12,
+          "family-exhausted": 12
+        },
+        "work": {
+          "headers_processed": 953,
+          "matrix_entries_expanded": 7549,
+          "vector_checks": 105303,
+          "score_hashes": 236,
+          "score_input_bytes": 45912
+        }
+      },
+      "reuse": {
+        "runs": 24,
+        "score_hits": 3,
+        "stops": {
+          "family-exhausted": 21,
+          "score-hit": 3
+        },
+        "work": {
+          "headers_processed": 1419,
+          "matrix_entries_expanded": 10017,
+          "vector_checks": 66944,
+          "score_hashes": 59,
+          "score_input_bytes": 11384
+        }
+      }
+    }
+  },
+  "native_hit_checks": 27,
+  "oracle_audit_score_hashes": 2760,
+  "executable_sha256": {
+    "sis-lab-debug": "156dfc56f38f67e2768b60cef7e10589e4accef7deffe43f8b34260b7ee3fcc7",
+    "sis-search-release": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6"
+  },
+  "source_sha256": {
+    "benchmarks/flint-win.lock": "fbd7df37819531d0f7581ff4a3a37b9b822dd459e2dcfd2c3096c8c42cd55707",
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "bdd3e418a109172b8687d9079b95ef626ed19e072435c8feee346a630a137863",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "6f98fbe54128cbeb284ae7fbf3e48cfe6d04427c4fadf6471740d87e1d3dfb8c",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/binding_checks.py": "7880bc0e64f93fe365f65e648164d18114a8ac942d6da62f7bc790ee32947bc0",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "c85687f3cca8b3137bdd06c082caf62162df6ef9da517b84b2ee55cf918f53d2",
+    "scripts/flint_driver.py": "3b247bd2f0223cfb57df2cd0a42fe20becbb9c1397a20d46e1df4d096913f78b",
+    "scripts/flint_survey.py": "36ddd1c313f6d00d7d98899d94c202cfe1c32ff52c1ff24d71f9ab781b915ac4",
+    "scripts/grinding_survey.py": "2e36cb4c9a852c5ce888c7c3c19d49e7e6337d3729e497f8bd49aab5a47e0466",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/flint_worker.py": "fe4efb3a06089868f0cdb232b23bbbb0e36ddbb9dea683fe89d4aee0b67411d6",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "spec/01-sis-lab-v1.md": "6450af2439f9b72b32f95a92d379d8decfb2ca36af25285080d98f44c033ffb7",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "spec/05-practical-lll-and-grinding-v1.md": "d1a5f99e852c3d58ec50264f939d96bc8ad653c0c63ded39bee43362d8be9946",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_flint_protocol.py": "d1127b32a448008528f27aa35fa6a675f491720cea21162210a4baa10a8322c9",
+    "tests/test_grinding.py": "3d9cded7d2db62f994653f142e8cf7ce18d0f33b9f29c1125505ff746e137389",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_new_surveys.py": "1f4dad23b09a0f9f17cb5df55e3dc017aa7c9b119953d97f8b38e10f3c6ab528",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "families": [
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/7/1/3/8/0",
+      "field": "nonce",
+      "with_solution": 64,
+      "with_score_hit": 20,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 64,
+            "score_hashes": 7,
+            "score_input_bytes": 1344
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "ee9b282c33bae2c49f672caae1ebee9da99283371965f3b1f4ff53e3b270bdbf",
+          "elapsed_ns": 663500,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 6,
+            "matrix_entries_expanded": 18,
+            "vector_checks": 37,
+            "score_hashes": 6,
+            "score_input_bytes": 1152
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "036889aebc2a0a5f254ef044fe8daa2c73c5044be4972d9d55ce6423f8bff38f",
+          "elapsed_ns": 241800,
+          "hit": {
+            "header_index": 5,
+            "vector": [
+              0,
+              2,
+              -1
+            ],
+            "digest": "09212c12ccdca2dd0263e3dc006cacfd8f313099e3a0b196651ffdfe98910488"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 2,
+            "matrix_entries_expanded": 6,
+            "vector_checks": 61,
+            "score_hashes": 10,
+            "score_input_bytes": 1920
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "abf9d90b9ad7bfe599a72ba2287702381ef1c75e916e6bfead556f3e151bde88",
+          "elapsed_ns": 264300,
+          "hit": {
+            "header_index": 1,
+            "vector": [
+              1,
+              -2,
+              1
+            ],
+            "digest": "08dcdaf6794cd4c6914de00a9e4079b1891f6900949676f4511a33f790c52e0d"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 67,
+            "score_hashes": 12,
+            "score_input_bytes": 2304
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "3020b11f27635ca5762f6bbb115197afb02fe4406b686921f90faeb5330d8ca7",
+          "elapsed_ns": 708100,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/7/1/3/8/0",
+      "field": "timestamp",
+      "with_solution": 64,
+      "with_score_hit": 25,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 64,
+            "score_hashes": 5,
+            "score_input_bytes": 960
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "59100f7553d413c68aab2cda25a6fcecc454332035a3c2d6e274bea1d7b9a18e",
+          "elapsed_ns": 664500,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 54,
+            "matrix_entries_expanded": 162,
+            "vector_checks": 302,
+            "score_hashes": 54,
+            "score_input_bytes": 10368
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "63f5cc01d635af1fc5c272a962a20c5a99560ca4a7cd376099caaa69a6af102a",
+          "elapsed_ns": 1326700,
+          "hit": {
+            "header_index": 53,
+            "vector": [
+              0,
+              1,
+              -2
+            ],
+            "digest": "045b486ad7f2bde157c3e8f0c4e1ad3e6cf336c42bf3d6a69ffae8fd61a2ee1c"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 2,
+            "matrix_entries_expanded": 6,
+            "vector_checks": 90,
+            "score_hashes": 13,
+            "score_input_bytes": 2496
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "6213bcfcbcf6f68ffebd8e19f7610b6a11cc7a5326c5e1c5a1fae70dce49bd00",
+          "elapsed_ns": 341100,
+          "hit": {
+            "header_index": 1,
+            "vector": [
+              2,
+              1,
+              0
+            ],
+            "digest": "0b02b67f82efd5ca476cc601f76c4289fc4a67de12c659fe697d2133f623017b"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 67,
+            "score_hashes": 7,
+            "score_input_bytes": 1344
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "d4835d6b022e89f6b04d09d0af5cea41183bc6b463428a1f68a860e5fd09c984",
+          "elapsed_ns": 701500,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/7/1/3/8/0",
+      "field": "payload",
+      "with_solution": 64,
+      "with_score_hit": 17,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 62,
+            "matrix_entries_expanded": 186,
+            "vector_checks": 62,
+            "score_hashes": 7,
+            "score_input_bytes": 1344
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "6b0627d6ce6a60d6967da7dfdc65b903c1996cdcbc7d3d64ae772a31e0525f4a",
+          "elapsed_ns": 956200,
+          "hit": {
+            "header_index": 61,
+            "vector": [
+              1,
+              0,
+              0
+            ],
+            "digest": "091414678c36fa017f0b53099696deb84516ea12757202e7856721e24ac0c677"
+          }
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 24,
+            "matrix_entries_expanded": 72,
+            "vector_checks": 128,
+            "score_hashes": 24,
+            "score_input_bytes": 4608
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "beb72a5b06e4ca837e140021126162ea7c0f707274b7687f6d0ebaf12c1125dd",
+          "elapsed_ns": 650200,
+          "hit": {
+            "header_index": 23,
+            "vector": [
+              0,
+              1,
+              -2
+            ],
+            "digest": "03b44c758fd30b224e24de7782dd3b353fade57d2e773d94f0cbaa53c10fcdd2"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 8,
+            "matrix_entries_expanded": 24,
+            "vector_checks": 342,
+            "score_hashes": 54,
+            "score_input_bytes": 10368
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "63e270cc37f86149c77a94172f0857fe91349cf97dbdd462fc9bf722d65db794",
+          "elapsed_ns": 1104400,
+          "hit": {
+            "header_index": 7,
+            "vector": [
+              1,
+              -1,
+              2
+            ],
+            "digest": "09b008a335cb8f3355d41dd8c303933ba29531d748f1cc43a9b4f0d3298d33d8"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 67,
+            "score_hashes": 8,
+            "score_input_bytes": 1536
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "342d67cd8559f83afc5eb192638766a658de678756f174cf6e5b757902688186",
+          "elapsed_ns": 704800,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/7/1/3/8/1",
+      "field": "nonce",
+      "with_solution": 64,
+      "with_score_hit": 24,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 64,
+            "score_hashes": 13,
+            "score_input_bytes": 2496
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "bf9d97c1984c2248bb593c8e05ce32a13483cf5ad66e4bde7bda891c6a4d6c0c",
+          "elapsed_ns": 716400,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 2,
+            "matrix_entries_expanded": 6,
+            "vector_checks": 5,
+            "score_hashes": 2,
+            "score_input_bytes": 384
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "90bd36bf1161c79ff0aaf1a3e99f74cb7a1ccdd4350bbb419262e0c0c309c8a5",
+          "elapsed_ns": 131700,
+          "hit": {
+            "header_index": 1,
+            "vector": [
+              0,
+              0,
+              1
+            ],
+            "digest": "0e4dbb7525e81a98a77803ae3af3e48421d28f84eed77939de9e5fd753049254"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 1,
+            "matrix_entries_expanded": 3,
+            "vector_checks": 19,
+            "score_hashes": 3,
+            "score_input_bytes": 576
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "6d9e036a75c98be070b9be0c17d7851f92a8f8e1ed2e23bc9d433012692cfd6e",
+          "elapsed_ns": 159900,
+          "hit": {
+            "header_index": 0,
+            "vector": [
+              1,
+              -1,
+              1
+            ],
+            "digest": "0200454246c9a9e97664d843bc825ac4e5df5a147303cbb4ea3bfd66773f4366"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 54,
+            "matrix_entries_expanded": 162,
+            "vector_checks": 57,
+            "score_hashes": 10,
+            "score_input_bytes": 1920
+          },
+          "reason": "score-hit",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "bc0a239c671a3dfe30d33bc531c7e306674d7ae4d04d211cbc6ee62b33361538",
+          "elapsed_ns": 636500,
+          "hit": {
+            "header_index": 53,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "digest": "082587fb4a1f3888ca9318cb2d9131545f6ae227e797d9bd94b084de8eb9bec5"
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/7/1/3/8/1",
+      "field": "timestamp",
+      "with_solution": 64,
+      "with_score_hit": 23,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 192,
+            "vector_checks": 64,
+            "score_hashes": 9,
+            "score_input_bytes": 1728
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "d85472e02e7c0bb82e8c91f8db08ff848d372b45c0a923f02ec3e07be9b2dfdf",
+          "elapsed_ns": 668600,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 18,
+            "matrix_entries_expanded": 54,
+            "vector_checks": 103,
+            "score_hashes": 18,
+            "score_input_bytes": 3456
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "95985b6184b4b655cc53243b9fb3670a5d632a4f0c87524afb69fe5d876473bf",
+          "elapsed_ns": 506500,
+          "hit": {
+            "header_index": 17,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "digest": "0316fbf6fb8810fc0a51d8ca75255f8fc5a2cf18a92b9dac4d3de61c9fadab4e"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 1,
+            "matrix_entries_expanded": 3,
+            "vector_checks": 19,
+            "score_hashes": 3,
+            "score_input_bytes": 576
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "6d9e036a75c98be070b9be0c17d7851f92a8f8e1ed2e23bc9d433012692cfd6e",
+          "elapsed_ns": 144700,
+          "hit": {
+            "header_index": 0,
+            "vector": [
+              1,
+              -1,
+              1
+            ],
+            "digest": "0200454246c9a9e97664d843bc825ac4e5df5a147303cbb4ea3bfd66773f4366"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 18,
+            "matrix_entries_expanded": 54,
+            "vector_checks": 21,
+            "score_hashes": 6,
+            "score_input_bytes": 1152
+          },
+          "reason": "score-hit",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "bd50eb93f94dde6321124bd7f59375897a199b07e618d70fd17aab0802956e8a",
+          "elapsed_ns": 267800,
+          "hit": {
+            "header_index": 17,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "digest": "0316fbf6fb8810fc0a51d8ca75255f8fc5a2cf18a92b9dac4d3de61c9fadab4e"
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/7/1/3/8/1",
+      "field": "payload",
+      "with_solution": 64,
+      "with_score_hit": 26,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 51,
+            "matrix_entries_expanded": 153,
+            "vector_checks": 51,
+            "score_hashes": 12,
+            "score_input_bytes": 2304
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "5917bb17b5b33c066d00b2629f56fb3dbc9f985de4c0804cd8cce7b79409ab1d",
+          "elapsed_ns": 565200,
+          "hit": {
+            "header_index": 50,
+            "vector": [
+              1,
+              0,
+              0
+            ],
+            "digest": "0acdb51c60faa089131e460efe5d31a9af3cce6006e94b9df87bad4faabb3c76"
+          }
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 3,
+            "matrix_entries_expanded": 9,
+            "vector_checks": 17,
+            "score_hashes": 3,
+            "score_input_bytes": 576
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "c32b3fee9716e4541eef24a54c4d29a88f7d310ca7b87249331a5518d6f805de",
+          "elapsed_ns": 178000,
+          "hit": {
+            "header_index": 2,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "digest": "0a2eb3133f20965e96bef518a5716bf244f001af03da1e3f37ab1cf44d201365"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 1,
+            "matrix_entries_expanded": 3,
+            "vector_checks": 19,
+            "score_hashes": 3,
+            "score_input_bytes": 576
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "6d9e036a75c98be070b9be0c17d7851f92a8f8e1ed2e23bc9d433012692cfd6e",
+          "elapsed_ns": 155100,
+          "hit": {
+            "header_index": 0,
+            "vector": [
+              1,
+              -1,
+              1
+            ],
+            "digest": "0200454246c9a9e97664d843bc825ac4e5df5a147303cbb4ea3bfd66773f4366"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 125,
+            "canonical_norm_vectors": 46
+          },
+          "work": {
+            "headers_processed": 3,
+            "matrix_entries_expanded": 9,
+            "vector_checks": 6,
+            "score_hashes": 2,
+            "score_input_bytes": 384
+          },
+          "reason": "score-hit",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 3,
+              "vector_checks": 4,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "c414b6a1b09a6bbb2563c4cfe99cb88426a236e708b09613c6d13f54add9d0f0",
+          "elapsed_ns": 132400,
+          "hit": {
+            "header_index": 2,
+            "vector": [
+              0,
+              1,
+              -1
+            ],
+            "digest": "0a2eb3133f20965e96bef518a5716bf244f001af03da1e3f37ab1cf44d201365"
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/8/0",
+      "field": "nonce",
+      "with_solution": 30,
+      "with_score_hit": 1,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 730200,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 7823,
+            "score_hashes": 30,
+            "score_input_bytes": 5880
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "495e7fd6281ba4cc241f999ed390115fb466613d747fc2722f41fa5621d72024",
+          "elapsed_ns": 25989500,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 55,
+            "matrix_entries_expanded": 440,
+            "vector_checks": 8794,
+            "score_hashes": 35,
+            "score_input_bytes": 6860
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "ec69e2ee51437e1fb44c65c8d8581d16e600df93ee1fae3d421b6897ac2d4d51",
+          "elapsed_ns": 29602000,
+          "hit": {
+            "header_index": 54,
+            "vector": [
+              2,
+              1,
+              0,
+              -1
+            ],
+            "digest": "08ce6fec8b87a4b0182dad647eba787cdcf07ce5bbefee2c14dea6e36e4e2a33"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 176,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 8,
+              "vector_checks": 113,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "728f04faa9387797ac92ec5c1baaabe9a4ebf10b7f9cddbbae5095810afb322f",
+          "elapsed_ns": 1398200,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/8/0",
+      "field": "timestamp",
+      "with_solution": 26,
+      "with_score_hit": 3,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 687700,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 8,
+            "matrix_entries_expanded": 64,
+            "vector_checks": 987,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "318c1b227b4c452ab7d53d3369373b93be1bd457c75bda07aa24c6534dece11e",
+          "elapsed_ns": 3499900,
+          "hit": {
+            "header_index": 7,
+            "vector": [
+              1,
+              1,
+              1,
+              -1
+            ],
+            "digest": "069302267bcb213ed91d093614e5fff2f5d48ec157929a0b0d325a30c4955b1b"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 8,
+            "matrix_entries_expanded": 64,
+            "vector_checks": 1232,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "318c1b227b4c452ab7d53d3369373b93be1bd457c75bda07aa24c6534dece11e",
+          "elapsed_ns": 4271900,
+          "hit": {
+            "header_index": 7,
+            "vector": [
+              1,
+              1,
+              1,
+              -1
+            ],
+            "digest": "069302267bcb213ed91d093614e5fff2f5d48ec157929a0b0d325a30c4955b1b"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 176,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 8,
+              "vector_checks": 113,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "728f04faa9387797ac92ec5c1baaabe9a4ebf10b7f9cddbbae5095810afb322f",
+          "elapsed_ns": 1324900,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/8/0",
+      "field": "payload",
+      "with_solution": 19,
+      "with_score_hit": 1,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 696000,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 41,
+            "matrix_entries_expanded": 328,
+            "vector_checks": 5350,
+            "score_hashes": 14,
+            "score_input_bytes": 2744
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "f87668b6594b46b57230c771747a645184d6aa06df1706999c653d2776c43482",
+          "elapsed_ns": 18651900,
+          "hit": {
+            "header_index": 40,
+            "vector": [
+              1,
+              0,
+              2,
+              0
+            ],
+            "digest": "087f53a3ccc4e6ca2346b1b2a0878dda5a4ca976262969cff9620c5146f6a13d"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 41,
+            "matrix_entries_expanded": 328,
+            "vector_checks": 6496,
+            "score_hashes": 17,
+            "score_input_bytes": 3332
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "f2def4bdcbcc2362662472c1b80471fe8b35ca3b8b9fc418bd366b1f8213c347",
+          "elapsed_ns": 21234900,
+          "hit": {
+            "header_index": 40,
+            "vector": [
+              1,
+              0,
+              2,
+              0
+            ],
+            "digest": "087f53a3ccc4e6ca2346b1b2a0878dda5a4ca976262969cff9620c5146f6a13d"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 176,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 0,
+            "vector": [
+              1,
+              1,
+              1,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 1,
+              "matrix_entries_expanded": 8,
+              "vector_checks": 113,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "728f04faa9387797ac92ec5c1baaabe9a4ebf10b7f9cddbbae5095810afb322f",
+          "elapsed_ns": 1351100,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/8/1",
+      "field": "nonce",
+      "with_solution": 23,
+      "with_score_hit": 2,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 706000,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 19,
+            "matrix_entries_expanded": 152,
+            "vector_checks": 2609,
+            "score_hashes": 6,
+            "score_input_bytes": 1176
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "c27b540f58b388d25de239f6bbf0b888985bcbcb4f9ecf05fc5830385c424f3c",
+          "elapsed_ns": 8878900,
+          "hit": {
+            "header_index": 18,
+            "vector": [
+              2,
+              1,
+              0,
+              -1
+            ],
+            "digest": "007fe915b59a65f9afe234967036cd1de5f416e56499277c9462cb2e1f3f15f4"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 19,
+            "matrix_entries_expanded": 152,
+            "vector_checks": 3034,
+            "score_hashes": 8,
+            "score_input_bytes": 1568
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "c17930fc1e97395cb17db07ca7a44482212c650e1d5785d1f22431824c053a53",
+          "elapsed_ns": 10524700,
+          "hit": {
+            "header_index": 18,
+            "vector": [
+              2,
+              1,
+              0,
+              -1
+            ],
+            "digest": "007fe915b59a65f9afe234967036cd1de5f416e56499277c9462cb2e1f3f15f4"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 948,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 5,
+            "vector": [
+              1,
+              0,
+              1,
+              -2
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 6,
+              "matrix_entries_expanded": 48,
+              "vector_checks": 890,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "ae77b3221a6632339b7839beb2bf6216aff7ee7c00227bf91bf00df14ddd8c9a",
+          "elapsed_ns": 3863100,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/8/1",
+      "field": "timestamp",
+      "with_solution": 29,
+      "with_score_hit": 2,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 716100,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 14,
+            "matrix_entries_expanded": 112,
+            "vector_checks": 1911,
+            "score_hashes": 5,
+            "score_input_bytes": 980
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "65b7c4bad2e30c91455bb5dbe7658ba7d14c72feb22ce37b78c64c82c47c69a0",
+          "elapsed_ns": 6770900,
+          "hit": {
+            "header_index": 13,
+            "vector": [
+              2,
+              1,
+              1,
+              1
+            ],
+            "digest": "0d39037d8c9a97c6485aa3906e113878029121711dea57a77ffcf907e8e4246c"
+          }
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 14,
+            "matrix_entries_expanded": 112,
+            "vector_checks": 2239,
+            "score_hashes": 5,
+            "score_input_bytes": 980
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "65b7c4bad2e30c91455bb5dbe7658ba7d14c72feb22ce37b78c64c82c47c69a0",
+          "elapsed_ns": 7701200,
+          "hit": {
+            "header_index": 13,
+            "vector": [
+              2,
+              1,
+              1,
+              1
+            ],
+            "digest": "0d39037d8c9a97c6485aa3906e113878029121711dea57a77ffcf907e8e4246c"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 854,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 4,
+            "vector": [
+              2,
+              1,
+              0,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 5,
+              "matrix_entries_expanded": 40,
+              "vector_checks": 795,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "55513dca14e5ac78b804df226f3a699561bef51e52d9e0d66584d4a4d25e1572",
+          "elapsed_ns": 3544900,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/8/1",
+      "field": "payload",
+      "with_solution": 29,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 731000,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 8282,
+            "score_hashes": 29,
+            "score_input_bytes": 5684
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "495e2b747c8e602ba62fc4efe18e5f81b3a575d7e0b4144c642aadbb02d2742d",
+          "elapsed_ns": 27240900,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 40,
+            "score_input_bytes": 7840
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "55c28a1cd1cfaa7862f6c0689b4e6bb96486a0483ba8fbef9694e19ea273c350",
+          "elapsed_ns": 32856400,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 663,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 3,
+            "vector": [
+              1,
+              2,
+              0,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 4,
+              "matrix_entries_expanded": 32,
+              "vector_checks": 603,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "4c29aa14354dc1edc156015466a3e525da1e026bd279031667ec9e7c294a40e0",
+          "elapsed_ns": 2886600,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/3/0",
+      "field": "nonce",
+      "with_solution": 4,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 743100,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1959,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "92390a058cb658f02d8dfa3f0fc39ac6c9ed0dd7611b59747508088eb21830d9",
+          "elapsed_ns": 6945800,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 2048,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "92390a058cb658f02d8dfa3f0fc39ac6c9ed0dd7611b59747508088eb21830d9",
+          "elapsed_ns": 7140500,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 408,
+            "score_hashes": 2,
+            "score_input_bytes": 392
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 11,
+            "vector": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 12,
+              "matrix_entries_expanded": 96,
+              "vector_checks": 356,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "0b08b14032e9f639292a772aa5e79ed3dff457b242406dc2f693e62de234345b",
+          "elapsed_ns": 1900600,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/3/0",
+      "field": "timestamp",
+      "with_solution": 8,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 735800,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1878,
+            "score_hashes": 8,
+            "score_input_bytes": 1568
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "57793a53d9721195bd89cbbf2f2847b6ac3634c12768abeaedbfe6406deff835",
+          "elapsed_ns": 6507200,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 2048,
+            "score_hashes": 9,
+            "score_input_bytes": 1764
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "23649af084e02f44bbf3936058202ae0fb6aa24c437f8abefbbaf6f8bbb0c075",
+          "elapsed_ns": 7028200,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 312,
+            "score_hashes": 2,
+            "score_input_bytes": 392
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 8,
+            "vector": [
+              0,
+              0,
+              0,
+              1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 9,
+              "matrix_entries_expanded": 72,
+              "vector_checks": 257,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "da5af5edb9170a9b766f45da8f5ed8763b630eef43e740e7e1bd8fca2fbef029",
+          "elapsed_ns": 1524900,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/17/2/4/3/0",
+      "field": "payload",
+      "with_solution": 9,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 737100,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1960,
+            "score_hashes": 9,
+            "score_input_bytes": 1764
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "28d28d7e1ed8a5e306153d9b4a522aed16affa628cb4ff4821423006e55be321",
+          "elapsed_ns": 6794200,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 2048,
+            "score_hashes": 9,
+            "score_input_bytes": 1764
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "28d28d7e1ed8a5e306153d9b4a522aed16affa628cb4ff4821423006e55be321",
+          "elapsed_ns": 7081100,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 279,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 6,
+            "vector": [
+              1,
+              1,
+              0,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 7,
+              "matrix_entries_expanded": 56,
+              "vector_checks": 222,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "71dff39abfc4652b53a58b1f503387b7eaf9bef1cb6fef1225487ec58211939e",
+          "elapsed_ns": 1418000,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/3/1",
+      "field": "nonce",
+      "with_solution": 10,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "b3a7de3e97d5fd53bab7808ae06ad028c74dda9d63d2190adddf6bd9e27d3041",
+          "elapsed_ns": 741200,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1904,
+            "score_hashes": 10,
+            "score_input_bytes": 1960
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "3e8157bf86b63dc48166f40e81f5fdd7697f5c0185063e7e435d4cdd2114511f",
+          "elapsed_ns": 6743200,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 2048,
+            "score_hashes": 10,
+            "score_input_bytes": 1960
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "3e8157bf86b63dc48166f40e81f5fdd7697f5c0185063e7e435d4cdd2114511f",
+          "elapsed_ns": 7076400,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 447,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 12,
+            "vector": [
+              0,
+              1,
+              1,
+              0
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 13,
+              "matrix_entries_expanded": 104,
+              "vector_checks": 396,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "8982fad8829d40c01a538dd72d01acbf262508504293f1c88bd94ecca6e0f5a4",
+          "elapsed_ns": 1989400,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/3/1",
+      "field": "timestamp",
+      "with_solution": 5,
+      "with_score_hit": 1,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 750500,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1990,
+            "score_hashes": 5,
+            "score_input_bytes": 980
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "93f4ab1290f769d176afd345f97e24d2b5519941bf91809fc22ad81a2b3fa88f",
+          "elapsed_ns": 7133000,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 33,
+            "matrix_entries_expanded": 264,
+            "vector_checks": 1038,
+            "score_hashes": 5,
+            "score_input_bytes": 980
+          },
+          "reason": "score-hit",
+          "acquisition": null,
+          "score_transcript_sha256": "2d311e45a60457530e66137a4d9ab0ca22dee1ffdfd7e1c7baa8dff4e222e811",
+          "elapsed_ns": 3759600,
+          "hit": {
+            "header_index": 32,
+            "vector": [
+              1,
+              -1,
+              -1,
+              0
+            ],
+            "digest": "011e5bf7dde58ebebb5b1a79e5c3ad2b75fc235f8cea4d9a0245056bae65b991"
+          }
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 211,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 4,
+            "vector": [
+              1,
+              0,
+              0,
+              1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 5,
+              "matrix_entries_expanded": 40,
+              "vector_checks": 152,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "c46a54869246e75e71de52f7d8e557321e5a73d233610eb6e8be2b6578f4a33c",
+          "elapsed_ns": 1213000,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/17/2/4/3/1",
+      "field": "payload",
+      "with_solution": 4,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "549f4ac9ef4cb97676c03e2a879dd76b0910aef70d1f895dbcd7ac5ca02bf034",
+          "elapsed_ns": 752100,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 1976,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "bff51d12ec837d6bcb82e21c65b7ebfded819e0ba33351f228ff93f0e29ea9fd",
+          "elapsed_ns": 6876100,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 2048,
+            "score_hashes": 4,
+            "score_input_bytes": 784
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "bff51d12ec837d6bcb82e21c65b7ebfded819e0ba33351f228ff93f0e29ea9fd",
+          "elapsed_ns": 7080000,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 81,
+            "canonical_norm_vectors": 32
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 569,
+            "score_hashes": 1,
+            "score_input_bytes": 196
+          },
+          "reason": "family-exhausted",
+          "acquisition": {
+            "header_index": 16,
+            "vector": [
+              0,
+              1,
+              0,
+              1
+            ],
+            "work_through_acquisition": {
+              "headers_processed": 17,
+              "matrix_entries_expanded": 136,
+              "vector_checks": 522,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            }
+          },
+          "score_transcript_sha256": "3deea1ed5e23872609f3f91696aa9d6fcd0e5e65cd5ebcb173ab0f5c31740d29",
+          "elapsed_ns": 2335200,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/257/2/4/8/0",
+      "field": "nonce",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 783400,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 34949300,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 35413000,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 35366300,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/257/2/4/8/0",
+      "field": "timestamp",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 744700,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 34020200,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 33519900,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 33273300,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 0,
+      "label": "magnet-grinding-v1/257/2/4/8/0",
+      "field": "payload",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 749500,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 34158500,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 34567500,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 34513600,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/257/2/4/8/1",
+      "field": "nonce",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 756900,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 33212500,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 32940400,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 33603500,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/257/2/4/8/1",
+      "field": "timestamp",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 944400,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 32813600,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 32941000,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 32678300,
+          "hit": null
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "batch": 1,
+      "label": "magnet-grinding-v1/257/2/4/8/1",
+      "field": "payload",
+      "with_solution": 0,
+      "with_score_hit": 0,
+      "policies": {
+        "unit": {
+          "policy": "unit",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 0,
+            "canonical_norm_vectors": 0
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 64,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 710200,
+          "hit": null
+        },
+        "first": {
+          "policy": "first",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 35358000,
+          "hit": null
+        },
+        "all": {
+          "policy": "all",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 32838000,
+          "hit": null
+        },
+        "reuse": {
+          "policy": "reuse",
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "proposal_limit": 100000,
+          "domain_preparation": {
+            "box_vectors": 625,
+            "canonical_norm_vectors": 160
+          },
+          "work": {
+            "headers_processed": 64,
+            "matrix_entries_expanded": 512,
+            "vector_checks": 10240,
+            "score_hashes": 0,
+            "score_input_bytes": 0
+          },
+          "reason": "family-exhausted",
+          "acquisition": null,
+          "score_transcript_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "elapsed_ns": 33624500,
+          "hit": null
+        }
+      }
+    }
+  ]
+}
