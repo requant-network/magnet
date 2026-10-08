@@ -106,7 +106,7 @@ def main():
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock"]
-    for folder, pattern in [("reference", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
+    for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:
         paths.extend((ROOT / folder).rglob(pattern))
     report["source_sha256"] = {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
