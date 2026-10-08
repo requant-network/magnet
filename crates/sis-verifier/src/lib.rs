@@ -1,8 +1,10 @@
 //! Independent SIS laboratory verifier, generator and research header binding.
-//! No chain validation or work pricing; MUST NOT be used as a network PoW verifier.
+//! Experimental fixed-policy chain validation; no calibrated work or network consensus.
 
 pub const MAX_PACKET: usize = 20 + 4 * 64 * 128 + 4 * 128;
 
+pub mod block;
+pub mod chain;
 pub mod generator;
 pub mod header;
 pub mod lab;

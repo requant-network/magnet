@@ -7,7 +7,7 @@ use crate::{
 
 const DOMAIN: &[u8] = b"MagnetNetwork/SIS-LAB/grinding-score/v1\0";
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
 pub struct Target([u8; 33]);
 
 impl Target {
@@ -21,6 +21,10 @@ impl Target {
 
     pub fn is_zero(&self) -> bool {
         self.0 == [0; 33]
+    }
+
+    pub fn wire(&self) -> [u8; 33] {
+        self.0
     }
 
     pub fn accepts(&self, digest: [u8; 32]) -> bool {

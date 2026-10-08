@@ -17,6 +17,7 @@ from scripts.native_checks import differential_search
 from scripts.binding_checks import differential_binding
 from scripts.admission_checks import differential_admission
 from scripts.block_checks import differential_blocks
+from scripts.chain_checks import differential_chain
 
 
 def run(command, capture_output=False):
@@ -117,9 +118,16 @@ def main():
     print(f"Admission differential: {admission}", flush=True)
     blocks = differential_blocks(Path(lab_paths[0]))
     print(f"Block differential: {blocks}", flush=True)
+    chain_paths = [item["executable"] for item in artifacts
+                   if item.get("reason") == "compiler-artifact" and item.get("executable")
+                   and item["target"]["name"] == "magnet-chain" and "bin" in item["target"]["kind"]]
+    if len(chain_paths) != 1:
+        raise RuntimeError("Cargo did not identify exactly one magnet-chain executable")
+    chain = differential_chain(Path(chain_paths[0]))
+    print(f"Full-chain differential: {chain}", flush=True)
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native,
-              "header_binding": binding, "admission": admission, "blocks": blocks, "status": "passed"}
+              "header_binding": binding, "admission": admission, "blocks": blocks, "chain": chain, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock", ROOT / "benchmarks/flint-win.lock"]
     for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:

@@ -19,6 +19,10 @@ path = "crates/sis-verifier/src/search_main.rs"
 name = "sis-lab"
 path = "crates/sis-verifier/src/lab_main.rs"
 
+[[bin]]
+name = "magnet-chain"
+path = "crates/sis-verifier/src/chain_main.rs"
+
 [profile.release]
 overflow-checks = true
 
