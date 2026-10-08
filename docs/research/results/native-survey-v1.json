@@ -1,0 +1,519 @@
+{
+  "status": "passed",
+  "experiment": "native-survey-v1",
+  "batches": 2,
+  "instances_per_batch": 3,
+  "repeats": 3,
+  "setups": [
+    [
+      17,
+      2,
+      6,
+      16
+    ],
+    [
+      17,
+      2,
+      8,
+      8
+    ],
+    [
+      257,
+      3,
+      10,
+      8
+    ],
+    [
+      257,
+      3,
+      12,
+      12
+    ],
+    [
+      257,
+      3,
+      14,
+      12
+    ],
+    [
+      17,
+      2,
+      12,
+      12
+    ]
+  ],
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+  "rustc": "rustc 1.98.1 (48a229cea 2026-09-01)\nbinary: rustc\ncommit-hash: 48a229ceaefd4985c50990b14116b6d856af0985\ncommit-date: 2026-09-01\nhost: x86_64-pc-windows-gnu\nrelease: 1.98.1\nLLVM version: 22.1.8",
+  "base_commit": "152ba03d828371a0d158817e5dbbcaf5464a10ae",
+  "executable_sha256": "bb538b3900d74fc66e73d50af772e8dba00e965dbc2e34637c6515336213c330",
+  "source_sha256": {
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "85018515e240563445f48f043334d7365b47da4997820b53515000d9d2317d23",
+    "crates/sis-verifier/src/lib.rs": "82c3f893329fbe29c6799812b5cb439acb4dd2b0d9b24c9308074fd4cdebbbf2",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "943196f6b5a61b79c8ddd6b4aa6f16a00db1026aeecb26fb943bdb82d330c9b7",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "spec/01-sis-lab-v1.md": "da2fdd437f7526816bf400be00477a64d16d5542c4701615598d38f609c61326",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa"
+  },
+  "measurement": {
+    "native": "release solver-only, one request per fresh process, one thread",
+    "python": "solver-only, already expanded matrix, untraced, one process",
+    "excludes": "matrix expansion, IPC, scoring and proof audit",
+    "memory": "charged Vec capacities; excludes stack, allocator and process overhead",
+    "order": "native algorithm order alternates; Python follows corresponding native run"
+  },
+  "studies": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "instances": 6,
+      "python_comparison": true,
+      "native_ball_over_mitm_time": 3.4483125166090884,
+      "totals": {
+        "native-ball": {
+          "proofs": 231,
+          "work": {
+            "nodes": 93924,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 93924,
+            "matrix_terms": 187848,
+            "row_reductions": 187848,
+            "leaves": 71382,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 231
+          },
+          "sum_instance_median_ns": 1297600,
+          "capacity_bytes_min_max": [
+            1616,
+            2648
+          ]
+        },
+        "python-ball": {
+          "proofs": 231,
+          "work": {
+            "prefix_nodes": 93924,
+            "norm_terms": 93924,
+            "matrix_terms": 187848,
+            "row_reductions": 187848,
+            "leaves": 71382,
+            "emitted_proofs": 231
+          },
+          "sum_instance_median_ns": 86501800
+        },
+        "native-mitm": {
+          "proofs": 231,
+          "work": {
+            "nodes": 0,
+            "left": 4374,
+            "right": 4374,
+            "norm_terms": 26244,
+            "matrix_terms": 13896,
+            "row_reductions": 4632,
+            "leaves": 0,
+            "table_entries": 774,
+            "pairs": 690,
+            "proofs": 231
+          },
+          "sum_instance_median_ns": 376300,
+          "capacity_bytes_min_max": [
+            18520,
+            19552
+          ]
+        },
+        "python-mitm": {
+          "proofs": 231,
+          "work": {
+            "left_proposals": 4374,
+            "right_proposals": 4374,
+            "norm_terms": 26244,
+            "sign_terms": 2195,
+            "matrix_terms": 13896,
+            "row_reductions": 4632,
+            "table_entries": 774,
+            "table_buckets": 655,
+            "lookups": 1542,
+            "join_pairs": 690,
+            "emitted_proofs": 231
+          },
+          "sum_instance_median_ns": 7446000
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "instances": 6,
+      "python_comparison": true,
+      "native_ball_over_mitm_time": 1.89828634604754,
+      "totals": {
+        "native-ball": {
+          "proofs": 220,
+          "work": {
+            "nodes": 106368,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 106368,
+            "matrix_terms": 212736,
+            "row_reductions": 212736,
+            "leaves": 65094,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 220
+          },
+          "sum_instance_median_ns": 1030200,
+          "capacity_bytes_min_max": [
+            1832,
+            3208
+          ]
+        },
+        "python-ball": {
+          "proofs": 220,
+          "work": {
+            "prefix_nodes": 106368,
+            "norm_terms": 106368,
+            "matrix_terms": 212736,
+            "row_reductions": 212736,
+            "leaves": 65094,
+            "emitted_proofs": 220
+          },
+          "sum_instance_median_ns": 100629700
+        },
+        "native-mitm": {
+          "proofs": 220,
+          "work": {
+            "nodes": 0,
+            "left": 3750,
+            "right": 3750,
+            "norm_terms": 30000,
+            "matrix_terms": 23136,
+            "row_reductions": 5784,
+            "leaves": 0,
+            "table_entries": 966,
+            "pairs": 1113,
+            "proofs": 220
+          },
+          "sum_instance_median_ns": 542700,
+          "capacity_bytes_min_max": [
+            20016,
+            21392
+          ]
+        },
+        "python-mitm": {
+          "proofs": 220,
+          "work": {
+            "left_proposals": 3750,
+            "right_proposals": 3750,
+            "norm_terms": 30000,
+            "sign_terms": 3036,
+            "matrix_terms": 23136,
+            "row_reductions": 5784,
+            "table_entries": 966,
+            "table_buckets": 713,
+            "lookups": 1926,
+            "join_pairs": 1113,
+            "emitted_proofs": 220
+          },
+          "sum_instance_median_ns": 8634200
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 10,
+        "b2": 8
+      },
+      "instances": 6,
+      "python_comparison": false,
+      "native_ball_over_mitm_time": 4.295788108403304,
+      "totals": {
+        "native-ball": {
+          "proofs": 0,
+          "work": {
+            "nodes": 586272,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 586272,
+            "matrix_terms": 1758816,
+            "row_reductions": 1758816,
+            "leaves": 330318,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 0
+          },
+          "sum_instance_median_ns": 6292900,
+          "capacity_bytes_min_max": [
+            172,
+            172
+          ]
+        },
+        "native-mitm": {
+          "proofs": 0,
+          "work": {
+            "nodes": 0,
+            "left": 18750,
+            "right": 18750,
+            "norm_terms": 187500,
+            "matrix_terms": 147600,
+            "row_reductions": 29520,
+            "leaves": 0,
+            "table_entries": 3282,
+            "pairs": 6,
+            "proofs": 0
+          },
+          "sum_instance_median_ns": 1464900,
+          "capacity_bytes_min_max": [
+            75000,
+            75000
+          ]
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 12,
+        "b2": 12
+      },
+      "instances": 6,
+      "python_comparison": false,
+      "native_ball_over_mitm_time": 13.555200918361326,
+      "totals": {
+        "native-ball": {
+          "proofs": 0,
+          "work": {
+            "nodes": 24642108,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 24642108,
+            "matrix_terms": 73926324,
+            "row_reductions": 73926324,
+            "leaves": 15061374,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 0
+          },
+          "sum_instance_median_ns": 252694700,
+          "capacity_bytes_min_max": [
+            204,
+            204
+          ]
+        },
+        "native-mitm": {
+          "proofs": 0,
+          "work": {
+            "nodes": 0,
+            "left": 705894,
+            "right": 705894,
+            "norm_terms": 8470728,
+            "matrix_terms": 1658448,
+            "row_reductions": 276408,
+            "leaves": 0,
+            "table_entries": 30714,
+            "pairs": 21,
+            "proofs": 0
+          },
+          "sum_instance_median_ns": 18641900,
+          "capacity_bytes_min_max": [
+            643216,
+            643216
+          ]
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "instances": 6,
+      "python_comparison": false,
+      "native_ball_over_mitm_time": 16.370065382841204,
+      "totals": {
+        "native-ball": {
+          "proofs": 5,
+          "work": {
+            "nodes": 146194374,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 146194374,
+            "matrix_terms": 438583122,
+            "row_reductions": 438583122,
+            "leaves": 85063626,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 5
+          },
+          "sum_instance_median_ns": 1529525600,
+          "capacity_bytes_min_max": [
+            236,
+            444
+          ]
+        },
+        "native-mitm": {
+          "proofs": 5,
+          "work": {
+            "nodes": 0,
+            "left": 4941258,
+            "right": 4941258,
+            "norm_terms": 69177612,
+            "matrix_terms": 6361614,
+            "row_reductions": 908802,
+            "leaves": 0,
+            "table_entries": 100980,
+            "pairs": 229,
+            "proofs": 5
+          },
+          "sum_instance_median_ns": 93434300,
+          "capacity_bytes_min_max": [
+            2508416,
+            2508624
+          ]
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 12,
+        "b2": 12
+      },
+      "instances": 6,
+      "python_comparison": false,
+      "native_ball_over_mitm_time": 8.884475860782322,
+      "totals": {
+        "native-ball": {
+          "proofs": 53078,
+          "work": {
+            "nodes": 24642108,
+            "left": 0,
+            "right": 0,
+            "norm_terms": 24642108,
+            "matrix_terms": 49284216,
+            "row_reductions": 49284216,
+            "leaves": 15061374,
+            "table_entries": 0,
+            "pairs": 0,
+            "proofs": 53078
+          },
+          "sum_instance_median_ns": 214298000,
+          "capacity_bytes_min_max": [
+            809096,
+            856616
+          ]
+        },
+        "native-mitm": {
+          "proofs": 53078,
+          "work": {
+            "nodes": 0,
+            "left": 705894,
+            "right": 705894,
+            "norm_terms": 8470728,
+            "matrix_terms": 1105632,
+            "row_reductions": 184272,
+            "leaves": 0,
+            "table_entries": 30714,
+            "pairs": 1086395,
+            "proofs": 53078
+          },
+          "sum_instance_median_ns": 24120500,
+          "capacity_bytes_min_max": [
+            1431632,
+            1479152
+          ]
+        }
+      }
+    }
+  ],
+  "cap_probe": {
+    "profile": {
+      "q": 257,
+      "n": 3,
+      "m": 16,
+      "b2": 12
+    },
+    "seed": "91242df1c995377d3078a8c8abb27866c5ca2f9af7a3a8f8b03658f419218f92",
+    "nodes": 1000000,
+    "results": {
+      "ball": {
+        "stop": "node-limit",
+        "width": 16,
+        "owned_capacity_bytes": 268,
+        "work": {
+          "nodes": 1000000,
+          "left": 0,
+          "right": 0,
+          "norm_terms": 1000000,
+          "matrix_terms": 3000000,
+          "row_reductions": 3000000,
+          "leaves": 635599,
+          "table_entries": 0,
+          "pairs": 0,
+          "proofs": 0
+        },
+        "elapsed_ns": [
+          10379300
+        ],
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "mitm": {
+        "stop": "half-box-limit",
+        "width": 16,
+        "owned_capacity_bytes": 192,
+        "work": {
+          "nodes": 0,
+          "left": 0,
+          "right": 0,
+          "norm_terms": 0,
+          "matrix_terms": 0,
+          "row_reductions": 0,
+          "leaves": 0,
+          "table_entries": 0,
+          "pairs": 0,
+          "proofs": 0
+        },
+        "elapsed_ns": [
+          1000
+        ],
+        "proof_count": 0,
+        "proof_set_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: exact CPU baselines and common local budgets.
+Date: 2026-10-08. Phase: native exact CPU baselines and larger toy instances.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -11,7 +11,8 @@ stdin/stdout adapter; SHAKE256 matrix expansion in Python; exhaustive tiny solve
 sparse screening, rank and known-solution reuse probes; four instrumented search
 policies that acquire their own initial solutions; bounded exact meet-in-the-
 middle search; incremental norm-ball enumeration; common cooperative time and
-traced-allocation budgets; a local check command.
+traced-allocation budgets; native Rust ball/MITM solvers and a bounded local
+search protocol; larger toy CPU studies; a local check command.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
@@ -94,14 +95,33 @@ a calibrated work function. Limits are cooperative and measured overshoot is
 reported. Exact-search timing excludes scoring/verification; budget timing
 includes them and tracemalloc overhead.
 
+### Native CPU scale study
+
+python scripts/native_survey.py compares native exact solvers on 36 matrices
+over six profiles, including 12 shared Python comparisons, three repetitions
+per solver, and a separate cap probe. Exact sets agree; every output is
+independently verified. The largest complete profile is q=257,n=3,m=14,B2=12.
+See the [report](research/native-cpu-search-v1.md) and
+[summary](research/results/native-survey-v1.json).
+
+MITM takes about 1.9 to 16.4 times less solver time than native ball in this run.
+The q=257,n=3 profiles at m=10 and m=12 have no solutions in the sampled complete
+domains. q=17,n=2,m=12,B2=12 yields 53078 vectors across six matrices. These are
+toy observations, not independent units of consensus work. Native time excludes
+expansion/decoding/IPC/scoring/audits; selected Vec capacity charges exclude
+stack and allocator/process overhead. No memory-hardness claim is made.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 52 Python tests and 3 Rust tests;
+- 55 Python tests and 8 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
+- 103 native-search differential instances (206 searches, 1940 verified proof
+  occurrences), zero mismatches, seven cap checks, 16 malformed native requests
+  and one native empty-stream check.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
@@ -113,8 +133,11 @@ prompt release without cyclic GC, caps/checkpoints, reuse deduplication, distinc
 instance seeds and tracer cleanup on clock failures.
 The latest local check report includes source hashes. An interrupted rerun
 marks its report running-or-incomplete rather than leaving stale success.
+Native tests include maximal modulus/norm and exactly sufficient cap boundaries.
+Native reruns invalidate both reports before building; a regression test forces
+a failed build to check this lifecycle.
 
-Separate source reviews covered all five milestones. The initial Cargo executable-
+Separate source reviews covered all six milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
@@ -132,8 +155,9 @@ accepted proof or score trial necessarily requires a fresh SIS solve. It does
 not reject every possible SIS-based PoW.
 
 [ADR 0003](decisions/0003-enumeration-cost.md) also rejects pricing an SIS proof
-by naive box enumeration. Next characterize larger CPU parameter scales with
-native implementations and competing solver families before proposing a work
-model. Difficulty and accumulated chainwork remain unselected. Common local
+by naive box enumeration. Native baselines now extend the CPU parameter scale.
+Next add a competing lattice-reduction or sieving solver and characterize
+availability/preprocessing/reuse before proposing a work model. Difficulty
+and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

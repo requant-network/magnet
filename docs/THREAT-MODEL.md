@@ -16,6 +16,8 @@ wallet keys, user balances or real funds in this laboratory.
 | MITM table → joins | Memory growth, lost collisions, excessive pair traversal | Half-box/entry/pair caps; collision lists; explicit partial-result status |
 | Prefix → ball search | Combinatorial growth or retained recursive state | Prefix-node cap; noncyclic recursion; closed iterator lifecycle |
 | Solver → budget harness | Stalled checks, overshoot, leaked global tracing | Cooperative checkpoints; explicit failure reason; unconditional trace cleanup |
+| Bytes → native search | Invalid profiles, huge frames, supplied known proofs | Exact bounded decoding; zero placeholder; separate native protocol |
+| Native enumeration → retained data | Excessive table/output or recursion | Half-box/entry/pair/proof/node caps; depth <= 128; explicit stop codes |
 
 Caller-controlled A makes this format unsuitable for network PoW. A future
 header-to-instance binding is a separate security boundary with separate tests.
@@ -48,3 +50,11 @@ the experimental cost; a native miner can behave differently.
 
 These controls do not establish SIS hardness, secure PoW work accounting, ASIC
 resistance or quantum security. Independent cryptographic review remains necessary.
+
+Native capacity accounting charges selected Vec payload capacities, not allocator
+peaks, stack or process memory; caps are operation counts, not byte enforcement.
+Native search accepts supplied matrices only as a local experiment. Its public
+library entry point obtains instances through bounded decoding. The CLI has no
+network listeners and needs a caller-enforced deadline for untrusted streams.
+Both native survey outputs become incomplete before a rerun; source hashes
+and explicit cap statuses distinguish completed evidence from partial searches.
