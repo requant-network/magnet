@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: arithmetic foundation and bounded search accounting.
+Date: 2026-10-08. Phase: exact CPU baselines and local search measurements.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -9,7 +9,8 @@ records the earlier milestone and is not the current status.
 SIS-LAB-v1 specification; exact Python and independent Rust verifiers; bounded
 stdin/stdout adapter; SHAKE256 matrix expansion in Python; exhaustive tiny solver;
 sparse screening, rank and known-solution reuse probes; four instrumented search
-policies that acquire their own initial solutions; a local check command.
+policies that acquire their own initial solutions; bounded exact meet-in-the-
+middle search; a local check command.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
@@ -60,22 +61,38 @@ but increases matrix arithmetic. These are logical component counts, not measure
 hashrate, calibrated work or a cost-per-win ranking. The experiment's score
 binds profile, seed and proof; actual block-header binding remains absent.
 
+### Meet-in-the-middle baseline
+
+python scripts/mitm_survey.py compares full box search with an exact split-table
+solver on 64 generated toy instances, two seed batches per profile and three
+score conditions. All-proofs sets and per-instance score-hit existence agree.
+No search reached a cap. See the [report](research/meet-in-the-middle-v1.md) and
+[committed summary](research/results/mitm-survey-v1.json).
+
+Local instrumented Python elapsed-time ratios range from about 1.5 to 204 in
+favor of MITM. Representative Python-traced peak allocations are higher for MITM;
+they are not process RSS or worst-case memory. Each timed call includes generation,
+preprocessing, search, scoring and output construction; audits and memory probes
+are separate. These observations do not calibrate consensus work or mining rate.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 31 Python tests and 3 Rust tests;
+- 40 Python tests and 3 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
 completeness, acquisition accounting, caps and strict score thresholds.
+MITM tests cover exact sets, collision preservation, odd dimensions, zero-left
+vectors, modular wrap, norm boundaries, memory/pair caps and iterator closure.
 The latest local check report includes source hashes. An interrupted rerun
 marks its report running-or-incomplete rather than leaving stale success.
 
-Separate source reviews covered all three milestones. The initial Cargo executable-
+Separate source reviews covered all four milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
@@ -92,7 +109,8 @@ MagnetGate integration. E1 is not claimed fully closed under the broader plan.
 accepted proof or score trial necessarily requires a fresh SIS solve. It does
 not reject every possible SIS-based PoW.
 
-Next add a bounded meet-in-the-middle CPU baseline, then calibrate cost and
-memory across several seed batches and score targets. Compare restart and
-continued search under a common resource budget before defining difficulty or
-accumulated chainwork. The present proposal caps are safety bounds, not that budget.
+[ADR 0003](decisions/0003-enumeration-cost.md) also rejects pricing an SIS proof
+by naive box enumeration. Next compare incremental ball enumeration, MITM,
+restart and solution reuse under explicit time/memory budgets across more seeds
+and scales. Difficulty and accumulated chainwork remain unselected; current
+proposal/entry/pair caps are safety bounds rather than a common cost budget.

@@ -1,0 +1,684 @@
+{
+  "status": "complete",
+  "version": "mitm-survey-v1",
+  "warning": "Local instrumented Python toy baselines; no large-SIS security or mining estimate.",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD"
+  },
+  "configuration": {
+    "batches": 2,
+    "instances_per_batch": 8,
+    "timing_repeats": 3,
+    "target_hex": {
+      "all-proofs": "0x0",
+      "one-in-16": "0x1000000000000000000000000000000000000000000000000000000000000000",
+      "one-in-256": "0x100000000000000000000000000000000000000000000000000000000000000"
+    },
+    "full_proposal_limit": 1000000,
+    "mitm_table_limit": 100000,
+    "mitm_pair_limit": 1000000
+  },
+  "method": "Alternating algorithm order, end-to-end clocks; audit outside clocks; separate representative tracemalloc runs.",
+  "setups": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 3,
+        "b2": 8
+      },
+      "instances": 16,
+      "targets": {
+        "all-proofs": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "proposals": 2000,
+              "norm_terms": 6000,
+              "sign_terms": 1920,
+              "matrix_terms": 4416,
+              "row_reductions": 1472,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1799300
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 80,
+              "right_proposals": 400,
+              "norm_terms": 880,
+              "sign_terms": 80,
+              "matrix_terms": 1696,
+              "row_reductions": 896,
+              "table_entries": 48,
+              "table_buckets": 48,
+              "lookups": 400,
+              "join_pairs": 17,
+              "emitted_proofs": 0,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1158700
+          }
+        },
+        "one-in-16": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "proposals": 2000,
+              "norm_terms": 6000,
+              "sign_terms": 1920,
+              "matrix_terms": 4416,
+              "row_reductions": 1472,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1832800
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 80,
+              "right_proposals": 400,
+              "norm_terms": 880,
+              "sign_terms": 80,
+              "matrix_terms": 1696,
+              "row_reductions": 896,
+              "table_entries": 48,
+              "table_buckets": 48,
+              "lookups": 400,
+              "join_pairs": 17,
+              "emitted_proofs": 0,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1217700
+          }
+        },
+        "one-in-256": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "proposals": 2000,
+              "norm_terms": 6000,
+              "sign_terms": 1920,
+              "matrix_terms": 4416,
+              "row_reductions": 1472,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1760300
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 80,
+              "right_proposals": 400,
+              "norm_terms": 880,
+              "sign_terms": 80,
+              "matrix_terms": 1696,
+              "row_reductions": 896,
+              "table_entries": 48,
+              "table_buckets": 48,
+              "lookups": 400,
+              "join_pairs": 17,
+              "emitted_proofs": 0,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33536,
+              "score_hashes": 0,
+              "score_input_bytes": 0
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 1151200
+          }
+        }
+      },
+      "memory_probes": [
+        {
+          "seed": "7b26b13ac897f5b809a9377d2e719d474764f981d4e2159d120710031794ef65",
+          "algorithm": "full-search",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 3474
+        },
+        {
+          "seed": "7b26b13ac897f5b809a9377d2e719d474764f981d4e2159d120710031794ef65",
+          "algorithm": "mitm",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 7248
+        }
+      ]
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 32
+      },
+      "instances": 16,
+      "targets": {
+        "all-proofs": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "proposals": 234256,
+              "norm_terms": 937024,
+              "sign_terms": 94784,
+              "matrix_terms": 324096,
+              "row_reductions": 81024,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 146,
+              "score_input_bytes": 15184
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 149471200
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 1936,
+              "right_proposals": 1936,
+              "norm_terms": 7744,
+              "sign_terms": 2004,
+              "matrix_terms": 9728,
+              "row_reductions": 4864,
+              "table_entries": 816,
+              "table_buckets": 816,
+              "lookups": 1616,
+              "join_pairs": 316,
+              "emitted_proofs": 146,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "score_hashes": 146,
+              "score_input_bytes": 15184
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 6143800
+          }
+        },
+        "one-in-16": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "proposals": 202095,
+              "norm_terms": 808380,
+              "sign_terms": 85299,
+              "matrix_terms": 252912,
+              "row_reductions": 63228,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 102,
+              "score_input_bytes": 10608
+            },
+            "stops": {
+              "domain-exhausted": 9,
+              "score-hit": 7
+            },
+            "sum_instance_median_wall_ns": 125809100
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 1936,
+              "right_proposals": 1477,
+              "norm_terms": 6826,
+              "sign_terms": 1930,
+              "matrix_terms": 8192,
+              "row_reductions": 4096,
+              "table_entries": 816,
+              "table_buckets": 816,
+              "lookups": 1232,
+              "join_pairs": 226,
+              "emitted_proofs": 99,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "score_hashes": 99,
+              "score_input_bytes": 10296
+            },
+            "stops": {
+              "domain-exhausted": 9,
+              "score-hit": 7
+            },
+            "sum_instance_median_wall_ns": 5318200
+          }
+        },
+        "one-in-256": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "proposals": 234256,
+              "norm_terms": 937024,
+              "sign_terms": 94784,
+              "matrix_terms": 324096,
+              "row_reductions": 81024,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 146,
+              "score_input_bytes": 15184
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 148538500
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 1936,
+              "right_proposals": 1936,
+              "norm_terms": 7744,
+              "sign_terms": 2004,
+              "matrix_terms": 9728,
+              "row_reductions": 4864,
+              "table_entries": 816,
+              "table_buckets": 816,
+              "lookups": 1616,
+              "join_pairs": 316,
+              "emitted_proofs": 146,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 33792,
+              "score_hashes": 146,
+              "score_input_bytes": 15184
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 6019600
+          }
+        }
+      },
+      "memory_probes": [
+        {
+          "seed": "c69d46eb1eeef5e84b77a74bd7c450997fca982d7def92f626424883dc732ea8",
+          "algorithm": "full-search",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 4682
+        },
+        {
+          "seed": "c69d46eb1eeef5e84b77a74bd7c450997fca982d7def92f626424883dc732ea8",
+          "algorithm": "mitm",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 30801
+        }
+      ]
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 8
+      },
+      "instances": 16,
+      "targets": {
+        "all-proofs": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 250000,
+              "norm_terms": 1500000,
+              "sign_terms": 77632,
+              "matrix_terms": 318720,
+              "row_reductions": 53120,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 91,
+              "score_input_bytes": 10192
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 159606500
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 2000,
+              "right_proposals": 2000,
+              "norm_terms": 12000,
+              "sign_terms": 2085,
+              "matrix_terms": 13440,
+              "row_reductions": 4480,
+              "table_entries": 752,
+              "table_buckets": 668,
+              "lookups": 1488,
+              "join_pairs": 232,
+              "emitted_proofs": 91,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 91,
+              "score_input_bytes": 10192
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 5904300
+          }
+        },
+        "one-in-16": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 218540,
+              "norm_terms": 1311240,
+              "sign_terms": 73290,
+              "matrix_terms": 266616,
+              "row_reductions": 44436,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 79,
+              "score_input_bytes": 8848
+            },
+            "stops": {
+              "score-hit": 8,
+              "domain-exhausted": 8
+            },
+            "sum_instance_median_wall_ns": 137221600
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 2000,
+              "right_proposals": 1540,
+              "norm_terms": 10620,
+              "sign_terms": 2062,
+              "matrix_terms": 11436,
+              "row_reductions": 3812,
+              "table_entries": 752,
+              "table_buckets": 668,
+              "lookups": 1154,
+              "join_pairs": 177,
+              "emitted_proofs": 73,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 73,
+              "score_input_bytes": 8176
+            },
+            "stops": {
+              "score-hit": 8,
+              "domain-exhausted": 8
+            },
+            "sum_instance_median_wall_ns": 5346100
+          }
+        },
+        "one-in-256": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 245432,
+              "norm_terms": 1472592,
+              "sign_terms": 77040,
+              "matrix_terms": 311616,
+              "row_reductions": 51936,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 90,
+              "score_input_bytes": 10080
+            },
+            "stops": {
+              "domain-exhausted": 15,
+              "score-hit": 1
+            },
+            "sum_instance_median_wall_ns": 154513200
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 2000,
+              "right_proposals": 1932,
+              "norm_terms": 11796,
+              "sign_terms": 2084,
+              "matrix_terms": 13128,
+              "row_reductions": 4376,
+              "table_entries": 752,
+              "table_buckets": 668,
+              "lookups": 1436,
+              "join_pairs": 224,
+              "emitted_proofs": 90,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 90,
+              "score_input_bytes": 10080
+            },
+            "stops": {
+              "domain-exhausted": 15,
+              "score-hit": 1
+            },
+            "sum_instance_median_wall_ns": 5804600
+          }
+        }
+      },
+      "memory_probes": [
+        {
+          "seed": "eb81949169823c9166af6508c05c6a2ade458a589893ecdff5534fc54d538151",
+          "algorithm": "full-search",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 4722
+        },
+        {
+          "seed": "eb81949169823c9166af6508c05c6a2ade458a589893ecdff5534fc54d538151",
+          "algorithm": "mitm",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 29233
+        }
+      ]
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "instances": 16,
+      "targets": {
+        "all-proofs": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 8503056,
+              "norm_terms": 51018336,
+              "sign_terms": 500736,
+              "matrix_terms": 2284032,
+              "row_reductions": 380672,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 650,
+              "score_input_bytes": 72800
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 4396697900
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 11664,
+              "right_proposals": 11664,
+              "norm_terms": 69984,
+              "sign_terms": 5887,
+              "matrix_terms": 37056,
+              "row_reductions": 12352,
+              "table_entries": 2064,
+              "table_buckets": 1681,
+              "lookups": 4112,
+              "join_pairs": 1806,
+              "emitted_proofs": 650,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 650,
+              "score_input_bytes": 72800
+            },
+            "stops": {
+              "domain-exhausted": 16
+            },
+            "sum_instance_median_wall_ns": 21757200
+          }
+        },
+        "one-in-16": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 5095553,
+              "norm_terms": 30573318,
+              "sign_terms": 373807,
+              "matrix_terms": 874488,
+              "row_reductions": 145748,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 248,
+              "score_input_bytes": 27776
+            },
+            "stops": {
+              "score-hit": 15,
+              "domain-exhausted": 1
+            },
+            "sum_instance_median_wall_ns": 2592247000
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 11664,
+              "right_proposals": 5129,
+              "norm_terms": 50379,
+              "sign_terms": 5372,
+              "matrix_terms": 22098,
+              "row_reductions": 7366,
+              "table_entries": 2064,
+              "table_buckets": 1681,
+              "lookups": 1619,
+              "join_pairs": 717,
+              "emitted_proofs": 251,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 251,
+              "score_input_bytes": 28112
+            },
+            "stops": {
+              "score-hit": 15,
+              "domain-exhausted": 1
+            },
+            "sum_instance_median_wall_ns": 14367900
+          }
+        },
+        "one-in-256": {
+          "full-search": {
+            "work": {
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "proposals": 8101215,
+              "norm_terms": 48607290,
+              "sign_terms": 489569,
+              "matrix_terms": 2150028,
+              "row_reductions": 358338,
+              "reuse_setups": 0,
+              "gcd_inputs": 0,
+              "reuse_coordinate_ops": 0,
+              "score_hashes": 610,
+              "score_input_bytes": 68320
+            },
+            "stops": {
+              "domain-exhausted": 14,
+              "score-hit": 2
+            },
+            "sum_instance_median_wall_ns": 4188973600
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 11664,
+              "right_proposals": 10773,
+              "norm_terms": 67311,
+              "sign_terms": 5801,
+              "matrix_terms": 34998,
+              "row_reductions": 11666,
+              "table_entries": 2064,
+              "table_buckets": 1681,
+              "lookups": 3769,
+              "join_pairs": 1658,
+              "emitted_proofs": 583,
+              "matrix_expansions": 16,
+              "shake_output_bytes": 34304,
+              "score_hashes": 583,
+              "score_input_bytes": 65296
+            },
+            "stops": {
+              "domain-exhausted": 14,
+              "score-hit": 2
+            },
+            "sum_instance_median_wall_ns": 20539400
+          }
+        }
+      },
+      "memory_probes": [
+        {
+          "seed": "8a98a7089467c8d0db1dcd1423b455645bbf57fc624a2ab7f2ef8ad6998b180d",
+          "algorithm": "full-search",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 9418
+        },
+        {
+          "seed": "8a98a7089467c8d0db1dcd1423b455645bbf57fc624a2ab7f2ef8ad6998b180d",
+          "algorithm": "mitm",
+          "target": "all-proofs",
+          "python_peak_traced_bytes": 74817
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/mitm.py": "e7fe61e5d8416ccdb47d11bfaa89de7d3768647d952fca639c7ff7b6cdcca84e",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf"
+  }
+}

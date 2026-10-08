@@ -13,6 +13,7 @@ wallet keys, user balances or real funds in this laboratory.
 | Verifier → verifier | Shared implementation error | Different implementations, manual and exhaustive checks |
 | Known solutions → reuse probe | Excessive derivation work | At most two seeds, bounded coefficients and candidate budgets |
 | Policy → local search | Unbounded attempts or proof retention | Instance-space cap, proposal cap and explicit stop reason |
+| MITM table → joins | Memory growth, lost collisions, excessive pair traversal | Half-box/entry/pair caps; collision lists; explicit partial-result status |
 
 Caller-controlled A makes this format unsuitable for network PoW. A future
 header-to-instance binding is a separate security boundary with separate tests.
@@ -29,6 +30,12 @@ The strategy experiment generates its own matrices and binds profile, seed and
 proof in a domain-separated score. It has no network header or monetary rules.
 Component counters are not calibrated work; their acquisition subtotals exclude
 unsolved instances, while all-instance totals retain unsuccessful search costs.
+
+The MITM baseline preserves all vectors within a syndrome bucket. An entry cap
+is not an exact byte budget; output retention also consumes memory. A capped or
+interrupted search cannot certify nonexistence. Timing and selected traced
+allocation peaks measure these local Python implementations, not intrinsic SIS
+cost, process RSS or a network admission policy.
 
 These controls do not establish SIS hardness, secure PoW work accounting, ASIC
 resistance or quantum security. Independent cryptographic review remains necessary.
