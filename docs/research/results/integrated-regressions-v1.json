@@ -1,0 +1,607 @@
+{
+  "status": "passed",
+  "source_sha256": {
+    "benchmarks/flint-win.lock": "fbd7df37819531d0f7581ff4a3a37b9b822dd459e2dcfd2c3096c8c42cd55707",
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "bdd3e418a109172b8687d9079b95ef626ed19e072435c8feee346a630a137863",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "6f98fbe54128cbeb284ae7fbf3e48cfe6d04427c4fadf6471740d87e1d3dfb8c",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/lattice_cache.py": "e8a6dba4995d6e076f5a7aae532c78336c04dfc49a806e3867eff5aa6d28986a",
+    "reference/lattice_policies.py": "5e94c8f7e35bdde6d34e32fdfa3bc4e305d0b89a3ebf1987bb4c6e97a7f1bc41",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/work_models.py": "a39e591e246da60fabe1293177cd3dd9bd4d5ae39eecadb2c885678cbf642c5f",
+    "scripts/binding_checks.py": "7880bc0e64f93fe365f65e648164d18114a8ac942d6da62f7bc790ee32947bc0",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "c85687f3cca8b3137bdd06c082caf62162df6ef9da517b84b2ee55cf918f53d2",
+    "scripts/flint_driver.py": "3b247bd2f0223cfb57df2cd0a42fe20becbb9c1397a20d46e1df4d096913f78b",
+    "scripts/flint_survey.py": "36ddd1c313f6d00d7d98899d94c202cfe1c32ff52c1ff24d71f9ab781b915ac4",
+    "scripts/grinding_survey.py": "2e36cb4c9a852c5ce888c7c3c19d49e7e6337d3729e497f8bd49aab5a47e0466",
+    "scripts/integrated_survey.py": "4e858e7350c4873a9a6e663844bbb01abd1b52d730cf0ba45594c75ccdb4d6a1",
+    "scripts/joint_survey.py": "544d855613ab4123369b5d28c6059359e3906f6ddb7f21711b426f5f2ffa7c43",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/sphere_survey.py": "09968afaea936a94f3d2f126708ecee791262382a98da158a33ba5f245cdb382",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/flint_worker.py": "edbf9ee8d6741ece2841d1b56b2b1353111869639c158b7b27c9a876fb647a56",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "solvers/practical.py": "717bdbf37d4e75b3826cd42276cbdb332a7c147516da05718ab60970ba561f41",
+    "solvers/sphere.py": "b911ffee197844ddd4ea5055b4adb37e846c4e33209bf03399fa51a7a4935dff",
+    "spec/01-sis-lab-v1.md": "6450af2439f9b72b32f95a92d379d8decfb2ca36af25285080d98f44c033ffb7",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "spec/05-practical-lll-and-grinding-v1.md": "d1a5f99e852c3d58ec50264f939d96bc8ad653c0c63ded39bee43362d8be9946",
+    "spec/06-sphere-and-work-models-v1.md": "415adcd5b391e36765c25524123893b8ef61d03e77e8e16e4c962387afadf444",
+    "spec/07-integrated-lattice-policies-v1.md": "27d9066410e3be6df6cad8f0fd9c6d820ecee86378d846efb836e797c03e233f",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_flint_protocol.py": "d1127b32a448008528f27aa35fa6a675f491720cea21162210a4baa10a8322c9",
+    "tests/test_grinding.py": "3d9cded7d2db62f994653f142e8cf7ce18d0f33b9f29c1125505ff746e137389",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_integrated_evidence.py": "8b8125a00b2b6c5038ed1476739fd08b876b93f4bf9f6160782939cd2fe44d7d",
+    "tests/test_joint_sphere_evidence.py": "d64f798082f6ee49d9633eb660b7606afc631e9a118e62748a1b4f0b9f5b5e2f",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_policies.py": "54d8e6a7a9fa2ac63e1346149a6caf9fd8d1657d6096313ae66b6cd2f4deaa7c",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_new_surveys.py": "1f4dad23b09a0f9f17cb5df55e3dc017aa7c9b119953d97f8b38e10f3c6ab528",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_sphere.py": "34f04988468f2f40fc2048687da455b1a10384bf280aff476064d3c902b50b80",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/test_work_models.py": "a66f47b5ead55aea777e6288769a87a84ca461e5fc9dd583444a11438b011f4d",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "sphere": {
+    "status": "passed",
+    "experiment": "sphere-v1",
+    "backend": {
+      "package": "python-flint",
+      "version": "0.9.0",
+      "worker_python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "worker_platform": "Windows-10-10.0.19045-SP0",
+      "license_expression": "MIT AND LGPL-3.0-or-later AND (MIT AND BSD-3-Clause-Clear) AND (GPL-3.0-or-later WITH GCC-exception-3.1 AND LGPL-2.1-or-later)",
+      "file_sha256": {
+        "flint/flint_base/flint_base.pyd": "cb8fffb322708f770b73d0ec4d322cb0e85b396ec02ca282770109e19b23cb7a",
+        "flint/flint_base/flint_context.pyd": "88d83bdf31add7779e8f9e15185d18977cb3d32ffc144a55c6f69fa6682a1112",
+        "flint/functions/showgood.pyd": "593b6d6cc9986128e757743d371b253bb8f9ea93e2beb55c62626c98b9694053",
+        "flint/pyflint.pyd": "f1427349d712cb17a6aa1cd19dcce469417462fa66bd7edd6d049b5d11138a55",
+        "flint/types/_gr.pyd": "2e546f92c5188e0d018534acaeebfae194fa24784519b80fc5309a3f4405cc9c",
+        "flint/types/acb.pyd": "6559277133403ebdc06730c50f2768570568ce0a2d5d9084d527f5d85ed0b93c",
+        "flint/types/acb_mat.pyd": "7101fb1549d94da162bd029d1e5278d7637018288dce6f41a037fda3004ca716",
+        "flint/types/acb_poly.pyd": "27997d1dce6e869e1242b0f4d985a0d203e751d751cfa99e0735085fc97f6d3f",
+        "flint/types/acb_series.pyd": "353a75b54fcf83530b3c5633ff7c2ebfcea05724665ea0b67c370524fca12595",
+        "flint/types/acb_theta.pyd": "17c886333765f18328b1534726f9c873f5f8a549bbdd8804a800b62ac8a62fda",
+        "flint/types/arb.pyd": "8216e9ab3fd7358234bbc3aec620998bf4a637ed93baadb2acfabd0a82428360",
+        "flint/types/arb_mat.pyd": "ae68a710f826366d0f0ece01f79fbf8d4a97fae7de34f0f16eb0ed740590c821",
+        "flint/types/arb_poly.pyd": "ae58bff417d89274132a0daee15eee0dc8db3f685d2b32c0b002d0d3c9d3d795",
+        "flint/types/arb_series.pyd": "123464b87628208dc2586ef71e3b8d481f7e2b1e601d3e89de579b6d02d864a4",
+        "flint/types/arf.pyd": "50581c442f4122301c4cf4e0324b97b5596ce399319cd72299307df69372a86e",
+        "flint/types/dirichlet.pyd": "a57a1046bf7ae0fbfa08f625530d8eb6a56bffdf6ba3be0d4e97bcfff7ae2381",
+        "flint/types/fmpq.pyd": "b480310ef0126c937170650dce5bc30442b0d6b3cb0560d2751edd93928ce15b",
+        "flint/types/fmpq_mat.pyd": "069c658fb7c984483f7befe451157da22722c367d456aa49aa127818d6055b56",
+        "flint/types/fmpq_mpoly.pyd": "5ee8fc039915ecbb1a1bca4be6a989e4dae5f446b38f0ed886c02509492ecd25",
+        "flint/types/fmpq_poly.pyd": "eb5f00243b93a49d86b4c6080cfc2f49e8afa4fe1e22bc8435a16f2aa8a08087",
+        "flint/types/fmpq_series.pyd": "6ace0c8ac7860484a9b9c9dced6b8b9b89122be54d8f1becb1cfda8c21b24fad",
+        "flint/types/fmpq_vec.pyd": "ed9c98cd497750def04fc955459f5054bc053a2597321cdb4a0f9466cc152af1",
+        "flint/types/fmpz.pyd": "98c1791d1374d067e7af124a7e2235f787ac20a0c784d7e6effaad46c526a53d",
+        "flint/types/fmpz_mat.pyd": "71d70ab91529fbe050e6e864f4a6029c24c6a0548d4fe559f84ff2f9b631046c",
+        "flint/types/fmpz_mod.pyd": "0f6b76557c4bfb80367ae216082a924fbdf736151c34490875fed8173c05d4f3",
+        "flint/types/fmpz_mod_mat.pyd": "6611f0be6a2d3467b0d37b1dd7a1eaad91749d213fa5ef5cef8b96a74543b383",
+        "flint/types/fmpz_mod_mpoly.pyd": "59cf2971a08f9e029e18964d43757e217aa2ff5b20e7cf88d33b6c5b6529865c",
+        "flint/types/fmpz_mod_poly.pyd": "a23719e0d70ff4d15fbd3fba615a4a37aec2eedefb54c23ddb868be8b792a423",
+        "flint/types/fmpz_mpoly.pyd": "cc98e6373791ca6c802ae6d8a03990033f402da6e1ca909a30273b976428b721",
+        "flint/types/fmpz_poly.pyd": "62282cb1b2ebb98bf74f2fa2a41d35d6ec2574e345736c126328ce3cc59180f0",
+        "flint/types/fmpz_series.pyd": "472ab331df82e2fe1d0c03c4a844b63fc6bbaffa5dd73304b174b800cae048cf",
+        "flint/types/fmpz_vec.pyd": "f8c3c4a09bf4de5b33a56f41041f3042387665f776e09ebab78b7319d5f65d4b",
+        "flint/types/fq_default.pyd": "d0e1f8dcb793950e4943ef207f6fe7856c7ff990671ce3bdd368b39abf2750ca",
+        "flint/types/fq_default_poly.pyd": "c3d07a44a8bdaa10e521809529137bdfcf2f23116c3ec2b5da4b53a220280e62",
+        "flint/types/nmod.pyd": "d2db1c5a790978e341a811ed3d6f5e14181e2bf3526e77020470c41671060dd7",
+        "flint/types/nmod_mat.pyd": "665bec3b90f0959a6de7604136dfbcd429defb5079de74448168b130de007f3d",
+        "flint/types/nmod_mpoly.pyd": "bfa9a70724c4fd13f4ee6d0a3c66b58f4cbbc207d26e58f44c3d506fb8fdcccd",
+        "flint/types/nmod_poly.pyd": "4ad643d2d9c1fc22008d3d7e3890e2cf0986f057ff8453bd2b0ceb65ee7dd53b",
+        "flint/types/nmod_series.pyd": "7b318b370791acc2e145e9ee69b06575db721b4298b4fbe8a5e269483bd95036",
+        "python_flint-0.9.0.dist-info/METADATA": "5916181439cbc4d71a2e033aa50f8809cff66a641879da630023500eaef34901",
+        "python_flint-0.9.0.dist-info/licenses/LICENSE": "a887c9adb6aa9906eb9b89a98516fb64e611a4c3fd656123bc4f3860e639749c",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.LIB": "362aa1af296393556b4c77891986cc62ef2b55caf5b9dfd2ab9102e742d880b7",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.RUNTIME": "90077ba306ee9d8ed966cab1b4abd69b6e728acf08777283cc50283cd9503fa6",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING3": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/winpthreads/COPYING": "1c8d23063c3772b9435831410b31b51fef3d9cf2138a442dc367ef5d72239f67",
+        "python_flint.libs/libflint.24.0.0-9b2d98b6da8eded35def7bc3b288ff65.dll": "aac725ed1c5dbb74c57230dda97634a87d6475e46acd54b3849d16c134a23e57",
+        "python_flint.libs/libgcc_s_seh-1-ca70890bbc5723b6d0ea31e9c9cded2b.dll": "4661795a1debb1448f2ccfecc054fc369561f44c616ff3dfa25650327555037f",
+        "python_flint.libs/libgmp-10-b84ebdfad40b1a203ac4096a9c8425c2.dll": "b84ebdfad40b1a203ac4096a9c8425c288d88f1ebc71e052e048ada8a46975b0",
+        "python_flint.libs/libmpfr-6-681398cede0f6f27feb0cbd931b38241.dll": "dddd060671cc9adfd6e7c78b44b0daff3957abe9f4831212805aebf4cd7bff05",
+        "python_flint.libs/libwinpthread-1-f5042e8e3d21edce20c1bc99445f551b.dll": "f5042e8e3d21edce20c1bc99445f551b89212403164e9388d2c6f48d6d6bcb78"
+      }
+    },
+    "worker_process_sum_ns": 2777704200,
+    "bounds": {
+      "node_limit": 1000000,
+      "proof_limit": 100000,
+      "bit_limit": 4096
+    },
+    "aggregate": {
+      "instances": 1101,
+      "both_complete": 1101,
+      "sphere_stops": {
+        "domain-exhausted": 1101
+      },
+      "oracle_stops": {
+        "domain-exhausted": 1101
+      },
+      "complete_with_solution": 408,
+      "complete_empty": 693,
+      "proof_occurrences": 526,
+      "probe_missed_vectors": 55,
+      "sphere_median_ns_including_audit": 281200,
+      "construction_median_ns": 8600,
+      "reduction_median_ns": 19700,
+      "work": {
+        "nodes": 8646,
+        "leaves": 2153,
+        "reconstruction_terms": 59368,
+        "sis_checks": 526
+      }
+    },
+    "native_executable_sha256": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6",
+    "profiles": {
+      "17,2,4,8": {
+        "instances": 1000,
+        "both_complete": 1000,
+        "sphere_stops": {
+          "domain-exhausted": 1000
+        },
+        "oracle_stops": {
+          "domain-exhausted": 1000
+        },
+        "complete_with_solution": 398,
+        "complete_empty": 602,
+        "proof_occurrences": 512,
+        "probe_missed_vectors": 55,
+        "sphere_median_ns_including_audit": 278700.0,
+        "construction_median_ns": 8500.0,
+        "reduction_median_ns": 19200.0,
+        "work": {
+          "nodes": 5120,
+          "leaves": 2024,
+          "reconstruction_terms": 32384,
+          "sis_checks": 512
+        }
+      },
+      "257,3,14,12": {
+        "instances": 26,
+        "both_complete": 26,
+        "sphere_stops": {
+          "domain-exhausted": 26
+        },
+        "oracle_stops": {
+          "domain-exhausted": 26
+        },
+        "complete_with_solution": 10,
+        "complete_empty": 16,
+        "proof_occurrences": 14,
+        "probe_missed_vectors": 0,
+        "sphere_median_ns_including_audit": 7708900.0,
+        "construction_median_ns": 29750.0,
+        "reduction_median_ns": 174800.0,
+        "work": {
+          "nodes": 2416,
+          "leaves": 54,
+          "reconstruction_terms": 10584,
+          "sis_checks": 14
+        }
+      },
+      "65521,4,16,8": {
+        "instances": 25,
+        "both_complete": 25,
+        "sphere_stops": {
+          "domain-exhausted": 25
+        },
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "complete_with_solution": 0,
+        "complete_empty": 25,
+        "proof_occurrences": 0,
+        "probe_missed_vectors": 0,
+        "sphere_median_ns_including_audit": 11237300,
+        "construction_median_ns": 52100,
+        "reduction_median_ns": 310100,
+        "work": {
+          "nodes": 400,
+          "leaves": 25,
+          "reconstruction_terms": 6400,
+          "sis_checks": 0
+        }
+      },
+      "257,4,16,8": {
+        "instances": 25,
+        "both_complete": 25,
+        "sphere_stops": {
+          "domain-exhausted": 25
+        },
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "complete_with_solution": 0,
+        "complete_empty": 25,
+        "proof_occurrences": 0,
+        "probe_missed_vectors": 0,
+        "sphere_median_ns_including_audit": 9652200,
+        "construction_median_ns": 42400,
+        "reduction_median_ns": 230700,
+        "work": {
+          "nodes": 410,
+          "leaves": 25,
+          "reconstruction_terms": 6400,
+          "sis_checks": 0
+        }
+      },
+      "32771,4,12,8": {
+        "instances": 25,
+        "both_complete": 25,
+        "sphere_stops": {
+          "domain-exhausted": 25
+        },
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "complete_with_solution": 0,
+        "complete_empty": 25,
+        "proof_occurrences": 0,
+        "probe_missed_vectors": 0,
+        "sphere_median_ns_including_audit": 4938900,
+        "construction_median_ns": 35900,
+        "reduction_median_ns": 158400,
+        "work": {
+          "nodes": 300,
+          "leaves": 25,
+          "reconstruction_terms": 3600,
+          "sis_checks": 0
+        }
+      }
+    },
+    "frozen_repeat": [
+      {
+        "profile": {
+          "q": 257,
+          "n": 3,
+          "m": 14,
+          "b2": 12
+        },
+        "seed": "43c60398fab2489b5fc93a7e1df30c2026fc4765db11d2235892608622d47432",
+        "group": "frozen-miss",
+        "probe_count": 1,
+        "sphere_elapsed_ns": 7452400,
+        "construction_ns": 73900,
+        "reduction_ns": 836100,
+        "oracle": {
+          "stop": "domain-exhausted",
+          "width": 14,
+          "owned_capacity_bytes": 2508568,
+          "work": {
+            "nodes": 0,
+            "left": 823543,
+            "right": 823543,
+            "norm_terms": 11529602,
+            "matrix_terms": 1060269,
+            "row_reductions": 151467,
+            "leaves": 0,
+            "table_entries": 16830,
+            "pairs": 48,
+            "proofs": 1
+          },
+          "elapsed_ns": [
+            18485800
+          ],
+          "proof_count": 1,
+          "proof_set_sha256": "4cf9c6e25d8d50fd5fc739bc60f1f9e4ac1247c1abf0b174ad2beaa4a06000a7"
+        },
+        "sphere": {
+          "reason": "domain-exhausted",
+          "work": {
+            "nodes": 68,
+            "leaves": 3,
+            "reconstruction_terms": 588,
+            "sis_checks": 1,
+            "max_fraction_bits": 76
+          },
+          "audit": {
+            "rank": 3,
+            "lattice_index": 16974593,
+            "unimodular": true,
+            "lll_reduced": true
+          },
+          "proof_count": 1,
+          "proof_set_sha256": "4cf9c6e25d8d50fd5fc739bc60f1f9e4ac1247c1abf0b174ad2beaa4a06000a7"
+        }
+      }
+    ]
+  },
+  "flint": {
+    "status": "passed",
+    "experiment": "flint-survey-v1",
+    "repeats": 3,
+    "backend": {
+      "package": "python-flint",
+      "version": "0.9.0",
+      "worker_python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+      "worker_platform": "Windows-10-10.0.19045-SP0",
+      "license_expression": "MIT AND LGPL-3.0-or-later AND (MIT AND BSD-3-Clause-Clear) AND (GPL-3.0-or-later WITH GCC-exception-3.1 AND LGPL-2.1-or-later)",
+      "file_sha256": {
+        "flint/flint_base/flint_base.pyd": "cb8fffb322708f770b73d0ec4d322cb0e85b396ec02ca282770109e19b23cb7a",
+        "flint/flint_base/flint_context.pyd": "88d83bdf31add7779e8f9e15185d18977cb3d32ffc144a55c6f69fa6682a1112",
+        "flint/functions/showgood.pyd": "593b6d6cc9986128e757743d371b253bb8f9ea93e2beb55c62626c98b9694053",
+        "flint/pyflint.pyd": "f1427349d712cb17a6aa1cd19dcce469417462fa66bd7edd6d049b5d11138a55",
+        "flint/types/_gr.pyd": "2e546f92c5188e0d018534acaeebfae194fa24784519b80fc5309a3f4405cc9c",
+        "flint/types/acb.pyd": "6559277133403ebdc06730c50f2768570568ce0a2d5d9084d527f5d85ed0b93c",
+        "flint/types/acb_mat.pyd": "7101fb1549d94da162bd029d1e5278d7637018288dce6f41a037fda3004ca716",
+        "flint/types/acb_poly.pyd": "27997d1dce6e869e1242b0f4d985a0d203e751d751cfa99e0735085fc97f6d3f",
+        "flint/types/acb_series.pyd": "353a75b54fcf83530b3c5633ff7c2ebfcea05724665ea0b67c370524fca12595",
+        "flint/types/acb_theta.pyd": "17c886333765f18328b1534726f9c873f5f8a549bbdd8804a800b62ac8a62fda",
+        "flint/types/arb.pyd": "8216e9ab3fd7358234bbc3aec620998bf4a637ed93baadb2acfabd0a82428360",
+        "flint/types/arb_mat.pyd": "ae68a710f826366d0f0ece01f79fbf8d4a97fae7de34f0f16eb0ed740590c821",
+        "flint/types/arb_poly.pyd": "ae58bff417d89274132a0daee15eee0dc8db3f685d2b32c0b002d0d3c9d3d795",
+        "flint/types/arb_series.pyd": "123464b87628208dc2586ef71e3b8d481f7e2b1e601d3e89de579b6d02d864a4",
+        "flint/types/arf.pyd": "50581c442f4122301c4cf4e0324b97b5596ce399319cd72299307df69372a86e",
+        "flint/types/dirichlet.pyd": "a57a1046bf7ae0fbfa08f625530d8eb6a56bffdf6ba3be0d4e97bcfff7ae2381",
+        "flint/types/fmpq.pyd": "b480310ef0126c937170650dce5bc30442b0d6b3cb0560d2751edd93928ce15b",
+        "flint/types/fmpq_mat.pyd": "069c658fb7c984483f7befe451157da22722c367d456aa49aa127818d6055b56",
+        "flint/types/fmpq_mpoly.pyd": "5ee8fc039915ecbb1a1bca4be6a989e4dae5f446b38f0ed886c02509492ecd25",
+        "flint/types/fmpq_poly.pyd": "eb5f00243b93a49d86b4c6080cfc2f49e8afa4fe1e22bc8435a16f2aa8a08087",
+        "flint/types/fmpq_series.pyd": "6ace0c8ac7860484a9b9c9dced6b8b9b89122be54d8f1becb1cfda8c21b24fad",
+        "flint/types/fmpq_vec.pyd": "ed9c98cd497750def04fc955459f5054bc053a2597321cdb4a0f9466cc152af1",
+        "flint/types/fmpz.pyd": "98c1791d1374d067e7af124a7e2235f787ac20a0c784d7e6effaad46c526a53d",
+        "flint/types/fmpz_mat.pyd": "71d70ab91529fbe050e6e864f4a6029c24c6a0548d4fe559f84ff2f9b631046c",
+        "flint/types/fmpz_mod.pyd": "0f6b76557c4bfb80367ae216082a924fbdf736151c34490875fed8173c05d4f3",
+        "flint/types/fmpz_mod_mat.pyd": "6611f0be6a2d3467b0d37b1dd7a1eaad91749d213fa5ef5cef8b96a74543b383",
+        "flint/types/fmpz_mod_mpoly.pyd": "59cf2971a08f9e029e18964d43757e217aa2ff5b20e7cf88d33b6c5b6529865c",
+        "flint/types/fmpz_mod_poly.pyd": "a23719e0d70ff4d15fbd3fba615a4a37aec2eedefb54c23ddb868be8b792a423",
+        "flint/types/fmpz_mpoly.pyd": "cc98e6373791ca6c802ae6d8a03990033f402da6e1ca909a30273b976428b721",
+        "flint/types/fmpz_poly.pyd": "62282cb1b2ebb98bf74f2fa2a41d35d6ec2574e345736c126328ce3cc59180f0",
+        "flint/types/fmpz_series.pyd": "472ab331df82e2fe1d0c03c4a844b63fc6bbaffa5dd73304b174b800cae048cf",
+        "flint/types/fmpz_vec.pyd": "f8c3c4a09bf4de5b33a56f41041f3042387665f776e09ebab78b7319d5f65d4b",
+        "flint/types/fq_default.pyd": "d0e1f8dcb793950e4943ef207f6fe7856c7ff990671ce3bdd368b39abf2750ca",
+        "flint/types/fq_default_poly.pyd": "c3d07a44a8bdaa10e521809529137bdfcf2f23116c3ec2b5da4b53a220280e62",
+        "flint/types/nmod.pyd": "d2db1c5a790978e341a811ed3d6f5e14181e2bf3526e77020470c41671060dd7",
+        "flint/types/nmod_mat.pyd": "665bec3b90f0959a6de7604136dfbcd429defb5079de74448168b130de007f3d",
+        "flint/types/nmod_mpoly.pyd": "bfa9a70724c4fd13f4ee6d0a3c66b58f4cbbc207d26e58f44c3d506fb8fdcccd",
+        "flint/types/nmod_poly.pyd": "4ad643d2d9c1fc22008d3d7e3890e2cf0986f057ff8453bd2b0ceb65ee7dd53b",
+        "flint/types/nmod_series.pyd": "7b318b370791acc2e145e9ee69b06575db721b4298b4fbe8a5e269483bd95036",
+        "python_flint-0.9.0.dist-info/METADATA": "5916181439cbc4d71a2e033aa50f8809cff66a641879da630023500eaef34901",
+        "python_flint-0.9.0.dist-info/licenses/LICENSE": "a887c9adb6aa9906eb9b89a98516fb64e611a4c3fd656123bc4f3860e639749c",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.LIB": "362aa1af296393556b4c77891986cc62ef2b55caf5b9dfd2ab9102e742d880b7",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.RUNTIME": "90077ba306ee9d8ed966cab1b4abd69b6e728acf08777283cc50283cd9503fa6",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING3": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+        "python_flint-0.9.0.dist-info/licenses/python-flint.libs/winpthreads/COPYING": "1c8d23063c3772b9435831410b31b51fef3d9cf2138a442dc367ef5d72239f67",
+        "python_flint.libs/libflint.24.0.0-9b2d98b6da8eded35def7bc3b288ff65.dll": "aac725ed1c5dbb74c57230dda97634a87d6475e46acd54b3849d16c134a23e57",
+        "python_flint.libs/libgcc_s_seh-1-ca70890bbc5723b6d0ea31e9c9cded2b.dll": "4661795a1debb1448f2ccfecc054fc369561f44c616ff3dfa25650327555037f",
+        "python_flint.libs/libgmp-10-b84ebdfad40b1a203ac4096a9c8425c2.dll": "b84ebdfad40b1a203ac4096a9c8425c288d88f1ebc71e052e048ada8a46975b0",
+        "python_flint.libs/libmpfr-6-681398cede0f6f27feb0cbd931b38241.dll": "dddd060671cc9adfd6e7c78b44b0daff3957abe9f4831212805aebf4cd7bff05",
+        "python_flint.libs/libwinpthread-1-f5042e8e3d21edce20c1bc99445f551b.dll": "f5042e8e3d21edce20c1bc99445f551b89212403164e9388d2c6f48d6d6bcb78"
+      }
+    },
+    "native_executable_sha256": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6",
+    "worker_process_sum_ns": 7870645500,
+    "aggregate": {
+      "instances": 1201,
+      "oracle_complete": 1201,
+      "oracle_capped": 0,
+      "oracle_stops": {
+        "domain-exhausted": 1201
+      },
+      "with_solution": 468,
+      "without_solution": 733,
+      "probe_success": 468,
+      "miss_with_solution": 0,
+      "construction_median_ns": 8300,
+      "reduction_median_ns": 18800,
+      "probe_median_ns": 83800,
+      "reduced_basis_changed_across_repeats": 0
+    },
+    "profiles": {
+      "17,2,4,8": {
+        "instances": 1000,
+        "oracle_complete": 1000,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 1000
+        },
+        "with_solution": 398,
+        "without_solution": 602,
+        "probe_success": 398,
+        "miss_with_solution": 0,
+        "construction_median_ns": 7900.0,
+        "reduction_median_ns": 17900.0,
+        "probe_median_ns": 82600.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "17,2,6,16": {
+        "instances": 16,
+        "oracle_complete": 16,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "with_solution": 16,
+        "without_solution": 0,
+        "probe_success": 16,
+        "miss_with_solution": 0,
+        "construction_median_ns": 12800.0,
+        "reduction_median_ns": 76750.0,
+        "probe_median_ns": 311550.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "17,2,8,8": {
+        "instances": 16,
+        "oracle_complete": 16,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "with_solution": 16,
+        "without_solution": 0,
+        "probe_success": 16,
+        "miss_with_solution": 0,
+        "construction_median_ns": 13300.0,
+        "reduction_median_ns": 136100.0,
+        "probe_median_ns": 541900.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "257,3,10,8": {
+        "instances": 16,
+        "oracle_complete": 16,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "with_solution": 0,
+        "without_solution": 16,
+        "probe_success": 0,
+        "miss_with_solution": 0,
+        "construction_median_ns": 20700.0,
+        "reduction_median_ns": 80950.0,
+        "probe_median_ns": 750150.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "257,3,12,12": {
+        "instances": 16,
+        "oracle_complete": 16,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 16
+        },
+        "with_solution": 0,
+        "without_solution": 16,
+        "probe_success": 0,
+        "miss_with_solution": 0,
+        "construction_median_ns": 23850.0,
+        "reduction_median_ns": 119200.0,
+        "probe_median_ns": 1240700.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "257,3,14,12": {
+        "instances": 44,
+        "oracle_complete": 44,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 44
+        },
+        "with_solution": 20,
+        "without_solution": 24,
+        "probe_success": 20,
+        "miss_with_solution": 0,
+        "construction_median_ns": 29650.0,
+        "reduction_median_ns": 173650.0,
+        "probe_median_ns": 1850000.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "17,2,12,12": {
+        "instances": 18,
+        "oracle_complete": 18,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 18
+        },
+        "with_solution": 18,
+        "without_solution": 0,
+        "probe_success": 18,
+        "miss_with_solution": 0,
+        "construction_median_ns": 19250.0,
+        "reduction_median_ns": 345750.0,
+        "probe_median_ns": 2237750.0,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "65521,4,16,8": {
+        "instances": 25,
+        "oracle_complete": 25,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "with_solution": 0,
+        "without_solution": 25,
+        "probe_success": 0,
+        "miss_with_solution": 0,
+        "construction_median_ns": 49300,
+        "reduction_median_ns": 300900,
+        "probe_median_ns": 2964800,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "257,4,16,8": {
+        "instances": 25,
+        "oracle_complete": 25,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "with_solution": 0,
+        "without_solution": 25,
+        "probe_success": 0,
+        "miss_with_solution": 0,
+        "construction_median_ns": 41100,
+        "reduction_median_ns": 228700,
+        "probe_median_ns": 2563000,
+        "reduced_basis_changed_across_repeats": 0
+      },
+      "32771,4,12,8": {
+        "instances": 25,
+        "oracle_complete": 25,
+        "oracle_capped": 0,
+        "oracle_stops": {
+          "domain-exhausted": 25
+        },
+        "with_solution": 0,
+        "without_solution": 25,
+        "probe_success": 0,
+        "miss_with_solution": 0,
+        "construction_median_ns": 34900,
+        "reduction_median_ns": 151300,
+        "probe_median_ns": 1421100,
+        "reduced_basis_changed_across_repeats": 0
+      }
+    }
+  }
+}

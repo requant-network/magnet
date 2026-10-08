@@ -30,6 +30,9 @@ wallet keys, user balances or real funds in this laboratory.
 | Kernel sphere → completeness | Rounded boundaries, lost vectors, capped tree mistaken for empty | Exact rational intervals; full-kernel audit; independent complete-set comparisons; explicit caps |
 | Joint family → local work | Huge Cartesian allocation, overflow, free failed search | Product bound before construction; shared axis rules; all-run paid work totals |
 | Target → work model | Score trials mistaken for SIS cost or ledger weight | Explicit ideal-hash assumption; separate component counters; no selected chainwork |
+| Sphere visitor → policy | Unverified discovery or early stop labelled complete | Verify before callback; strict bool; explicit visitor-stop; cleanup on all exits |
+| Preparation pool → cache | Approximate-key reuse, partial/poisoned data or stale scores | Exact full profile/matrix keys; completed immutable pools; current vector validation and header hash |
+| Warm replay → cost claim | Free cold preparation or unrealistic unlimited storage | All-run costs; fitting versus cleared/churn diagnostics; bounded LRU; repeated-input labels |
 
 Caller-controlled A makes SIS1 unsuitable for network PoW. The separate MGH1
 research proof binds its instance to header bytes with separate tests. It does
@@ -113,3 +116,21 @@ an ideal expected eligible-score-trial expression. Hidden prover computation is
 not observable from the valid proof; no component counter or timing determines
 future consensus weight. Time/payload validity and allowed grinding surface still
 need an explicit future block specification.
+
+Integrated policies execute native LLL and exact search only on visited matrices.
+Fresh acquisition and failures are charged; a reused vector that fails receives
+no score and no hidden fallback reduction. Eager sorted-pool cache-all differs
+from traversal-order streaming all. Common node/reduction/score ceilings do not
+imply equal wall-time or close competition from unknown optimized solvers.
+
+Cache completeness relies on trusted internal sphere results, not untrusted
+caller assertions or an authenticated external cache. Exact keys include profile
+and norm bound; header-dependent scores never enter storage. Every vector read
+is validated again. Cold preparation is retained in replay costs, and eviction
+can destroy its benefit. Tiny-q collisions do not imply reuse on production profiles.
+
+The explicit in-process FLINT environment amortizes one paid backend setup; it
+retains independent exact audits but has no subprocess timeout/preemption. A
+stalled experiment needs caller-enforced process termination and leaves evidence
+incomplete. Setup and nested per-stage timers are not disjoint total costs;
+component ceilings are cooperative, not OS memory/time enforcement.

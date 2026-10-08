@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: complete bounded lattice search and descriptive work models.
+Date: 2026-10-08. Phase: paid practical lattice policies and preprocessing reuse.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -19,6 +19,8 @@ Canonical MGH1 headers and context-bound proofs derive A internally; the
 separate SIS1 format remains supplied-matrix research input. Exact rational sphere
 enumeration now completes bounded kernel searches with explicit caps; joint
 header families and target grids expose competing descriptive cost models.
+Streaming visitors and an explicitly isolated in-process native backend now
+connect practical LLL/sphere to paid first/all/reuse/cache-all policies.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
@@ -178,12 +180,28 @@ pass independent Rust bound validity and the Python score predicate. Failures
 remain in component totals; zero-hit per-hit costs are null. Neither the ideal
 2^256/T model nor measured counters select chainwork or calibrated SIS cost.
 
+### Integrated practical policies and preprocessing
+
+The [integrated study](research/integrated-lattice-policies-v1.md) runs four
+on-demand lattice policies on 16 families/256 header occurrences, with profiles
+up to m16 and two score targets. Native availability audits complete; 162 header
+occurrences have solutions. Initial policies give 13/20/5/20 hits over 32 runs
+each. Warm and cleared-cache repeats bring the total to 192 main runs and 98
+hit occurrences, all checked by independent Rust bound validity and Python score.
+
+A fitting cache replay eliminates 273 new reductions and 13850 sphere nodes,
+while retaining 291 matrix expansions and 199 vector checks/scores. Cold costs
+remain charged; reset replay restores them. Eight capacity-one/target-zero
+diagnostic runs show eviction removing the replay saving on larger profiles.
+Cached complete pools use exact profile/matrix keys and never retain scores.
+Discovery order, overlapping timing scopes and correlated replays are explicit.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 97 Python tests and 13 Rust tests;
+- 109 Python tests and 13 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -221,6 +239,11 @@ equivalent unreduced bases, frozen misses, all caps and immediate state release
 without cyclic GC. Joint tests cover preallocation bounds, axis compatibility,
 overflow, monotone paid target work, failed-run denominators and repeated hits.
 Both new surveys invalidate evidence before a failed build.
+Integrated tests exercise paid acquisition, failed reuse, all limits, last-score
+hit precedence, warm rescoring, exact-key misses, empty-pool caching, eviction,
+partial-pool rejection, local corruption rejection and evidence invalidation.
+Visitor stops retain verified vectors and do not claim completeness; state is
+released without cyclic GC. Explicit native surveys exercise the shared reducer.
 
 Separate source reviews covered the completed milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
@@ -248,9 +271,10 @@ have separate tested interfaces; [ADR 0005](decisions/0005-header-binding.md)
 keeps binding distinct from work pricing. [ADR 0006](decisions/0006-practical-solvers-and-grinding.md)
 adds native solver competition and paid header selection to future cost models.
 [ADR 0007](decisions/0007-sphere-and-work-models.md) keeps ideal eligible-score
-trials distinct from actual SIS work. Next integrate certified practical reduction
-and sphere search into paid header strategies on larger profiles, then quantify
-preprocessing amortization and define allowed time/payload surfaces. Difficulty
+trials distinct from actual SIS work. [ADR 0008](decisions/0008-paid-lattice-preprocessing.md)
+keeps optimized search inside paid policies and bounds exact-instance preparation
+reuse. Next compare common externally enforced resource windows and fresh-context
+preprocessing schedules, then define allowed time/payload surfaces. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

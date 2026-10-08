@@ -24,6 +24,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Paid nonce/time/payload selection policies with a separate research score predicate.
 - Complete bounded exact sphere search on certified kernel lattices.
 - Joint header families, four-target sweeps and explicit descriptive work models.
+- On-demand practical lattice policies with streaming hits and bounded exact-instance preparation caches.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -53,6 +54,7 @@ The complete lattice sphere survey uses the explicit optional environment:
 
 ~~~sh
 python scripts/sphere_survey.py --python artifacts/flint-env/Scripts/python.exe
+artifacts/flint-env/Scripts/python.exe scripts/integrated_survey.py
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -82,6 +84,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Exact sphere, joint headers and work-model study](docs/research/sphere-and-work-models-v1.md).
 - [Sphere and work-model interfaces](spec/06-sphere-and-work-models-v1.md).
 - [Eligible scores versus SIS work pricing](docs/decisions/0007-sphere-and-work-models.md).
+- [Paid practical search and preprocessing study](docs/research/integrated-lattice-policies-v1.md).
+- [Integrated lattice policy interfaces](spec/07-integrated-lattice-policies-v1.md).
+- [Preprocessing accounting decision](docs/decisions/0008-paid-lattice-preprocessing.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).
@@ -99,7 +104,7 @@ Difficulty, chainwork, block consensus, wallets and payments are not implemented
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: connect practical reduction/sphere to paid header policies on larger
-profiles, measure preprocessing amortization and constrain the permitted header
-surface before selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
+Next: compare integrated policies under common externally bounded resource
+windows and fresh-context schedules, then constrain the permitted header surface
+before selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.
