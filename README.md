@@ -38,6 +38,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Bounded real-block forks, atomic canonical replay and delivery/partition simulation.
 - Synthetic retarget hypotheses and concrete paid block-reuse counterexamples.
 - Exact precommitted-pool correlation laws, complete matrix audits and paid fresh-header supply studies.
+- Paid bounded adaptive retention, replayed JSON checkpoints and independent native hit admission.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -78,6 +79,7 @@ python scripts/windows_survey.py --python artifacts/flint-env/Scripts/python.exe
 python scripts/campaign_survey.py --python artifacts/flint-env/Scripts/python.exe
 python scripts/portfolio_survey.py --python artifacts/flint-env/Scripts/python.exe
 python scripts/soak_survey.py --python artifacts/flint-env/Scripts/python.exe
+python scripts/adaptive_survey.py --python artifacts/flint-env/Scripts/python.exe
 artifacts/flint-env/Scripts/python.exe scripts/portfolio_checks.py
 python scripts/rejection_cost.py
 python scripts/mine_lab_chain.py
@@ -95,6 +97,10 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Current status and verification](docs/STATUS.md).
 - [Backlog 1–10 milestone](docs/research/pool-portfolio-and-blocks-v1.md).
 - [Backlog 11–15 milestone](docs/research/chain-forks-and-retarget-v1.md).
+- [Paid adaptive retention results](docs/research/adaptive-retention-v1.md).
+- [Adaptive policy contract](spec/15-adaptive-retention-lab-v1.md).
+- [Adaptive retention decision](docs/decisions/0014-paid-adaptive-retention.md).
+- [Local GPU readiness and first experiments](docs/research/gpu-readiness-v1.md).
 - [Exact precommitted-pool supply study](docs/research/precommitted-pool-supply-v1.md).
 - [Supply model and resource contract](spec/14-precommitted-pool-supply-v1.md).
 - [Fixed-pool correlations and open adaptive-work gate](docs/decisions/0013-precommitted-pool-supply.md).

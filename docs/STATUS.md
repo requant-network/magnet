@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: exact precommitted-pool supply and adaptive-work preparation.
+Date: 2026-10-09. Phase: paid adaptive retention and local GPU preparation.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -301,7 +301,27 @@ See [report](research/chain-forks-and-retarget-v1.md) and
 
 ## Verification
 
-### Latest supply milestone
+### Latest adaptive milestone
+
+[Paid adaptive retention](research/adaptive-retention-v1.md) compares four campaign
+configurations with seven CPU backends in 336 externally bounded attempts.
+306 complete and 30 time out. All 75 jointly completed FIFO/model pairs have
+equal stage-hit counts; nine other pairs remain incomplete. Non-FIFO selection
+is observed without a paired hit-count improvement in this schedule.
+
+Independent transcript and native audits cover 3750 visited headers, 9489
+scores, 655 hit occurrences (652 complete plus three checkpoint) and 1981 model
+decisions through 40442 native requests, with zero mismatches. Selection is paid
+inside windows and separately counted. Unconditional censored work stays unknown.
+Source fingerprints now include solvers and the FLINT lock. The full gate
+passed; source review found no outstanding required issues.
+
+The local CMP 50HX and existing CUDA/PyTorch were inspected through authorized
+SSH. The device was occupied by an existing miner at inspection; no workload
+was stopped during discovery. [GPU plan](research/gpu-readiness-v1.md) begins
+with exact CPU/GPU/native comparisons before performance claims.
+
+### Previous supply milestone
 
 [The precommitted-pool study](research/precommitted-pool-supply-v1.md) computes
 exact valid-vector count distributions using modular subset ranks, then tests
@@ -321,7 +341,7 @@ chainwork or retarget. Failed setup windows do not certify unsolvability.
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 189 Python tests and 19 Rust tests;
+- 205 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof
@@ -411,8 +431,8 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next extend the exact precommitted-pool model to paid adaptive selection and
-confront portable adversarial work/profile comparability, optimized/GPU
+Next test stronger adaptive acquisition/retention policies and exact GPU
+execution, then confront portable adversarial work/profile comparability, optimized/GPU
 baselines and independent review; add persistence/pruning and real synchronization
 after the simulator. Production difficulty and accumulated chainwork remain
 unselected. Common local

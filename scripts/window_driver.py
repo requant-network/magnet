@@ -36,7 +36,7 @@ def read_snapshot(folder):
 def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None, worker="window_worker.py"):
     payload = json.dumps(request, separators=(",", ":")).encode()
     if (len(payload) > MAX_INPUT or diagnostic not in (None, "sleep", "allocate")
-            or worker not in ("window_worker.py", "portfolio_worker.py")
+            or worker not in ("window_worker.py", "portfolio_worker.py", "adaptive_worker.py")
             or worker != "window_worker.py" and diagnostic is not None):
         raise ValueError("window driver input/diagnostic")
     (ROOT / "artifacts").mkdir(exist_ok=True)

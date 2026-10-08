@@ -45,13 +45,14 @@ def joint_headers(base, *, nonces=2, times=2, payloads=2):
                  for payload, t, n in product(commitments, range(times), range(nonces)))
 
 
-def run_pool_campaign(stages, policy, target, solver, *, capacity=4, combine=True, budget=None, on_stage=None):
+def run_pool_campaign(stages, policy, target, solver, *, capacity=4, combine=True, budget=None, on_stage=None,
+                      retain=None):
     _target(target)
     budget = PoolBudget() if budget is None else budget
     if (type(stages) not in (list, tuple) or not 1 <= len(stages) <= 8 or policy not in POLICIES
             or not hasattr(solver, "acquire") or not isinstance(budget, PoolBudget)
             or type(capacity) is not int or not 1 <= capacity <= 16 or type(combine) is not bool
-            or on_stage is not None and not callable(on_stage)):
+            or on_stage is not None and not callable(on_stage) or retain is not None and not callable(retain)):
         raise ValueError("pool campaign configuration")
     for stage in stages:
         if (type(stage) not in (tuple, list) or not 1 <= len(stage) <= 16
@@ -74,11 +75,20 @@ def run_pool_campaign(stages, policy, target, solver, *, capacity=4, combine=Tru
         if vector in pool:
             work["duplicates"] += 1
             return
-        pool.append(vector)
-        work["pool_inserts"] += 1
-        if len(pool) > capacity:
-            pool.pop(0)
+        candidates = tuple(pool)+(vector,)
+        if len(candidates) > capacity:
+            selected = candidates[1:] if retain is None else retain(first.profile, candidates, capacity)
+            # Retention is an ordered subsequence, never a new source of vectors.
+            if (type(selected) is not tuple or len(selected) != capacity or any(
+                    type(x) is not tuple or any(type(v) is not int for v in x) for x in selected)
+                    or selected not in tuple(
+                    candidates[:i]+candidates[i+1:] for i in range(len(candidates)))):
+                raise RuntimeError("invalid retained subset/order")
+            pool[:] = selected
             work["pool_evictions"] += 1
+        else:
+            pool.append(vector)
+        work["pool_inserts"] += 1
     for stage_index, headers in enumerate(stages):
         before = dict(work)
         stage = {"index": stage_index, "reason": "not-visited" if halted else "stage-exhausted", "hit": None}

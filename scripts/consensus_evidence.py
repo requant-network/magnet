@@ -10,8 +10,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def source_hashes():
-    paths=[ROOT/'Cargo.toml',ROOT/'Cargo.lock']
-    for folder,pattern in (("reference","*.py"),("scripts","*.py"),("crates","*.rs"),("tests","*.py"),
+    paths=[ROOT/'Cargo.toml',ROOT/'Cargo.lock',ROOT/'benchmarks/flint-win.lock']
+    for folder,pattern in (("reference","*.py"),("solvers","*.py"),("scripts","*.py"),("crates","*.rs"),("tests","*.py"),
                            ("tests/vectors","*.json"),("spec","*.md")):
         paths.extend((ROOT/folder).rglob(pattern))
     return {p.relative_to(ROOT).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(paths)}
