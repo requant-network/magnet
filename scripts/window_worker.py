@@ -28,15 +28,19 @@ def decode(data):
     from reference.header import ExpectedContext, LabHeader
     from reference.grinding import _target
     from reference.lattice_policies import LatticeBudget, POLICIES
+    from reference.campaign import POLICIES as CAMPAIGNS
     if type(data) is not bytes or len(data) > MAX_INPUT:
         raise ValueError("window input bound")
     r = json.loads(data)
     if (type(r) is not dict or set(r) != {"version", "policy", "target", "stages", "budget", "cache_capacity"}
-            or r["version"] != "WLP1" or r["policy"] not in POLICIES):
+            or r["version"] not in ("WLP1", "WCP1")
+            or r["policy"] not in (POLICIES if r["version"] == "WLP1" else CAMPAIGNS)):
         raise ValueError("window protocol fields")
     _target(r["target"])
     if type(r["cache_capacity"]) is not int or not 1 <= r["cache_capacity"] <= 32:
         raise ValueError("window cache capacity")
+    if r["version"] == "WCP1" and r["cache_capacity"] != 1:
+        raise ValueError("campaign has one carried vector and no matrix cache")
     if type(r["budget"]) is not dict or set(r["budget"]) != {"nodes", "reductions", "scores", "proofs_per_instance", "bits"}:
         raise ValueError("window budget fields")
     budget = LatticeBudget(**r["budget"])
@@ -59,6 +63,9 @@ def decode(data):
         if any(not context.matches(h) for h in headers):
             raise ValueError("window stage context mismatch")
         stages.append(tuple(headers))
+    if r["version"] == "WCP1" and any((stage[0].network, stage[0].profile) !=
+                                     (stages[0][0].network, stages[0][0].profile) for stage in stages):
+        raise ValueError("campaign network/profile mismatch")
     return r, stages, budget
 
 
@@ -81,6 +88,15 @@ def main():
         from reference.lattice_policies import run_lattice_policy
         from solvers.practical import PracticalReducer
         reducer = PracticalReducer()
+        if r["version"] == "WCP1":
+            from reference.campaign import run_campaign
+            def checkpoint(result):
+                publish(destination.with_name(f"checkpoint-{len(result['stages'])}.json"),
+                        result | {"status": "running", "backend": reducer.backend, "backend_setup_ns": reducer.setup_ns})
+            result = run_campaign(stages, r["policy"], r["target"], reducer, budget=budget, on_stage=checkpoint)
+            publish(destination, result | {"status": "completed", "backend": reducer.backend,
+                                           "backend_setup_ns": reducer.setup_ns})
+            return
         cache = CandidateCache(r["cache_capacity"], budget.proofs_per_instance) if r["policy"] == "cache-all" else None
         report = {"status": "running", "backend": reducer.backend, "backend_setup_ns": reducer.setup_ns, "stages": []}
         for index, headers in enumerate(stages, 1):
