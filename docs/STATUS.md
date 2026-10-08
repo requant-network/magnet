@@ -1,68 +1,79 @@
-# Состояние исследования
+# Research status
 
-Дата: 2026-10-08. Этап: лабораторная база E0 / начальная часть E1.
+Date: 2026-10-08. Phase: arithmetic foundation and first solution-reuse study.
+English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
+records the earlier milestone and is not the current status.
 
-## Реализовано
+## Implemented
 
-Спецификация SIS-LAB-v1, Python-verifier, генератор матриц, независимый Rust-verifier,
-ограниченный адаптер stdin/stdout, полный перебор маленьких задач и локальная
-команда проверки. Рабочие файлы находятся в C:/Projects/MagnetNetwork.
+SIS-LAB-v1 specification; exact Python and independent Rust verifiers; bounded
+stdin/stdout adapter; SHAKE256 matrix expansion in Python; exhaustive tiny solver;
+sparse screening, rank and known-solution reuse probes; a local check command.
 
-Репозиторий danifest751/magnet проверен как PRIVATE. Сторонних зависимостей нет.
-Cargo.lock содержит только собственный пакет sis-verifier. Платные CI/GPU не
-запускались. CodeGraph и результаты локальных прогонов исключены из Git.
+The private repository is danifest751/magnet. The workspace is
+C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
+contains only the sis-verifier package. No paid CI or cloud GPUs were used.
+CodeGraph and local artifacts are ignored by Git.
 
-## Первый воспроизводимый эксперимент
+## Experiments
 
-Команда: python scripts/toy_survey.py.
+### Initial availability survey
 
-| Показатель | Результат |
-|---|---|
-| Параметры | q=17, n=2, m=3, B2=8 |
-| Детерминированные экземпляры | 128 |
-| Экземпляры хотя бы с одним каноническим решением | 15 |
-| Всего канонических решений | 18 |
-| Метод | Полный перебор каждого маленького пространства |
+python scripts/toy_survey.py exhausts 128 deterministic instances at
+q=17,n=2,m=3,B2=8. Exactly 15 have canonical solutions, with 18 solutions total.
+The remaining 113 have none within the complete bounded domain; this is not
+a timeout-based inference.
 
-У оставшихся 113 экземпляров в выбранной области допустимых векторов решений нет.
-Это следует из завершённого перебора, а не из тайм-аута. Не делаем выводов о
-производительности GPU, безопасности или свойствах больших параметров.
+### Reuse and screening survey
 
-Полный список seeds, количества решений и локальных времён создаётся в
-artifacts/toy-survey.json. Seeds задаются в скрипте и воспроизводятся из исходников.
+python scripts/reuse_survey.py studies 320 fixed matrices across three toy
+profiles and up to six norm bounds. See the [report](research/solution-reuse-v1.md)
+and [committed summary](research/results/reuse-survey-v1.json).
 
-## Проверки
+Key findings:
 
-Единая команда: python scripts/check.py.
+- At the maximum bound all sampled matrices admit solutions; some have up to 21.
+- Given one oracle-selected solution, simple transformations produce up to five
+  distinct valid vectors in these batches, including the supplied one.
+- Primitive-vector restrictions alone do not prevent linear-combination reuse.
+- All sampled matrices have full row rank; full rank does not certify hard search.
+- Sparse screening can miss valid nonsparse solutions.
 
-- rustfmt и clippy без предупреждений.
-- 16 Python-тестов и 3 Rust-теста.
-- 10 009 дифференциальных записей Python/Rust: 2665 приняты, расхождений нет.
-- Три проверки неверного кадрирования CLI и две проверки пустого ввода/кадра.
-- Ручные векторы, точная граница нормы, предельные размеры, недопустимые профили,
-  частое отбрасывание SHAKE-выборок и принудительное исчерпание бюджета генератора.
+These are exact toy-instance observations, not mining-speed estimates or a
+security proof. Initial vectors come from an exhaustive oracle. Their acquisition
+cost is not included in a claimed speedup; no such speedup is claimed.
 
-Последний локальный отчёт содержит хеши проверенных исходников. Незавершённый
-повторный запуск помечает отчёт как running-or-incomplete, чтобы не спутать его
-с предыдущим успешным прогоном. Вывод о результатах относится к этой версии
-исходников и проверенной Windows-среде, а не ко всем платформам.
+## Verification
 
-Проведено отдельное ревью реализации и повторная проверка замечаний. Исправлен
-выбор исполняемого файла: стенд берёт путь из результата текущей сборки Cargo,
-поэтому не сравнивает случайно старый бинарник при изменённой конфигурации сборки.
-Блокирующих замечаний по арифметическому стенду не осталось. Это ревью исходников,
-а не независимый криптографический аудит новой PoW-конструкции.
+python scripts/check.py currently passes:
 
-## Ещё не сделано
+- rustfmt and clippy without warnings;
+- 24 Python tests and 3 Rust tests;
+- 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
+- three malformed-frame checks and two empty-input/frame checks.
 
-Rust-генератор SHAKE, длительный fuzzing, быстрые CPU-решатели LLL/BKZ/sieve,
-GPU-майнер, привязка к заголовку, функция работы, retarget и блокчейн отсутствуют.
-E1 не объявляется полностью закрытым по исходному расширенному плану: независимая
-генерация на втором языке и длительное исследование входов ещё впереди.
+Tests cover manual vectors, norm and size limits, rejection sampling and its
+budget, exact tiny spaces, solution reuse, support-limited search and rank.
+The latest local check report includes source hashes. An interrupted rerun
+marks its report running-or-incomplete rather than leaving stale success.
 
-## Следующий этап
+Separate source reviews covered both milestones. The initial Cargo executable-
+selection issue was fixed; the harness uses the artifact returned by the current
+build. No required implementation findings remain in the reviewed laboratory.
+This is source review, not an independent cryptographic audit.
 
-Исследовать A/B на малых задачах: число независимых решений, их кратные и
-линейные комбинации, стоимость дополнительных score-попыток и выбор лёгких
-матриц. По результатам решить, заслуживает ли конструкция реализации быстрых
-решателей и математического анализа веса цепочки.
+## Still absent
+
+An independent Rust SHAKE generator, long-running fuzzing, LLL/BKZ/sieve baselines,
+GPU mining, header binding, a work function, retarget, blockchain, wallet and
+MagnetGate integration. E1 is not claimed fully closed under the broader plan.
+
+## Decision and next step
+
+[ADR 0002](decisions/0002-solution-reuse.md) rejects the assumption that each
+accepted proof or score trial necessarily requires a fresh SIS solve. It does
+not reject every possible SIS-based PoW.
+
+Next compare bounded end-to-end strategies, including initial-solution acquisition,
+generation, screening and reuse. Establish what an attempted unit of work costs
+before defining difficulty or accumulated chainwork.

@@ -1,0 +1,251 @@
+{
+  "status": "complete",
+  "version": "reuse-survey-v1",
+  "warning": "Toy exhaustive results only. No security or mining-speed estimate.",
+  "method": "Fixed matrix across B2; oracle-ordered seeds; sparse probe before oracle.",
+  "setups": [
+    {
+      "generation_profile": {
+        "q": 17,
+        "n": 2,
+        "m": 3,
+        "b2": 64
+      },
+      "rank_deficient": 0,
+      "summary": [
+        {
+          "b2": 2,
+          "instances": 128,
+          "solvable": 4,
+          "multiple_proofs": 0,
+          "max_proofs": 1,
+          "sparse_hits": 4,
+          "sparse_misses_with_solution": 0,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 4,
+          "instances": 128,
+          "solvable": 5,
+          "multiple_proofs": 0,
+          "max_proofs": 1,
+          "sparse_hits": 4,
+          "sparse_misses_with_solution": 1,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 8,
+          "instances": 128,
+          "solvable": 11,
+          "multiple_proofs": 4,
+          "max_proofs": 2,
+          "sparse_hits": 6,
+          "sparse_misses_with_solution": 5,
+          "extra_from_one": 4,
+          "max_from_one": 2,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 16,
+          "instances": 128,
+          "solvable": 40,
+          "multiple_proofs": 5,
+          "max_proofs": 2,
+          "sparse_hits": 11,
+          "sparse_misses_with_solution": 29,
+          "extra_from_one": 5,
+          "max_from_one": 2,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 32,
+          "instances": 128,
+          "solvable": 106,
+          "multiple_proofs": 22,
+          "max_proofs": 4,
+          "sparse_hits": 13,
+          "sparse_misses_with_solution": 93,
+          "extra_from_one": 20,
+          "max_from_one": 4,
+          "extra_from_two": 10
+        },
+        {
+          "b2": 64,
+          "instances": 128,
+          "solvable": 128,
+          "multiple_proofs": 116,
+          "max_proofs": 6,
+          "sparse_hits": 13,
+          "sparse_misses_with_solution": 115,
+          "extra_from_one": 48,
+          "max_from_one": 5,
+          "extra_from_two": 108
+        }
+      ]
+    },
+    {
+      "generation_profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 32
+      },
+      "rank_deficient": 0,
+      "summary": [
+        {
+          "b2": 2,
+          "instances": 128,
+          "solvable": 2,
+          "multiple_proofs": 0,
+          "max_proofs": 1,
+          "sparse_hits": 2,
+          "sparse_misses_with_solution": 0,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 4,
+          "instances": 128,
+          "solvable": 15,
+          "multiple_proofs": 1,
+          "max_proofs": 2,
+          "sparse_hits": 2,
+          "sparse_misses_with_solution": 13,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 8,
+          "instances": 128,
+          "solvable": 55,
+          "multiple_proofs": 9,
+          "max_proofs": 3,
+          "sparse_hits": 13,
+          "sparse_misses_with_solution": 42,
+          "extra_from_one": 2,
+          "max_from_one": 2,
+          "extra_from_two": 5
+        },
+        {
+          "b2": 16,
+          "instances": 128,
+          "solvable": 122,
+          "multiple_proofs": 84,
+          "max_proofs": 8,
+          "sparse_hits": 33,
+          "sparse_misses_with_solution": 89,
+          "extra_from_one": 8,
+          "max_from_one": 2,
+          "extra_from_two": 58
+        },
+        {
+          "b2": 32,
+          "instances": 128,
+          "solvable": 128,
+          "multiple_proofs": 128,
+          "max_proofs": 17,
+          "sparse_hits": 38,
+          "sparse_misses_with_solution": 90,
+          "extra_from_one": 20,
+          "max_from_one": 4,
+          "extra_from_two": 153
+        }
+      ]
+    },
+    {
+      "generation_profile": {
+        "q": 31,
+        "n": 2,
+        "m": 4,
+        "b2": 64
+      },
+      "rank_deficient": 0,
+      "summary": [
+        {
+          "b2": 2,
+          "instances": 64,
+          "solvable": 1,
+          "multiple_proofs": 0,
+          "max_proofs": 1,
+          "sparse_hits": 1,
+          "sparse_misses_with_solution": 0,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 4,
+          "instances": 64,
+          "solvable": 3,
+          "multiple_proofs": 0,
+          "max_proofs": 1,
+          "sparse_hits": 1,
+          "sparse_misses_with_solution": 2,
+          "extra_from_one": 0,
+          "max_from_one": 1,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 8,
+          "instances": 64,
+          "solvable": 10,
+          "multiple_proofs": 1,
+          "max_proofs": 2,
+          "sparse_hits": 3,
+          "sparse_misses_with_solution": 7,
+          "extra_from_one": 1,
+          "max_from_one": 2,
+          "extra_from_two": 0
+        },
+        {
+          "b2": 16,
+          "instances": 64,
+          "solvable": 42,
+          "multiple_proofs": 10,
+          "max_proofs": 3,
+          "sparse_hits": 5,
+          "sparse_misses_with_solution": 37,
+          "extra_from_one": 3,
+          "max_from_one": 2,
+          "extra_from_two": 4
+        },
+        {
+          "b2": 32,
+          "instances": 64,
+          "solvable": 64,
+          "multiple_proofs": 45,
+          "max_proofs": 7,
+          "sparse_hits": 9,
+          "sparse_misses_with_solution": 55,
+          "extra_from_one": 11,
+          "max_from_one": 4,
+          "extra_from_two": 41
+        },
+        {
+          "b2": 64,
+          "instances": 64,
+          "solvable": 64,
+          "multiple_proofs": 64,
+          "max_proofs": 21,
+          "sparse_hits": 9,
+          "sparse_misses_with_solution": 55,
+          "extra_from_one": 21,
+          "max_from_one": 5,
+          "extra_from_two": 95
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad"
+  }
+}
