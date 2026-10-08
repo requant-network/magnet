@@ -1,25 +1,28 @@
-# Границы доверия первого стенда
+# Laboratory trust boundaries
 
-Активы: правильность решения verifier, воспроизводимость результатов, CPU/RAM
-локальной машины. Секретных ключей, счетов пользователей и реальных денег здесь нет.
+Assets: verifier correctness, reproducibility, and local CPU/RAM. There are no
+wallet keys, user balances or real funds in this laboratory.
 
-| Граница | Возможная атака | Текущий контроль |
+| Boundary | Threat | Current control |
 |---|---|---|
-| Бинарная запись → verifier | Усечение, лишние байты, переполнение, огромные размеры | Ограничения до разбора, точная длина, целые и ограниченные диапазоны |
-| Координаты → арифметика | Нулевой вектор, смена знака, огромная норма | Канонический знак, проверка нормы до скалярных произведений |
-| Seed → генератор | Неограниченное отбрасывание выборок | Фиксированный бюджет слов, ошибка при исчерпании |
-| Размер задачи → перебор | Взрыв числа кандидатов | Жёсткий лимит до итерации |
-| Поток → Rust CLI | Неограниченный кадр или незавершённый ввод | Максимальная длина; время процесса ограничивает вызывающий стенд |
-| Один verifier → другой | Общая ошибка | Различная арифметика, ручные векторы и исчерпывающий oracle |
+| Bytes → verifier | Truncation, extra bytes, overflow, huge dimensions | Early bounds, exact length and bounded integer arithmetic |
+| Coordinates → arithmetic | Zero vector, sign duplication, excessive norm | Canonical sign; norm before dot products |
+| Seed → expansion | Unbounded rejection sampling | Fixed word budget; explicit failure |
+| Parameters → enumeration | Combinatorial explosion | Search-space cap before iteration |
+| Stream → CLI | Oversized frame or incomplete input | Frame cap; process deadline supplied by caller |
+| Verifier → verifier | Shared implementation error | Different implementations, manual and exhaustive checks |
+| Known solutions → reuse probe | Excessive derivation work | At most two seeds, bounded coefficients and candidate budgets |
 
-Лабораторный формат позволяет выбрать лёгкую A: он непригоден для сетевого PoW.
-Это явно обозначено в коде, README и спецификации. Привязка A к блоку — будущая
-отдельная функция, которую потребуется тестировать как границу безопасности.
+Caller-controlled A makes this format unsuitable for network PoW. A future
+header-to-instance binding is a separate security boundary with separate tests.
 
-Итерации ограничены для одной записи. CLI допускает поток произвольного числа
-кадров и не предоставляет сетевую защиту от DoS. Python API предполагает обычные
-локальные объекты, не hostile-классы с перегруженными методами; для недоверенных
-байтов используется ограниченный decode_case/verify_packet.
+One frame is bounded, but the CLI accepts arbitrarily many frames. It is not a
+network DoS defense. Python APIs assume ordinary local objects, not hostile
+classes with overloaded behavior. Untrusted bytes use bounded decoding.
 
-Проверки не заменяют анализ сложности SIS, анализ алгоритмических обходов,
-независимую криптографическую экспертизу и будущий аудит консенсуса.
+Reports must distinguish valid solutions from independent work and state when
+initial solutions were supplied by an exhaustive oracle. Derived proof counts
+are not end-to-end speedups. Sparse screening can have false negatives.
+
+These controls do not establish SIS hardness, secure PoW work accounting, ASIC
+resistance or quantum security. Independent cryptographic review remains necessary.

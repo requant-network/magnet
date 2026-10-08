@@ -1,386 +1,345 @@
-# Magnet Network: план исследования SIS-PoW и выбора консенсуса
+# Magnet Network: SIS-PoW research and consensus plan
 
-Дата: 8 октября 2026 года. Версия: 0.1.
+Date: 2026-10-08. Version: 0.2, English primary edition.
+Status: research plan, not a completed protocol or a security claim.
+See [current status](docs/STATUS.md) for implemented work.
+The [original Russian edition](docs/ru/01-SIS-POW-RESEARCH-PLAN.md) is secondary.
 
-Статус: исходный план исследований и разработки. Это не завершённая спецификация протокола и не подтверждение безопасности алгоритма.
+## 1. Objective and sequence
 
-## 1. Цель первого этапа
+Determine whether Short Integer Solution (SIS) can support standalone PoW:
+costly search, inexpensive independent verification, understandable difficulty
+adjustment, and resistance to work reuse.
 
-Проверить, можно ли построить на задаче Short Integer Solution (SIS) механизм Proof of Work для самостоятельной сети Magnet Network: вычислительно затратный поиск, дешёвая независимая проверка, понятная регулировка сложности и защита от повторного использования работы.
+A future MagnetGate may provide a wallet and connectivity. This phase covers
+mathematics, PoW, verifier, miner and chain selection. Tariffs, token economics,
+listings, user wallets and transport are outside this phase.
 
-Будущее приложение MagnetGate сможет стать кошельком и клиентом связи. В этом документе рассматриваем только математическую задачу, PoW, майнер, проверяющий код и правила выбора цепочки. Тарифы на связь, токеномика, листинги, пользовательский кошелёк и транспортный протокол находятся за рамками первого этапа.
+Deliver a reproducible laboratory and a decision to continue, revise or reject
+the construction. A negative result is useful.
 
-Первый результат — воспроизводимый исследовательский стенд и заключение «продолжать / изменить конструкцию / остановить вариант». Отрицательный результат тоже полезен: он позволяет не строить сеть на неподходящем фундаменте.
+Sequence: mathematical specification → reference verifier → tests and simple
+attacks → CPU measurements → work model → consensus simulator → GPU miner →
+local network → external review → public testnet.
 
-**Рекомендуемая последовательность:**
+Do not fork a monetary blockchain before defining acceptable work.
 
-Математическая спецификация → эталонный verifier → тесты и простые атаки → CPU-решатели и измерения → конструкция PoW и модель сложности → симулятор консенсуса → GPU-майнер → локальная сеть → независимое исследование → публичный testnet.
+## 2. Corrections to the starting proposal
 
-Не начинать с форка блокчейна и красивого интерфейса майнера: пока неизвестно, какое именно доказательство должен принимать узел.
+The [original deep dive](docs/research/lattice-sis-pow-deep-dive.md) contains
+hypotheses, not verified schedules, performance, novelty or hardware-resistance claims.
 
-## 2. Что взято за основу и что нужно исправить
-
-Исходный внутренний материал: [lattice-sis-pow-deep-dive.md](docs/research/lattice-sis-pow-deep-dive.md).
-
-Это источник гипотез. Его оценки сроков, производительности, отсутствия конкурентов и устойчивости к специализированному оборудованию не считаются установленными фактами.
-
-| Положение исходного материала | Рабочее уточнение |
+| Assumption | Correction |
 |---|---|
-| Из одного заголовка получается одна матрица, поэтому нет перебора nonce | Заголовок может включать nonce и другие изменяемые поля. Нужно изучать выбор лёгких экземпляров, а не искусственно объявлять перебор невозможным |
-| Порог длины вектора задаёт сложность | Допустимость решения задаёт, но предсказуемую цену поиска ещё нужно установить |
-| Нужен малый разброс времени нахождения | Случайность естественна для PoW. Нужны измеренное распределение и устойчивая модель; сама по себе большая дисперсия не доказывает непригодность |
-| Размерности и оценка экспоненты дают время на GPU | Это не замена бенчмаркам; важны алгоритм, экземпляры, память, предварительная обработка и константы |
-| Решёточная задача означает постквантовую сеть | Свойства конкретного PoW, подписи переводов и установление ключей соединений исследуются отдельно |
-| Достаточно заменить CheckProofOfWork | Изменяются формат доказательства, сложность, chainwork, синхронизация, ограничения ресурсов и протокол майнинга |
-| Много памяти означает защиту от ASIC | Это гипотеза о стоимости реализации, а не гарантия |
-| Конструкция в стиле Equihash сохраняет свойства SIS | Новая конструкция требует собственного обоснования; аналогия не является редукцией безопасности |
+| One matrix per header means no nonce search | Mutable header fields change the matrix; study easy-instance selection |
+| A norm bound defines difficulty | It defines acceptance, not predictable search cost |
+| Low variance is necessary | Randomness is normal; characterize distributions and control behavior |
+| An asymptotic exponent gives GPU seconds | Measure algorithms, preprocessing, memory and constants |
+| Lattice PoW makes the entire chain post-quantum | PoW, signatures and key establishment require separate analysis |
+| Replace only CheckProofOfWork | Format, sync, difficulty, chainwork and resource limits also change |
+| Memory demand guarantees ASIC resistance | It is a hardware-cost hypothesis |
+| Equihash-like structure inherits SIS security | A new construction needs its own argument |
 
-Диапазоны параметров в исходном файле противоречат друг другу. Не переносить их в код как значения по умолчанию. Условие существования коротких решений зависит от нормы, границы и пространства поиска; универсального требования вида «m больше n·log(q)» для всех вариантов здесь не вводим.
+The original parameter sketches are inconsistent. Do not adopt them as defaults.
+Existence depends on norm, bound and domain; m > n·log(q) is not a universal
+condition for every SIS variant.
 
-## 3. Предварительные инженерные решения
+## 3. Initial laboratory choices
 
-Эти решения предлагаются для лаборатории. Изменения фиксируются отдельными решениями с причиной и результатами экспериментов.
+Changes to these choices require documented decisions.
 
-| Вопрос | Предлагаемое решение |
+| Question | Initial choice |
 |---|---|
-| Семейство задачи | Сначала обычный SIS с плотной матрицей; ISIS — сравнительный эксперимент |
-| Норма | Для первого стенда L2 через точную сумму квадратов, без вычисления квадратного корня |
-| Криптографическая проверка | Только целочисленные вычисления, детерминированный результат |
-| Источник матрицы | Детерминированное раскрытие seed через SHAKE256 с разделением назначений и rejection sampling |
-| Реализация-эталон | Python с целыми произвольной точности, максимально простая |
-| Независимый verifier | Rust с явной проверкой границ и переполнений; не буквальный перенос того же кода |
-| CPU-решатели | Полный перебор для малых задач, линейная алгебра, LLL/BKZ, затем подходящие варианты sieving |
-| GPU | После выбора задачи и профилирования CPU; CUDA первым только как удобная реализация под доступное оборудование |
-| Модель консенсуса | Исследовать цепочку Nakamoto с выбором по накопленной работе |
-| Сложность | Сначала фиксированная в лаборатории; динамическую вводить после модели стоимости |
-| Испытания | Локально; облачные GPU и GitHub Actions по умолчанию не использовать |
-| Взаимодействие с MagnetGate | Позднее, через отдельный интерфейс; не менять действующие подключения на этапе исследования |
+| Task | Dense SIS; ISIS as a later comparison |
+| Norm | Exact squared L2 bound B2 |
+| Verification | Deterministic integer arithmetic |
+| Matrix generation | SHAKE256, domain separation, rejection sampling |
+| Reference | Transparent Python arbitrary-precision arithmetic |
+| Independent verifier | Rust with explicit bounds and overflow analysis |
+| Solvers | Tiny exhaustive search, linear algebra, LLL/BKZ, suitable sieving |
+| GPU | After problem selection and profiling |
+| Consensus candidate | Nakamoto chain with cumulative-work fork choice |
+| Difficulty | Fixed first; dynamic only after a work model |
+| Execution | Local; no default paid GPUs or GitHub Actions |
+| Integration | Separate later interface; existing MagnetGate remains operational |
 
-Доказательство SIS не является доказательством передачи трафика, хранения данных или оказания услуги.
+SIS validity does not prove bandwidth delivery, storage or other services.
 
-## 4. Математическое ядро
+## 4. Mathematical core and encoding
 
-### 4.1. Что именно проверяем
-
-Параметры: простое q, положительные n и m, матрица A размера n×m над Z_q, целочисленная граница B2.
-
-Решение — целочисленный вектор x длины m, удовлетворяющий одновременно:
+For prime q, positive n,m, A in Z_q^(n×m), and integer bound B2:
 
 ~~~text
 x != 0
-A * x == 0 (mod q)
-sum(x[i] * x[i]) <= B2
+A*x == 0 (mod q)
+sum(x[i]^2) <= B2
 ~~~
 
-B2 — квадрат границы L2-нормы. Это проектный выбор нормы, а не утверждение, что все варианты SIS используют L2. Например, учебное определение [S1] использует L∞.
+The lab chooses L2; other definitions use different norms [S1].
+Require B2 < q² to exclude q·e_i. This is not a hardness proof. Test sparse
+vectors, dependent columns, deficient rank and other cheap solutions.
 
-Для первой конструкции принять B2 < q², чтобы исключить тривиальные решения q·e_i. Это необходимое ограничение выбранного профиля, но не доказательство сложности. Проверять также малый вес, зависимости нескольких столбцов, недостаточный ранг и другие дешёвые решения.
+For prime q the kernel lattice has determinant q^rank(A), equal to q^n only at
+full row rank. Gaussian heuristics do not guarantee an admissible solution.
+A timeout means not found, not nonexistent.
 
-Для простого q решётка имеет определитель q^rank(A); значение q^n допустимо только при полном строковом ранге. Гауссова эвристика — ориентир для экспериментов, а не гарантия существования решения ниже выбранной границы.
-
-Если короткого решения у конкретного экземпляра нет, увеличение времени поиска его не создаст. Поэтому измеряем отдельно вероятность наличия решения и способность выбранного решателя его найти. Для больших задач тайм-аут означает «решение не найдено», а не «решения нет».
-
-### 4.2. Первый проверочный пример
-
-Тестовая матрица, заданная вручную только для проверки арифметики:
+Manual fixture:
 
 ~~~text
-q = 7, n = 1, m = 2, B2 = 5
-A = [1, 2]
-x = [2, -1]
-A*x = 0, ||x||² = 5 → принять
-
-x = [0, 0]  → отклонить: нулевое решение
-x = [1, 0]  → отклонить: неверное уравнение
-x = [7, 0]  → отклонить: норма слишком велика
-B2 = 4 при x = [2, -1] → отклонить: превышение границы
+q=7 n=1 m=2 B2=5 A=[1,2]
+[2,-1]: equation zero, squared norm 5 → accept
+[0,0]: reject zero
+[1,0]: reject equation
+[7,0]: reject norm
+[2,-1] at B2=4: reject norm
 ~~~
 
-Эти числа намеренно игрушечные и не подходят для майнинга. В сетевом verifier матрица всегда выводится из заголовка; передача произвольной матрицы от майнера запрещена.
+These are toy values. Network verification must derive A, not accept a miner's
+chosen matrix. Before optimization fix widths, byte order, signed encoding,
+lengths, residues, dimensions, domain strings and versions. Reject alternative
+encodings/trailing bytes and bound allocation before variable-length parsing.
 
-### 4.3. Кодирование
+Canonical sign: first nonzero coordinate positive. This removes x/−x only, not
+other short vectors or combinations. For ISIS, negation generally changes b.
 
-До оптимизации зафиксировать в спецификации:
+## 5. Binding work to blocks
 
-- порядок полей и байтов, ширины целых, кодирование знаковых координат;
-- предельную длину доказательства и допустимые координаты для каждого профиля;
-- однозначное представление нуля, запрет лишних байтов и альтернативных кодировок;
-- правило канонизации пары x и −x: в варианте SIS первый ненулевой элемент положителен;
-- семантику отрицательного остатка по модулю и точную проверку суммы квадратов;
-- лимиты n, m и q до выделения памяти и генерации матрицы;
-- точные строки разделения назначений, версию алгоритма и идентификатор сети;
-- алгоритм равномерного получения элементов Z_q из потока XOF; не использовать простое взятие остатка без анализа смещения.
-
-Правило знака устраняет только пару эквивалентных решений. Оно не устраняет многочисленные разные короткие векторы и их комбинации. Для ISIS правило знака SIS переносить нельзя: −x обычно решает задачу с −b.
-
-## 5. Привязка работы к блоку
-
-В исследовательском протоколе различать предварительный заголовок, доказательство и идентификатор блока, чтобы не получить циклическую зависимость.
+Avoid circular dependencies by separating preheader, proof and final block ID:
 
 ~~~text
-preheader = encode(
-    chain_id, protocol_version, pow_version, parameter_profile,
-    previous_block_id, height, transaction_root,
-    timestamp, difficulty_descriptor, reward_commitment, nonce
-)
-
+preheader = encode(chain_id, protocol_version, pow_version, parameter_profile,
+                   previous_block_id, height, transaction_root,
+                   timestamp, difficulty_descriptor, reward_commitment, nonce)
 instance_seed = SHAKE256(domain_instance || preheader)
 A = expand_matrix(instance_seed, profile)
 proof = canonical_encode(x)
 block_id = HASH(domain_block || preheader || proof)
 ~~~
 
-Это схема полей, не готовый бинарный формат. Конкретный HASH, размер вывода и формат должны быть закреплены до сетевых тестов. Профиль и descriptor сложности определяются правилами цепочки; майнер не может свободно выбрать более лёгкий профиль.
+This is a field sketch, not a finalized serialization. Fix exact hashes and
+widths before networking. Consensus determines allowed profiles/difficulty.
+Bind payout to the body; define consistency if coinbase is already committed
+through transaction_root.
 
-Commitment вознаграждения должен соответствовать телу блока. Если он уже входит в transaction_root через coinbase, нужно явно определить это соответствие и исключить противоречивые значения.
+Work must not transfer freely between parents/chains. Payout, transaction and
+difficulty changes must change the challenge. Include every field giving new
+score attempts. Replaying the same proof must not create additional work.
 
-Обязательные свойства:
+An old x may coincidentally solve a changed matrix: tests must check regeneration
+and independent validity, not assume mathematical coincidences are impossible.
 
-1. Работу нельзя перенести на другого родителя или другую сеть.
-2. Нельзя заменить получателя вознаграждения, не изменив задачу.
-3. Нельзя поменять состав транзакций или сложность после решения.
-4. Все изменяемые поля, которые дают новые попытки, входят в привязку задачи.
-5. Повторная отправка того же доказательства не создаёт новую работу.
+## 6. Candidate constructions
 
-Изменение заголовка не гарантирует, что старый x математически не подойдёт случайно к новой матрице. Тест должен проверять пересчёт экземпляра и независимую валидность, а не требовать невозможного универсального запрета совпадений.
+### A. Pure SIS with a norm threshold
 
-## 6. Три конструкции для сравнения
+Search header-bound instances; vary B2 inside a fixed profile. Verification is
+simple, but cost can be discrete and affected by instance selection, memory and
+preprocessing. Do not define weight as 1/B2 or an arbitrary vector-length function.
 
-### A. Чистый SIS с порогом нормы
-
-Майнер перебирает привязанные к заголовку матрицы и ищет допустимый короткий вектор. Сложность изменяется через B2 при фиксированном профиле.
-
-Преимущество: простая арифметическая проверка. Проблемы: дискретная и нелинейная цена решения, разные экземпляры, прогнозируемо лёгкие матрицы, память и предварительная обработка.
-
-Статус: основная исследовательская гипотеза. Не назначать вес блока как 1/B2 или как произвольную функцию «чем короче, тем дороже».
-
-### B. SIS фиксированной сложности плюс хеш-порог
-
-После получения допустимого x вычисляется:
+### B. Fixed SIS profile and an outer hash target
 
 ~~~text
 score = HASH(domain_score || preheader || canonical_encode(x))
 accept if score <= target
 ~~~
 
-Это кандидат для удобной внешней регулировки сложности, но не готовое решение проблемы. Если из одного найденного вектора или базы можно дёшево получать тысячи допустимых x, майнер получает много хеш-попыток за одну дорогую работу.
+This is a candidate, not solved work accounting. One vector or reduced basis can
+yield many admissible proof inputs. Study signs, multiples, gcd reduction,
+combinations, symmetries and free fields. A nonce changing score but not the
+challenge is unacceptable. Unique encoding does not ensure a unique solution.
 
-Проверить знаки, небольшие кратные, линейные комбинации, перестановки при наличии симметрий и все свободные поля. Запретить дополнительный nonce, влияющий только на score и не меняющий задачу. Однозначное кодирование не обеспечивает уникальность математического решения.
+For a uniform k-bit score and inclusive target T, success probability is
+(T+1)/2^k. Its reciprocal counts score trials, not automatically SIS solves.
+A work function must account for amortization.
 
-Вероятность успешного равномерного k-битного хеша при включительной границе T равна (T+1)/2^k. Обратная величина описывает число хеш-попыток, а не автоматически число SIS-вычислений. Вес цепочки на этой основе допустим только после анализа того, что именно стоит одна попытка и насколько работа амортизируется.
+### C. Generalized birthday problem with lattice constraints
 
-### C. Обобщённая задача дней рождения с решёточными ограничениями
+A separate Equihash-inspired branch [S4]; it does not inherit SIS security.
+Compare A/B first, then decide whether to pursue C. Distinct constructions need
+distinct pow_version identifiers and incompatible vectors.
 
-Отдельная исследовательская ветка, вдохновлённая Equihash [S4]. Может дать другой баланс памяти и проверки. Нельзя называть её чистым SIS-PoW или переносить на неё доказательства исходной SIS-задачи без обоснования.
+Compare intended solvers with attacks. Honest implementation speed does not
+establish the adversary's minimum cost.
 
-Сначала реализовать A и B на малых параметрах. К C переходить по результатам сравнения. Каждой конструкции назначить собственный pow_version и несовместимые тестовые векторы.
+## 7. Consensus decisions
 
-**Для любых вариантов:** измерять лучшую известную атаку наряду с честным решателем. Быстрая работа выбранного нами майнера ничего не говорит о минимальной цене работы противника.
+Explore Nakamoto consensus: miners propose, full nodes validate, greatest
+cumulative work selects among valid chains. Votes or operator signatures do not
+substitute for PoW.
 
-## 7. Что нужно решить о консенсусе
+An initial fixed-difficulty simulator may use equal weights as an explicit
+assumption, not as evidence of SIS security. Dynamic difficulty requires a
+deterministic work function. Do not use height alone, sum vector lengths, trust
+miner-reported seconds or use benchmark measurements as a consensus oracle.
+Bitcoin's target/work formula relies on hash search [S5].
 
-### 7.1. Базовая модель
-
-Предлагается исследовать цепочку Nakamoto: майнеры предлагают блоки, полные узлы проверяют все правила, выбор делается по накопленной работе среди валидных цепочек. Наличие подписи оператора или большинства голосов серверов не заменяет PoW.
-
-В первом симуляторе — фиксированный профиль и фиксированная сложность. Одинаковый вес блоков допустим здесь как явное лабораторное допущение, но не как установленная оценка безопасности SIS.
-
-Для динамической сети до запуска требуется однозначная детерминированная функция веса блока, согласованная с моделью работы. Нельзя просто сравнивать высоту цепочки при разной сложности, складывать длины векторов или использовать реальные секунды измерений майнера.
-
-В Bitcoin связь веса и target опирается на хеш-поиск [S5]. Перенос формулы на SIS без модели стоимости недопустим. Бенчмарки помогают выбрать параметры, но не являются криптографическим доказательством и не должны становиться внешним оракулом для полного узла.
-
-### 7.2. Таблица решений до testnet
-
-| Решение | Что должно быть зафиксировано |
+| Decision | Required specification |
 |---|---|
-| Fork choice | Вес блока, накопление без переполнения, допустимость цепочки, поведение при равном весе |
-| Равный вес | Для симулятора сохранять первую принятую ветку до появления большей работы; временные расхождения допустимы |
-| Сложность | Единственный алгоритм из истории предков, начальное значение, границы, округление и обработка редких блоков |
-| Время | Правило относительно прошлых блоков, предел будущего времени и различие временно отложенного блока от постоянно неверного |
-| Интервал блока | Измерения для 30/60/120 секунд в симуляторе; окончательный выбор после оценки распространения и проверки |
-| Доказательство | Формат, канонизация, предел байтов, цена проверки и обработка невалидных входов |
-| Заголовки | Как передавать и проверять PoW при синхронизации; обычного короткого заголовка без SIS-доказательства недостаточно |
-| Профиль параметров | Разрешённый набор и правила активации; неизвестные профили не принимаются |
-| Реорганизации | Откат состояния, повторная проверка и запрет повторного зачёта вознаграждения |
-| Обновления | Версия сети, высота активации и поведение старых узлов; никаких скрытых смен PoW |
+| Fork choice | Validity, weight, safe accumulation and equal-work behavior |
+| Equal work | Initially retain first accepted branch until greater work arrives |
+| Retarget | Ancestor-derived adjustment, starting value, bounds and rounding |
+| Timestamps | Past/future limits; temporary deferral vs permanent invalidity |
+| Block interval | Compare 30/60/120 seconds before selecting; no speed promise |
+| Proof | Format, maximum bytes, worst-case acceptance/rejection cost |
+| Header sync | Delivery and verification of SIS proofs, including light clients |
+| Profiles | Allowed parameters and activation; reject unknown profiles |
+| Reorg | Rollback, revalidation and no duplicate reward |
+| Upgrades | Version activation and behavior of old nodes |
 
-Порог в 30/60/120 секунд — набор сценариев для исследования, не обещание скорости. Число подтверждений не означает абсолютную финальность.
+Confirmations are probabilistic, not absolute finality. Dummy committed
+transactions in a simulator do not create a monetary blockchain. Before public
+testnet separately specify state, signatures, fees, subsidy/maturity, block
+limits and rollback.
 
-Транзакции, подписи и эмиссия в раннем стенде могут быть фиктивными данными с commitment. Такой стенд проверяет цепочку PoW и **не является денежным блокчейном**. Перед публичным testnet отдельная спецификация должна определить модель состояния, подписи, комиссии, вознаграждение, maturity, лимиты блока и правила отката. В этом документе её не подменяем.
+Compare fixed difficulty, windowed adjustment and per-block adjustment.
+Do not select WTEMA/ASERT by name before understanding the work model.
+Simulate capacity ×0.1/×0.5/×2/×10, major miners leaving, oscillation, propagation
+delays and timestamp manipulation using measured SIS distributions.
 
-### 7.3. Регулировка сложности
+Changes to B2 must not hide different work costs, cause prolonged unsolvable
+periods or permit cheap inflated-weight branches. Changing dimensions is a
+profile change requiring separate comparability analysis.
 
-Сначала симулировать фиксированную сложность, затем сравнить регулятор по окнам и подходящий алгоритм корректировки на каждый блок. До измерений не выбирать WTEMA/ASERT или иной алгоритм только по названию.
+## 8. Test plan
 
-Проверить мощность сети ×0,1 / ×0,5 / ×2 / ×10, уход крупнейшего майнера, циклическое подключение, задержки блоков и манипуляции timestamp. Для SIS использовать измеренные распределения поиска, а не только экспоненциальную модель хеш-майнинга.
+Current implementation coverage is tracked separately in docs/STATUS.md.
 
-Изменения B2 не должны незаметно менять обещанную стоимость, вызывать длительное отсутствие решений или позволять добыть дешёвую ветку с завышенным весом. Переключение размерностей — смена профиля с отдельным анализом сопоставимости работы.
-
-## 8. Тесты: что написать первым
-
-Тесты ниже — план, они ещё не реализованы и не запускались.
-
-### 8.1. Арифметика, формат и генератор
-
-| ID | Проверка | Ожидаемый результат |
+| ID | Case | Expected property |
 |---|---|---|
-| M01 | Ручной пример из раздела 4 | Эталон принимает корректный x и отвергает перечисленные неверные |
-| M02 | Нулевая, неверная и неполная длина вектора | Отказ до дорогих вычислений |
-| M03 | Норма ровно на границе и на единицу выше | Совпадение Python/Rust, точная целочисленная граница |
-| M04 | Отрицательные координаты, крайние числа, переполнение | Однозначная арифметика либо безопасный отказ |
-| M05 | q·e_i, разреженные и коллинеарные зависимости | Профиль с тривиальными решениями выявлен до майнинга |
-| M06 | Неизвестные версии, слишком большие параметры | Отказ до выделения большой памяти |
-| M07 | Лишние байты, альтернативная кодировка, −x | Принимается только заданная каноническая форма |
-| M08 | Один seed на разных платформах | Одинаковая матрица и байты промежуточных результатов |
-| M09 | Rejection sampling на границах | Точное совпадение с независимым эталоном; статистика — дополнительная проверка |
-| M10 | Полный перебор маленьких задач | Verifier принимает ровно множество решений, найденное независимым перебором |
+| M01 | Manual fixtures | Exact accept/reject |
+| M02 | Wrong/missing vector lengths | Early rejection |
+| M03 | Norm boundary and one above | Exact cross-language agreement |
+| M04 | Extreme/signed coordinates | Defined arithmetic or safe refusal |
+| M05 | q·e_i, sparse/column dependencies | Expose trivial profiles |
+| M06 | Unknown versions/huge dimensions | Reject before large allocation |
+| M07 | Alternative encodings, extra bytes, −x | Canonical encoding |
+| M08 | Same seed across platforms | Same matrix and intermediate bytes |
+| M09 | Rejection-sampling boundaries | Independent reference agreement |
+| M10 | Exhaustive tiny domains | Exactly the oracle's solution set |
 
-При тесте изменения координаты не считать любой мутированный вектор обязательно неверным: он может оказаться другим решением. Ожидаемый ответ вычисляет независимый эталон.
+A mutation may yield another valid vector: do not assume every mutation is invalid.
 
-### 8.2. Привязка и атаки
-
-| ID | Эксперимент | Что ищем |
+| ID | Attack | Investigate |
 |---|---|---|
-| A01 | Изменять parent, root, reward, nonce, сеть и версию | Независимую регенерацию задачи, отсутствие полей для бесплатного score-перебора |
-| A02 | Повторять proof и job | Повторный зачёт, replay между высотами, пулами и сетями |
-| A03 | Быстро сортировать множество матриц до решения | Преимущество от поиска особо лёгких экземпляров |
-| A04 | Сохранять базис/списки между nonce и блоками | Амортизацию и повторное использование работы |
-| A05 | Строить комбинации нескольких найденных решений | Число дешёвых допустимых proof для конструкции B |
-| A06 | Увеличивать память, число потоков и устройств | Нелинейные преимущества, барьер входа для обычной GPU |
-| A07 | Подавать почти правильные proof | Наихудшую цену отказа и возможность загрузить полный узел |
-| A08 | Манипулировать целью и временем | Недопустимый вес цепочки и обход retarget |
+| A01 | Change parent/root/payout/nonce/chain/version | Regeneration and free score fields |
+| A02 | Replay proofs/jobs | Duplicate credit |
+| A03 | Screen many matrices | Easy-instance selection |
+| A04 | Reuse bases/lists | Amortization within/across jobs |
+| A05 | Combine solutions | Cheap score multiplicity |
+| A06 | Scale memory/devices | Nonlinear advantage and hardware barriers |
+| A07 | Almost-valid proofs | Expensive rejection/node overload |
+| A08 | Manipulate target/time | Inflated weight and retarget bypass |
 
-### 8.3. Консенсус и сеть
+Consensus tests: shorter higher-work branch wins; invalid proof or target never
+wins on claimed work; equal-work forks; partitions/recovery; interrupted writes
+and reorg; genesis resync; bounded invalid-header queues; version activation.
+State convergence assumptions, including eventual connectivity and the
+adversary's effective-work share.
 
-- Более короткая цепочка с большей корректно рассчитанной работой побеждает более длинную с меньшей.
-- Неверный SIS-proof отвергается независимо от заявленного веса и числа потомков.
-- Неверный target/profile отвергается даже при математически верном x.
-- Ветки равного веса, параллельное нахождение блоков, разделение сети и последующее объединение.
-- При прекращении атак и достаточной связности узлы сходятся после появления ветки с большей работой; не требуем гарантии при контроле противником большинства эффективной мощности.
-- Перезапуск во время записи блока и отката: состояние соответствует выбранной цепочке.
-- Повторная синхронизация с genesis и с прерванной загрузки даёт одинаковый результат.
-- Пачка заголовков с дорогими неверными доказательствами не обходит лимиты памяти и очереди проверки.
-- При смене версии узлы строго соблюдают правила активации.
+Start with manual cases, exhaustive tiny spaces and ≥10000 reproducible
+differential cases. Add a bounded one-hour local fuzzing session with saved seeds.
+This budget is not certification. GPU outputs must pass exact verification even
+when their search heuristics use approximate arithmetic.
 
-### 8.4. Объём проверки
+## 9. Measurements and provisional targets
 
-Для первой итерации: ручные векторы, исчерпывающий перебор нескольких малых пространств и не менее 10 000 детерминированно воспроизводимых дифференциальных случаев. Затем отдельный ограниченный по времени fuzzing и корпус всех найденных ошибок.
+Define an attempt per construction. Solutions/second at different profiles, or
+against Equihash, are not directly comparable.
 
-Плановая первая сессия fuzzing — один час на локальной машине после базовых тестов, с лимитами CPU/RAM и сохранением seed. Это исходный бюджет, а не сертификат надёжности. Для GPU нужны сравнения с целочисленным verifier, включая ошибки округления во внутренних эвристиках решателя.
+Record source/config hashes, seeds, CPU/GPU/RAM/VRAM, OS/drivers/compiler flags;
+generation, reduction, search, proof and verification time; peak memory and
+transfers; first/subsequent solution costs; failures/timeouts; reliable energy
+measurements; and attack costs in comparable units.
 
-## 9. Что измерять вместо рекламного hashrate
+Separate cold and steady state. Preserve failures. Treat timeouts as censored
+observations. Publish raw data and uncertainty; do not infer p99 from a few successes.
 
-Единицу попытки определить отдельно для каждой конструкции. «Решений в секунду» при разных q, n, m и B2 сравнивать напрямую нельзя. Сравнение с Equihash по голому числу решений в секунду также бессодержательно.
+Initial sampling: 1000 cheap or 100 expensive instances before budgeting more.
+Provisional filter: verification including generation p95 ≤10 ms on a documented
+ordinary CPU; proof ≤16 KiB. Revisions must be explicit. ARM and history-sync
+costs require separate evaluation. These are engineering screens, not promises.
 
-Для каждого запуска сохранять:
-
-- версию кода, конфигурацию профиля, seeds и хеш набора экземпляров;
-- CPU/GPU, VRAM/RAM, ОС, драйвер, компилятор и флаги;
-- время генерации матрицы, построения базиса, LLL/BKZ, sieve, формирования proof и проверки;
-- пиковую память CPU/GPU, передачи данных, ошибки и количество тайм-аутов;
-- время до первого решения и стоимость последующих решений того же экземпляра;
-- p50/p95/p99 там, где выборка позволяет, доверительные интервалы и всю сырую выборку;
-- энергию на допустимое решение, если доступны надёжные измерения мощности;
-- цену найденных оптимизаций и атак в тех же единицах.
-
-Измерять холодный запуск и устойчивый режим отдельно. Не исключать неудачные экземпляры из среднего. Тайм-ауты учитывать как цензурированные наблюдения; p99 не объявлять достоверным по нескольким десяткам успешных попыток.
-
-Для дешёвых серий начать с 1 000 экземпляров; для дорогих сначала 100 с явной оговоркой о недостаточной оценке хвостов. Бюджет следующих серий определять по результатам и стоимости. Эти количества — план эксперимента, не доказательство безопасности.
-
-Предварительная инженерная цель: проверка одного proof вместе с генерацией матрицы — p95 не более 10 мс на документированном обычном CPU, proof не более 16 КиБ. Это начальный фильтр кандидатов, а не обещание скорости. Позже отдельно проверить ARM и цену синхронизации большой истории. Если цель не достигнута, оформить пересмотр параметров, а не скрыто ослаблять тест.
-
-## 10. Инструменты и структура будущего проекта
-
-Предлагается следующая структура; на момент создания документа эти компоненты ещё не созданы:
+## 10. Project layout and tools
 
 ~~~text
-spec/                   # математика, кодирование, PoW, chainwork
-reference/              # простой Python-verifier и генератор
-crates/sis-verifier/     # независимая реализация проверки
-solvers/                # CPU-baselines и экспериментальные решатели
-miners/                 # GPU-код после выбора конструкции
-simulator/              # цепочки, fork choice, сложность, задержки
-tests/vectors/          # фиксированные межъязыковые примеры
-tests/adversarial/      # regression-тесты атак и некорректных входов
-benchmarks/configs/     # профили и зафиксированные наборы seeds
-benchmarks/results/     # метрики и ссылки на большие артефакты
-docs/decisions/         # решения с основаниями и статусом
+spec/                 mathematical and protocol specifications
+reference/            transparent Python verifier and bounded probes
+crates/sis-verifier/   independent verifier
+solvers/              future CPU algorithms
+miners/               future GPU implementations
+simulator/            future chain and difficulty experiments
+tests/vectors/        fixed fixtures
+tests/adversarial/    future regression corpus
+benchmarks/           future pinned experiments
+docs/decisions/       decisions and evidence
 ~~~
 
-Python нужен для прозрачной математики, анализа и оркестрации, Rust — для независимого ограниченного по ресурсам verifier. G6K/fplll/fpylll [S2] использовать как исследовательские инструменты, а не готовый сетевой консенсус. Закреплять версии и учитывать лицензии перед включением кода в распространяемый продукт.
+G6K/fplll/fpylll [S2] are potential research tools, not network consensus code.
+Pin versions and review licenses. GPU lattice research [S3] does not establish
+our parameters or consumer-hardware suitability. Reproduce and profile first.
+Use isolated Linux/WSL if needed after inspecting existing tools.
 
-Существуют исследования GPU-sieving [S3], но их результаты не гарантируют пригодность наших профилей или работу на массовых видеокартах. До написания своего ядра повторить подходящий небольшой baseline и профилировать реальное узкое место.
+Keep one local fast-check command. Expensive fuzzing and benchmarks require
+explicit commands, never automatic execution when opening the project.
 
-Для тяжёлых зависимостей допустима отдельная Linux/WSL-среда. Сначала проверить уже установленное окружение. Одна документированная локальная команда должна запускать быстрые тесты; бенчмарки и GPU-прогоны — отдельные явные команды. Не запускать тяжёлые вычисления при обычном открытии проекта.
+## 11. Milestones
 
-## 11. Этапы и условия перехода
-
-| Этап | Результат | Условие перехода |
+| Stage | Deliverable | Gate |
 |---|---|---|
-| E0. Спецификация лаборатории | Норма, профили, формат, seed, threat model, ручные примеры | Нет противоречий в определениях; ясно, что считается попыткой |
-| E1. Проверка и тесты | Python/Rust verifier, общий корпус, малый полный перебор | Все корректностные тесты проходят; нет расхождений и неограниченного разбора входов |
-| E2. Исследование решателей | Сырые данные, CPU-baselines, атакующие стратегии | Хотя бы один профиль заслуживает дальнейшего анализа; его стоимость не определяется уже найденным тривиальным обходом |
-| E3. Выбор PoW | Сравнение A/B, обоснование сложности и chainwork, список нерешённых вопросов | Есть проверяемая модель работы; независимый специалист не обнаружил блокирующего дефекта |
-| E4. Симулятор | Fork choice, timestamps, retarget, перегрузка, разделения | Правила детерминированы; нет известной стратегии дешёвой ветки с завышенным весом |
-| E5. GPU | Майнер и воспроизводимые сравнения оборудования | Proof всегда проверяется эталоном; измерены RAM/VRAM, энергия и масштабирование |
-| E6. Локальная devnet | Несколько процессов полного узла и минимум два независимых процесса майнинга | Синхронизация, конкурирующие блоки, рестарт и реорганизации проходят |
-| E7. Внешний testnet | Опубликованная спецификация, сборки, тесты и результаты исследования | Закрыты блокирующие замечания; определены транзакционные правила и все сетевые лимиты |
+| E0 | Math, encoding, seed, threats, manual cases | Coherent definitions |
+| E1 | Verifiers, corpus, exhaustive oracle | Agreement and bounded parsing |
+| E2 | CPU baselines, raw data, attacks | No known trivial bypass in retained candidates |
+| E3 | A/B decision, difficulty/work argument | Model and independent expert review |
+| E4 | Fork/retarget/time/overload simulator | Deterministic rules, no known cheap inflated-weight branch |
+| E5 | GPU miner and hardware comparison | Exact verification; resource/energy/scaling data |
+| E6 | Local nodes and ≥2 miner processes | Sync, forks, restart and reorg pass |
+| E7 | External testnet and published artifacts | Blocking findings closed; complete transaction/resource rules |
 
-Локальные процессы не доказывают независимость операторов. Перед внешним testnet нужны участники на разных машинах и сетях. Публичный testnet не равен mainnet и не предполагает стоимость монет.
+Local processes do not establish independent operation. External testnet requires
+separate operators, machines and networks. Testnet does not imply coin value.
+E2/E3 are research: estimate effort after data, not from the proposal's
+unvalidated person-month numbers.
 
-Сроки E2–E3 нельзя честно гарантировать заранее: это исследование, которое может потребовать изменения конструкции. После E1 и первых измерений составить оценку трудозатрат по фактическим данным. Не использовать оценки «6–12 человеко-месяцев» исходного файла как обязательство.
+## 12. First sprint
 
-## 12. Первый практический спринт
+Specify laboratory and competing hypotheses; implement exact verifier and manual
+cases; add deterministic generation/vectors; compare exhaustive tiny spaces;
+add Rust and differential tests; probe trivial solutions/combinations; collect
+CPU baselines including timeouts; report rejected profiles and open questions.
 
-Рабочий порядок задач, без обещания календарной длительности:
+Success means another developer reproduces the results, not a large codebase
+or an increasing miner counter.
 
-1. Записать короткую спецификацию SIS-лаборатории и список несовместимых гипотез A/B/C.
-2. Реализовать только целочисленный verifier и ручные тесты M01–M07.
-3. Добавить детерминированный генератор матриц и фиксированные тестовые векторы.
-4. Написать полный перебор для маленьких параметров и сравнить множества решений.
-5. Создать независимый Rust-verifier и дифференциальные тесты.
-6. Проверить тривиальные решения, комбинации векторов и заголовки с изменёнными полями.
-7. Подключить CPU-baselines и собрать первую выборку с учётом тайм-аутов.
-8. Составить короткий отчёт: какие профили отвергнуты, какие остаются, что неизвестно о сложности.
+## 13. Stop or revise when
 
-Первый спринт завершён, когда другой разработчик может воспроизвести проверки и получить те же ответы. Количество написанных строк, наличие майнера с интерфейсом и рост счётчика решений не являются критерием успеха.
+- Accepted proofs multiply cheaply without corresponding work accounting.
+- Easy-instance screening invalidates the work model.
+- Work cannot be compared after difficulty changes.
+- Invalid proofs cheaply overload full nodes.
+- Memory requirements exclude target hardware or GPU benefit is unsupported.
+- A changed task retains an obsolete security argument.
+- Progress depends on unestablished claims.
 
-## 13. Критерии остановки или изменения направления
+Reject or revise the hypothesis explicitly. Switching away from SIS is a new
+decision, not a hidden fallback.
 
-- Решения можно массово порождать из ранее найденных почти без новой дорогой работы, а правила веса этого не учитывают.
-- Дешёвый отбор матриц радикально меняет стоимость относительно принятой модели.
-- Нет понятного способа сопоставлять работу блоков после изменения сложности.
-- Обычный полный узел можно перегрузить коротким потоком невалидных доказательств.
-- Параметры требуют недоступной целевой аудитории памяти или преимущество GPU отсутствует вопреки цели проекта.
-- Пересмотр нормы, seed или параметров фактически создаёт новую задачу, а обоснование осталось от старой.
-- Для продолжения приходится заявлять стойкость, которую ещё не исследовали.
+## 14. Open questions
 
-При таком результате сначала менять или закрывать конкретную гипотезу. Подмена SIS обычным хешированием или другой задачей допустима только как явно оформленное новое решение. Название проекта не обязывает сохранять неработающий алгоритм.
+Task choice; practical profiles; reuse; instance selection and distributions;
+weight/retarget; CPU/ARM history cost; light-client proof delivery; concentrated
+memory/private solvers; node base; and required independent cryptographic review.
 
-## 14. Что пока открыто
+Use “experimental SIS-PoW” until specific claims have adequate evidence.
 
-- Чистый SIS, ISIS, гибрид с хеш-порогом или другая конструкция?
-- Какие параметры обеспечивают нужную цену поиска на реальном оборудовании?
-- Сколько работы можно переиспользовать в пределах экземпляра, блока и между блоками?
-- Каковы распределение стоимости и возможности выбора лёгких экземпляров?
-- Как определить weight и безопасно менять сложность?
-- Насколько дорого проверять многолетнюю историю на CPU и ARM?
-- Нужны ли специальные механизмы для лёгких клиентов при выбранном формате proof?
-- Какова стоимость атаки при концентрации оборудования, памяти или закрытого решателя?
-- Какой код узла использовать после фиксации требований: существующую базу или отдельный исследовательский узел?
-- Какое независимое криптографическое исследование необходимо перед публичным запуском?
+## 15. Sources
 
-Ответы оформлять как решения с измерениями и ссылками. В технических материалах до этого использовать обозначение «экспериментальный SIS-PoW», без заявлений о доказанной ASIC- или квантовой стойкости.
+Checked 2026-10-08. These establish definitions and examples, not our security.
 
-## 15. Источники и границы выводов
-
-Проверено 8 октября 2026 года. Внешние ссылки дают определения, инструменты и примеры подходов. Они не подтверждают безопасность предлагаемого Magnet Network PoW.
-
-- **S1.** [MIT, Applied Cryptography and Security: SIS definition and insecure parameter settings](https://65610.csail.mit.edu/2024/handouts/pset1.pdf). Учебное определение SIS; используемая там L∞-норма отличается от выбранной здесь лабораторной L2.
-- **S2.** [G6K — General Sieve Kernel](https://github.com/fplll/g6k). Исследовательская библиотека решёточного sieving; ориентир для baselines, воспроизводимости и зависимостей.
-- **S3.** [Ducas, Stevens, van Woerden: Advanced Lattice Sieving on GPUs, with Tensor Cores](https://eprint.iacr.org/2021/141). Пример GPU-реализации решёточных алгоритмов, а не готовый SIS-майнер.
-- **S4.** [Biryukov, Khovratovich: Equihash](https://orbilu.uni.lu/handle/10993/22277). Пример асимметричного PoW на обобщённой задаче дней рождения; не доказательство для новой решёточной конструкции.
-- **S5.** [Bitcoin Developer Guide: Block Chain](https://developer.bitcoin.org/devguide/block_chain.html) и [Mining](https://developer.bitcoin.org/devguide/mining.html). Принципы PoW-цепочки, target, проверки и разделения ролей.
-- **S6.** [NIST Post-Quantum Cryptography](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography). Разделение задач подписи и установления ключей; выбор PoW не заменяет проектирование этих компонентов.
-
-На дату создания выполнено только составление этого плана. Реализации, тестовых прогонов, выбранных рабочих параметров и подтверждённых результатов производительности пока нет.
+- [S1: MIT SIS definitions](https://65610.csail.mit.edu/2024/handouts/pset1.pdf).
+  Its L∞ definition differs from this lab's L2 choice.
+- [S2: G6K](https://github.com/fplll/g6k).
+- [S3: Advanced Lattice Sieving on GPUs](https://eprint.iacr.org/2021/141).
+- [S4: Equihash](https://orbilu.uni.lu/handle/10993/22277).
+- [S5: Bitcoin chain rules](https://developer.bitcoin.org/devguide/block_chain.html)
+  and [mining](https://developer.bitcoin.org/devguide/mining.html).
+- [S6: NIST post-quantum cryptography](https://csrc.nist.gov/Projects/Post-Quantum-Cryptography).

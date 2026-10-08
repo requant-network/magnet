@@ -1,87 +1,85 @@
-# SIS-LAB-v1: спецификация арифметического стенда
+# SIS-LAB-v1: arithmetic laboratory specification
 
-Статус: реализованная лабораторная спецификация, 8 октября 2026 года.
-Это не формат блока и не сетевой протокол Magnet Network.
+Status: implemented laboratory specification, 2026-10-08.
+This is neither a block format nor a Magnet Network wire protocol.
+English is authoritative; the [Russian snapshot](../docs/ru/spec/01-sis-lab-v1.md)
+is secondary.
 
-## 1. Параметры
+## 1. Parameters and acceptance
 
-Профиль задаётся четырьмя целыми: q, n, m, B2.
-
-| Поле | Диапазон |
+| Field | Laboratory range |
 |---|---|
-| q | Простое, 2 ≤ q ≤ 65521 |
+| q | Prime, 2 ≤ q ≤ 65521 |
 | n | 1 ≤ n ≤ 64 |
 | m | 1 ≤ m ≤ 128 |
 | B2 | 1 ≤ B2 < q² |
 
-Диапазоны ограничивают расходы лаборатории и не выражают криптографическую
-стойкость. Не требуем n < m или полного ранга: малые и вырожденные задачи нужны
-для тестов и изучения атак. Они не должны выдаваться за безопасные экземпляры.
+These bounds control laboratory cost, not cryptographic strength. We do not
+require n < m or full row rank: degenerate instances are useful attack fixtures.
 
-Матрица A содержит n строк по m элементов; элементы — целые остатки 0 ≤ a < q.
-Вектор x содержит m целых со знаком, каждое представимо в i32.
-
-Verifier принимает запись тогда и только тогда, когда её формат корректен и:
+A has n rows of m canonical integer residues, 0 ≤ a < q. The vector x has m
+signed i32 coordinates. Accept exactly when the format is valid and:
 
 ~~~text
-x не нулевой;
-первый ненулевой x[i] положителен;
+x is nonzero;
+the first nonzero coordinate is positive;
 sum(x[i]^2) <= B2;
-для каждой строки r: sum(A[r,i] * x[i]) mod q == 0.
+for each row r: sum(A[r,i] * x[i]) mod q == 0.
 ~~~
 
-Проверка нормы выполняется точно. Положительный первый элемент устраняет
-дублирование x/−x. Никаких требований примитивности или gcd координат нет:
-дешёвые кратные и комбинации — предмет следующих экспериментов.
+All arithmetic is exact. The sign rule removes x/−x duplication. There is no gcd
+or primitivity restriction: multiples and combinations are research subjects.
+A matrix with a zero column may admit a trivial but valid solution. The verifier
+must accept it; arithmetic validity is different from PoW security.
 
-Если n, m, q или B2 недопустимы, запись отклоняется до разбора переменного тела.
-Матрица с нулевыми столбцами может иметь очень простое корректное решение.
-Verifier должен принять такое решение; это корректность SIS, а не безопасность PoW.
+Invalid parameters are rejected before variable-length decoding. The norm is
+checked before matrix multiplication. In Rust, each i32 square fits i64 and is
+checked against the remaining u64 norm budget before addition. Accepted coordinates
+have magnitude less than q, bounding subsequent modular operations.
 
-## 2. Бинарная запись для межъязыкового сравнения
+## 2. Cross-language binary case
 
-Все многобайтовые значения little-endian. Знаковые координаты — two's complement.
+All multibyte values are little-endian; signed coordinates use two's complement.
 
-| Смещение | Размер | Значение |
+| Offset | Bytes | Field |
 |---|---|---|
 | 0 | 4 | ASCII SIS1 |
 | 4 | 4 | q, u32 |
 | 8 | 2 | n, u16 |
 | 10 | 2 | m, u16 |
 | 12 | 8 | B2, u64 |
-| 20 | 4·n·m | A, u32, построчно |
+| 20 | 4·n·m | A, row-major u32 |
 | 20+4·n·m | 4·m | x, i32 |
 
-Полная длина строго 20 + 4·n·m + 4·m, максимум 33300 байт.
-Лишние байты, усечение, неизвестный magic и остатки a ≥ q запрещены.
-В Python bool не принимается вместо целого числа. Encode может сериализовать
-математически неверное доказательство с корректной формой для отрицательных тестов.
+Length is exactly 20 + 4·n·m + 4·m, at most 33300 bytes. Reject trailing bytes,
+truncation, unknown magic and noncanonical residues. Python bool is not an integer
+field. Encoding permits structurally correct but mathematically invalid vectors
+for negative fixtures.
 
-Ручной пример:
+Manual fixture:
 
 ~~~text
 q=7 n=1 m=2 B2=5 A=[1,2] x=[2,-1]
 5349533107000000010002000500000000000000010000000200000002000000ffffffff
 ~~~
 
-## 3. Rust-адаптер stdin/stdout
+## 3. Rust stdin/stdout adapter
 
-Вход — последовательность кадров: длина записи u32 little-endian, затем запись.
-Ответ на каждый полный кадр — один байт 0 (неверно) или 1 (верно).
+Each input frame is a u32 length followed by that many case bytes. Each complete
+bounded frame produces one byte: 0 for rejection or 1 for acceptance.
 
-Корректный пустой stdin завершает программу успешно. Пустой кадр получает 0.
-Усечённый размер/кадр и размер более 33300 завершают процесс с ошибкой.
-Большая длина отклоняется до выделения буфера. Повреждённая SIS-запись внутри
-полного допустимого кадра получает 0, после чего можно проверять следующий кадр.
+Empty stdin exits successfully. An empty frame produces 0. A truncated length,
+truncated frame or length above 33300 exits with an error. Excessive length is
+rejected before allocation. Invalid case contents in a complete frame produce 0
+and do not prevent processing the next frame.
 
-Адаптер — локальная утилита: нет сокетов, пользователей, ключей и тайм-аутов сессии.
-Внешний стенд ограничивает время subprocess. Подключать stdin-адаптер напрямую
-к недоверенной сети нельзя: для сетевого протокола нужны отдельные квоты и deadline.
+This is a local utility with no sockets, accounts or session deadline. The test
+driver limits subprocess duration. A network adapter would require independent
+quotas, concurrency limits and deadlines.
 
-## 4. Генерация матрицы в Python
+## 4. Python matrix expansion
 
-Seed — ровно 32 публичных байта. Это не приватный ключ и не случайность кошелька.
-Профиль проверяется до выделения матрицы.
+Seed is exactly 32 public bytes, not a wallet secret. Validate the profile first.
 
 ~~~text
 domain = ASCII("MagnetNetwork/SIS-LAB/matrix/v1") || 0x00
@@ -92,51 +90,42 @@ max_draws = 4*count + 1024
 cutoff = 65536 - (65536 mod q)
 ~~~
 
-Читаем не более max_draws 16-битных little-endian слов. Слово w ≥ cutoff
-отбрасывается, иначе элемент равен w mod q. Первые n*m принятых элементов
-заполняют матрицу построчно. Если их не хватило, возвращается ошибка; нет
-дополнительной генерации, подмены seed или fallback на другой алгоритм.
+Read at most max_draws little-endian u16 words. Reject w ≥ cutoff; otherwise emit
+w mod q. The first n*m accepted values fill A row-major. Exhausting the budget
+is an error: no fallback, seed substitution or unbounded additional sampling.
+The maximum stream allocation is 67584 bytes. SHAKE256 comes from hashlib.
 
-Предельный поток — 67584 байта. Генератор использует стандартный hashlib,
-криптографические примитивы самостоятельно не реализуются.
-
-Фиксированный пример:
+Frozen fixture:
 
 ~~~text
-q=7 n=2 m=3 B2=5, seed=32 нулевых байта
+q=7 n=2 m=3 B2=5, seed=32 zero bytes
 A = [[1,0,6], [6,0,6]]
 ~~~
 
-Этот вектор фиксирует текущую реализацию, а не является независимой
-криптографической сертификацией. Дополнительно проверяется известный ответ SHAKE256
-для пустой строки и отдельное считывание потока на q=32771, где rejection частый.
+This records implementation behavior, not independent cryptographic certification.
+Tests also check the empty-input SHAKE256 known answer, an independently
+consumed stream at q=32771 with frequent rejection, and forced budget exhaustion.
 
-Генератор пока существует только на Python. Rust независимо проверяет уже
-переданную матрицу и вектор; равенство генераторов на двух языках ещё не заявляется.
+Rust currently verifies supplied matrices; it does not independently expand SHAKE.
+Changing B2 in this generator changes the matrix. Threshold studies must explicitly
+freeze a generation profile when comparing acceptance bounds on the SAME matrix.
 
-## 5. Исчерпывающий решатель
+## 5. Exhaustive oracle
 
-Для radius = floor(sqrt(B2)) перебирается [-radius, radius]^m.
-До начала перебора проверяется (2·radius+1)^m ≤ 1 000 000.
-Далее применяются норма, канонический знак и модульные уравнения.
+For radius=floor(sqrt(B2)), enumerate [-radius,radius]^m after checking the box
+contains at most 1 000 000 candidates. Apply norm, sign and modular equations.
 
-Завершённый перебор без результатов доказывает отсутствие допустимого решения
-только в данном малом экземпляре. Превышение бюджета вызывает ошибку; его нельзя
-интерпретировать как отсутствие решений. LLL/BKZ и GPU пока не реализованы.
+A completed empty enumeration proves nonexistence only for that particular tiny
+instance. Budget exhaustion is an error, not a proof of nonexistence.
+LLL/BKZ and GPU search are not implemented.
 
-## 6. Проверки и граница доказательств
+## 6. Verification boundary
 
-Локальная команда python scripts/check.py запускает:
+python scripts/check.py runs Rust formatting/lints/tests, Python tests including
+tiny exhaustive spaces, and 10000 seeded differential cases plus manual and
+extreme cases. Separate checks exercise invalid framing and empty streams.
 
-1. rustfmt и clippy с ошибкой при предупреждениях.
-2. Rust-тесты арифметики, диапазонов и формата.
-3. Python-тесты, включая полный перебор малых пространств.
-4. 10 000 псевдослучайных сравнений Python/Rust с seed=20261008.
-5. Дополнительные ручные и предельные векторы, ошибки кадрирования.
-
-Корпус содержит положительные случаи с одинаковыми первыми двумя столбцами,
-мутации, случайные байты и произвольные векторы. Конструкция положительных
-примеров заведомо лёгкая и используется исключительно для тестирования verifier.
-
-Это дифференциальные и граничные проверки, не часовой fuzzing и не аудит SIS-PoW.
-Привязки к блокам, target, chainwork, reorg и оплаты связи в этом формате нет.
+Constructed positive fixtures have identical first columns; they are deliberately
+easy verification tests. A differential pass is not long-running fuzzing or a
+security audit. No block binding, target, chainwork, reorg or service payment is
+encoded here. See docs/STATUS.md for current test counts and experimental results.

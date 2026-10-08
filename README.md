@@ -1,59 +1,60 @@
 # Magnet Network — SIS-PoW laboratory
 
-Приватное исследование решёточного Proof of Work для будущей сети Magnet Network.
-Начальная реализация проверяет короткие целочисленные решения SIS и помогает
-сравнивать конструкции. Рабочего блокчейна, монеты и GPU-майнера пока нет.
+Private research into lattice-based Proof of Work for a future Magnet Network.
+This repository currently verifies Short Integer Solutions and studies candidate
+PoW constructions. It does not implement a blockchain, currency, or GPU miner.
 
-## Что уже реализовано
+**English is the primary repository language.** Russian is secondary:
+see the [Russian documentation index](docs/ru/README.md).
 
-- Эталонный целочисленный verifier на Python.
-- Независимый verifier и ограниченный бинарный адаптер на Rust.
-- Детерминированный генератор матриц SHAKE256 с rejection sampling на Python.
-- Полный перебор маленьких задач с ограничением числа кандидатов.
-- Ручные, граничные, исчерпывающие и дифференциальные тесты.
-- Воспроизводимый эксперимент на 128 игрушечных экземплярах SIS.
+## Implemented
 
-Обе реализации используют только стандартные библиотеки. Rust собирается offline,
-сторонних Cargo-зависимостей нет. GitHub Actions не настроены: проверки локальные.
+- Exact Python verifier and an independently implemented Rust verifier.
+- Bounded binary test adapter and Python SHAKE256 matrix expansion.
+- Exhaustive solver for tiny instances with a hard search budget.
+- Manual, boundary, exhaustive and cross-language differential tests.
+- Reproducible studies of solution availability, reuse and sparse screening.
 
-## Запуск
+Only standard libraries are used. Cargo builds offline without third-party crates.
+GitHub Actions are intentionally absent; checks and experiments run locally.
 
-Проверено с Python 3.12.10 и Rust 1.98.1 на Windows. Нужны Rust-компоненты rustfmt
-и clippy. Для первой проверки на другой ОС следует повторить весь набор тестов.
+## Run locally
 
-Из корня проекта:
+Tested on Windows with Python 3.12.10 and Rust 1.98.1, including rustfmt and clippy.
+Other platforms must repeat the checks before claiming support.
 
 ~~~sh
 python scripts/check.py
 python scripts/toy_survey.py
+python scripts/reuse_survey.py
 ~~~
 
-Первая команда проверяет формат Rust, запускает clippy, Rust/Python-тесты и
-сравнивает ответы двух verifier на детерминированном корпусе. Вторая полностью
-перебирает маленькие задачи; она не измеряет производительность будущего майнинга.
+The first command runs formatting/lint checks, tests and a deterministic
+Python/Rust differential corpus. Surveys exhaust tiny finite spaces; they do not
+benchmark production mining. Reports are written to ignored artifacts/.
 
-Локальные отчёты создаются в игнорируемой папке artifacts. Сводку проверенного
-этапа смотрите в [docs/STATUS.md](docs/STATUS.md).
+## Documentation
 
-## Документы
+- [Research and consensus plan](01-SIS-POW-RESEARCH-PLAN.md).
+- [Implemented SIS-LAB-v1 specification](spec/01-sis-lab-v1.md).
+- [Current status and verification](docs/STATUS.md).
+- [Solution reuse study](docs/research/solution-reuse-v1.md).
+- [Research boundary decision](docs/decisions/0001-research-boundary.md).
+- [Threat model](docs/THREAT-MODEL.md).
+- [Language policy](docs/LANGUAGE.md).
+- [Original SIS proposal](docs/research/lattice-sis-pow-deep-dive.md):
+  historical hypotheses, not an accepted security specification.
 
-- [План исследования и консенсуса](01-SIS-POW-RESEARCH-PLAN.md).
-- [Точная спецификация лаборатории SIS-LAB-v1](spec/01-sis-lab-v1.md).
-- [Решения о PoW и консенсусе](docs/decisions/0001-research-boundary.md).
-- [Границы доверия и атаки](docs/THREAT-MODEL.md).
-- [Исходная исследовательская заметка](docs/research/lattice-sis-pow-deep-dive.md) —
-  содержит непроверенные гипотезы; замечания перечислены в плане.
+## Scope boundary
 
-## Граница реализации
+The laboratory accepts a caller-supplied matrix. A network PoW verifier must
+instead derive its own instance from a block-bound header. Accepting an arbitrary
+matrix from a miner would allow deliberately easy instances.
 
-Лабораторный формат принимает матрицу от вызывающей программы. Это нужно для
-проверки арифметики и **недопустимо для сетевого PoW**: майнер мог бы подставить
-лёгкую матрицу. Будущий verifier должен сам получать её из привязанного к блоку
-заголовка. Такой заголовок и правила chainwork пока не реализованы.
+Header binding, difficulty, chainwork, block consensus, wallets and payments are
+not implemented. Small-instance results do not establish GPU advantage, ASIC
+resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Результаты маленьких задач не доказывают стойкость SIS-PoW, GPU-преимущество,
-защиту от ASIC или квантового противника. Параметры лаборатории не являются
-параметрами mainnet. Приложение MagnetGate этим проектом пока не изменяется.
-
-Следующий этап: исследовать стоимость поиска и дешёвое размножение решений в
-конструкциях A/B, затем выбирать модель сложности и накопленной работы.
+Next: quantify preprocessing and solution reuse under explicit work models before
+selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
+network service delivery or of a particular amount of computation.

@@ -1,34 +1,31 @@
-# ADR 0001: сначала арифметический стенд, затем решение о консенсусе
+# ADR 0001: arithmetic laboratory before consensus selection
 
-Дата: 2026-10-08. Статус: принято для первого исследовательского этапа.
+Date: 2026-10-08. Status: accepted for the first research phase.
 
-## Решение
+## Decision
 
-Исследуем SIS, L2 через B2, целочисленный bounded verifier и детерминированные
-матрицы. Начинаем с двух независимых проверок на Python/Rust без сторонних
-зависимостей. Переданный извне A допустим только для лаборатории.
+Study SIS with exact squared L2 norm B2, bounded verification and deterministic
+matrices. Start with independent Python/Rust verifiers using standard libraries.
+Caller-supplied matrices are a laboratory facility only.
 
-Репозиторий приватный. Секреты и материалы с ключами не нужны стенду и не
-переносятся из MagnetGate. CI не создаётся; единая команда проверяет всё локально.
+Keep the repository private. Do not import secrets or key material from MagnetGate.
+Run the unified check locally; do not introduce GitHub Actions by default.
 
-## Что намеренно остаётся открытым
+## Open decisions
 
-Выбор между чистым SIS и SIS+hash target, безопасная модель работы, chainwork,
-retarget, блоки, транзакции, подписи, GPU-алгоритм и mainnet-параметры.
+Pure SIS versus SIS+hash target, secure work accounting, chainwork, retarget,
+blocks, transaction signatures, GPU algorithm and mainnet parameters remain open.
 
-Nakamoto consensus остаётся кандидатом. Нельзя назвать его реализованным после
-написания verifier. Нельзя использовать вес 1/B2 или автоматически переносить
-Bitcoin chainwork на SIS. Отдельный документ потребуется после экспериментов.
+Nakamoto consensus is a candidate, not an implemented component. Do not invent
+weight=1/B2 or copy Bitcoin chainwork to SIS without a work model. A separate
+decision must follow the experiments.
 
-## Почему
+## Rationale and next gate
 
-Модель сложности и переиспользование решений могут оказаться блокирующими.
-Независимая проверка арифметики и исчерпывающие маленькие случаи дают проверяемую
-основу до вложений в GPU и форк полноценного узла.
+Difficulty and solution reuse can invalidate the construction. Independent
+arithmetic checks and exhaustive toy cases provide a foundation before investing
+in GPU development or a node fork.
 
-## Следующий критерий перехода
-
-Зафиксировать цену поиска и размножения допустимых решений для конструкций A/B,
-включая векторы-кратные, комбинации и выбор лёгких экземпляров. Только затем
-проектировать учёт работы и симулятор цепочки. Удачные тесты verifier не закрывают
-эту исследовательскую задачу.
+Measure search and solution reuse for A/B, including multiples, combinations and
+selection of easy instances. Only then design work accounting and a chain simulator.
+Passing verifier tests does not close this research question.
