@@ -1,0 +1,16 @@
+.codegraph/
+.venv/
+__pycache__/
+*.py[cod]
+/target/
+/artifacts/
+.env
+.env.*
+!.env.example
+/key/
+/keys/
+*.pem
+*.key
+*.p12
+*.pfx
+*.log
