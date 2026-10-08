@@ -34,6 +34,9 @@ see the [Russian documentation index](docs/ru/README.md).
 - Paid MITM/sparse/LLL/limited BKZ/sieve portfolio with externally bounded campaigns.
 - MGB1 body/recipient/target commitments and fixed-policy laboratory chain admission.
 - Explicit construction/parameter/work decisions scoped to demonstration use.
+- Independent complete Rust MGB1 parser and fixed-policy linear chain engine.
+- Bounded real-block forks, atomic canonical replay and delivery/partition simulation.
+- Synthetic retarget hypotheses and concrete paid block-reuse counterexamples.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -57,6 +60,11 @@ python scripts/lattice_survey.py
 python scripts/binding_survey.py
 python scripts/grinding_survey.py
 python scripts/joint_survey.py
+python scripts/chain_survey.py
+python scripts/fork_survey.py
+python scripts/work_weight_study.py
+python scripts/difficulty_survey.py
+python scripts/resource_survey.py
 ~~~
 
 The complete lattice sphere survey uses the explicit optional environment:
@@ -84,6 +92,10 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Implemented SIS-LAB-v1 specification](spec/01-sis-lab-v1.md).
 - [Current status and verification](docs/STATUS.md).
 - [Backlog 1–10 milestone](docs/research/pool-portfolio-and-blocks-v1.md).
+- [Backlog 11–15 milestone](docs/research/chain-forks-and-retarget-v1.md).
+- [Native full-chain specification](spec/12-native-chain-v1.md).
+- [Fork and retarget experiments](spec/13-fork-and-retarget-lab-v1.md).
+- [Fork simulation and open work-weight decision](docs/decisions/0012-fork-simulation-without-priced-work.md).
 - [Experimental construction and chain decision](docs/decisions/0011-experimental-construction-and-chain.md).
 - [Paid pool/solver specification](spec/10-pool-portfolio-v1.md).
 - [Experimental block and linear-chain specification](spec/11-experimental-block-chain-v1.md).
@@ -128,12 +140,13 @@ MGH1 bound proof format derives A internally from a research header and requires
 trusted external context. Accepting an arbitrary matrix or miner-chosen policy
 would allow deliberately easy instances. These remain local research tools.
 
-Production difficulty/chainwork, fork consensus, wallets and payments are not implemented.
-MGB1 and the fixed-policy linear chain are explicitly experimental prototypes.
+Production difficulty/chainwork, wallets and payments are not implemented.
+MGB1 linear engines and the fixed-policy fork tree are experimental prototypes.
+Dynamic-target experiments use a separate synthetic model.
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: independent full-chain implementation, portable work argument,
-retarget/fork/reorg simulation, larger optimized/hardware baselines and
+Next: portable adversarial work argument, secure profile/retarget selection,
+persistence/pruning and peer synchronization, larger optimized/hardware baselines and
 external cryptographic review. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.

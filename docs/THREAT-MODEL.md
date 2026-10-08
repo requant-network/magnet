@@ -191,9 +191,35 @@ Future-time deferral is distinct from proof invalidity. Non-tip parent status
 does not mean a competing branch was validated or intrinsically rejected.
 
 The linear chain assumes a trusted integer local clock and controlled callers,
-not authenticated peers or accurate network time. It stores at most4096 immutable
+not authenticated peers or accurate network time. It stores at most 4096 immutable
 blocks and has no transactions, monetary state, persistence, concurrent append,
 fork selection or retarget. Fixed-policy accepted-block count is only nominal
 laboratory weight. Native proof/hash interoperability is not an independent
 native MGB1 parser/chain engine. Production consensus and portable work remain
 separate open gates despite the executable prototype.
+## Independent chain and bounded fork laboratory
+
+The complete native engine independently parses canonical MGB1 and enforces the
+same trusted fixed profile/target, parent, height, upper-median/future-time and
+proof-before-storage order as Python. It does not infer policy from peer packets.
+MCP1 transport is local, length/command bounded and contains no network handlers.
+
+Fork ancestry is branch-local; proposed preferred history is fully revalidated
+before atomic switching. Nominal depth and first-arrival ties are experimental,
+not economic chainwork. Opaque history replacement is not transaction rollback.
+Invalid revalidation preserves accepted nodes/canonical state. Normal local
+clock advancement can expire pending entries even on rejected submissions.
+
+Combined orphan/future queues, TTL, validated nodes, depth, trusted-label rates
+and explicit drain bounds limit retained state and admission calls. Duplicate
+submission cannot refresh TTL. Unknown-parent proofs are not trusted merely
+because canonical shape passes. A drain's full-path replay can cost 1032 admission
+calls; an eight-attempt cap must not be described as eight proof checks. Wire
+byte caps exclude interpreter overhead. Trusted finite labels are not a deployed
+peer identity system; pruning, persistence, peer admission and fairness remain open.
+
+Synthetic retarget experiments assume independently eligible score inputs and
+explicit hypothetical supply multipliers; neither they nor inverse target
+calibrate SIS work. Timestamp-based availability failures are retained as negative
+results. Dynamic targets are not installed in real block admission, and no
+production fork/retarget safety claim follows from finite toy convergence.

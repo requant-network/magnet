@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: paid vector-pool portfolio and experimental block/chain.
+Date: 2026-10-09. Phase: independent chain admission, forks and retarget research.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -276,12 +276,35 @@ chain engine. The selected toy profile produced eight demo blocks. See the
 [ADR 0011](decisions/0011-experimental-construction-and-chain.md). Production
 parameters and the portable work/comparability gate remain open.
 
+## Independent chain and fork/retarget laboratory (backlog 11–15)
+
+Rust now independently parses MGB1 and implements the complete fixed-policy
+linear chain state machine. The local corpus compares 6236 commands plus height/
+clock/max-shape probes and a reachable 4096-block history, with zero mismatches.
+The fork tree uses real blocks, fully replays proposed histories before atomic
+canonical changes and exposes detach/attach events. Equal depth retains the
+first chosen tip; preference remains nominal fixed-policy depth, not priced SIS.
+
+Sixteen delivery/partition scenarios converge after explicit reliable post-heal
+retry, with 25 reorgs; 624 native branch replays cover 2985 block occurrences.
+Four paid tiny block campaigns contain 15 carried-vector hits among 64 blocks;
+they refute fresh solver acquisition per block, not establish a portable work price.
+The separate score-arrival simulator compares 720 retarget hypotheses over 92160
+candidate events. Median+1 timestamp strategies cause severe availability failures
+in these particular adjustment formulas. No production rule is selected.
+
+Validated storage, branch depth, combined queues, per-label submissions, TTL and
+drain work are bounded. Malformed/orphan floods and optimized-Python evidence
+refusal are checked. Finite trusted labels are not Internet Sybil protection.
+See [report](research/chain-forks-and-retarget-v1.md) and
+[ADR 0012](decisions/0012-fork-simulation-without-priced-work.md).
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 155 Python tests and 16 Rust tests;
+- 173 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof
@@ -293,6 +316,8 @@ python scripts/check.py currently passes:
 - 10814 SHA-256/score/admission differential cases, zero mismatches; 13 malformed
   new request rejections.
 - 64 deterministic MGB1 blocks and 311 independent native hash/admission requests.
+- 6236 full native/Python chain commands, two height/clock boundary chains,
+  one maximum-shape block and a complete 4096-block storage history, zero mismatches.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
@@ -344,9 +369,10 @@ This is source review, not an independent cryptographic audit.
 ## Still absent
 
 High-dimensional optimized/GPU mining, a portable adversarial work function,
-retarget/fork/reorg simulation, independent complete chain engine, persisted peer
-nodes, transaction/state rules, wallet and MagnetGate integration. The MGB1
-linear-chain prototype is experimental. E3's economic/security gate remains open.
+secure production fork-choice/retarget, native fork database, persisted peer
+nodes, transaction/state rules, wallet and MagnetGate integration. Complete
+linear engines and bounded simulation are experimental. E3's economic/security
+gate and E4's monetary safety gate remain open.
 
 ## Decision and next step
 
@@ -368,8 +394,9 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next independently implement full chain admission, confront work comparability
-and simulate retarget/forks/time/overload before monetary operation. Production
-difficulty and accumulated chainwork remain unselected. Common local
+Next confront portable adversarial work/profile comparability, optimized/GPU
+baselines and independent review; add persistence/pruning and real synchronization
+after the simulator. Production difficulty and accumulated chainwork remain
+unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.
