@@ -1,0 +1,102 @@
+{
+  "status": "passed",
+  "seed": 2026100815,
+  "requested_seconds": 3600,
+  "elapsed_seconds": 3601.306921500014,
+  "cases": 1300992,
+  "accepted": 31652,
+  "batches": 5082,
+  "groups": {
+    "mutation": 216832,
+    "truncation": 216832,
+    "extension": 216832,
+    "random": 216832,
+    "near-valid": 216832,
+    "large-instance": 216832
+  },
+  "timings": {
+    "mutation": {
+      "native_batch_ns": 7018089200,
+      "reference_ns": 845003100,
+      "batches": 847
+    },
+    "truncation": {
+      "native_batch_ns": 4510781300,
+      "reference_ns": 196010500,
+      "batches": 847
+    },
+    "extension": {
+      "native_batch_ns": 4695950100,
+      "reference_ns": 1544428600,
+      "batches": 847
+    },
+    "random": {
+      "native_batch_ns": 4447942100,
+      "reference_ns": 145270900,
+      "batches": 847
+    },
+    "near-valid": {
+      "native_batch_ns": 115314176100,
+      "reference_ns": 4156358600,
+      "batches": 847
+    },
+    "large-instance": {
+      "native_batch_ns": 3109799699400,
+      "reference_ns": 340242379200,
+      "batches": 847
+    }
+  },
+  "mismatches": 0,
+  "source_sha256": {
+    "scripts/endurance_fuzz.py": "f6e8d1d4d64b66e268a3c3456356e3bb8462ceec4b28538bd1838fc1d4426ee6",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/admission_wire.py": "f4a5f863d86478f3525f4dba543b3bbd484e83117e603c743154f3865da92b95",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/campaign.py": "740f1b663bc48f218ea4cb5aac2c889bf9cffad4ab6a26ac48adbcb4417e8a25",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/header_rules.py": "653dff21d0974827e85ea00b4c553a097b7df3203f3be474dd48924df967dd41",
+    "reference/lattice_cache.py": "e8a6dba4995d6e076f5a7aae532c78336c04dfc49a806e3867eff5aa6d28986a",
+    "reference/lattice_policies.py": "5e94c8f7e35bdde6d34e32fdfa3bc4e305d0b89a3ebf1987bb4c6e97a7f1bc41",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/work_models.py": "a39e591e246da60fabe1293177cd3dd9bd4d5ae39eecadb2c885678cbf642c5f",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "df4ffa2896a6a9a7fe3b65f9ca146d4784bd239618bee8e85ed6da0262e6ce64",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "31a90d49bfd299aaa3f6c2899e4737d799c99b0726766cdce4da58cf7fd33bb5",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/rules.rs": "2aeed71cf8be48bad52a37d20d2a377a950697c14a0cac1cc0c06324a372b756",
+    "crates/sis-verifier/src/score.rs": "58452ae36cb9d8dceda0b8a1f535974e3144c521b25215f8e67e3a7cd7772774",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/sha256.rs": "05f742b9e3683d737c816ca9bfbc6d4fbea10ddde6de799346aeee0e713aea47",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec"
+  },
+  "executable_sha256": "64cc0d33b50513f8d6786ab48f285e9e4f0196b604bc3ee230e1ce0adbad5a14",
+  "scope": "well-formed mode-6 framing, mutated proofs; timing includes process/IPC; not network fuzz",
+  "source_unchanged": false,
+  "hardware": {
+    "threads": 16,
+    "physical_memory_bytes": 42747039744,
+    "cpu": "AMD Ryzen 7 8745HS w/ Radeon 780M Graphics     ",
+    "cores": 8
+  },
+  "postprocess_script_sha256": "1b343bbfdbd7c8a5ee6e0395a1035fdaec28ef8725f57ae7a1ed712e2ef41573",
+  "measured_source_hashes_checked": 29,
+  "native_build_profile": "debug",
+  "executable_last_write_utc": "2026-10-08T16:20:55.408026+00:00",
+  "admission_sources_unchanged": true,
+  "unrelated_changed_sources": [
+    "crates/sis-verifier/src/search.rs",
+    "crates/sis-verifier/src/search_main.rs"
+  ],
+  "provenance_note": "Workflow provenance: original sis-lab executable was retained for the entire timed run. The recorded hash was verified before the final rebuild; the last-write timestamp is factual metadata, not an automated interval guarantee because actual run-start UTC was not recorded. Only non-executed native-search sources changed; all recorded Python and native admission sources match. New builds used artifacts/admission-current. The broad source_unchanged flag remains false; it is not overwritten or presented as a whole-repository freeze.",
+  "campaign_timestamp_check": "unavailable: actual run-start UTC was not recorded",
+  "postprocess_revision_note": "The recorded postprocess_script_sha256 identifies the originally executed metadata revision. Later source review removed its invalid inferred-start timestamp check; no interval guarantee is claimed."
+}

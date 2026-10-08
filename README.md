@@ -2,7 +2,8 @@
 
 Private research into lattice-based Proof of Work for a future Magnet Network.
 This repository currently verifies Short Integer Solutions and studies candidate
-PoW constructions. It does not implement a blockchain, currency, or GPU miner.
+PoW constructions. It now includes an experimental linear-chain prototype;
+there is no currency, production network or GPU miner.
 
 **English is the primary repository language.** Russian is secondary:
 see the [Russian documentation index](docs/ru/README.md).
@@ -29,6 +30,10 @@ see the [Russian documentation index](docs/ru/README.md).
 - Fresh nonce/parent schedules and externally trusted laboratory header admission.
 - Independent native SHA-256, strict score targets and full laboratory admission.
 - Persistent paid vector campaigns with shared budgets and shuffled seeded repeats.
+- Persistent multi-vector FIFO pools, paid combinations and joint header grinding.
+- Paid MITM/sparse/LLL/limited BKZ/sieve portfolio with externally bounded campaigns.
+- MGB1 body/recipient/target commitments and fixed-policy laboratory chain admission.
+- Explicit construction/parameter/work decisions scoped to demonstration use.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -61,6 +66,12 @@ python scripts/sphere_survey.py --python artifacts/flint-env/Scripts/python.exe
 artifacts/flint-env/Scripts/python.exe scripts/integrated_survey.py
 python scripts/windows_survey.py --python artifacts/flint-env/Scripts/python.exe
 python scripts/campaign_survey.py --python artifacts/flint-env/Scripts/python.exe
+python scripts/portfolio_survey.py --python artifacts/flint-env/Scripts/python.exe
+python scripts/soak_survey.py --python artifacts/flint-env/Scripts/python.exe
+artifacts/flint-env/Scripts/python.exe scripts/portfolio_checks.py
+python scripts/rejection_cost.py
+python scripts/mine_lab_chain.py
+python scripts/endurance_fuzz.py --seconds 3600
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -72,6 +83,10 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Research and consensus plan](01-SIS-POW-RESEARCH-PLAN.md).
 - [Implemented SIS-LAB-v1 specification](spec/01-sis-lab-v1.md).
 - [Current status and verification](docs/STATUS.md).
+- [Backlog 1–10 milestone](docs/research/pool-portfolio-and-blocks-v1.md).
+- [Experimental construction and chain decision](docs/decisions/0011-experimental-construction-and-chain.md).
+- [Paid pool/solver specification](spec/10-pool-portfolio-v1.md).
+- [Experimental block and linear-chain specification](spec/11-experimental-block-chain-v1.md).
 - [Solution reuse study](docs/research/solution-reuse-v1.md).
 - [Search strategies and component accounting](docs/research/search-strategies-v1.md).
 - [Meet-in-the-middle search and local measurements](docs/research/meet-in-the-middle-v1.md).
@@ -113,12 +128,12 @@ MGH1 bound proof format derives A internally from a research header and requires
 trusted external context. Accepting an arbitrary matrix or miner-chosen policy
 would allow deliberately easy instances. These remain local research tools.
 
-Difficulty, chainwork, block consensus, wallets and payments are not implemented.
+Production difficulty/chainwork, fork consensus, wallets and payments are not implemented.
+MGB1 and the fixed-policy linear chain are explicitly experimental prototypes.
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: broaden solver competition and preprocessing attacks, evaluate steady-state
-campaigns while retaining initial preparation, then specify chain-derived targets
-and valid payload/time transitions before
-selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
+Next: independent full-chain implementation, portable work argument,
+retarget/fork/reorg simulation, larger optimized/hardware baselines and
+external cryptographic review. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.

@@ -172,3 +172,28 @@ do not reset; skipped stages retain the initial stop reason. No external oracle
 seeds acquisition. Shuffled repeats reuse mathematical inputs and share host state;
 they do not represent independent proofs or steady mining. Interrupted logical
 work remains censored regardless of recovered hits or available checkpoints.
+
+The WXP1 portfolio adds paid FIFO multi-vector pools and combinations of vectors
+valid on the current matrix. Eager acquisition is charged in full even if scoring
+stops early. Every carried vector is revalidated; changing parent/header does not
+make old vectors automatically valid or automatically impossible. Finite sparse
+and sieve probes cannot certify an empty full search. Bounded projected BKZ tours
+are not high-dimensional optimized attack estimates. Node kinds differ by backend;
+the Job enforces host resource allowances, not economic equivalence.
+
+MGB1 commits target, recipient, body and version into the derived challenge.
+Externally configured chain policy chooses one network/profile/target and a
+trusted anchor. A peer-supplied target or profile never overrides that policy.
+Canonical packet/body bounds precede matrix expansion; network/profile/parent/
+height/time failures reject before expansion. Body hashing is bounded but is paid
+before header-surface checks. State changes only on full proof acceptance.
+Future-time deferral is distinct from proof invalidity. Non-tip parent status
+does not mean a competing branch was validated or intrinsically rejected.
+
+The linear chain assumes a trusted integer local clock and controlled callers,
+not authenticated peers or accurate network time. It stores at most4096 immutable
+blocks and has no transactions, monetary state, persistence, concurrent append,
+fork selection or retarget. Fixed-policy accepted-block count is only nominal
+laboratory weight. Native proof/hash interoperability is not an independent
+native MGB1 parser/chain engine. Production consensus and portable work remain
+separate open gates despite the executable prototype.

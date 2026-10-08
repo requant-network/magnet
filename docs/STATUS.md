@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: independent native admission and persistent paid campaigns.
+Date: 2026-10-08. Phase: paid vector-pool portfolio and experimental block/chain.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -249,22 +249,50 @@ win totals. At 1200 ms all 144 workers complete: restart/carry/fallback yield
 38/12/38 stage hits over 144 stage opportunities each, with 988/336/876 paid
 reductions. These are repeated toy measurements, not a calibrated speed ranking.
 
+## Paid pools and experimental blocks (backlog 1–10)
+
+Persistent FIFO vector pools now retain paid acquisition, deduplication, eviction,
+current-instance checks and bounded combinations across joint header campaigns.
+Seven paid solver backends include capped native MITM, sparse screening, LLL,
+limited projected-SVP BKZ and a finite pair sieve. Native mode 3 charges every
+left/right proposal and joined pair; historical mode 2 remains unchanged.
+
+The final portfolio completed 479 of 700 external windows, with 221 timeouts and
+1610 completed stage hits. Nine recovered interrupted-window hits are audited
+but excluded from win totals. A separate 56-worker extended campaign completed
+with 170 hits; 12 workers reached the shared node cap. Both studies are bounded
+toy campaigns with overlapping host load, not isolated speed rankings.
+
+An hour-long differential run checked 1,300,992 inputs with zero mismatches.
+Admission sources and its executable remained unchanged; the report explicitly
+records changes to two unused native-search sources during that run.
+
+MGB1 commits body, recipient, target and version into the bound proof and block
+ID. The Python linear-chain prototype checks fixed policy, parent, height, median
+past time, trusted-clock future tolerance and full proof before append. Rust
+independently checks hashes and proof admission, not a complete block parser or
+chain engine. The selected toy profile produced eight demo blocks. See the
+[milestone report](research/pool-portfolio-and-blocks-v1.md) and
+[ADR 0011](decisions/0011-experimental-construction-and-chain.md). Production
+parameters and the portable work/comparability gate remain open.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 131 Python tests and 15 Rust tests;
+- 155 Python tests and 16 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
-- 103 native-search differential instances (206 searches, 1940 verified proof
-  occurrences), zero mismatches, seven cap checks, 16 malformed native requests
+- 103 native-search differential instances (309 searches, 2910 verified proof
+  occurrences), zero mismatches, 13 cap checks, 16 malformed native requests
   and one native empty-stream check.
 - 1936 generation/binding differential cases (174 SHAKE, 200 matrices, 109
   headers, 1451 proofs, two frozen checks), zero mismatches; 25 malformed
   request/frame rejections and one empty-stream check.
 - 10814 SHA-256/score/admission differential cases, zero mismatches; 13 malformed
   new request rejections.
+- 64 deterministic MGB1 blocks and 311 independent native hash/admission requests.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
@@ -315,10 +343,10 @@ This is source review, not an independent cryptographic audit.
 
 ## Still absent
 
-Long-running fuzzing, other practical LLL/BKZ/sieve baselines, GPU mining,
-a work function, retarget,
-blockchain, wallet and
-MagnetGate integration. E1 is not claimed fully closed under the broader plan.
+High-dimensional optimized/GPU mining, a portable adversarial work function,
+retarget/fork/reorg simulation, independent complete chain engine, persisted peer
+nodes, transaction/state rules, wallet and MagnetGate integration. The MGB1
+linear-chain prototype is experimental. E3's economic/security gate remains open.
 
 ## Decision and next step
 
@@ -340,9 +368,8 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next broaden optimized solver/vector-pool competition and steady-state campaign
-accounting, then specify chain-derived targets and body/time validity before
-retarget/fork-choice simulation. Difficulty
-and accumulated chainwork remain unselected. Common local
+Next independently implement full chain admission, confront work comparability
+and simulate retarget/forks/time/overload before monetary operation. Production
+difficulty and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.
