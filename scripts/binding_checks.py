@@ -98,7 +98,7 @@ def differential_binding(executable):
         if left != right:
             raise RuntimeError(f"binding differential mismatch at {index}")
 
-    invalid = [b"", b"MGL2\x00", b"MGL1\x04", request(0, b"\0" * 3),
+    invalid = [b"", b"MGL2\x00", b"MGL1\x07", request(0, b"\0" * 3),
                request(0, struct.pack("<I", 67585)), request(1, b"\0" * 48),
                request(1, b"\0" * 47), request(1, b"\0" * 49),
                request(2, base.encode()[:-1]), request(2, base.encode() + b"\0"),

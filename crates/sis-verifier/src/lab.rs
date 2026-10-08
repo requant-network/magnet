@@ -3,7 +3,7 @@
 use crate::{
     generator::{Profile, expand_matrix},
     header::{CONTEXT_SIZE, ExpectedContext, LabHeader, verify_proof},
-    shake,
+    rules, score, sha256, shake,
 };
 
 pub const MAX_REQUEST: usize = 9 + shake::MAX_INPUT;
@@ -34,6 +34,22 @@ pub fn respond(request: &[u8]) -> Result<Vec<u8>, &'static str> {
                 &context,
             ))])
         }
+        4 => Ok(sha256::digest(&request[5..])?.to_vec()),
+        5 if request.len() >= 5 + CONTEXT_SIZE + 33 => {
+            let context = ExpectedContext::decode(&request[5..5 + CONTEXT_SIZE])?;
+            let target = score::Target::decode(&request[5 + CONTEXT_SIZE..5 + CONTEXT_SIZE + 33])?;
+            Ok(vec![u8::from(score::verify_scored_proof(
+                &request[5 + CONTEXT_SIZE + 33..],
+                &context,
+                target,
+            ))])
+        }
+        6 if request.len() >= 7 => {
+            let length = usize::from(u16::from_le_bytes(request[5..7].try_into().unwrap()));
+            let wire = request.get(7..7 + length).ok_or("rules truncated")?;
+            let rules = rules::LabRules::decode(wire)?;
+            Ok(vec![u8::from(rules.admit(&request[7 + length..]))])
+        }
         _ => Err("unknown mode or malformed request"),
     }
 }
@@ -45,7 +61,7 @@ mod tests {
     #[test]
     fn reject_unbounded_and_unknown_requests() {
         for request in [
-            b"MGL1\x04".to_vec(),
+            b"MGL1\x07".to_vec(),
             b"MGL1\x00".to_vec(),
             b"MGL1\x00\xff\xff\xff\xff".to_vec(),
             vec![0; MAX_REQUEST + 1],

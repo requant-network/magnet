@@ -6,7 +6,10 @@ pub const MAX_PACKET: usize = 20 + 4 * 64 * 128 + 4 * 128;
 pub mod generator;
 pub mod header;
 pub mod lab;
+pub mod rules;
+pub mod score;
 pub mod search;
+pub mod sha256;
 pub mod shake;
 
 fn is_prime(q: u32) -> bool {
