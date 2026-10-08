@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def read_snapshot(folder):
     """Recover the latest complete bounded snapshot, never a partial write."""
-    for name in ("error.json", "response.json", "checkpoint-3.json", "checkpoint-2.json", "checkpoint-1.json"):
+    for name in ("error.json", "response.json", *(f"checkpoint-{i}.json" for i in range(8, 0, -1))):
         path = folder / name
         marker_path = path.with_suffix(path.suffix + ".ready")
         if not marker_path.exists() or not path.exists():
@@ -33,9 +33,11 @@ def read_snapshot(folder):
     return None
 
 
-def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None):
+def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None, worker="window_worker.py"):
     payload = json.dumps(request, separators=(",", ":")).encode()
-    if len(payload) > MAX_INPUT or diagnostic not in (None, "sleep", "allocate"):
+    if (len(payload) > MAX_INPUT or diagnostic not in (None, "sleep", "allocate")
+            or worker not in ("window_worker.py", "portfolio_worker.py")
+            or worker != "window_worker.py" and diagnostic is not None):
         raise ValueError("window driver input/diagnostic")
     (ROOT / "artifacts").mkdir(exist_ok=True)
     # Preserve per-attempt evidence. Windows can briefly retain file locks after
@@ -46,7 +48,7 @@ def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None):
         raise RuntimeError("window temporary path escaped artifacts")
     source, destination = folder / "request.json", folder / "response.json"
     source.write_bytes(payload)
-    command = [str(python), str(ROOT / "scripts/window_worker.py"), str(source), str(destination)]
+    command = [str(python), str(ROOT / "scripts" / worker), str(source), str(destination)]
     if diagnostic is not None:
         command.append(diagnostic)
     resource = run_job(command, cwd=ROOT, wall_ms=wall_ms, memory_mib=memory_mib)

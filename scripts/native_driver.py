@@ -10,7 +10,10 @@ from reference.sis import encode_case
 ROOT = Path(__file__).resolve().parents[1]
 REQUEST = struct.Struct("<4sB3xQIQII")
 RESPONSE = struct.Struct("<4sB3xH2xIIQ10Q")
+# Historical surveys iterate this stable cohort. New protocol modes must not
+# silently add a third miner to their two-algorithm denominators/cap expectations.
 ALGORITHMS = {"ball": 1, "mitm": 2}
+WIRE_ALGORITHMS = {**ALGORITHMS, "mitm-budgeted": 3}
 STOPS = ("domain-exhausted", "node-limit", "table-limit", "pair-limit", "proof-limit", "half-box-limit")
 WORK_NAMES = ("nodes", "left", "right", "norm_terms", "matrix_terms", "row_reductions",
               "leaves", "table_entries", "pairs", "proofs")
@@ -33,13 +36,13 @@ def build_native(*, release=False):
 
 def encode_request(profile, matrix, algorithm, *, nodes=50_000_000, table=1_000_000,
                    pairs=10_000_000, proofs=100_000, repeats=1):
-    if algorithm not in ALGORITHMS:
+    if algorithm not in WIRE_ALGORITHMS:
         raise ValueError("unknown native search algorithm")
     for value, maximum in ((nodes, 50_000_000), (table, 1_000_000), (pairs, 10_000_000),
                            (proofs, 100_000), (repeats, 9)):
         if type(value) is not int or not 1 <= value <= maximum:
             raise ValueError("limit outside native laboratory budget")
-    return REQUEST.pack(b"NAT1", ALGORITHMS[algorithm], nodes, table, pairs, proofs, repeats) + \
+    return REQUEST.pack(b"NAT1", WIRE_ALGORITHMS[algorithm], nodes, table, pairs, proofs, repeats) + \
         encode_case(profile, matrix, [0] * profile.m)
 
 

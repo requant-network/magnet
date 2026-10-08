@@ -17,6 +17,7 @@ fn execute(request: &[u8]) -> io::Result<Vec<u8>> {
     let solve = match request[4] {
         1 => search::ball,
         2 => search::mitm,
+        3 => search::mitm_budgeted,
         _ => return Err(invalid("unknown search mode")),
     };
     let limits = Limits {

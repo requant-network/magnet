@@ -42,9 +42,9 @@ must all be zero; a known solution cannot be supplied to the solver:
 | Offset | Type | Field |
 |---|---|---|
 | 0 | 4 bytes | NAT1 |
-| 4 | u8 | algorithm: 1 ball, 2 mitm |
+| 4 | u8 | algorithm: 1 ball, 2 legacy mitm, 3 budgeted mitm |
 | 5 | 3 bytes | zero reserved |
-| 8 | u64 | prefix-node cap, 1..50000000 |
+| 8 | u64 | node cap, 1..50000000; prefixes for1, aggregate proposals/pairs for3, unused for2 |
 | 16 | u32 | table-entry cap, 1..1000000 |
 | 20 | u64 | join-pair cap, 1..10000000 |
 | 28 | u32 | retained-proof cap, 1..100000 |
@@ -58,6 +58,12 @@ additional search after emitting the last permitted proof. Stops are:
 0 domain-exhausted, 1 node-limit, 2 table-limit, 3 pair-limit, 4 proof-limit,
 5 half-box-limit. Ball uses node/proof caps; MITM uses half-box/table/pair/proof
 caps. These are structural bounds, not wall-clock or memory enforcement.
+
+Additive mode3 preserves the same MITM decomposition/output ordering, and also
+charges a shared node cap before every left/right proposal and join pair.
+Its nodes counter is exactly left+right+pairs. Mode2 retains its historical
+nodes=0 semantics and separate caps. Portfolio campaigns use mode3; see
+[the paid portfolio specification](10-pool-portfolio-v1.md).
 
 Response header (108 bytes):
 

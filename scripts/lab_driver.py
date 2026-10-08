@@ -11,11 +11,14 @@ MAX_REQUEST = 2057
 MAX_RESPONSE = 67584
 
 
-def build_lab():
+def build_lab(*, target_dir=None):
+    # Explicit alternative build folder keeps an already running endurance
+    # executable immutable while unrelated native search code is being extended.
+    target = ROOT / "target" if target_dir is None else Path(target_dir)
     result = subprocess.run(["cargo", "build", "--offline", "--locked", "--bin", "sis-lab",
                              "--message-format=json"], cwd=ROOT, capture_output=True,
                             check=True, timeout=180,
-                            env={**os.environ, "CARGO_TARGET_DIR": str(ROOT / "target")})
+                            env={**os.environ, "CARGO_TARGET_DIR": str(target)})
     paths = [item["executable"] for line in result.stdout.splitlines()
              if (item := json.loads(line)).get("reason") == "compiler-artifact"
              and item.get("executable") and item["target"]["name"] == "sis-lab"

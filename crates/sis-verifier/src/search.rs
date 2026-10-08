@@ -271,6 +271,25 @@ fn syndrome(instance: &Instance, start: usize, vector: &[i32], work: &mut Work) 
 }
 
 pub fn mitm(instance: &Instance, limits: Limits) -> Result<Report, &'static str> {
+    mitm_inner(instance, limits, false)
+}
+
+/// Budgeted MITM: every left/right proposal and join pair shares one node cap.
+/// Legacy mode keeps its frozen separate-counter semantics for old surveys.
+pub fn mitm_budgeted(instance: &Instance, limits: Limits) -> Result<Report, &'static str> {
+    mitm_inner(instance, limits, true)
+}
+
+fn charge_node(report: &mut Report, limit: u64) -> bool {
+    if report.work.nodes == limit {
+        report.stop = Stop::Nodes;
+        return false;
+    }
+    report.work.nodes += 1;
+    true
+}
+
+fn mitm_inner(instance: &Instance, limits: Limits, bounded: bool) -> Result<Report, &'static str> {
     limits.validate()?;
     let mut report = Report::new();
     report.charge((instance.matrix.capacity() * size_of::<u32>()) as u64);
@@ -290,6 +309,9 @@ pub fn mitm(instance: &Instance, limits: Limits) -> Result<Report, &'static str>
     let mut children_bytes = 0_usize;
     let mut left = vec![-radius; split];
     loop {
+        if bounded && !charge_node(&mut report, limits.nodes) {
+            break;
+        }
         report.work.left += 1;
         report.work.norm_terms += split as u64;
         let norm = left
@@ -332,6 +354,9 @@ pub fn mitm(instance: &Instance, limits: Limits) -> Result<Report, &'static str>
         + right.capacity() * size_of::<i32>()
         + instance.n * size_of::<u32>();
     'search: loop {
+        if bounded && !charge_node(&mut report, limits.nodes) {
+            break;
+        }
         report.work.right += 1;
         report.work.norm_terms += right.len() as u64;
         let norm = right
@@ -350,6 +375,9 @@ pub fn mitm(instance: &Instance, limits: Limits) -> Result<Report, &'static str>
             {
                 if report.work.pairs == limits.pairs {
                     report.stop = Stop::Pairs;
+                    break 'search;
+                }
+                if bounded && !charge_node(&mut report, limits.nodes) {
                     break 'search;
                 }
                 report.work.pairs += 1;
@@ -399,6 +427,46 @@ mod tests {
             pairs: MAX_PAIRS,
             proofs: MAX_PROOFS,
         }
+    }
+
+    #[test]
+    fn mitm_shared_proposal_pair_budget_and_exact_completion() {
+        let a = instance(7, 1, 4, 5, vec![0; 4]);
+        let legacy = mitm(&a, limits()).unwrap();
+        let full = mitm_budgeted(&a, limits()).unwrap();
+        assert_eq!(full.stop, Stop::Exhausted);
+        assert_eq!(full.proofs, legacy.proofs);
+        assert_eq!(legacy.work.nodes, 0);
+        assert_eq!(
+            full.work.nodes,
+            full.work.left + full.work.right + full.work.pairs
+        );
+        for ceiling in [1, full.work.left, full.work.left + 1, full.work.nodes - 1] {
+            let partial = mitm_budgeted(
+                &a,
+                Limits {
+                    nodes: ceiling,
+                    ..limits()
+                },
+            )
+            .unwrap();
+            assert_eq!(partial.stop, Stop::Nodes);
+            assert_eq!(partial.work.nodes, ceiling);
+            assert_eq!(
+                partial.work.nodes,
+                partial.work.left + partial.work.right + partial.work.pairs
+            );
+        }
+        let exact = mitm_budgeted(
+            &a,
+            Limits {
+                nodes: full.work.nodes,
+                ..limits()
+            },
+        )
+        .unwrap();
+        assert_eq!(exact.stop, Stop::Exhausted);
+        assert_eq!(exact.proofs, full.proofs);
     }
 
     #[test]
