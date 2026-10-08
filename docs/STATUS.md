@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: independent chain admission, forks and retarget research.
+Date: 2026-10-09. Phase: exact precommitted-pool supply and adaptive-work preparation.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -301,10 +301,27 @@ See [report](research/chain-forks-and-retarget-v1.md) and
 
 ## Verification
 
+### Latest supply milestone
+
+[The precommitted-pool study](research/precommitted-pool-supply-v1.md) computes
+exact valid-vector count distributions using modular subset ranks, then tests
+them against complete matrix spaces. 28 cases enumerate 3957 matrices with zero
+disagreements. The separate paid real-header study covers 6144 globally distinct
+MGH1 headers and 42063 independent native audit requests, including setup
+generation/proof audits, with zero mismatches. Eight successful/preselected pools
+complete 24 cohorts; two capped larger-profile acquisitions retain their full
+costs and explicitly skip six prerequisite-dependent cohorts.
+
+Uniform independent matrices and scores conditional on the complete valid set
+remain model assumptions. Distinct proofs and even pairwise-independent pools
+do not imply joint acceptance independence. [ADR 0013](decisions/0013-precommitted-pool-supply.md)
+adopts this finite model without assigning portable SIS work, production
+chainwork or retarget. Failed setup windows do not certify unsolvability.
+
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 173 Python tests and 19 Rust tests;
+- 189 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof
@@ -394,7 +411,8 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next confront portable adversarial work/profile comparability, optimized/GPU
+Next extend the exact precommitted-pool model to paid adaptive selection and
+confront portable adversarial work/profile comparability, optimized/GPU
 baselines and independent review; add persistence/pruning and real synchronization
 after the simulator. Production difficulty and accumulated chainwork remain
 unselected. Common local

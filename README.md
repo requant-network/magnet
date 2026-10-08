@@ -37,6 +37,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Independent complete Rust MGB1 parser and fixed-policy linear chain engine.
 - Bounded real-block forks, atomic canonical replay and delivery/partition simulation.
 - Synthetic retarget hypotheses and concrete paid block-reuse counterexamples.
+- Exact precommitted-pool correlation laws, complete matrix audits and paid fresh-header supply studies.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -63,6 +64,7 @@ python scripts/joint_survey.py
 python scripts/chain_survey.py
 python scripts/fork_survey.py
 python scripts/work_weight_study.py
+python scripts/supply_survey.py
 python scripts/difficulty_survey.py
 python scripts/resource_survey.py
 ~~~
@@ -93,6 +95,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Current status and verification](docs/STATUS.md).
 - [Backlog 1–10 milestone](docs/research/pool-portfolio-and-blocks-v1.md).
 - [Backlog 11–15 milestone](docs/research/chain-forks-and-retarget-v1.md).
+- [Exact precommitted-pool supply study](docs/research/precommitted-pool-supply-v1.md).
+- [Supply model and resource contract](spec/14-precommitted-pool-supply-v1.md).
+- [Fixed-pool correlations and open adaptive-work gate](docs/decisions/0013-precommitted-pool-supply.md).
 - [Native full-chain specification](spec/12-native-chain-v1.md).
 - [Fork and retarget experiments](spec/13-fork-and-retarget-lab-v1.md).
 - [Fork simulation and open work-weight decision](docs/decisions/0012-fork-simulation-without-priced-work.md).
