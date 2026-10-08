@@ -1,0 +1,288 @@
+{
+  "status": "passed",
+  "experiment": "header-binding-v1",
+  "setups": [
+    [
+      7,
+      1,
+      3,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      3
+    ],
+    [
+      257,
+      2,
+      4,
+      8
+    ]
+  ],
+  "instances_per_setup": 256,
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "executable_sha256": {
+    "sis-lab-debug": "156dfc56f38f67e2768b60cef7e10589e4accef7deffe43f8b34260b7ee3fcc7",
+    "sis-search-release": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6"
+  },
+  "source_sha256": {
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "bdd3e418a109172b8687d9079b95ef626ed19e072435c8feee346a630a137863",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "6f98fbe54128cbeb284ae7fbf3e48cfe6d04427c4fadf6471740d87e1d3dfb8c",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "scripts/binding_checks.py": "7880bc0e64f93fe365f65e648164d18114a8ac942d6da62f7bc790ee32947bc0",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "9a78611864b4e11aa158ea295cd4fba371dda8e3cce6834620aa00e66dfa5eef",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "spec/01-sis-lab-v1.md": "c8b5d2472d4cb512d381b0bf52a652e63b1e0a329cdf66d1d3fff13262691d9f",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "studies": [
+    {
+      "profile": {
+        "q": 7,
+        "n": 1,
+        "m": 3,
+        "b2": 8
+      },
+      "header_label": "magnet-header-binding-v1/7/1/3/8",
+      "aggregate": {
+        "instances": 256,
+        "oracle_complete": 256,
+        "with_solution": 256,
+        "without_solution": 0,
+        "oracle_vectors": 1702,
+        "unique_seeds": 256,
+        "unique_matrices": 183,
+        "box_candidates_prepared_once": 125,
+        "canonical_norm_candidates": 46,
+        "oracle_vector_checks": 11776,
+        "python_family_matrix_generations": 256,
+        "native_derivation_requests": 256,
+        "native_oracle_instances": 256,
+        "native_bound_verifications": 1022,
+        "acquisition": {
+          "nonce": 0,
+          "vector": [
+            0,
+            1,
+            0
+          ],
+          "search_vector_checks_including_empty_headers": 5,
+          "matrix_generations_through_acquisition": 1
+        },
+        "probes": {
+          "unit": {
+            "attempts": 256,
+            "accepted": 39
+          },
+          "fixed_acquired": {
+            "attempts": 255,
+            "accepted": 41
+          },
+          "adjacent_first": {
+            "attempts": 255,
+            "accepted": 34
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "header_label": "magnet-header-binding-v1/17/2/4/8",
+      "aggregate": {
+        "instances": 256,
+        "oracle_complete": 256,
+        "with_solution": 106,
+        "without_solution": 150,
+        "oracle_vectors": 141,
+        "unique_seeds": 256,
+        "unique_matrices": 256,
+        "box_candidates_prepared_once": 625,
+        "canonical_norm_candidates": 160,
+        "oracle_vector_checks": 40960,
+        "python_family_matrix_generations": 256,
+        "native_derivation_requests": 256,
+        "native_oracle_instances": 256,
+        "native_bound_verifications": 717,
+        "acquisition": {
+          "nonce": 5,
+          "vector": [
+            1,
+            -1,
+            -1,
+            1
+          ],
+          "search_vector_checks_including_empty_headers": 862,
+          "matrix_generations_through_acquisition": 6
+        },
+        "probes": {
+          "unit": {
+            "attempts": 256,
+            "accepted": 0
+          },
+          "fixed_acquired": {
+            "attempts": 250,
+            "accepted": 1
+          },
+          "adjacent_first": {
+            "attempts": 105,
+            "accepted": 0
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 3
+      },
+      "header_label": "magnet-header-binding-v1/17/2/4/3",
+      "aggregate": {
+        "instances": 256,
+        "oracle_complete": 256,
+        "with_solution": 27,
+        "without_solution": 229,
+        "oracle_vectors": 29,
+        "unique_seeds": 256,
+        "unique_matrices": 256,
+        "box_candidates_prepared_once": 81,
+        "canonical_norm_candidates": 32,
+        "oracle_vector_checks": 8192,
+        "python_family_matrix_generations": 256,
+        "native_derivation_requests": 256,
+        "native_oracle_instances": 256,
+        "native_bound_verifications": 558,
+        "acquisition": {
+          "nonce": 6,
+          "vector": [
+            0,
+            0,
+            1,
+            -1
+          ],
+          "search_vector_checks_including_empty_headers": 194,
+          "matrix_generations_through_acquisition": 7
+        },
+        "probes": {
+          "unit": {
+            "attempts": 256,
+            "accepted": 1
+          },
+          "fixed_acquired": {
+            "attempts": 249,
+            "accepted": 0
+          },
+          "adjacent_first": {
+            "attempts": 26,
+            "accepted": 0
+          }
+        }
+      }
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 2,
+        "m": 4,
+        "b2": 8
+      },
+      "header_label": "magnet-header-binding-v1/257/2/4/8",
+      "aggregate": {
+        "instances": 256,
+        "oracle_complete": 256,
+        "with_solution": 0,
+        "without_solution": 256,
+        "oracle_vectors": 0,
+        "unique_seeds": 256,
+        "unique_matrices": 256,
+        "box_candidates_prepared_once": 625,
+        "canonical_norm_candidates": 160,
+        "oracle_vector_checks": 40960,
+        "python_family_matrix_generations": 256,
+        "native_derivation_requests": 256,
+        "native_oracle_instances": 256,
+        "native_bound_verifications": 256,
+        "acquisition": {
+          "nonce": null,
+          "vector": null,
+          "search_vector_checks_including_empty_headers": 40960,
+          "matrix_generations_through_acquisition": 256
+        },
+        "probes": {
+          "unit": {
+            "attempts": 256,
+            "accepted": 0
+          },
+          "fixed_acquired": {
+            "attempts": 0,
+            "accepted": 0
+          },
+          "adjacent_first": {
+            "attempts": 0,
+            "accepted": 0
+          }
+        }
+      }
+    }
+  ]
+}

@@ -93,7 +93,8 @@ cutoff = 65536 - (65536 mod q)
 Read at most max_draws little-endian u16 words. Reject w ≥ cutoff; otherwise emit
 w mod q. The first n*m accepted values fill A row-major. Exhausting the budget
 is an error: no fallback, seed substitution or unbounded additional sampling.
-The maximum stream allocation is 67584 bytes. SHAKE256 comes from hashlib.
+The maximum stream allocation is 67584 bytes. Python uses hashlib; Rust now
+independently implements byte-oriented SHAKE256 and the same expansion.
 
 Frozen fixture:
 
@@ -106,7 +107,8 @@ This records implementation behavior, not independent cryptographic certificatio
 Tests also check the empty-input SHAKE256 known answer, an independently
 consumed stream at q=32771 with frequent rejection, and forced budget exhaustion.
 
-Rust currently verifies supplied matrices; it does not independently expand SHAKE.
+Rust also independently expands SHAKE. Header-bound verification uses the separate
+[MGH1 research format](04-header-binding-v1.md); SIS1 remains a supplied-A lab format.
 Changing B2 in this generator changes the matrix. Threshold studies must explicitly
 freeze a generation profile when comparing acceptance bounds on the SAME matrix.
 
@@ -117,7 +119,8 @@ contains at most 1 000 000 candidates. Apply norm, sign and modular equations.
 
 A completed empty enumeration proves nonexistence only for that particular tiny
 instance. Budget exhaustion is an error, not a proof of nonexistence.
-LLL/BKZ and GPU search are not implemented.
+An exact rational LLL baseline is implemented (spec/03); optimized LLL/BKZ and
+GPU search are not implemented.
 
 ## 6. Verification boundary
 

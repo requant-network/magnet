@@ -1,13 +1,13 @@
 # Research status
 
-Date: 2026-10-08. Phase: exact CPU search and lattice-reduction baselines.
+Date: 2026-10-08. Phase: independent generation and research header binding.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
 ## Implemented
 
 SIS-LAB-v1 specification; exact Python and independent Rust verifiers; bounded
-stdin/stdout adapter; SHAKE256 matrix expansion in Python; exhaustive tiny solver;
+stdin/stdout adapters; independent Python/Rust SHAKE256 matrix expansion; exhaustive tiny solver;
 sparse screening, rank and known-solution reuse probes; four instrumented search
 policies that acquire their own initial solutions; bounded exact meet-in-the-
 middle search; incremental norm-ball enumeration; common cooperative time and
@@ -15,6 +15,8 @@ traced-allocation budgets; native Rust ball/MITM solvers and a bounded local
 search protocol; larger toy CPU studies; a local check command.
 Exact-rational LLL on full modular-kernel bases, independent lattice certificates
 and a finite row/pair probe now provide a competing solver family.
+Canonical MGH1 headers and context-bound proofs derive A internally; the
+separate SIS1 format remains supplied-matrix research input.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
@@ -63,7 +65,8 @@ In one 128-instance batch, first-reuse produces 181 distinct score trials versus
 derivation/scoring operations. Sparse-first search sometimes reduces proposals
 but increases matrix arithmetic. These are logical component counts, not measured
 hashrate, calibrated work or a cost-per-win ranking. The experiment's score
-binds profile, seed and proof; actual block-header binding remains absent.
+binds profile, seed and proof. That historical score study does not use the new
+MGH1 header binding and does not implement block consensus.
 
 ### Meet-in-the-middle baseline
 
@@ -127,17 +130,36 @@ availability/probe-success counts exclude capped oracles while retaining
 reduction status. Exact rational reference time is not optimized reduction speed;
 no memory, energy, mining-rate or hardness claim is made.
 
+### Independent generation and header binding
+
+The [binding study](research/header-binding-v1.md) checks 1024 nonce headers across
+four toy profiles. Python and Rust agree on all derived instances and complete
+solution sets: 389 are solvable, 635 empty, with 1872 solution occurrences.
+The smallest profile has 183 distinct matrices for 256 distinct seeds and
+accepted cross-header vectors. A different profile has no solution on all 256
+sampled nonces. Binding does not certify work cost or availability.
+
+The proof interface accepts no A; separately trusted context fixes network,
+parent, height and profile. Timestamp/payload/nonce are committed but remain
+grindable; chain/payload/time validity is not implemented. Reuse acquisition
+counts are reconstructed logical checks, not elapsed cost. Raw ignored evidence
+retains every header and outcome; compact committed evidence preserves seeds'
+deterministic schedule, source/config/executable hashes and denominators.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 65 Python tests and 8 Rust tests;
+- 74 Python tests and 13 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
   occurrences), zero mismatches, seven cap checks, 16 malformed native requests
   and one native empty-stream check.
+- 1936 generation/binding differential cases (174 SHAKE, 200 matrices, 109
+  headers, 1451 proofs, two frozen checks), zero mismatches; 25 malformed
+  request/frame rejections and one empty-stream check.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
@@ -155,16 +177,19 @@ a failed build to check this lifecycle.
 Lattice tests cover noninitial pivots, rank deficiency, certificate tampering,
 independent reducedness, exact caps, arithmetic exhaustion after a committed
 swap, heuristic misses, evidence invalidation and conditional denominators.
+Binding tests cover absorb/squeeze boundaries, XOF bounds, rejection sampling,
+all committed fields, externally expected policy, early sign/norm/context
+rejection, frozen encoding, malformed inputs and both transplant outcomes.
 
-Separate source reviews covered all seven milestones. The initial Cargo executable-
+Separate source reviews covered all eight milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
 
 ## Still absent
 
-An independent Rust SHAKE generator, long-running fuzzing, practical optimized
-LLL/BKZ/sieve baselines, GPU mining, header binding, a work function, retarget,
+Long-running fuzzing, practical optimized LLL/BKZ/sieve baselines, GPU mining,
+a work function, retarget,
 blockchain, wallet and
 MagnetGate integration. E1 is not claimed fully closed under the broader plan.
 
@@ -177,9 +202,10 @@ not reject every possible SIS-based PoW.
 [ADR 0003](decisions/0003-enumeration-cost.md) also rejects pricing an SIS proof
 by naive box enumeration. Native baselines now extend the CPU parameter scale.
 The exact LLL baseline now supplies a competing family; [ADR 0004](decisions/0004-lattice-probes.md)
-keeps its misses inconclusive. Next independently test header-to-instance binding
-and generation alongside a practical reduction comparison and further
-availability/preprocessing/reuse studies. Difficulty
+keeps its misses inconclusive. Header binding and independent generation now
+have separate tested interfaces; [ADR 0005](decisions/0005-header-binding.md)
+keeps binding distinct from work pricing. Next compare practical reduction and
+further availability/preprocessing/grinding/reuse strategies. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

@@ -21,9 +21,14 @@ wallet keys, user balances or real funds in this laboratory.
 | Modular matrix → integer lattice | Incomplete kernel lifts or wrong rank | Full RREF lifts; q*pivot rows; independent membership/index audit |
 | LLL → certificate | Lost lattice, numerical error or false reducedness | Exact fractions; unimodular U; independent Bareiss/Gram-LDL audit |
 | Reduced basis → discovery claim | Empty heuristic mistaken for nonexistence | Separate finite-probe status; exhaustive comparison; frozen missed-solution fixture |
+| Header → instance | Supplied easy A or unbound fields | Canonical MGH1; independent seed/matrix generation; vector-only proof |
+| Proof → expected policy | Miner selects easy profile or irrelevant parent | Separate trusted network/parent/height/profile context; match before generation |
+| XOF → stream | Padding/domain/byte-order mistakes | NIST prefix; independent cross-language rate-boundary and maximum-length tests |
 
-Caller-controlled A makes this format unsuitable for network PoW. A future
-header-to-instance binding is a separate security boundary with separate tests.
+Caller-controlled A makes SIS1 unsuitable for network PoW. The separate MGH1
+research proof binds its instance to header bytes with separate tests. It does
+not validate payload semantics, timestamp rules, signatures, a chain, difficulty
+or work cost. Trusted context must never be reconstructed from the same proof.
 
 One frame is bounded, but the CLI accepts arbitrarily many frames. It is not a
 network DoS defense. Python APIs assume ordinary local objects, not hostile
@@ -67,3 +72,11 @@ integer/fraction growth. Arithmetic checks can overshoot transiently and do not
 impose OS memory/time limits. A cap after a committed operation retains an
 equivalent basis, not a reducedness claim. Discovery counts exclude incomplete
 oracles; successful probes do not imply complete reduction or intrinsic work.
+
+Header binding still permits nonce/payload/timestamp grinding. Different seeds
+can produce equal toy matrices, and the same vector can satisfy different
+matrices. Sampling exhaustion rejects; no weaker profile or substitute seed is
+silently selected. Bound proofs check context, length and norm/sign before
+generation. SHAKE/matrix adapters have per-frame bounds and require controlled
+local processes with caller timeouts. The handwritten Rust SHAKE is not certified
+or independently cryptographically audited. Header binding is not service proof.
