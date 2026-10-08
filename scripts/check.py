@@ -15,6 +15,7 @@ sys.path.insert(0, str(ROOT))
 from reference.sis import MAX_PACKET, Profile, encode_case, verify_packet
 from scripts.native_checks import differential_search
 from scripts.binding_checks import differential_binding
+from scripts.admission_checks import differential_admission
 
 
 def run(command, capture_output=False):
@@ -111,9 +112,11 @@ def main():
         raise RuntimeError("Cargo did not identify exactly one sis-lab executable")
     binding = differential_binding(Path(lab_paths[0]))
     print(f"Binding differential: {binding}", flush=True)
+    admission = differential_admission(Path(lab_paths[0]))
+    print(f"Admission differential: {admission}", flush=True)
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native,
-              "header_binding": binding, "status": "passed"}
+              "header_binding": binding, "admission": admission, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock", ROOT / "benchmarks/flint-win.lock"]
     for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:
