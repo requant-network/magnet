@@ -27,6 +27,8 @@ see the [Russian documentation index](docs/ru/README.md).
 - On-demand practical lattice policies with streaming hits and bounded exact-instance preparation caches.
 - Windows Job time/commit ceilings, immutable checkpoints and censored-attempt accounting.
 - Fresh nonce/parent schedules and externally trusted laboratory header admission.
+- Independent native SHA-256, strict score targets and full laboratory admission.
+- Persistent paid vector campaigns with shared budgets and shuffled seeded repeats.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -58,6 +60,7 @@ The complete lattice sphere survey uses the explicit optional environment:
 python scripts/sphere_survey.py --python artifacts/flint-env/Scripts/python.exe
 artifacts/flint-env/Scripts/python.exe scripts/integrated_survey.py
 python scripts/windows_survey.py --python artifacts/flint-env/Scripts/python.exe
+python scripts/campaign_survey.py --python artifacts/flint-env/Scripts/python.exe
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -93,6 +96,10 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [External windows and fresh-context study](docs/research/external-windows-and-fresh-context-v1.md).
 - [External resource and lab admission interfaces](spec/08-external-windows-and-lab-admission-v1.md).
 - [Trusted header surface and difficulty requirements](docs/decisions/0009-external-windows-and-trusted-surface.md).
+- [Independent native score/admission interfaces](spec/09-native-score-and-admission-v1.md).
+- [Persistent campaign and repeated-window interfaces](spec/10-persistent-campaigns-v1.md).
+- [Native admission and seeded campaign study](docs/research/native-admission-and-campaigns-v1.md).
+- [Independent acceptance and campaign accounting decision](docs/decisions/0010-independent-acceptance-and-campaigns.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).
@@ -110,8 +117,8 @@ Difficulty, chainwork, block consensus, wallets and payments are not implemented
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: repeat external-window comparisons across independent seeds and rotated
-orders, evaluate persistent cross-context acquisition and stronger solver baselines,
-then specify chain-derived targets and valid payload/time transitions before
+Next: broaden solver competition and preprocessing attacks, evaluate steady-state
+campaigns while retaining initial preparation, then specify chain-derived targets
+and valid payload/time transitions before
 selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.

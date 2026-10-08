@@ -123,8 +123,9 @@ ceilings, with one attempt per cell in fixed order. Independent Rust/Python
 generation and complete native MITM oracles sit outside measured windows and
 never provide vectors to a worker. Every recovered score is checked against the
 oracle and recomputed digest; hits additionally pass Python lab admission and
-independent Rust bound verification. Rust does not independently verify the
-Python score/admission predicate. Both reports are invalidated before building.
+independent Rust bound verification. This version's survey does not use native
+score/admission; the independent implementation is added in spec 09. Both reports
+are invalidated before building.
 Source, configuration, executable and native backend fingerprints are retained.
 
 ## 5. Trusted admission policy

@@ -1,0 +1,2378 @@
+{
+  "status": "passed",
+  "experiment": "campaign-v1",
+  "source_sha256": {
+    "benchmarks/flint-win.lock": "fbd7df37819531d0f7581ff4a3a37b9b822dd459e2dcfd2c3096c8c42cd55707",
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "df4ffa2896a6a9a7fe3b65f9ca146d4784bd239618bee8e85ed6da0262e6ce64",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "31a90d49bfd299aaa3f6c2899e4737d799c99b0726766cdce4da58cf7fd33bb5",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/rules.rs": "2aeed71cf8be48bad52a37d20d2a377a950697c14a0cac1cc0c06324a372b756",
+    "crates/sis-verifier/src/score.rs": "58452ae36cb9d8dceda0b8a1f535974e3144c521b25215f8e67e3a7cd7772774",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/sha256.rs": "05f742b9e3683d737c816ca9bfbc6d4fbea10ddde6de799346aeee0e713aea47",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/admission_wire.py": "f4a5f863d86478f3525f4dba543b3bbd484e83117e603c743154f3865da92b95",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/campaign.py": "740f1b663bc48f218ea4cb5aac2c889bf9cffad4ab6a26ac48adbcb4417e8a25",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/header_rules.py": "653dff21d0974827e85ea00b4c553a097b7df3203f3be474dd48924df967dd41",
+    "reference/lattice_cache.py": "e8a6dba4995d6e076f5a7aae532c78336c04dfc49a806e3867eff5aa6d28986a",
+    "reference/lattice_policies.py": "5e94c8f7e35bdde6d34e32fdfa3bc4e305d0b89a3ebf1987bb4c6e97a7f1bc41",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/work_models.py": "a39e591e246da60fabe1293177cd3dd9bd4d5ae39eecadb2c885678cbf642c5f",
+    "scripts/admission_checks.py": "5d59c7abfae2cd3bc3530abadda873d9fba0fb4c61f9e41b0a3c9c91bf1f25db",
+    "scripts/binding_checks.py": "13e212b7b9c2940b329870bb2f14eec96fdcfbfe22bde7c2234956f5139d272f",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/campaign_survey.py": "c8eacd018be98fc51f691b6d373903d2c57613177cd33a241cda41a093b99a5e",
+    "scripts/check.py": "987cdd9c221557e1800ab894f6925a9134c5f5c9992497a9a14fa436e992b188",
+    "scripts/flint_driver.py": "3b247bd2f0223cfb57df2cd0a42fe20becbb9c1397a20d46e1df4d096913f78b",
+    "scripts/flint_survey.py": "36ddd1c313f6d00d7d98899d94c202cfe1c32ff52c1ff24d71f9ab781b915ac4",
+    "scripts/grinding_survey.py": "2e36cb4c9a852c5ce888c7c3c19d49e7e6337d3729e497f8bd49aab5a47e0466",
+    "scripts/integrated_survey.py": "4e858e7350c4873a9a6e663844bbb01abd1b52d730cf0ba45594c75ccdb4d6a1",
+    "scripts/joint_survey.py": "544d855613ab4123369b5d28c6059359e3906f6ddb7f21711b426f5f2ffa7c43",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/sphere_survey.py": "09968afaea936a94f3d2f126708ecee791262382a98da158a33ba5f245cdb382",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "scripts/window_driver.py": "3dc20f07a96df4a39265d6c75b488eee37b325841bc0d7e823334b622bbedf55",
+    "scripts/window_worker.py": "bf07dabd5733f41856ddc68c2780093fb548264e9cd867a90c860002c7475e1f",
+    "scripts/windows_job.py": "50250dddcd35b4a2e2f2eab0346b2b9c2878a650641b62cf793b45ae8f0e4a46",
+    "scripts/windows_survey.py": "a78dcd8d4010029322539e8b646c6e6f17c3b9fd0d0bebb64490f1ee97a8f1b5",
+    "solvers/flint_worker.py": "edbf9ee8d6741ece2841d1b56b2b1353111869639c158b7b27c9a876fb647a56",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "solvers/practical.py": "717bdbf37d4e75b3826cd42276cbdb332a7c147516da05718ab60970ba561f41",
+    "solvers/sphere.py": "b911ffee197844ddd4ea5055b4adb37e846c4e33209bf03399fa51a7a4935dff",
+    "spec/01-sis-lab-v1.md": "6450af2439f9b72b32f95a92d379d8decfb2ca36af25285080d98f44c033ffb7",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "spec/05-practical-lll-and-grinding-v1.md": "d1a5f99e852c3d58ec50264f939d96bc8ad653c0c63ded39bee43362d8be9946",
+    "spec/06-sphere-and-work-models-v1.md": "415adcd5b391e36765c25524123893b8ef61d03e77e8e16e4c962387afadf444",
+    "spec/07-integrated-lattice-policies-v1.md": "27d9066410e3be6df6cad8f0fd9c6d820ecee86378d846efb836e797c03e233f",
+    "spec/08-external-windows-and-lab-admission-v1.md": "a5ed282ceb3300e12556fabf6f745a75fc5dad81d130ef3b2c7f56287b702649",
+    "spec/09-native-score-and-admission-v1.md": "ec7a336112f9ab53d12048ba99fb33cc6be87c03e4f130516d891cf43bb1a44a",
+    "spec/10-persistent-campaigns-v1.md": "cdaedf19013ad95309e3424bb47cfbfb9caf931870340fdd2785419e0e283179",
+    "tests/test_admission_wire.py": "6a7efb0eab9f41c46f7ded90e2bffd7b02b43e6b893fecc675969ac0c6d48055",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_campaign.py": "bd1b22942c0bc3f4b9ea287363606228d23008e33b97a5aa66539485852cbbd0",
+    "tests/test_campaign_evidence.py": "e3e7ee7d05588219279582e58d447347043013a4e4399de156208e90ff7bb32d",
+    "tests/test_flint_protocol.py": "d1127b32a448008528f27aa35fa6a675f491720cea21162210a4baa10a8322c9",
+    "tests/test_grinding.py": "3d9cded7d2db62f994653f142e8cf7ce18d0f33b9f29c1125505ff746e137389",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_header_rules.py": "14a21df49f09bb6029fd7d79f6b0671f3f03eea8c22060714254b553aa7df8fc",
+    "tests/test_integrated_evidence.py": "8b8125a00b2b6c5038ed1476739fd08b876b93f4bf9f6160782939cd2fe44d7d",
+    "tests/test_joint_sphere_evidence.py": "d64f798082f6ee49d9633eb660b7606afc631e9a118e62748a1b4f0b9f5b5e2f",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_policies.py": "54d8e6a7a9fa2ac63e1346149a6caf9fd8d1657d6096313ae66b6cd2f4deaa7c",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_new_surveys.py": "1f4dad23b09a0f9f17cb5df55e3dc017aa7c9b119953d97f8b38e10f3c6ab528",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_sphere.py": "34f04988468f2f40fc2048687da455b1a10384bf280aff476064d3c902b50b80",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/test_windows_evidence.py": "0cac0025ed156bb0702bea2466464d13476ef40a170345d9334382217d1e5145",
+    "tests/test_windows_window.py": "4097955f25d24aa3c56e8d6abb7c360778b7b276b22dc8c112e5fd90ecf10722",
+    "tests/test_work_models.py": "a66f47b5ead55aea777e6288769a87a84ca461e5fc9dd583444a11438b011f4d",
+    "tests/vectors/admission-v1.json": "d1f3f2bf27981f2e846e5481b5d1f6744652394cbdfb81e423c28b704a076c54",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "hardware": {
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD",
+    "logical_cpus": 16
+  },
+  "backend": {
+    "package": "python-flint",
+    "version": "0.9.0",
+    "worker_python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+    "worker_platform": "Windows-10-10.0.19045-SP0",
+    "license_expression": "MIT AND LGPL-3.0-or-later AND (MIT AND BSD-3-Clause-Clear) AND (GPL-3.0-or-later WITH GCC-exception-3.1 AND LGPL-2.1-or-later)",
+    "file_sha256": {
+      "flint/flint_base/flint_base.pyd": "cb8fffb322708f770b73d0ec4d322cb0e85b396ec02ca282770109e19b23cb7a",
+      "flint/flint_base/flint_context.pyd": "88d83bdf31add7779e8f9e15185d18977cb3d32ffc144a55c6f69fa6682a1112",
+      "flint/functions/showgood.pyd": "593b6d6cc9986128e757743d371b253bb8f9ea93e2beb55c62626c98b9694053",
+      "flint/pyflint.pyd": "f1427349d712cb17a6aa1cd19dcce469417462fa66bd7edd6d049b5d11138a55",
+      "flint/types/_gr.pyd": "2e546f92c5188e0d018534acaeebfae194fa24784519b80fc5309a3f4405cc9c",
+      "flint/types/acb.pyd": "6559277133403ebdc06730c50f2768570568ce0a2d5d9084d527f5d85ed0b93c",
+      "flint/types/acb_mat.pyd": "7101fb1549d94da162bd029d1e5278d7637018288dce6f41a037fda3004ca716",
+      "flint/types/acb_poly.pyd": "27997d1dce6e869e1242b0f4d985a0d203e751d751cfa99e0735085fc97f6d3f",
+      "flint/types/acb_series.pyd": "353a75b54fcf83530b3c5633ff7c2ebfcea05724665ea0b67c370524fca12595",
+      "flint/types/acb_theta.pyd": "17c886333765f18328b1534726f9c873f5f8a549bbdd8804a800b62ac8a62fda",
+      "flint/types/arb.pyd": "8216e9ab3fd7358234bbc3aec620998bf4a637ed93baadb2acfabd0a82428360",
+      "flint/types/arb_mat.pyd": "ae68a710f826366d0f0ece01f79fbf8d4a97fae7de34f0f16eb0ed740590c821",
+      "flint/types/arb_poly.pyd": "ae58bff417d89274132a0daee15eee0dc8db3f685d2b32c0b002d0d3c9d3d795",
+      "flint/types/arb_series.pyd": "123464b87628208dc2586ef71e3b8d481f7e2b1e601d3e89de579b6d02d864a4",
+      "flint/types/arf.pyd": "50581c442f4122301c4cf4e0324b97b5596ce399319cd72299307df69372a86e",
+      "flint/types/dirichlet.pyd": "a57a1046bf7ae0fbfa08f625530d8eb6a56bffdf6ba3be0d4e97bcfff7ae2381",
+      "flint/types/fmpq.pyd": "b480310ef0126c937170650dce5bc30442b0d6b3cb0560d2751edd93928ce15b",
+      "flint/types/fmpq_mat.pyd": "069c658fb7c984483f7befe451157da22722c367d456aa49aa127818d6055b56",
+      "flint/types/fmpq_mpoly.pyd": "5ee8fc039915ecbb1a1bca4be6a989e4dae5f446b38f0ed886c02509492ecd25",
+      "flint/types/fmpq_poly.pyd": "eb5f00243b93a49d86b4c6080cfc2f49e8afa4fe1e22bc8435a16f2aa8a08087",
+      "flint/types/fmpq_series.pyd": "6ace0c8ac7860484a9b9c9dced6b8b9b89122be54d8f1becb1cfda8c21b24fad",
+      "flint/types/fmpq_vec.pyd": "ed9c98cd497750def04fc955459f5054bc053a2597321cdb4a0f9466cc152af1",
+      "flint/types/fmpz.pyd": "98c1791d1374d067e7af124a7e2235f787ac20a0c784d7e6effaad46c526a53d",
+      "flint/types/fmpz_mat.pyd": "71d70ab91529fbe050e6e864f4a6029c24c6a0548d4fe559f84ff2f9b631046c",
+      "flint/types/fmpz_mod.pyd": "0f6b76557c4bfb80367ae216082a924fbdf736151c34490875fed8173c05d4f3",
+      "flint/types/fmpz_mod_mat.pyd": "6611f0be6a2d3467b0d37b1dd7a1eaad91749d213fa5ef5cef8b96a74543b383",
+      "flint/types/fmpz_mod_mpoly.pyd": "59cf2971a08f9e029e18964d43757e217aa2ff5b20e7cf88d33b6c5b6529865c",
+      "flint/types/fmpz_mod_poly.pyd": "a23719e0d70ff4d15fbd3fba615a4a37aec2eedefb54c23ddb868be8b792a423",
+      "flint/types/fmpz_mpoly.pyd": "cc98e6373791ca6c802ae6d8a03990033f402da6e1ca909a30273b976428b721",
+      "flint/types/fmpz_poly.pyd": "62282cb1b2ebb98bf74f2fa2a41d35d6ec2574e345736c126328ce3cc59180f0",
+      "flint/types/fmpz_series.pyd": "472ab331df82e2fe1d0c03c4a844b63fc6bbaffa5dd73304b174b800cae048cf",
+      "flint/types/fmpz_vec.pyd": "f8c3c4a09bf4de5b33a56f41041f3042387665f776e09ebab78b7319d5f65d4b",
+      "flint/types/fq_default.pyd": "d0e1f8dcb793950e4943ef207f6fe7856c7ff990671ce3bdd368b39abf2750ca",
+      "flint/types/fq_default_poly.pyd": "c3d07a44a8bdaa10e521809529137bdfcf2f23116c3ec2b5da4b53a220280e62",
+      "flint/types/nmod.pyd": "d2db1c5a790978e341a811ed3d6f5e14181e2bf3526e77020470c41671060dd7",
+      "flint/types/nmod_mat.pyd": "665bec3b90f0959a6de7604136dfbcd429defb5079de74448168b130de007f3d",
+      "flint/types/nmod_mpoly.pyd": "bfa9a70724c4fd13f4ee6d0a3c66b58f4cbbc207d26e58f44c3d506fb8fdcccd",
+      "flint/types/nmod_poly.pyd": "4ad643d2d9c1fc22008d3d7e3890e2cf0986f057ff8453bd2b0ceb65ee7dd53b",
+      "flint/types/nmod_series.pyd": "7b318b370791acc2e145e9ee69b06575db721b4298b4fbe8a5e269483bd95036",
+      "python_flint-0.9.0.dist-info/METADATA": "5916181439cbc4d71a2e033aa50f8809cff66a641879da630023500eaef34901",
+      "python_flint-0.9.0.dist-info/licenses/LICENSE": "a887c9adb6aa9906eb9b89a98516fb64e611a4c3fd656123bc4f3860e639749c",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/flint-3.6.0/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.LIB": "362aa1af296393556b4c77891986cc62ef2b55caf5b9dfd2ab9102e742d880b7",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING.RUNTIME": "90077ba306ee9d8ed966cab1b4abd69b6e728acf08777283cc50283cd9503fa6",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gcc/COPYING3": "0b383d5a63da644f628d99c33976ea6487ed89aaa59f0b3257992deac1171e6b",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/gmp-6.3.0/COPYING.LESSERv3": "a853c2ffec17057872340eee242ae4d96cbf2b520ae27d903e1b2fef1a5f9d1c",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/mpfr-4.2.2/COPYING.LESSER": "e3a994d82e644b03a792a930f574002658412f62407f5fee083f2555c5f23118",
+      "python_flint-0.9.0.dist-info/licenses/python-flint.libs/winpthreads/COPYING": "1c8d23063c3772b9435831410b31b51fef3d9cf2138a442dc367ef5d72239f67",
+      "python_flint.libs/libflint.24.0.0-9b2d98b6da8eded35def7bc3b288ff65.dll": "aac725ed1c5dbb74c57230dda97634a87d6475e46acd54b3849d16c134a23e57",
+      "python_flint.libs/libgcc_s_seh-1-ca70890bbc5723b6d0ea31e9c9cded2b.dll": "4661795a1debb1448f2ccfecc054fc369561f44c616ff3dfa25650327555037f",
+      "python_flint.libs/libgmp-10-b84ebdfad40b1a203ac4096a9c8425c2.dll": "b84ebdfad40b1a203ac4096a9c8425c288d88f1ebc71e052e048ada8a46975b0",
+      "python_flint.libs/libmpfr-6-681398cede0f6f27feb0cbd931b38241.dll": "dddd060671cc9adfd6e7c78b44b0daff3957abe9f4831212805aebf4cd7bff05",
+      "python_flint.libs/libwinpthread-1-f5042e8e3d21edce20c1bc99445f551b.dll": "f5042e8e3d21edce20c1bc99445f551b89212403164e9388d2c6f48d6d6bcb78"
+    }
+  },
+  "seeds": [
+    2026100811,
+    2026100812,
+    2026100813
+  ],
+  "order_seed": 2026100814,
+  "repeats": 2,
+  "walls_ms": [
+    400,
+    1200
+  ],
+  "memory_mib": 64,
+  "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+  "budget": {
+    "nodes": 100000,
+    "reductions": 64,
+    "scores": 4096,
+    "proofs_per_instance": 256,
+    "bits": 4096
+  },
+  "method": "One deterministic shuffled order, three salted cohorts, two same-input repeats; fresh process/setup per attempt; one carried vector and one shared budget across all stages; no matrix cache.",
+  "clock_scope": "ResumeThread through observed exit; includes startup/setup, campaign and checkpoint I/O; excludes process/job setup, parent/oracle audits.",
+  "aggregate": {
+    "attempts": 288,
+    "outcomes": {
+      "completed": 230,
+      "wall-timeout": 58
+    },
+    "completed_windows": 230,
+    "unknown_logical_work_windows": 58,
+    "completed_stage_hit_occurrences": 168,
+    "completed_only_work": {
+      "headers": 5628,
+      "matrix_entries": 146184,
+      "reduction_calls": 3040,
+      "sphere_calls": 3040,
+      "sphere_nodes": 77880,
+      "sphere_leaves": 7630,
+      "sphere_checks": 1744,
+      "reuse_checks": 2588,
+      "cache_fill_checks": 0,
+      "cache_read_checks": 0,
+      "score_hashes": 2216,
+      "score_bytes": 456192,
+      "cache_lookups": 0,
+      "cache_hits": 0,
+      "cache_evictions": 0
+    },
+    "all_attempt_elapsed_ns": 100976462700,
+    "max_process_commit_bytes": 31825920,
+    "max_deadline_overshoot_ns": 15615800,
+    "completed_work_per_hit": {
+      "headers": {
+        "numerator": 5628,
+        "denominator": 168
+      },
+      "matrix_entries": {
+        "numerator": 146184,
+        "denominator": 168
+      },
+      "reduction_calls": {
+        "numerator": 3040,
+        "denominator": 168
+      },
+      "sphere_calls": {
+        "numerator": 3040,
+        "denominator": 168
+      },
+      "sphere_nodes": {
+        "numerator": 77880,
+        "denominator": 168
+      },
+      "sphere_leaves": {
+        "numerator": 7630,
+        "denominator": 168
+      },
+      "sphere_checks": {
+        "numerator": 1744,
+        "denominator": 168
+      },
+      "reuse_checks": {
+        "numerator": 2588,
+        "denominator": 168
+      },
+      "cache_fill_checks": {
+        "numerator": 0,
+        "denominator": 168
+      },
+      "cache_read_checks": {
+        "numerator": 0,
+        "denominator": 168
+      },
+      "score_hashes": {
+        "numerator": 2216,
+        "denominator": 168
+      },
+      "score_bytes": {
+        "numerator": 456192,
+        "denominator": 168
+      },
+      "cache_lookups": {
+        "numerator": 0,
+        "denominator": 168
+      },
+      "cache_hits": {
+        "numerator": 0,
+        "denominator": 168
+      },
+      "cache_evictions": {
+        "numerator": 0,
+        "denominator": 168
+      }
+    },
+    "unconditional_work_per_hit": null
+  },
+  "native_full_admission_hit_checks_including_recovered": 175,
+  "executable_sha256": {
+    "sis-lab-debug": "64cc0d33b50513f8d6786ab48f285e9e4f0196b604bc3ee230e1ce0adbad5a14",
+    "sis-search-release": "c05599a2610c285d57572e86ffddbdf52179df0d33fde4aef6314d8372c5a2c9"
+  },
+  "cohorts": [
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100811",
+      "with_solution_occurrences": 21,
+      "distinct_instances": 7
+    },
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100812",
+      "with_solution_occurrences": 20,
+      "distinct_instances": 8
+    },
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100813",
+      "with_solution_occurrences": 21,
+      "distinct_instances": 8
+    },
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100811",
+      "with_solution_occurrences": 23,
+      "distinct_instances": 8
+    },
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100812",
+      "with_solution_occurrences": 21,
+      "distinct_instances": 8
+    },
+    {
+      "profile": {
+        "q": 2,
+        "n": 1,
+        "m": 3,
+        "b2": 1
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/2/1/3/1/2026100813",
+      "with_solution_occurrences": 17,
+      "distinct_instances": 7
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100811",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100812",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100813",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100811",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100812",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/17/2/8/8/2026100813",
+      "with_solution_occurrences": 24,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100811",
+      "with_solution_occurrences": 13,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100812",
+      "with_solution_occurrences": 11,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100813",
+      "with_solution_occurrences": 13,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100811",
+      "with_solution_occurrences": 16,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100812",
+      "with_solution_occurrences": 12,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 3,
+        "m": 14,
+        "b2": 12
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/257/3/14/12/2026100813",
+      "with_solution_occurrences": 14,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100811",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100812",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-nonce",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100813",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100811,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100811",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100812,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100812",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    },
+    {
+      "profile": {
+        "q": 257,
+        "n": 4,
+        "m": 16,
+        "b2": 8
+      },
+      "schedule": "fresh-parent",
+      "seed": 2026100813,
+      "label": "magnet-campaign-v1/257/4/16/8/2026100813",
+      "with_solution_occurrences": 0,
+      "distinct_instances": 24
+    }
+  ],
+  "availability": {
+    "header_occurrences": 576,
+    "distinct_headers": 480,
+    "distinct_instances": 368
+  },
+  "groups": {
+    "400/restart-first/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 12,
+        "wall-timeout": 12
+      },
+      "completed_windows": 12,
+      "unknown_logical_work_windows": 12,
+      "completed_stage_hit_occurrences": 18,
+      "completed_only_work": {
+        "headers": 204,
+        "matrix_entries": 1756,
+        "reduction_calls": 204,
+        "sphere_calls": 204,
+        "sphere_nodes": 2588,
+        "sphere_leaves": 758,
+        "sphere_checks": 188,
+        "reuse_checks": 0,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 188,
+        "score_bytes": 37856,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8114407600,
+      "max_process_commit_bytes": 31768576,
+      "max_deadline_overshoot_ns": 14783800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 204,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 1756,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 204,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 204,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 2588,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 758,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 188,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 188,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 37856,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "400/restart-first/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "wall-timeout": 10,
+        "completed": 14
+      },
+      "completed_windows": 14,
+      "unknown_logical_work_windows": 10,
+      "completed_stage_hit_occurrences": 18,
+      "completed_only_work": {
+        "headers": 264,
+        "matrix_entries": 3522,
+        "reduction_calls": 264,
+        "sphere_calls": 264,
+        "sphere_nodes": 5516,
+        "sphere_leaves": 938,
+        "sphere_checks": 228,
+        "reuse_checks": 0,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 228,
+        "score_bytes": 46760,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8043508700,
+      "max_process_commit_bytes": 31825920,
+      "max_deadline_overshoot_ns": 11904900,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 264,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 3522,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 264,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 264,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 5516,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 938,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 228,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 228,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 46760,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "400/carry-first/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "wall-timeout": 6,
+        "completed": 18
+      },
+      "completed_windows": 18,
+      "unknown_logical_work_windows": 6,
+      "completed_stage_hit_occurrences": 8,
+      "completed_only_work": {
+        "headers": 402,
+        "matrix_entries": 8694,
+        "reduction_calls": 24,
+        "sphere_calls": 24,
+        "sphere_nodes": 1016,
+        "sphere_leaves": 64,
+        "sphere_checks": 18,
+        "reuse_checks": 378,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 82,
+        "score_bytes": 16128,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 6955652900,
+      "max_process_commit_bytes": 31715328,
+      "max_deadline_overshoot_ns": 10186800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 402,
+          "denominator": 8
+        },
+        "matrix_entries": {
+          "numerator": 8694,
+          "denominator": 8
+        },
+        "reduction_calls": {
+          "numerator": 24,
+          "denominator": 8
+        },
+        "sphere_calls": {
+          "numerator": 24,
+          "denominator": 8
+        },
+        "sphere_nodes": {
+          "numerator": 1016,
+          "denominator": 8
+        },
+        "sphere_leaves": {
+          "numerator": 64,
+          "denominator": 8
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 8
+        },
+        "reuse_checks": {
+          "numerator": 378,
+          "denominator": 8
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "score_hashes": {
+          "numerator": 82,
+          "denominator": 8
+        },
+        "score_bytes": {
+          "numerator": 16128,
+          "denominator": 8
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 8
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "400/carry-first/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 18,
+        "wall-timeout": 6
+      },
+      "completed_windows": 18,
+      "unknown_logical_work_windows": 6,
+      "completed_stage_hit_occurrences": 4,
+      "completed_only_work": {
+        "headers": 408,
+        "matrix_entries": 8712,
+        "reduction_calls": 24,
+        "sphere_calls": 24,
+        "sphere_nodes": 1016,
+        "sphere_leaves": 64,
+        "sphere_checks": 18,
+        "reuse_checks": 384,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 78,
+        "score_bytes": 15360,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 7073338400,
+      "max_process_commit_bytes": 31612928,
+      "max_deadline_overshoot_ns": 14822800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 408,
+          "denominator": 4
+        },
+        "matrix_entries": {
+          "numerator": 8712,
+          "denominator": 4
+        },
+        "reduction_calls": {
+          "numerator": 24,
+          "denominator": 4
+        },
+        "sphere_calls": {
+          "numerator": 24,
+          "denominator": 4
+        },
+        "sphere_nodes": {
+          "numerator": 1016,
+          "denominator": 4
+        },
+        "sphere_leaves": {
+          "numerator": 64,
+          "denominator": 4
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 4
+        },
+        "reuse_checks": {
+          "numerator": 384,
+          "denominator": 4
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "score_hashes": {
+          "numerator": 78,
+          "denominator": 4
+        },
+        "score_bytes": {
+          "numerator": 15360,
+          "denominator": 4
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 4
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "400/carry-fallback/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 12,
+        "wall-timeout": 12
+      },
+      "completed_windows": 12,
+      "unknown_logical_work_windows": 12,
+      "completed_stage_hit_occurrences": 18,
+      "completed_only_work": {
+        "headers": 340,
+        "matrix_entries": 3230,
+        "reduction_calls": 148,
+        "sphere_calls": 148,
+        "sphere_nodes": 2168,
+        "sphere_leaves": 528,
+        "sphere_checks": 132,
+        "reuse_checks": 192,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 188,
+        "score_bytes": 37856,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8137106700,
+      "max_process_commit_bytes": 31670272,
+      "max_deadline_overshoot_ns": 13901300,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 340,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 3230,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 148,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 148,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 2168,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 528,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 132,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 192,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 188,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 37856,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "400/carry-fallback/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "wall-timeout": 12,
+        "completed": 12
+      },
+      "completed_windows": 12,
+      "unknown_logical_work_windows": 12,
+      "completed_stage_hit_occurrences": 14,
+      "completed_only_work": {
+        "headers": 396,
+        "matrix_entries": 4074,
+        "reduction_calls": 176,
+        "sphere_calls": 176,
+        "sphere_nodes": 2840,
+        "sphere_leaves": 652,
+        "sphere_checks": 156,
+        "reuse_checks": 220,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 212,
+        "score_bytes": 42984,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8138824600,
+      "max_process_commit_bytes": 31784960,
+      "max_deadline_overshoot_ns": 15615800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 396,
+          "denominator": 14
+        },
+        "matrix_entries": {
+          "numerator": 4074,
+          "denominator": 14
+        },
+        "reduction_calls": {
+          "numerator": 176,
+          "denominator": 14
+        },
+        "sphere_calls": {
+          "numerator": 176,
+          "denominator": 14
+        },
+        "sphere_nodes": {
+          "numerator": 2840,
+          "denominator": 14
+        },
+        "sphere_leaves": {
+          "numerator": 652,
+          "denominator": 14
+        },
+        "sphere_checks": {
+          "numerator": 156,
+          "denominator": 14
+        },
+        "reuse_checks": {
+          "numerator": 220,
+          "denominator": 14
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 14
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 14
+        },
+        "score_hashes": {
+          "numerator": 212,
+          "denominator": 14
+        },
+        "score_bytes": {
+          "numerator": 42984,
+          "denominator": 14
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 14
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 14
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 14
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "1200/restart-first/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 20,
+      "completed_only_work": {
+        "headers": 484,
+        "matrix_entries": 16684,
+        "reduction_calls": 484,
+        "sphere_calls": 484,
+        "sphere_nodes": 14424,
+        "sphere_leaves": 1102,
+        "sphere_checks": 256,
+        "reuse_checks": 0,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 256,
+        "score_bytes": 53904,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 9555858800,
+      "max_process_commit_bytes": 31698944,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "matrix_entries": {
+          "numerator": 16684,
+          "denominator": 20
+        },
+        "reduction_calls": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "sphere_calls": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "sphere_nodes": {
+          "numerator": 14424,
+          "denominator": 20
+        },
+        "sphere_leaves": {
+          "numerator": 1102,
+          "denominator": 20
+        },
+        "sphere_checks": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "score_hashes": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "score_bytes": {
+          "numerator": 53904,
+          "denominator": 20
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 20
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "matrix_entries": {
+          "numerator": 16684,
+          "denominator": 20
+        },
+        "reduction_calls": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "sphere_calls": {
+          "numerator": 484,
+          "denominator": 20
+        },
+        "sphere_nodes": {
+          "numerator": 14424,
+          "denominator": 20
+        },
+        "sphere_leaves": {
+          "numerator": 1102,
+          "denominator": 20
+        },
+        "sphere_checks": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "score_hashes": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "score_bytes": {
+          "numerator": 53904,
+          "denominator": 20
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 20
+        }
+      }
+    },
+    "1200/restart-first/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 18,
+      "completed_only_work": {
+        "headers": 504,
+        "matrix_entries": 16770,
+        "reduction_calls": 504,
+        "sphere_calls": 504,
+        "sphere_nodes": 13998,
+        "sphere_leaves": 1234,
+        "sphere_checks": 284,
+        "reuse_checks": 0,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 284,
+        "score_bytes": 59976,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 9682892500,
+      "max_process_commit_bytes": 31645696,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 16770,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 13998,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 1234,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 59976,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 16770,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 504,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 13998,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 1234,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 59976,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      }
+    },
+    "1200/carry-first/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 8,
+      "completed_only_work": {
+        "headers": 546,
+        "matrix_entries": 17910,
+        "reduction_calls": 168,
+        "sphere_calls": 168,
+        "sphere_nodes": 3388,
+        "sphere_leaves": 208,
+        "sphere_checks": 18,
+        "reuse_checks": 378,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 82,
+        "score_bytes": 16128,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8056558900,
+      "max_process_commit_bytes": 31727616,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 546,
+          "denominator": 8
+        },
+        "matrix_entries": {
+          "numerator": 17910,
+          "denominator": 8
+        },
+        "reduction_calls": {
+          "numerator": 168,
+          "denominator": 8
+        },
+        "sphere_calls": {
+          "numerator": 168,
+          "denominator": 8
+        },
+        "sphere_nodes": {
+          "numerator": 3388,
+          "denominator": 8
+        },
+        "sphere_leaves": {
+          "numerator": 208,
+          "denominator": 8
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 8
+        },
+        "reuse_checks": {
+          "numerator": 378,
+          "denominator": 8
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "score_hashes": {
+          "numerator": 82,
+          "denominator": 8
+        },
+        "score_bytes": {
+          "numerator": 16128,
+          "denominator": 8
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 8
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 546,
+          "denominator": 8
+        },
+        "matrix_entries": {
+          "numerator": 17910,
+          "denominator": 8
+        },
+        "reduction_calls": {
+          "numerator": 168,
+          "denominator": 8
+        },
+        "sphere_calls": {
+          "numerator": 168,
+          "denominator": 8
+        },
+        "sphere_nodes": {
+          "numerator": 3388,
+          "denominator": 8
+        },
+        "sphere_leaves": {
+          "numerator": 208,
+          "denominator": 8
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 8
+        },
+        "reuse_checks": {
+          "numerator": 378,
+          "denominator": 8
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "score_hashes": {
+          "numerator": 82,
+          "denominator": 8
+        },
+        "score_bytes": {
+          "numerator": 16128,
+          "denominator": 8
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 8
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 8
+        }
+      }
+    },
+    "1200/carry-first/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 4,
+      "completed_only_work": {
+        "headers": 552,
+        "matrix_entries": 17928,
+        "reduction_calls": 168,
+        "sphere_calls": 168,
+        "sphere_nodes": 3356,
+        "sphere_leaves": 208,
+        "sphere_checks": 18,
+        "reuse_checks": 384,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 78,
+        "score_bytes": 15360,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 8010872500,
+      "max_process_commit_bytes": 31719424,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 552,
+          "denominator": 4
+        },
+        "matrix_entries": {
+          "numerator": 17928,
+          "denominator": 4
+        },
+        "reduction_calls": {
+          "numerator": 168,
+          "denominator": 4
+        },
+        "sphere_calls": {
+          "numerator": 168,
+          "denominator": 4
+        },
+        "sphere_nodes": {
+          "numerator": 3356,
+          "denominator": 4
+        },
+        "sphere_leaves": {
+          "numerator": 208,
+          "denominator": 4
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 4
+        },
+        "reuse_checks": {
+          "numerator": 384,
+          "denominator": 4
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "score_hashes": {
+          "numerator": 78,
+          "denominator": 4
+        },
+        "score_bytes": {
+          "numerator": 15360,
+          "denominator": 4
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 4
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 552,
+          "denominator": 4
+        },
+        "matrix_entries": {
+          "numerator": 17928,
+          "denominator": 4
+        },
+        "reduction_calls": {
+          "numerator": 168,
+          "denominator": 4
+        },
+        "sphere_calls": {
+          "numerator": 168,
+          "denominator": 4
+        },
+        "sphere_nodes": {
+          "numerator": 3356,
+          "denominator": 4
+        },
+        "sphere_leaves": {
+          "numerator": 208,
+          "denominator": 4
+        },
+        "sphere_checks": {
+          "numerator": 18,
+          "denominator": 4
+        },
+        "reuse_checks": {
+          "numerator": 384,
+          "denominator": 4
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "score_hashes": {
+          "numerator": 78,
+          "denominator": 4
+        },
+        "score_bytes": {
+          "numerator": 15360,
+          "denominator": 4
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 4
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 4
+        }
+      }
+    },
+    "1200/carry-fallback/fresh-nonce": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 20,
+      "completed_only_work": {
+        "headers": 744,
+        "matrix_entries": 23366,
+        "reduction_calls": 428,
+        "sphere_calls": 428,
+        "sphere_nodes": 14004,
+        "sphere_leaves": 872,
+        "sphere_checks": 200,
+        "reuse_checks": 316,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 256,
+        "score_bytes": 53904,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 9539789200,
+      "max_process_commit_bytes": 31633408,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 744,
+          "denominator": 20
+        },
+        "matrix_entries": {
+          "numerator": 23366,
+          "denominator": 20
+        },
+        "reduction_calls": {
+          "numerator": 428,
+          "denominator": 20
+        },
+        "sphere_calls": {
+          "numerator": 428,
+          "denominator": 20
+        },
+        "sphere_nodes": {
+          "numerator": 14004,
+          "denominator": 20
+        },
+        "sphere_leaves": {
+          "numerator": 872,
+          "denominator": 20
+        },
+        "sphere_checks": {
+          "numerator": 200,
+          "denominator": 20
+        },
+        "reuse_checks": {
+          "numerator": 316,
+          "denominator": 20
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "score_hashes": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "score_bytes": {
+          "numerator": 53904,
+          "denominator": 20
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 20
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 744,
+          "denominator": 20
+        },
+        "matrix_entries": {
+          "numerator": 23366,
+          "denominator": 20
+        },
+        "reduction_calls": {
+          "numerator": 428,
+          "denominator": 20
+        },
+        "sphere_calls": {
+          "numerator": 428,
+          "denominator": 20
+        },
+        "sphere_nodes": {
+          "numerator": 14004,
+          "denominator": 20
+        },
+        "sphere_leaves": {
+          "numerator": 872,
+          "denominator": 20
+        },
+        "sphere_checks": {
+          "numerator": 200,
+          "denominator": 20
+        },
+        "reuse_checks": {
+          "numerator": 316,
+          "denominator": 20
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "score_hashes": {
+          "numerator": 256,
+          "denominator": 20
+        },
+        "score_bytes": {
+          "numerator": 53904,
+          "denominator": 20
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 20
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 20
+        }
+      }
+    },
+    "1200/carry-fallback/fresh-parent": {
+      "attempts": 24,
+      "outcomes": {
+        "completed": 24
+      },
+      "completed_windows": 24,
+      "unknown_logical_work_windows": 0,
+      "completed_stage_hit_occurrences": 18,
+      "completed_only_work": {
+        "headers": 784,
+        "matrix_entries": 23538,
+        "reduction_calls": 448,
+        "sphere_calls": 448,
+        "sphere_nodes": 13566,
+        "sphere_leaves": 1002,
+        "sphere_checks": 228,
+        "reuse_checks": 336,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 284,
+        "score_bytes": 59976,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 9667651900,
+      "max_process_commit_bytes": 31690752,
+      "max_deadline_overshoot_ns": 0,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 784,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 23538,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 448,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 448,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 13566,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 1002,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 228,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 336,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 59976,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      },
+      "unconditional_work_per_hit": {
+        "headers": {
+          "numerator": 784,
+          "denominator": 18
+        },
+        "matrix_entries": {
+          "numerator": 23538,
+          "denominator": 18
+        },
+        "reduction_calls": {
+          "numerator": 448,
+          "denominator": 18
+        },
+        "sphere_calls": {
+          "numerator": 448,
+          "denominator": 18
+        },
+        "sphere_nodes": {
+          "numerator": 13566,
+          "denominator": 18
+        },
+        "sphere_leaves": {
+          "numerator": 1002,
+          "denominator": 18
+        },
+        "sphere_checks": {
+          "numerator": 228,
+          "denominator": 18
+        },
+        "reuse_checks": {
+          "numerator": 336,
+          "denominator": 18
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "score_hashes": {
+          "numerator": 284,
+          "denominator": 18
+        },
+        "score_bytes": {
+          "numerator": 59976,
+          "denominator": 18
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 18
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 18
+        }
+      }
+    }
+  },
+  "per_seed": {
+    "2026100811": {
+      "attempts": 96,
+      "outcomes": {
+        "completed": 76,
+        "wall-timeout": 20
+      },
+      "completed_windows": 76,
+      "unknown_logical_work_windows": 20,
+      "completed_stage_hit_occurrences": 72,
+      "completed_only_work": {
+        "headers": 1764,
+        "matrix_entries": 49744,
+        "reduction_calls": 960,
+        "sphere_calls": 960,
+        "sphere_nodes": 24880,
+        "sphere_leaves": 2300,
+        "sphere_checks": 588,
+        "reuse_checks": 804,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 724,
+        "score_bytes": 150704,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 33730938800,
+      "max_process_commit_bytes": 31727616,
+      "max_deadline_overshoot_ns": 14790200,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 1764,
+          "denominator": 72
+        },
+        "matrix_entries": {
+          "numerator": 49744,
+          "denominator": 72
+        },
+        "reduction_calls": {
+          "numerator": 960,
+          "denominator": 72
+        },
+        "sphere_calls": {
+          "numerator": 960,
+          "denominator": 72
+        },
+        "sphere_nodes": {
+          "numerator": 24880,
+          "denominator": 72
+        },
+        "sphere_leaves": {
+          "numerator": 2300,
+          "denominator": 72
+        },
+        "sphere_checks": {
+          "numerator": 588,
+          "denominator": 72
+        },
+        "reuse_checks": {
+          "numerator": 804,
+          "denominator": 72
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 72
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 72
+        },
+        "score_hashes": {
+          "numerator": 724,
+          "denominator": 72
+        },
+        "score_bytes": {
+          "numerator": 150704,
+          "denominator": 72
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 72
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 72
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 72
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "2026100812": {
+      "attempts": 96,
+      "outcomes": {
+        "completed": 76,
+        "wall-timeout": 20
+      },
+      "completed_windows": 76,
+      "unknown_logical_work_windows": 20,
+      "completed_stage_hit_occurrences": 36,
+      "completed_only_work": {
+        "headers": 1992,
+        "matrix_entries": 49336,
+        "reduction_calls": 1072,
+        "sphere_calls": 1072,
+        "sphere_nodes": 27880,
+        "sphere_leaves": 3092,
+        "sphere_checks": 612,
+        "reuse_checks": 920,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 800,
+        "score_bytes": 163440,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 34105508400,
+      "max_process_commit_bytes": 31768576,
+      "max_deadline_overshoot_ns": 15615800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 1992,
+          "denominator": 36
+        },
+        "matrix_entries": {
+          "numerator": 49336,
+          "denominator": 36
+        },
+        "reduction_calls": {
+          "numerator": 1072,
+          "denominator": 36
+        },
+        "sphere_calls": {
+          "numerator": 1072,
+          "denominator": 36
+        },
+        "sphere_nodes": {
+          "numerator": 27880,
+          "denominator": 36
+        },
+        "sphere_leaves": {
+          "numerator": 3092,
+          "denominator": 36
+        },
+        "sphere_checks": {
+          "numerator": 612,
+          "denominator": 36
+        },
+        "reuse_checks": {
+          "numerator": 920,
+          "denominator": 36
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 36
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 36
+        },
+        "score_hashes": {
+          "numerator": 800,
+          "denominator": 36
+        },
+        "score_bytes": {
+          "numerator": 163440,
+          "denominator": 36
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 36
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 36
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 36
+        }
+      },
+      "unconditional_work_per_hit": null
+    },
+    "2026100813": {
+      "attempts": 96,
+      "outcomes": {
+        "completed": 78,
+        "wall-timeout": 18
+      },
+      "completed_windows": 78,
+      "unknown_logical_work_windows": 18,
+      "completed_stage_hit_occurrences": 60,
+      "completed_only_work": {
+        "headers": 1872,
+        "matrix_entries": 47104,
+        "reduction_calls": 1008,
+        "sphere_calls": 1008,
+        "sphere_nodes": 25120,
+        "sphere_leaves": 2238,
+        "sphere_checks": 544,
+        "reuse_checks": 864,
+        "cache_fill_checks": 0,
+        "cache_read_checks": 0,
+        "score_hashes": 692,
+        "score_bytes": 142048,
+        "cache_lookups": 0,
+        "cache_hits": 0,
+        "cache_evictions": 0
+      },
+      "all_attempt_elapsed_ns": 33140015500,
+      "max_process_commit_bytes": 31825920,
+      "max_deadline_overshoot_ns": 14783800,
+      "completed_work_per_hit": {
+        "headers": {
+          "numerator": 1872,
+          "denominator": 60
+        },
+        "matrix_entries": {
+          "numerator": 47104,
+          "denominator": 60
+        },
+        "reduction_calls": {
+          "numerator": 1008,
+          "denominator": 60
+        },
+        "sphere_calls": {
+          "numerator": 1008,
+          "denominator": 60
+        },
+        "sphere_nodes": {
+          "numerator": 25120,
+          "denominator": 60
+        },
+        "sphere_leaves": {
+          "numerator": 2238,
+          "denominator": 60
+        },
+        "sphere_checks": {
+          "numerator": 544,
+          "denominator": 60
+        },
+        "reuse_checks": {
+          "numerator": 864,
+          "denominator": 60
+        },
+        "cache_fill_checks": {
+          "numerator": 0,
+          "denominator": 60
+        },
+        "cache_read_checks": {
+          "numerator": 0,
+          "denominator": 60
+        },
+        "score_hashes": {
+          "numerator": 692,
+          "denominator": 60
+        },
+        "score_bytes": {
+          "numerator": 142048,
+          "denominator": 60
+        },
+        "cache_lookups": {
+          "numerator": 0,
+          "denominator": 60
+        },
+        "cache_hits": {
+          "numerator": 0,
+          "denominator": 60
+        },
+        "cache_evictions": {
+          "numerator": 0,
+          "denominator": 60
+        }
+      },
+      "unconditional_work_per_hit": null
+    }
+  },
+  "completed_campaign_stops": {
+    "campaign-exhausted": 230
+  }
+}

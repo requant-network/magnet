@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: external resource windows and trusted laboratory admission.
+Date: 2026-10-08. Phase: independent native admission and persistent paid campaigns.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -24,6 +24,9 @@ connect practical LLL/sphere to paid first/all/reuse/cache-all policies.
 Windows Jobs now enforce process/job commit ceilings before worker execution and
 terminate externally bounded attempts. Immutable checkpoints preserve interrupted
 evidence. Fresh schedules and LabRules constrain the independently trusted surface.
+Independent bounded Rust SHA-256/score/target/admission now matches Python.
+Persistent one-vector campaigns share budgets across stages and compare shuffled
+seeded repeats in externally bounded workers.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
@@ -222,12 +225,36 @@ Fixed-order one-pass results and shared OS cache state do not rank mining speeds
 Trusted rules fix context/profile/target, timestamp range and allowed commitments
 outside packets, without implementing payload-body validity or a live chain.
 
+### Independent admission and persistent campaigns
+
+The [new study](research/native-admission-and-campaigns-v1.md) adds independent
+native acceptance of the unchanged lab score and trusted header surface. Frozen
+vectors and 10814 deterministic SHA-256/score/admission cases agree; 13 malformed
+new requests fail cleanly. Target transport represents 0..2^256 exactly in 33
+big-endian bytes; equality at the threshold rejects. Handwritten cryptography
+remains laboratory code, not certified production primitives.
+
+Three paid campaigns compare restart-first, persistent carry-first and explicit
+carry-fallback across fresh nonce/parent schedules. One budget and vector persist
+across all stages, without an external initial solution or matrix cache. Failed
+carries never score; fallback charges both matrix derivations and fresh search.
+Three salted seeds, two identical-input repeats and one recorded shuffled order
+produce 288 external attempts. The 576 input occurrences contain 480 distinct
+headers and 368 exact profile/matrix identities. All availability oracles complete.
+
+230 workers complete and 58 time out. Completed workers yield 168 stage-hit
+occurrences. Including seven recovered aborted hits, all 175 pass independent
+Rust full admission as well as Python checks; the seven stay out of completed
+win totals. At 1200 ms all 144 workers complete: restart/carry/fallback yield
+38/12/38 stage hits over 144 stage opportunities each, with 988/336/876 paid
+reductions. These are repeated toy measurements, not a calibrated speed ranking.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 120 Python tests and 13 Rust tests;
+- 131 Python tests and 15 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -236,6 +263,8 @@ python scripts/check.py currently passes:
 - 1936 generation/binding differential cases (174 SHAKE, 200 matrices, 109
   headers, 1451 proofs, two frozen checks), zero mismatches; 25 malformed
   request/frame rejections and one empty-stream check.
+- 10814 SHA-256/score/admission differential cases, zero mismatches; 13 malformed
+  new request rejections.
 
 Tests cover manual vectors, norm and size limits, rejection sampling and its
 budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
@@ -274,6 +303,10 @@ External-window tests cover suspended-launch ABI/limits, actual stalled-worker
 termination and allocation denial, bounded completion markers, fresh contexts,
 conditional censored totals and evidence invalidation. Admission tests cover
 early forbidden-surface rejection, strict external scores and malformed rules.
+New tests preserve frozen native-score/rule encoding, padding boundaries,
+campaign-wide caps, paid persistent acquisition, failed-carry behavior, explicit
+fallback charges, final-score stop/hit precedence, shuffled-repeat coverage and
+stale-evidence invalidation before a failed campaign build.
 
 Separate source reviews covered the completed milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
@@ -305,9 +338,11 @@ trials distinct from actual SIS work. [ADR 0008](decisions/0008-paid-lattice-pre
 keeps optimized search inside paid policies and bounds exact-instance preparation
 reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
-lab admission. Next repeat independent/rotated windows, study persistent
-cross-context acquisition and stronger solvers, then specify chain-derived targets
-and body/time validity before retarget/fork-choice simulation. Difficulty
+lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
+adds independent native acceptance and shared-budget persistent campaigns.
+Next broaden optimized solver/vector-pool competition and steady-state campaign
+accounting, then specify chain-derived targets and body/time validity before
+retarget/fork-choice simulation. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

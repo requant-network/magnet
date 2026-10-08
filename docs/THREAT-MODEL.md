@@ -96,8 +96,8 @@ Installed binary/license hashes are evidence; wheel pinning is installation
 provenance, not a hostile-environment runtime authenticity proof. Worker output
 capture and native transient allocation are not OS memory limits.
 
-The grinding score is a Python research predicate and remains absent from Rust
-bound verification. Counters describe instrumented policy work; family preparation
+The grinding score remains a research predicate, now independently implemented
+in Rust with strict external targets (spec 09). Counters describe instrumented policy work; family preparation
 and full oracle audits are separate. Arbitrary time/payload variants do not imply
 valid future blocks. Early hit totals and repeated base headers are not independent
 network weight, and heuristic family exhaustion is not nonexistence evidence.
@@ -107,8 +107,8 @@ audit, transient arithmetic, GSO allocation and sorting can consume work outside
 node counters; none is an OS memory/time limit. Recursive state is released on
 completion or caps without relying on cyclic GC. Only full tree exhaustion over
 a certified full lattice proves the bounded vector set. Dense/high-dimensional
-profiles outside the survey remain unmeasured, and sphere is not yet connected to
-paid mining policies. A complete algorithm is not a hardness theorem.
+profiles outside the survey remain unmeasured. Sphere is connected to paid
+laboratory policies; a complete algorithm is not a hardness theorem.
 
 Joint target sweeps restart each policy independently, preserve unsuccessful work
 and distinguish repeated experimental hits from distinct proofs. 2^256/T is only
@@ -153,6 +153,22 @@ Trusted LabRules fix profile/context, timestamp interval, payload commitments
 and score target outside submitted proofs. Forbidden surfaces are rejected before
 instance generation. Rules do not prove parent-chain existence, payload-body
 validity or consensus time. Fresh-parent schedules are deterministic lab inputs,
-not a live chain; stages reset budgets and vector acquisition. Rust verifies bound
-SIS validity but still does not independently enforce the Python score/admission.
+not a live chain; WLP1 stages reset budgets and vector acquisition. Rust now has
+independent full lab admission, while windows-v1's historical survey still uses
+bound SIS verification alone. New WCP1 experiments use native full admission.
 The next gates in ADR 0009 remain necessary before choosing difficulty or chainwork.
+
+New SHA-256 is handwritten bounded laboratory code, checked with known answers
+and Python hashlib at padding/length boundaries; neither hash implementation is
+cryptographically certified. Target transport is canonical 33-byte big-endian
+for 0..2^256 and cannot come from a submitted proof as trusted policy. Local
+adapter rules are caller-controlled configuration, not authenticated remote input.
+
+Persistent campaigns carry one paid vector across parent/height changes while
+keeping the network/profile fixed. Every carry is verified against regenerated A
+and scored only when valid; failed carry receives no score. Explicit fallback
+charges fresh reduction and its repeated matrix derivation. Campaign-wide limits
+do not reset; skipped stages retain the initial stop reason. No external oracle
+seeds acquisition. Shuffled repeats reuse mathematical inputs and share host state;
+they do not represent independent proofs or steady mining. Interrupted logical
+work remains censored regardless of recovered hits or available checkpoints.
