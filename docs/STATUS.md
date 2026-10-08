@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: practical LLL and paid header selection.
+Date: 2026-10-08. Phase: complete bounded lattice search and descriptive work models.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -16,7 +16,9 @@ search protocol; larger toy CPU studies; a local check command.
 Exact-rational LLL on full modular-kernel bases, independent lattice certificates
 and a finite row/pair probe now provide a competing solver family.
 Canonical MGH1 headers and context-bound proofs derive A internally; the
-separate SIS1 format remains supplied-matrix research input.
+separate SIS1 format remains supplied-matrix research input. Exact rational sphere
+enumeration now completes bounded kernel searches with explicit caps; joint
+header families and target grids expose competing descriptive cost models.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
@@ -162,12 +164,26 @@ All 27 hits pass Rust bound validity and the Python lab score. Native LLL is not
 used by these grinding policies, and the research score is not a network target.
 Counters and local timings disclose preparation, acquisition and audit boundaries.
 
+### Exact sphere and joint work-model study
+
+The [latest study](research/sphere-and-work-models-v1.md) completes exact sphere
+and independent MITM on 1101 records: 408 solvable, 693 empty, 526 proof occurrences.
+Every complete set agrees. The finite FLINT probe misses 55 individual vectors.
+The cohort includes 1000 cheap historical cases, 100 extensions and one labelled
+frozen repeat; it is not the entire earlier lattice cohort.
+
+The joint/single-axis study covers 32 equal-size families, 2048 header occurrences,
+1952 unique headers and 512 paid policy runs at four targets. All 147 hit occurrences
+pass independent Rust bound validity and the Python score predicate. Failures
+remain in component totals; zero-hit per-hit costs are null. Neither the ideal
+2^256/T model nor measured counters select chainwork or calibrated SIS cost.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 84 Python tests and 13 Rust tests;
+- 97 Python tests and 13 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (206 searches, 1940 verified proof
@@ -200,8 +216,13 @@ New tests reject malformed optional-backend requests, tampered certificates and
 inexact reducedness, and preserve evidence invalidation, capped-oracle denominators,
 family/context bounds, strict scores, paid acquisition and last-proposal precedence.
 The explicit practical survey separately exercises the actual pinned FLINT backend.
+New sphere tests cover exact rational boundary intervals, full sets across ranks,
+equivalent unreduced bases, frozen misses, all caps and immediate state release
+without cyclic GC. Joint tests cover preallocation bounds, axis compatibility,
+overflow, monotone paid target work, failed-run denominators and repeated hits.
+Both new surveys invalidate evidence before a failed build.
 
-Separate source reviews covered all nine milestones. The initial Cargo executable-
+Separate source reviews covered the completed milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
@@ -226,8 +247,10 @@ keeps its misses inconclusive. Header binding and independent generation now
 have separate tested interfaces; [ADR 0005](decisions/0005-header-binding.md)
 keeps binding distinct from work pricing. [ADR 0006](decisions/0006-practical-solvers-and-grinding.md)
 adds native solver competition and paid header selection to future cost models.
-Next compare stronger solvers and combined availability/preprocessing/grinding/reuse
-strategies under explicit competing work models. Difficulty
+[ADR 0007](decisions/0007-sphere-and-work-models.md) keeps ideal eligible-score
+trials distinct from actual SIS work. Next integrate certified practical reduction
+and sphere search into paid header strategies on larger profiles, then quantify
+preprocessing amortization and define allowed time/payload surfaces. Difficulty
 and accumulated chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

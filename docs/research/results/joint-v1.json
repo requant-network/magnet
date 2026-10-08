@@ -1,0 +1,3202 @@
+{
+  "status": "passed",
+  "experiment": "joint-v1",
+  "divisors": [
+    8,
+    16,
+    32,
+    64
+  ],
+  "setups": [
+    [
+      7,
+      1,
+      3,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      8
+    ],
+    [
+      17,
+      2,
+      4,
+      3
+    ],
+    [
+      257,
+      2,
+      4,
+      8
+    ]
+  ],
+  "batches": 2,
+  "headers_per_family": 64,
+  "joint_axes": [
+    4,
+    4,
+    4
+  ],
+  "python": "3.12.10",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "aggregate": {
+    "families": 32,
+    "header_occurrences": 2048,
+    "unique_headers": 1952,
+    "with_solution_occurrences": 769,
+    "targets": {
+      "8": {
+        "target": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+        "ideal_independent_eligible_score_trials": "8",
+        "with_score_hit_occurrences": 329,
+        "policies": {
+          "unit": {
+            "runs": 32,
+            "hit_occurrences": 7,
+            "work": {
+              "headers_processed": 1793,
+              "matrix_entries_expanded": 13059,
+              "vector_checks": 1793,
+              "score_hashes": 43,
+              "score_input_bytes": 8268
+            },
+            "search_loop_calls": 0,
+            "domain_preparation_box_vectors": 0,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1793,
+                "denominator": 7
+              },
+              "matrix_entries_expanded": {
+                "numerator": 13059,
+                "denominator": 7
+              },
+              "vector_checks": {
+                "numerator": 1793,
+                "denominator": 7
+              },
+              "score_hashes": {
+                "numerator": 43,
+                "denominator": 7
+              },
+              "score_input_bytes": {
+                "numerator": 8268,
+                "denominator": 7
+              }
+            },
+            "stops": {
+              "score-hit": 7,
+              "family-exhausted": 25
+            }
+          },
+          "first": {
+            "runs": 32,
+            "hit_occurrences": 21,
+            "work": {
+              "headers_processed": 1076,
+              "matrix_entries_expanded": 8293,
+              "vector_checks": 109884,
+              "score_hashes": 167,
+              "score_input_bytes": 32480
+            },
+            "search_loop_calls": 1076,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1076,
+                "denominator": 21
+              },
+              "matrix_entries_expanded": {
+                "numerator": 8293,
+                "denominator": 21
+              },
+              "vector_checks": {
+                "numerator": 109884,
+                "denominator": 21
+              },
+              "score_hashes": {
+                "numerator": 167,
+                "denominator": 21
+              },
+              "score_input_bytes": {
+                "numerator": 32480,
+                "denominator": 21
+              }
+            },
+            "stops": {
+              "score-hit": 21,
+              "family-exhausted": 11
+            }
+          },
+          "all": {
+            "runs": 32,
+            "hit_occurrences": 22,
+            "work": {
+              "headers_processed": 995,
+              "matrix_entries_expanded": 7895,
+              "vector_checks": 114137,
+              "score_hashes": 176,
+              "score_input_bytes": 34248
+            },
+            "search_loop_calls": 995,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 995,
+                "denominator": 22
+              },
+              "matrix_entries_expanded": {
+                "numerator": 7895,
+                "denominator": 22
+              },
+              "vector_checks": {
+                "numerator": 114137,
+                "denominator": 22
+              },
+              "score_hashes": {
+                "numerator": 176,
+                "denominator": 22
+              },
+              "score_input_bytes": {
+                "numerator": 34248,
+                "denominator": 22
+              }
+            },
+            "stops": {
+              "score-hit": 22,
+              "family-exhausted": 10
+            }
+          },
+          "reuse": {
+            "runs": 32,
+            "hit_occurrences": 7,
+            "work": {
+              "headers_processed": 1788,
+              "matrix_entries_expanded": 12814,
+              "vector_checks": 89630,
+              "score_hashes": 71,
+              "score_input_bytes": 13704
+            },
+            "search_loop_calls": 641,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1788,
+                "denominator": 7
+              },
+              "matrix_entries_expanded": {
+                "numerator": 12814,
+                "denominator": 7
+              },
+              "vector_checks": {
+                "numerator": 89630,
+                "denominator": 7
+              },
+              "score_hashes": {
+                "numerator": 71,
+                "denominator": 7
+              },
+              "score_input_bytes": {
+                "numerator": 13704,
+                "denominator": 7
+              }
+            },
+            "stops": {
+              "family-exhausted": 25,
+              "score-hit": 7
+            }
+          }
+        }
+      },
+      "16": {
+        "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+        "ideal_independent_eligible_score_trials": "16",
+        "with_score_hit_occurrences": 197,
+        "policies": {
+          "unit": {
+            "runs": 32,
+            "hit_occurrences": 3,
+            "work": {
+              "headers_processed": 1994,
+              "matrix_entries_expanded": 13662,
+              "vector_checks": 1994,
+              "score_hashes": 68,
+              "score_input_bytes": 13068
+            },
+            "search_loop_calls": 0,
+            "domain_preparation_box_vectors": 0,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1994,
+                "denominator": 3
+              },
+              "matrix_entries_expanded": {
+                "numerator": 13662,
+                "denominator": 3
+              },
+              "vector_checks": {
+                "numerator": 1994,
+                "denominator": 3
+              },
+              "score_hashes": {
+                "numerator": 68,
+                "denominator": 3
+              },
+              "score_input_bytes": {
+                "numerator": 13068,
+                "denominator": 3
+              }
+            },
+            "stops": {
+              "family-exhausted": 29,
+              "score-hit": 3
+            }
+          },
+          "first": {
+            "runs": 32,
+            "hit_occurrences": 15,
+            "work": {
+              "headers_processed": 1384,
+              "matrix_entries_expanded": 10497,
+              "vector_checks": 130719,
+              "score_hashes": 276,
+              "score_input_bytes": 53636
+            },
+            "search_loop_calls": 1384,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1384,
+                "denominator": 15
+              },
+              "matrix_entries_expanded": {
+                "numerator": 10497,
+                "denominator": 15
+              },
+              "vector_checks": {
+                "numerator": 130719,
+                "denominator": 15
+              },
+              "score_hashes": {
+                "numerator": 276,
+                "denominator": 15
+              },
+              "score_input_bytes": {
+                "numerator": 53636,
+                "denominator": 15
+              }
+            },
+            "stops": {
+              "score-hit": 15,
+              "family-exhausted": 17
+            }
+          },
+          "all": {
+            "runs": 32,
+            "hit_occurrences": 17,
+            "work": {
+              "headers_processed": 1228,
+              "matrix_entries_expanded": 9734,
+              "vector_checks": 137051,
+              "score_hashes": 284,
+              "score_input_bytes": 55268
+            },
+            "search_loop_calls": 1228,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1228,
+                "denominator": 17
+              },
+              "matrix_entries_expanded": {
+                "numerator": 9734,
+                "denominator": 17
+              },
+              "vector_checks": {
+                "numerator": 137051,
+                "denominator": 17
+              },
+              "score_hashes": {
+                "numerator": 284,
+                "denominator": 17
+              },
+              "score_input_bytes": {
+                "numerator": 55268,
+                "denominator": 17
+              }
+            },
+            "stops": {
+              "score-hit": 17,
+              "family-exhausted": 15
+            }
+          },
+          "reuse": {
+            "runs": 32,
+            "hit_occurrences": 5,
+            "work": {
+              "headers_processed": 1875,
+              "matrix_entries_expanded": 13305,
+              "vector_checks": 89717,
+              "score_hashes": 76,
+              "score_input_bytes": 14664
+            },
+            "search_loop_calls": 641,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1875,
+                "denominator": 5
+              },
+              "matrix_entries_expanded": {
+                "numerator": 13305,
+                "denominator": 5
+              },
+              "vector_checks": {
+                "numerator": 89717,
+                "denominator": 5
+              },
+              "score_hashes": {
+                "numerator": 76,
+                "denominator": 5
+              },
+              "score_input_bytes": {
+                "numerator": 14664,
+                "denominator": 5
+              }
+            },
+            "stops": {
+              "family-exhausted": 27,
+              "score-hit": 5
+            }
+          }
+        }
+      },
+      "32": {
+        "target": "3618502788666131106986593281521497120414687020801267626233049500247285301248",
+        "ideal_independent_eligible_score_trials": "32",
+        "with_score_hit_occurrences": 89,
+        "policies": {
+          "unit": {
+            "runs": 32,
+            "hit_occurrences": 0,
+            "work": {
+              "headers_processed": 2048,
+              "matrix_entries_expanded": 13824,
+              "vector_checks": 2048,
+              "score_hashes": 76,
+              "score_input_bytes": 14604
+            },
+            "search_loop_calls": 0,
+            "domain_preparation_box_vectors": 0,
+            "work_per_hit_occurrence": {
+              "headers_processed": null,
+              "matrix_entries_expanded": null,
+              "vector_checks": null,
+              "score_hashes": null,
+              "score_input_bytes": null
+            },
+            "stops": {
+              "family-exhausted": 32
+            }
+          },
+          "first": {
+            "runs": 32,
+            "hit_occurrences": 12,
+            "work": {
+              "headers_processed": 1537,
+              "matrix_entries_expanded": 11481,
+              "vector_checks": 142487,
+              "score_hashes": 362,
+              "score_input_bytes": 70300
+            },
+            "search_loop_calls": 1537,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1537,
+                "denominator": 12
+              },
+              "matrix_entries_expanded": {
+                "numerator": 11481,
+                "denominator": 12
+              },
+              "vector_checks": {
+                "numerator": 142487,
+                "denominator": 12
+              },
+              "score_hashes": {
+                "numerator": 362,
+                "denominator": 12
+              },
+              "score_input_bytes": {
+                "numerator": 70300,
+                "denominator": 12
+              }
+            },
+            "stops": {
+              "score-hit": 12,
+              "family-exhausted": 20
+            }
+          },
+          "all": {
+            "runs": 32,
+            "hit_occurrences": 14,
+            "work": {
+              "headers_processed": 1338,
+              "matrix_entries_expanded": 10544,
+              "vector_checks": 153259,
+              "score_hashes": 428,
+              "score_input_bytes": 83104
+            },
+            "search_loop_calls": 1338,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1338,
+                "denominator": 14
+              },
+              "matrix_entries_expanded": {
+                "numerator": 10544,
+                "denominator": 14
+              },
+              "vector_checks": {
+                "numerator": 153259,
+                "denominator": 14
+              },
+              "score_hashes": {
+                "numerator": 428,
+                "denominator": 14
+              },
+              "score_input_bytes": {
+                "numerator": 83104,
+                "denominator": 14
+              }
+            },
+            "stops": {
+              "score-hit": 14,
+              "family-exhausted": 18
+            }
+          },
+          "reuse": {
+            "runs": 32,
+            "hit_occurrences": 3,
+            "work": {
+              "headers_processed": 1954,
+              "matrix_entries_expanded": 13542,
+              "vector_checks": 89796,
+              "score_hashes": 91,
+              "score_input_bytes": 17544
+            },
+            "search_loop_calls": 641,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1954,
+                "denominator": 3
+              },
+              "matrix_entries_expanded": {
+                "numerator": 13542,
+                "denominator": 3
+              },
+              "vector_checks": {
+                "numerator": 89796,
+                "denominator": 3
+              },
+              "score_hashes": {
+                "numerator": 91,
+                "denominator": 3
+              },
+              "score_input_bytes": {
+                "numerator": 17544,
+                "denominator": 3
+              }
+            },
+            "stops": {
+              "family-exhausted": 29,
+              "score-hit": 3
+            }
+          }
+        }
+      },
+      "64": {
+        "target": "1809251394333065553493296640760748560207343510400633813116524750123642650624",
+        "ideal_independent_eligible_score_trials": "64",
+        "with_score_hit_occurrences": 56,
+        "policies": {
+          "unit": {
+            "runs": 32,
+            "hit_occurrences": 0,
+            "work": {
+              "headers_processed": 2048,
+              "matrix_entries_expanded": 13824,
+              "vector_checks": 2048,
+              "score_hashes": 76,
+              "score_input_bytes": 14604
+            },
+            "search_loop_calls": 0,
+            "domain_preparation_box_vectors": 0,
+            "work_per_hit_occurrence": {
+              "headers_processed": null,
+              "matrix_entries_expanded": null,
+              "vector_checks": null,
+              "score_hashes": null,
+              "score_input_bytes": null
+            },
+            "stops": {
+              "family-exhausted": 32
+            }
+          },
+          "first": {
+            "runs": 32,
+            "hit_occurrences": 7,
+            "work": {
+              "headers_processed": 1703,
+              "matrix_entries_expanded": 12564,
+              "vector_checks": 157878,
+              "score_hashes": 452,
+              "score_input_bytes": 87744
+            },
+            "search_loop_calls": 1703,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1703,
+                "denominator": 7
+              },
+              "matrix_entries_expanded": {
+                "numerator": 12564,
+                "denominator": 7
+              },
+              "vector_checks": {
+                "numerator": 157878,
+                "denominator": 7
+              },
+              "score_hashes": {
+                "numerator": 452,
+                "denominator": 7
+              },
+              "score_input_bytes": {
+                "numerator": 87744,
+                "denominator": 7
+              }
+            },
+            "stops": {
+              "family-exhausted": 25,
+              "score-hit": 7
+            }
+          },
+          "all": {
+            "runs": 32,
+            "hit_occurrences": 11,
+            "work": {
+              "headers_processed": 1438,
+              "matrix_entries_expanded": 11344,
+              "vector_checks": 164643,
+              "score_hashes": 468,
+              "score_input_bytes": 90944
+            },
+            "search_loop_calls": 1438,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1438,
+                "denominator": 11
+              },
+              "matrix_entries_expanded": {
+                "numerator": 11344,
+                "denominator": 11
+              },
+              "vector_checks": {
+                "numerator": 164643,
+                "denominator": 11
+              },
+              "score_hashes": {
+                "numerator": 468,
+                "denominator": 11
+              },
+              "score_input_bytes": {
+                "numerator": 90944,
+                "denominator": 11
+              }
+            },
+            "stops": {
+              "score-hit": 11,
+              "family-exhausted": 21
+            }
+          },
+          "reuse": {
+            "runs": 32,
+            "hit_occurrences": 3,
+            "work": {
+              "headers_processed": 1954,
+              "matrix_entries_expanded": 13542,
+              "vector_checks": 89796,
+              "score_hashes": 91,
+              "score_input_bytes": 17544
+            },
+            "search_loop_calls": 641,
+            "domain_preparation_box_vectors": 11648,
+            "work_per_hit_occurrence": {
+              "headers_processed": {
+                "numerator": 1954,
+                "denominator": 3
+              },
+              "matrix_entries_expanded": {
+                "numerator": 13542,
+                "denominator": 3
+              },
+              "vector_checks": {
+                "numerator": 89796,
+                "denominator": 3
+              },
+              "score_hashes": {
+                "numerator": 91,
+                "denominator": 3
+              },
+              "score_input_bytes": {
+                "numerator": 17544,
+                "denominator": 3
+              }
+            },
+            "stops": {
+              "family-exhausted": 29,
+              "score-hit": 3
+            }
+          }
+        }
+      }
+    }
+  },
+  "native_hit_checks": 147,
+  "oracle_audit_score_hashes": 3691,
+  "executable_sha256": {
+    "sis-lab-debug": "156dfc56f38f67e2768b60cef7e10589e4accef7deffe43f8b34260b7ee3fcc7",
+    "sis-search-release": "c078a8014fe979a0be1af380c36c864b96cb0696fae5f713ce9de1baececcfd6"
+  },
+  "source_sha256": {
+    "benchmarks/flint-win.lock": "fbd7df37819531d0f7581ff4a3a37b9b822dd459e2dcfd2c3096c8c42cd55707",
+    "Cargo.lock": "c4def24e1c51688033150092d1f63aefea773d6e6fd7a44ed026eb733e6cd517",
+    "Cargo.toml": "bb3d14792317b9ea54205216033bdf93e033027d01c6f4438b48a73f10913898",
+    "crates/sis-verifier/src/generator.rs": "4963ca3ad98bc3ea8dc9b0d8843e25d935223e0ffa135c20ac383ca523d004c6",
+    "crates/sis-verifier/src/header.rs": "d97b6653dadad03596e91558d18e54361052af7eaa232bd8b360d66c1eff79c7",
+    "crates/sis-verifier/src/lab.rs": "bdd3e418a109172b8687d9079b95ef626ed19e072435c8feee346a630a137863",
+    "crates/sis-verifier/src/lab_main.rs": "37ce9d0a94263488115e11b2f822b7713559d4a783ba5480cd3905741f5a4d3a",
+    "crates/sis-verifier/src/lib.rs": "6f98fbe54128cbeb284ae7fbf3e48cfe6d04427c4fadf6471740d87e1d3dfb8c",
+    "crates/sis-verifier/src/main.rs": "e169854ecaf2d438c9b704245aa059b457fb757b4a24d1fea4501e7f6c1a39d8",
+    "crates/sis-verifier/src/search.rs": "4ef91d5c71f8d808629c7ef3476e9e7f954ba916f9fb5aad012348894829f6ce",
+    "crates/sis-verifier/src/search_main.rs": "fd9fda4ca0cf2b90c507f90fe0c825e5a922233779326c4b113d164f4c391626",
+    "crates/sis-verifier/src/shake.rs": "fdb936bdcfa70c77d972365bcde374a9b8b11ff5551c572c5e5d7d2071717eec",
+    "reference/__init__.py": "10cb9f1bc0ff30db960f91a0ffeb4bd39fba02317cfca51953b328bb03113399",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "reference/grinding.py": "494d1a4733c88af1c863a88d4894540115449a79c960e3af3c7b16d18de189fe",
+    "reference/header.py": "a5eb1d520e1a0521641e2af9de0947ea123d94ad7bcae347964339bbd663baa7",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/reuse.py": "573ad9251359c0a9b41c567e1ba558f7517b2dc03d3914742b858ab641963028",
+    "reference/search.py": "d46dd599a52e03022cafbc4793d9e28209f8af4d71b9ad31f7b58e082a290b1a",
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/work_models.py": "a39e591e246da60fabe1293177cd3dd9bd4d5ae39eecadb2c885678cbf642c5f",
+    "scripts/binding_checks.py": "7880bc0e64f93fe365f65e648164d18114a8ac942d6da62f7bc790ee32947bc0",
+    "scripts/binding_survey.py": "1ce280a2852826a8735b7e19d1902f1799f6531898f6420aeab01e30b285f623",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "scripts/check.py": "c85687f3cca8b3137bdd06c082caf62162df6ef9da517b84b2ee55cf918f53d2",
+    "scripts/flint_driver.py": "3b247bd2f0223cfb57df2cd0a42fe20becbb9c1397a20d46e1df4d096913f78b",
+    "scripts/flint_survey.py": "36ddd1c313f6d00d7d98899d94c202cfe1c32ff52c1ff24d71f9ab781b915ac4",
+    "scripts/grinding_survey.py": "2e36cb4c9a852c5ce888c7c3c19d49e7e6337d3729e497f8bd49aab5a47e0466",
+    "scripts/joint_survey.py": "544d855613ab4123369b5d28c6059359e3906f6ddb7f21711b426f5f2ffa7c43",
+    "scripts/lab_driver.py": "bc718f29e87b1ed3aa41f698b8479989212ad1f6258c41d55ce2426e9e0ac88a",
+    "scripts/lattice_survey.py": "8dc2e89a6ab502183cfb3edba27e881af2117b3171358ddca1ab183b8228f0f3",
+    "scripts/mitm_survey.py": "40f8f30a7d6e2be0dfe43b41c48a0eab2c67f4cbbccf0c53d8a93d3460d700ed",
+    "scripts/native_checks.py": "3c06204030ba4e63ea3a9a3a15bff83ec0c4956f22ad896d6f5f1870fc6f7077",
+    "scripts/native_driver.py": "c71f3cef8529248d1a27dd1242540ba8c2ab24c2c2686656943cc283294be787",
+    "scripts/native_survey.py": "ed71235c8d414a8e12723c7743d51ed954f3a5233a3ac70eb4ae76ca1d5528ee",
+    "scripts/reuse_survey.py": "6c7bc252b0edb064ef4f10e539bbc850832a5e677b047b09037305615c237bad",
+    "scripts/sphere_survey.py": "09968afaea936a94f3d2f126708ecee791262382a98da158a33ba5f245cdb382",
+    "scripts/strategy_survey.py": "12f5afe1852e1bdd62b33e75d36f3c02aac271d9238cd2bc453eb1338c734bca",
+    "scripts/toy_survey.py": "ddebbedef10622ef462c1ecf734a3e23bf5d705dae6f19ae2a11c3b2439e0af5",
+    "solvers/flint_worker.py": "fe4efb3a06089868f0cdb232b23bbbb0e36ddbb9dea683fe89d4aee0b67411d6",
+    "solvers/lattice.py": "d14d6a9b95c213d7dc91af5d9dfca7b3cc2963705a8d1e76ea2a2bc0d05b08e0",
+    "solvers/lattice_audit.py": "efc04eabb6ff49cd257a23256afd025f2faea4ce5774624226e4367b34ca05f0",
+    "solvers/sphere.py": "4a648e47070bd1e0ef474b6118383b4f7f3a90ad59205caa407d99ddb0b3c6bc",
+    "spec/01-sis-lab-v1.md": "6450af2439f9b72b32f95a92d379d8decfb2ca36af25285080d98f44c033ffb7",
+    "spec/02-native-search-v1.md": "71a6e1fedf406abbfc30855c4479fff0c8975fb5b661ddf474c8b811e27931aa",
+    "spec/03-lattice-reduction-v1.md": "fa38ac0fb579330d43d607596a738883d2cd44e23dce2ff444f7a886b444119b",
+    "spec/04-header-binding-v1.md": "f24a769eaf44868dc9ed71739514bca66bcdb167f358aa8b94210aed3e082003",
+    "spec/05-practical-lll-and-grinding-v1.md": "d1a5f99e852c3d58ec50264f939d96bc8ad653c0c63ded39bee43362d8be9946",
+    "spec/06-sphere-and-work-models-v1.md": "415adcd5b391e36765c25524123893b8ef61d03e77e8e16e4c962387afadf444",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815",
+    "tests/test_binding_survey.py": "0714106a5a83a9a48453f8f50318d8b95692e38af8fbd3dd55b0e65ea10ca5bd",
+    "tests/test_flint_protocol.py": "d1127b32a448008528f27aa35fa6a675f491720cea21162210a4baa10a8322c9",
+    "tests/test_grinding.py": "3d9cded7d2db62f994653f142e8cf7ce18d0f33b9f29c1125505ff746e137389",
+    "tests/test_header.py": "37a0e39a57796894e76b1f08fba0d21ea76c868bfcf193b712e7dca4604ade4b",
+    "tests/test_joint_sphere_evidence.py": "d64f798082f6ee49d9633eb660b7606afc631e9a118e62748a1b4f0b9f5b5e2f",
+    "tests/test_lattice.py": "c13a97368999143196f57dd923eadc47dd8ef0038183ff0ece59dcfa87877c81",
+    "tests/test_lattice_survey.py": "31b5ae524a377893133ffd58ce60e31482dda311437dcb0a07b16483b30cd3c2",
+    "tests/test_mitm.py": "03244f9a57973b9035c04cbcf37805f5ee77521d469152042b8e5eb192164cbf",
+    "tests/test_native.py": "44d6813054fade2cc8bc31c4592d1f5102d8ef1c85b44f13a388fed6f5c146a6",
+    "tests/test_native_survey.py": "4fc5b8b10d98d7b2cb49c7a4bc3d05cd454c4b4882a2d2f1f74598a64c03f48c",
+    "tests/test_new_surveys.py": "1f4dad23b09a0f9f17cb5df55e3dc017aa7c9b119953d97f8b38e10f3c6ab528",
+    "tests/test_reference.py": "9a21626d2dcf148a6e305b9f704eda8014701378f873c377aec78d7b31284d26",
+    "tests/test_reuse.py": "82a851f7d67a56b2d7ec56324937f08fc8c85f19856c3e85d7e129f0e69e25d7",
+    "tests/test_sphere.py": "ab7244d1688ceae70afd69666982c80f0d74963893a74dacbea071061a638046",
+    "tests/test_strategies.py": "2a549f153e57a08934c725a7039d42198d4c34dd6baf98d5c3dedad5bd753c71",
+    "tests/test_work_models.py": "a66f47b5ead55aea777e6288769a87a84ca461e5fc9dd583444a11438b011f4d",
+    "tests/vectors/header-v1.json": "3f6265887af4bccc19d4f0d61f31094646dafee87ecc2d30293929a532cf4d03",
+    "tests/vectors/lattice-miss-v1.json": "f25fb940198e9aba72e533df7d723e7b09acc4a8786821df6d31fccbc508c086",
+    "tests/vectors/manual.json": "641ce0f278d488fab0617f9e2b2e98748dd0e6ce585eb79c6ab5877eba1c5df2"
+  },
+  "fields": {
+    "nonce": {
+      "families": 8,
+      "header_occurrences": 512,
+      "unique_headers": 512,
+      "with_solution_occurrences": 195,
+      "targets": {
+        "8": {
+          "target": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+          "ideal_independent_eligible_score_trials": "8",
+          "with_score_hit_occurrences": 80,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 439,
+                "matrix_entries_expanded": 3237,
+                "vector_checks": 439,
+                "score_hashes": 14,
+                "score_input_bytes": 2692
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 439,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3237,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 439,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 14,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 2692,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 304,
+                "matrix_entries_expanded": 2392,
+                "vector_checks": 29379,
+                "score_hashes": 39,
+                "score_input_bytes": 7612
+              },
+              "search_loop_calls": 304,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 304,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2392,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 29379,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 39,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 7612,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 299,
+                "matrix_entries_expanded": 2377,
+                "vector_checks": 31038,
+                "score_hashes": 49,
+                "score_input_bytes": 9552
+              },
+              "search_loop_calls": 299,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 299,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2377,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 31038,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 49,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 9552,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 502,
+                "matrix_entries_expanded": 3426,
+                "vector_checks": 22583,
+                "score_hashes": 27,
+                "score_input_bytes": 5204
+              },
+              "search_loop_calls": 162,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 502,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3426,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22583,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 27,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 5204,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "16": {
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "ideal_independent_eligible_score_trials": "16",
+          "with_score_hit_occurrences": 47,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 21,
+                "score_input_bytes": 4036
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 347,
+                "matrix_entries_expanded": 2736,
+                "vector_checks": 34817,
+                "score_hashes": 58,
+                "score_input_bytes": 11336
+              },
+              "search_loop_calls": 347,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 347,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2736,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 34817,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 58,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 11336,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 333,
+                "matrix_entries_expanded": 2649,
+                "vector_checks": 36484,
+                "score_hashes": 70,
+                "score_input_bytes": 13668
+              },
+              "search_loop_calls": 333,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 333,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2649,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 36484,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 70,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 13668,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 502,
+                "matrix_entries_expanded": 3426,
+                "vector_checks": 22583,
+                "score_hashes": 27,
+                "score_input_bytes": 5204
+              },
+              "search_loop_calls": 162,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 502,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3426,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22583,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 27,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 5204,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "32": {
+          "target": "3618502788666131106986593281521497120414687020801267626233049500247285301248",
+          "ideal_independent_eligible_score_trials": "32",
+          "with_score_hit_occurrences": 22,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 21,
+                "score_input_bytes": 4036
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 375,
+                "matrix_entries_expanded": 2820,
+                "vector_checks": 34978,
+                "score_hashes": 86,
+                "score_input_bytes": 16712
+              },
+              "search_loop_calls": 375,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 375,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2820,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 34978,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 86,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 16712,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 342,
+                "matrix_entries_expanded": 2721,
+                "vector_checks": 37952,
+                "score_hashes": 78,
+                "score_input_bytes": 15224
+              },
+              "search_loop_calls": 342,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 342,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2721,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 37952,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 78,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 15224,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 22593,
+                "score_hashes": 29,
+                "score_input_bytes": 5588
+              },
+              "search_loop_calls": 162,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            }
+          }
+        },
+        "64": {
+          "target": "1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "ideal_independent_eligible_score_trials": "64",
+          "with_score_hit_occurrences": 15,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 21,
+                "score_input_bytes": 4036
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 414,
+                "matrix_entries_expanded": 2937,
+                "vector_checks": 35233,
+                "score_hashes": 125,
+                "score_input_bytes": 24200
+              },
+              "search_loop_calls": 414,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 414,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2937,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 35233,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 125,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 24200,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "family-exhausted": 6,
+                "score-hit": 2
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 342,
+                "matrix_entries_expanded": 2721,
+                "vector_checks": 37952,
+                "score_hashes": 78,
+                "score_input_bytes": 15224
+              },
+              "search_loop_calls": 342,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 342,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2721,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 37952,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 78,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 15224,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 22593,
+                "score_hashes": 29,
+                "score_input_bytes": 5588
+              },
+              "search_loop_calls": 162,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            }
+          }
+        }
+      }
+    },
+    "timestamp": {
+      "families": 8,
+      "header_occurrences": 512,
+      "unique_headers": 512,
+      "with_solution_occurrences": 196,
+      "targets": {
+        "8": {
+          "target": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+          "ideal_independent_eligible_score_trials": "8",
+          "with_score_hit_occurrences": 90,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 485,
+                "matrix_entries_expanded": 3375,
+                "vector_checks": 485,
+                "score_hashes": 9,
+                "score_input_bytes": 1728
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 485,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3375,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 485,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 9,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 1728,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 5,
+              "work": {
+                "headers_processed": 285,
+                "matrix_entries_expanded": 2180,
+                "vector_checks": 26964,
+                "score_hashes": 41,
+                "score_input_bytes": 7956
+              },
+              "search_loop_calls": 285,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 285,
+                  "denominator": 5
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2180,
+                  "denominator": 5
+                },
+                "vector_checks": {
+                  "numerator": 26964,
+                  "denominator": 5
+                },
+                "score_hashes": {
+                  "numerator": 41,
+                  "denominator": 5
+                },
+                "score_input_bytes": {
+                  "numerator": 7956,
+                  "denominator": 5
+                }
+              },
+              "stops": {
+                "score-hit": 5,
+                "family-exhausted": 3
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 6,
+              "work": {
+                "headers_processed": 237,
+                "matrix_entries_expanded": 1881,
+                "vector_checks": 26683,
+                "score_hashes": 35,
+                "score_input_bytes": 6804
+              },
+              "search_loop_calls": 237,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 237,
+                  "denominator": 6
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1881,
+                  "denominator": 6
+                },
+                "vector_checks": {
+                  "numerator": 26683,
+                  "denominator": 6
+                },
+                "score_hashes": {
+                  "numerator": 35,
+                  "denominator": 6
+                },
+                "score_input_bytes": {
+                  "numerator": 6804,
+                  "denominator": 6
+                }
+              },
+              "stops": {
+                "score-hit": 6,
+                "family-exhausted": 2
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 454,
+                "matrix_entries_expanded": 3282,
+                "vector_checks": 22109,
+                "score_hashes": 15,
+                "score_input_bytes": 2900
+              },
+              "search_loop_calls": 150,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 454,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3282,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22109,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 15,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 2900,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "16": {
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "ideal_independent_eligible_score_trials": "16",
+          "with_score_hit_occurrences": 54,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 14,
+                "score_input_bytes": 2688
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 350,
+                "matrix_entries_expanded": 2440,
+                "vector_checks": 27651,
+                "score_hashes": 94,
+                "score_input_bytes": 18136
+              },
+              "search_loop_calls": 350,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 350,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2440,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 27651,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 94,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 18136,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 5,
+              "work": {
+                "headers_processed": 250,
+                "matrix_entries_expanded": 1985,
+                "vector_checks": 27146,
+                "score_hashes": 39,
+                "score_input_bytes": 7580
+              },
+              "search_loop_calls": 250,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 250,
+                  "denominator": 5
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1985,
+                  "denominator": 5
+                },
+                "vector_checks": {
+                  "numerator": 27146,
+                  "denominator": 5
+                },
+                "score_hashes": {
+                  "numerator": 39,
+                  "denominator": 5
+                },
+                "score_input_bytes": {
+                  "numerator": 7580,
+                  "denominator": 5
+                }
+              },
+              "stops": {
+                "score-hit": 5,
+                "family-exhausted": 3
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 466,
+                "matrix_entries_expanded": 3318,
+                "vector_checks": 22121,
+                "score_hashes": 18,
+                "score_input_bytes": 3476
+              },
+              "search_loop_calls": 150,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 466,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3318,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22121,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 18,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 3476,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "32": {
+          "target": "3618502788666131106986593281521497120414687020801267626233049500247285301248",
+          "ideal_independent_eligible_score_trials": "32",
+          "with_score_hit_occurrences": 30,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 14,
+                "score_input_bytes": 2688
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 400,
+                "matrix_entries_expanded": 2840,
+                "vector_checks": 33292,
+                "score_hashes": 118,
+                "score_input_bytes": 22840
+              },
+              "search_loop_calls": 400,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 400,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2840,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 33292,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 118,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 22840,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 304,
+                "matrix_entries_expanded": 2397,
+                "vector_checks": 35306,
+                "score_hashes": 95,
+                "score_input_bytes": 18452
+              },
+              "search_loop_calls": 304,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 304,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2397,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 35306,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 95,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 18452,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 466,
+                "matrix_entries_expanded": 3318,
+                "vector_checks": 22121,
+                "score_hashes": 18,
+                "score_input_bytes": 3476
+              },
+              "search_loop_calls": 150,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 466,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3318,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22121,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 18,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 3476,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "64": {
+          "target": "1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "ideal_independent_eligible_score_trials": "64",
+          "with_score_hit_occurrences": 16,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 14,
+                "score_input_bytes": 2688
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 466,
+                "matrix_entries_expanded": 3318,
+                "vector_checks": 40586,
+                "score_hashes": 150,
+                "score_input_bytes": 29072
+              },
+              "search_loop_calls": 466,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 466,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3318,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 40586,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 150,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 29072,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 306,
+                "matrix_entries_expanded": 2413,
+                "vector_checks": 35668,
+                "score_hashes": 103,
+                "score_input_bytes": 20020
+              },
+              "search_loop_calls": 306,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 306,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2413,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 35668,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 103,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 20020,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 466,
+                "matrix_entries_expanded": 3318,
+                "vector_checks": 22121,
+                "score_hashes": 18,
+                "score_input_bytes": 3476
+              },
+              "search_loop_calls": 150,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 466,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3318,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22121,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 18,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 3476,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "payload": {
+      "families": 8,
+      "header_occurrences": 512,
+      "unique_headers": 512,
+      "with_solution_occurrences": 189,
+      "targets": {
+        "8": {
+          "target": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+          "ideal_independent_eligible_score_trials": "8",
+          "with_score_hit_occurrences": 74,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 471,
+                "matrix_entries_expanded": 3333,
+                "vector_checks": 471,
+                "score_hashes": 14,
+                "score_input_bytes": 2692
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 471,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3333,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 471,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 14,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 2692,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 6,
+              "work": {
+                "headers_processed": 243,
+                "matrix_entries_expanded": 1809,
+                "vector_checks": 25289,
+                "score_hashes": 51,
+                "score_input_bytes": 9888
+              },
+              "search_loop_calls": 243,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 243,
+                  "denominator": 6
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1809,
+                  "denominator": 6
+                },
+                "vector_checks": {
+                  "numerator": 25289,
+                  "denominator": 6
+                },
+                "score_hashes": {
+                  "numerator": 51,
+                  "denominator": 6
+                },
+                "score_input_bytes": {
+                  "numerator": 9888,
+                  "denominator": 6
+                }
+              },
+              "stops": {
+                "score-hit": 6,
+                "family-exhausted": 2
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 6,
+              "work": {
+                "headers_processed": 220,
+                "matrix_entries_expanded": 1740,
+                "vector_checks": 26057,
+                "score_hashes": 49,
+                "score_input_bytes": 9516
+              },
+              "search_loop_calls": 220,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 220,
+                  "denominator": 6
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1740,
+                  "denominator": 6
+                },
+                "vector_checks": {
+                  "numerator": 26057,
+                  "denominator": 6
+                },
+                "score_hashes": {
+                  "numerator": 49,
+                  "denominator": 6
+                },
+                "score_input_bytes": {
+                  "numerator": 9516,
+                  "denominator": 6
+                }
+              },
+              "stops": {
+                "score-hit": 6,
+                "family-exhausted": 2
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 422,
+                "matrix_entries_expanded": 3186,
+                "vector_checks": 22211,
+                "score_hashes": 12,
+                "score_input_bytes": 2320
+              },
+              "search_loop_calls": 159,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 422,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3186,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 22211,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 12,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 2320,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            }
+          }
+        },
+        "16": {
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "ideal_independent_eligible_score_trials": "16",
+          "with_score_hit_occurrences": 44,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 497,
+                "matrix_entries_expanded": 3411,
+                "vector_checks": 497,
+                "score_hashes": 20,
+                "score_input_bytes": 3844
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 497,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3411,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 497,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 20,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 3844,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 388,
+                "matrix_entries_expanded": 2969,
+                "vector_checks": 38193,
+                "score_hashes": 83,
+                "score_input_bytes": 16160
+              },
+              "search_loop_calls": 388,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 388,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2969,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 38193,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 83,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 16160,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 370,
+                "matrix_entries_expanded": 2915,
+                "vector_checks": 41673,
+                "score_hashes": 127,
+                "score_input_bytes": 24664
+              },
+              "search_loop_calls": 370,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 370,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2915,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 41673,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 127,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 24664,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 451,
+                "matrix_entries_expanded": 3273,
+                "vector_checks": 22240,
+                "score_hashes": 14,
+                "score_input_bytes": 2704
+              },
+              "search_loop_calls": 159,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 451,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3273,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22240,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 14,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 2704,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "32": {
+          "target": "3618502788666131106986593281521497120414687020801267626233049500247285301248",
+          "ideal_independent_eligible_score_trials": "32",
+          "with_score_hit_occurrences": 15,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 22,
+                "score_input_bytes": 4228
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 425,
+                "matrix_entries_expanded": 3195,
+                "vector_checks": 41570,
+                "score_hashes": 102,
+                "score_input_bytes": 19828
+              },
+              "search_loop_calls": 425,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 425,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3195,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 41570,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 102,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 19828,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 403,
+                "matrix_entries_expanded": 3129,
+                "vector_checks": 45865,
+                "score_hashes": 198,
+                "score_input_bytes": 38320
+              },
+              "search_loop_calls": 403,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 403,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3129,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 45865,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 198,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 38320,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 465,
+                "matrix_entries_expanded": 3315,
+                "vector_checks": 22254,
+                "score_hashes": 19,
+                "score_input_bytes": 3664
+              },
+              "search_loop_calls": 159,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 465,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3315,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22254,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 19,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 3664,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        },
+        "64": {
+          "target": "1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "ideal_independent_eligible_score_trials": "64",
+          "with_score_hit_occurrences": 12,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 22,
+                "score_input_bytes": 4228
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 425,
+                "matrix_entries_expanded": 3195,
+                "vector_checks": 41570,
+                "score_hashes": 102,
+                "score_input_bytes": 19828
+              },
+              "search_loop_calls": 425,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 425,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3195,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 41570,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 102,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 19828,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 403,
+                "matrix_entries_expanded": 3129,
+                "vector_checks": 45865,
+                "score_hashes": 198,
+                "score_input_bytes": 38320
+              },
+              "search_loop_calls": 403,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 403,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3129,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 45865,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 198,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 38320,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 465,
+                "matrix_entries_expanded": 3315,
+                "vector_checks": 22254,
+                "score_hashes": 19,
+                "score_input_bytes": 3664
+              },
+              "search_loop_calls": 159,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 465,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3315,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22254,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 19,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 3664,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "family-exhausted": 7,
+                "score-hit": 1
+              }
+            }
+          }
+        }
+      }
+    },
+    "joint": {
+      "families": 8,
+      "header_occurrences": 512,
+      "unique_headers": 512,
+      "with_solution_occurrences": 189,
+      "targets": {
+        "8": {
+          "target": "14474011154664524427946373126085988481658748083205070504932198000989141204992",
+          "ideal_independent_eligible_score_trials": "8",
+          "with_score_hit_occurrences": 85,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 398,
+                "matrix_entries_expanded": 3114,
+                "vector_checks": 398,
+                "score_hashes": 6,
+                "score_input_bytes": 1156
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 398,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3114,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 398,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 6,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 1156,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 6,
+              "work": {
+                "headers_processed": 244,
+                "matrix_entries_expanded": 1912,
+                "vector_checks": 28252,
+                "score_hashes": 36,
+                "score_input_bytes": 7024
+              },
+              "search_loop_calls": 244,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 244,
+                  "denominator": 6
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1912,
+                  "denominator": 6
+                },
+                "vector_checks": {
+                  "numerator": 28252,
+                  "denominator": 6
+                },
+                "score_hashes": {
+                  "numerator": 36,
+                  "denominator": 6
+                },
+                "score_input_bytes": {
+                  "numerator": 7024,
+                  "denominator": 6
+                }
+              },
+              "stops": {
+                "score-hit": 6,
+                "family-exhausted": 2
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 6,
+              "work": {
+                "headers_processed": 239,
+                "matrix_entries_expanded": 1897,
+                "vector_checks": 30359,
+                "score_hashes": 43,
+                "score_input_bytes": 8376
+              },
+              "search_loop_calls": 239,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 239,
+                  "denominator": 6
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 1897,
+                  "denominator": 6
+                },
+                "vector_checks": {
+                  "numerator": 30359,
+                  "denominator": 6
+                },
+                "score_hashes": {
+                  "numerator": 43,
+                  "denominator": 6
+                },
+                "score_input_bytes": {
+                  "numerator": 8376,
+                  "denominator": 6
+                }
+              },
+              "stops": {
+                "score-hit": 6,
+                "family-exhausted": 2
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 3,
+              "work": {
+                "headers_processed": 410,
+                "matrix_entries_expanded": 2920,
+                "vector_checks": 22727,
+                "score_hashes": 17,
+                "score_input_bytes": 3280
+              },
+              "search_loop_calls": 170,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 410,
+                  "denominator": 3
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2920,
+                  "denominator": 3
+                },
+                "vector_checks": {
+                  "numerator": 22727,
+                  "denominator": 3
+                },
+                "score_hashes": {
+                  "numerator": 17,
+                  "denominator": 3
+                },
+                "score_input_bytes": {
+                  "numerator": 3280,
+                  "denominator": 3
+                }
+              },
+              "stops": {
+                "score-hit": 3,
+                "family-exhausted": 5
+              }
+            }
+          }
+        },
+        "16": {
+          "target": "7237005577332262213973186563042994240829374041602535252466099000494570602496",
+          "ideal_independent_eligible_score_trials": "16",
+          "with_score_hit_occurrences": 52,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 473,
+                "matrix_entries_expanded": 3339,
+                "vector_checks": 473,
+                "score_hashes": 13,
+                "score_input_bytes": 2500
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 473,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3339,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 473,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 13,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 2500,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "score-hit": 1,
+                "family-exhausted": 7
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 5,
+              "work": {
+                "headers_processed": 299,
+                "matrix_entries_expanded": 2352,
+                "vector_checks": 30058,
+                "score_hashes": 41,
+                "score_input_bytes": 8004
+              },
+              "search_loop_calls": 299,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 299,
+                  "denominator": 5
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2352,
+                  "denominator": 5
+                },
+                "vector_checks": {
+                  "numerator": 30058,
+                  "denominator": 5
+                },
+                "score_hashes": {
+                  "numerator": 41,
+                  "denominator": 5
+                },
+                "score_input_bytes": {
+                  "numerator": 8004,
+                  "denominator": 5
+                }
+              },
+              "stops": {
+                "score-hit": 5,
+                "family-exhausted": 3
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 5,
+              "work": {
+                "headers_processed": 275,
+                "matrix_entries_expanded": 2185,
+                "vector_checks": 31748,
+                "score_hashes": 48,
+                "score_input_bytes": 9356
+              },
+              "search_loop_calls": 275,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 275,
+                  "denominator": 5
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2185,
+                  "denominator": 5
+                },
+                "vector_checks": {
+                  "numerator": 31748,
+                  "denominator": 5
+                },
+                "score_hashes": {
+                  "numerator": 48,
+                  "denominator": 5
+                },
+                "score_input_bytes": {
+                  "numerator": 9356,
+                  "denominator": 5
+                }
+              },
+              "stops": {
+                "score-hit": 5,
+                "family-exhausted": 3
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 456,
+                "matrix_entries_expanded": 3288,
+                "vector_checks": 22773,
+                "score_hashes": 17,
+                "score_input_bytes": 3280
+              },
+              "search_loop_calls": 170,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 456,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3288,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 22773,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 17,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 3280,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            }
+          }
+        },
+        "32": {
+          "target": "3618502788666131106986593281521497120414687020801267626233049500247285301248",
+          "ideal_independent_eligible_score_trials": "32",
+          "with_score_hit_occurrences": 22,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 19,
+                "score_input_bytes": 3652
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 4,
+              "work": {
+                "headers_processed": 337,
+                "matrix_entries_expanded": 2626,
+                "vector_checks": 32647,
+                "score_hashes": 56,
+                "score_input_bytes": 10920
+              },
+              "search_loop_calls": 337,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 337,
+                  "denominator": 4
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2626,
+                  "denominator": 4
+                },
+                "vector_checks": {
+                  "numerator": 32647,
+                  "denominator": 4
+                },
+                "score_hashes": {
+                  "numerator": 56,
+                  "denominator": 4
+                },
+                "score_input_bytes": {
+                  "numerator": 10920,
+                  "denominator": 4
+                }
+              },
+              "stops": {
+                "score-hit": 4,
+                "family-exhausted": 4
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 5,
+              "work": {
+                "headers_processed": 289,
+                "matrix_entries_expanded": 2297,
+                "vector_checks": 34136,
+                "score_hashes": 57,
+                "score_input_bytes": 11108
+              },
+              "search_loop_calls": 289,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 289,
+                  "denominator": 5
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 2297,
+                  "denominator": 5
+                },
+                "vector_checks": {
+                  "numerator": 34136,
+                  "denominator": 5
+                },
+                "score_hashes": {
+                  "numerator": 57,
+                  "denominator": 5
+                },
+                "score_input_bytes": {
+                  "numerator": 11108,
+                  "denominator": 5
+                }
+              },
+              "stops": {
+                "score-hit": 5,
+                "family-exhausted": 3
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 511,
+                "matrix_entries_expanded": 3453,
+                "vector_checks": 22828,
+                "score_hashes": 25,
+                "score_input_bytes": 4816
+              },
+              "search_loop_calls": 170,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 511,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3453,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22828,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 25,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 4816,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "score-hit": 1,
+                "family-exhausted": 7
+              }
+            }
+          }
+        },
+        "64": {
+          "target": "1809251394333065553493296640760748560207343510400633813116524750123642650624",
+          "ideal_independent_eligible_score_trials": "64",
+          "with_score_hit_occurrences": 13,
+          "policies": {
+            "unit": {
+              "runs": 8,
+              "hit_occurrences": 0,
+              "work": {
+                "headers_processed": 512,
+                "matrix_entries_expanded": 3456,
+                "vector_checks": 512,
+                "score_hashes": 19,
+                "score_input_bytes": 3652
+              },
+              "search_loop_calls": 0,
+              "domain_preparation_box_vectors": 0,
+              "work_per_hit_occurrence": {
+                "headers_processed": null,
+                "matrix_entries_expanded": null,
+                "vector_checks": null,
+                "score_hashes": null,
+                "score_input_bytes": null
+              },
+              "stops": {
+                "family-exhausted": 8
+              }
+            },
+            "first": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 398,
+                "matrix_entries_expanded": 3114,
+                "vector_checks": 40489,
+                "score_hashes": 75,
+                "score_input_bytes": 14644
+              },
+              "search_loop_calls": 398,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 398,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3114,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 40489,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 75,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 14644,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "all": {
+              "runs": 8,
+              "hit_occurrences": 2,
+              "work": {
+                "headers_processed": 387,
+                "matrix_entries_expanded": 3081,
+                "vector_checks": 45158,
+                "score_hashes": 89,
+                "score_input_bytes": 17380
+              },
+              "search_loop_calls": 387,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 387,
+                  "denominator": 2
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3081,
+                  "denominator": 2
+                },
+                "vector_checks": {
+                  "numerator": 45158,
+                  "denominator": 2
+                },
+                "score_hashes": {
+                  "numerator": 89,
+                  "denominator": 2
+                },
+                "score_input_bytes": {
+                  "numerator": 17380,
+                  "denominator": 2
+                }
+              },
+              "stops": {
+                "score-hit": 2,
+                "family-exhausted": 6
+              }
+            },
+            "reuse": {
+              "runs": 8,
+              "hit_occurrences": 1,
+              "work": {
+                "headers_processed": 511,
+                "matrix_entries_expanded": 3453,
+                "vector_checks": 22828,
+                "score_hashes": 25,
+                "score_input_bytes": 4816
+              },
+              "search_loop_calls": 170,
+              "domain_preparation_box_vectors": 2912,
+              "work_per_hit_occurrence": {
+                "headers_processed": {
+                  "numerator": 511,
+                  "denominator": 1
+                },
+                "matrix_entries_expanded": {
+                  "numerator": 3453,
+                  "denominator": 1
+                },
+                "vector_checks": {
+                  "numerator": 22828,
+                  "denominator": 1
+                },
+                "score_hashes": {
+                  "numerator": 25,
+                  "denominator": 1
+                },
+                "score_input_bytes": {
+                  "numerator": 4816,
+                  "denominator": 1
+                }
+              },
+              "stops": {
+                "score-hit": 1,
+                "family-exhausted": 7
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

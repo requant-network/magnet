@@ -27,6 +27,9 @@ wallet keys, user balances or real funds in this laboratory.
 | Optional native LLL → certificate | Inexact arithmetic or lost lattice | Unchanged independent exact audit of B,U,index and reducedness for every repeat |
 | Local worker → experiment | Wrong dependency, hang, oversized input/output | Explicit isolated version/hash pin; bounded JSON; process timeout; incomplete report on failure |
 | Header selection → score | Free acquisition, oracle lookahead or incomplete commitment | Paid policies; separate oracle audit; hash entire proof; trusted external target/context |
+| Kernel sphere → completeness | Rounded boundaries, lost vectors, capped tree mistaken for empty | Exact rational intervals; full-kernel audit; independent complete-set comparisons; explicit caps |
+| Joint family → local work | Huge Cartesian allocation, overflow, free failed search | Product bound before construction; shared axis rules; all-run paid work totals |
+| Target → work model | Score trials mistaken for SIS cost or ledger weight | Explicit ideal-hash assumption; separate component counters; no selected chainwork |
 
 Caller-controlled A makes SIS1 unsuitable for network PoW. The separate MGH1
 research proof binds its instance to header bytes with separate tests. It does
@@ -95,3 +98,18 @@ bound verification. Counters describe instrumented policy work; family preparati
 and full oracle audits are separate. Arbitrary time/payload variants do not imply
 valid future blocks. Early hit totals and repeated base headers are not independent
 network weight, and heuristic family exhaustion is not nonexistence evidence.
+
+Sphere node/proof/fraction ceilings are cooperative mathematical bounds. Certificate
+audit, transient arithmetic, GSO allocation and sorting can consume work outside
+node counters; none is an OS memory/time limit. Recursive state is released on
+completion or caps without relying on cyclic GC. Only full tree exhaustion over
+a certified full lattice proves the bounded vector set. Dense/high-dimensional
+profiles outside the survey remain unmeasured, and sphere is not yet connected to
+paid mining policies. A complete algorithm is not a hardness theorem.
+
+Joint target sweeps restart each policy independently, preserve unsuccessful work
+and distinguish repeated experimental hits from distinct proofs. 2^256/T is only
+an ideal expected eligible-score-trial expression. Hidden prover computation is
+not observable from the valid proof; no component counter or timing determines
+future consensus weight. Time/payload validity and allowed grinding surface still
+need an explicit future block specification.

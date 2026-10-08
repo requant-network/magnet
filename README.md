@@ -22,6 +22,8 @@ see the [Russian documentation index](docs/ru/README.md).
 - Canonical research headers, trusted-context proofs and nonce/reuse studies.
 - Optional pinned native FLINT LLL with exact certificate audits and practical comparisons.
 - Paid nonce/time/payload selection policies with a separate research score predicate.
+- Complete bounded exact sphere search on certified kernel lattices.
+- Joint header families, four-target sweeps and explicit descriptive work models.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -44,6 +46,13 @@ python scripts/native_survey.py
 python scripts/lattice_survey.py
 python scripts/binding_survey.py
 python scripts/grinding_survey.py
+python scripts/joint_survey.py
+~~~
+
+The complete lattice sphere survey uses the explicit optional environment:
+
+~~~sh
+python scripts/sphere_survey.py --python artifacts/flint-env/Scripts/python.exe
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -70,6 +79,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Practical LLL and paid header-selection study](docs/research/practical-lll-and-grinding-v1.md).
 - [Optional backend and grinding interfaces](spec/05-practical-lll-and-grinding-v1.md).
 - [Optimized-solving and header-selection decision](docs/decisions/0006-practical-solvers-and-grinding.md).
+- [Exact sphere, joint headers and work-model study](docs/research/sphere-and-work-models-v1.md).
+- [Sphere and work-model interfaces](spec/06-sphere-and-work-models-v1.md).
+- [Eligible scores versus SIS work pricing](docs/decisions/0007-sphere-and-work-models.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).
@@ -87,6 +99,7 @@ Difficulty, chainwork, block consensus, wallets and payments are not implemented
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: quantify preprocessing and solution reuse under explicit work models before
-selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
+Next: connect practical reduction/sphere to paid header policies on larger
+profiles, measure preprocessing amortization and constrain the permitted header
+surface before selecting difficulty and fork-choice rules. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.
