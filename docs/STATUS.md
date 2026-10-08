@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-08. Phase: exact CPU baselines and local search measurements.
+Date: 2026-10-08. Phase: exact CPU baselines and common local budgets.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -10,7 +10,8 @@ SIS-LAB-v1 specification; exact Python and independent Rust verifiers; bounded
 stdin/stdout adapter; SHAKE256 matrix expansion in Python; exhaustive tiny solver;
 sparse screening, rank and known-solution reuse probes; four instrumented search
 policies that acquire their own initial solutions; bounded exact meet-in-the-
-middle search; a local check command.
+middle search; incremental norm-ball enumeration; common cooperative time and
+traced-allocation budgets; a local check command.
 
 The private repository is danifest751/magnet. The workspace is
 C:/Projects/MagnetNetwork. There are no third-party dependencies: Cargo.lock
@@ -75,12 +76,30 @@ they are not process RSS or worst-case memory. Each timed call includes generati
 preprocessing, search, scoring and output construction; audits and memory probes
 are separate. These observations do not calibrate consensus work or mining rate.
 
+### Norm-ball search and common budgets
+
+python scripts/budget_survey.py checks exact accepted sets on 48 generated
+instances and runs 648 budget windows. It compares incremental ball search with
+MITM under 50 ms and 32/128/256 KiB traced-allocation ceilings, for continue,
+restart and first-vector reuse at two score targets. See the
+[report](research/ball-and-budgets-v1.md) and
+[summary](research/results/budget-survey-v1.json).
+
+MITM is about 8.1 to 11.6 times faster in the untraced complete-search comparison.
+At 256 KiB, continuing search yields more repeated-run hits than restarting or
+reuse in these batches; tighter ceilings frequently stop the Python harness.
+Each six-window configuration repeats two seed schedules three times. These are
+local outcomes, not independent proof counts, portable memory requirements or
+a calibrated work function. Limits are cooperative and measured overshoot is
+reported. Exact-search timing excludes scoring/verification; budget timing
+includes them and tracemalloc overhead.
+
 ## Verification
 
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 40 Python tests and 3 Rust tests;
+- 52 Python tests and 3 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 
@@ -89,10 +108,13 @@ budget, exact tiny spaces, solution reuse, support-limited search, rank, policy
 completeness, acquisition accounting, caps and strict score thresholds.
 MITM tests cover exact sets, collision preservation, odd dimensions, zero-left
 vectors, modular wrap, norm boundaries, memory/pair caps and iterator closure.
+Ball/budget tests also cover norm-ball completeness, huge box/small ball behavior,
+prompt release without cyclic GC, caps/checkpoints, reuse deduplication, distinct
+instance seeds and tracer cleanup on clock failures.
 The latest local check report includes source hashes. An interrupted rerun
 marks its report running-or-incomplete rather than leaving stale success.
 
-Separate source reviews covered all four milestones. The initial Cargo executable-
+Separate source reviews covered all five milestones. The initial Cargo executable-
 selection issue was fixed; the harness uses the artifact returned by the current
 build. No required implementation findings remain in the reviewed laboratory.
 This is source review, not an independent cryptographic audit.
@@ -110,7 +132,8 @@ accepted proof or score trial necessarily requires a fresh SIS solve. It does
 not reject every possible SIS-based PoW.
 
 [ADR 0003](decisions/0003-enumeration-cost.md) also rejects pricing an SIS proof
-by naive box enumeration. Next compare incremental ball enumeration, MITM,
-restart and solution reuse under explicit time/memory budgets across more seeds
-and scales. Difficulty and accumulated chainwork remain unselected; current
-proposal/entry/pair caps are safety bounds rather than a common cost budget.
+by naive box enumeration. Next characterize larger CPU parameter scales with
+native implementations and competing solver families before proposing a work
+model. Difficulty and accumulated chainwork remain unselected. Common local
+budgets are experimental resource allowances; local time is not a consensus
+oracle and observed allocation is not a memory-hardness proof.

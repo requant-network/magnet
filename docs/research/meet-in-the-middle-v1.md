@@ -2,6 +2,11 @@
 
 Date: 2026-10-08. Status: completed local toy experiment.
 
+Historical source snapshot: repository commit 5555147. The summary's fingerprints
+refer to that version, not necessarily the current tree. Later optional checkpoint
+hooks support the [budget experiment](ball-and-budgets-v1.md); the original
+measurement record is preserved. Use that commit to reproduce the original setup.
+
 ## Result and interpretation
 
 An exact meet-in-the-middle (MITM) search solves the same SIS-LAB-v1 task as the

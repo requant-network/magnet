@@ -1,0 +1,1899 @@
+{
+  "status": "complete",
+  "version": "budget-survey-v1",
+  "warning": "Cooperative instrumented Python budgets and toy profiles; no calibrated consensus work.",
+  "environment": {
+    "python": "3.12.10",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "processor": "AMD64 Family 25 Model 117 Stepping 2, AuthenticAMD"
+  },
+  "configuration": {
+    "batches": 2,
+    "exact_instances_per_batch": 8,
+    "repeats": 3,
+    "time_limit_ns": 50000000,
+    "memory_limit_bytes": [
+      32768,
+      131072,
+      262144
+    ],
+    "target_hex": {
+      "one-in-16": "0x1000000000000000000000000000000000000000000000000000000000000000",
+      "one-in-256": "0x100000000000000000000000000000000000000000000000000000000000000"
+    }
+  },
+  "method": "Untraced exact comparisons, separate common traced-budget windows; rotated case order; same root seed prefix per batch.",
+  "setups": [
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 4,
+        "b2": 32
+      },
+      "exact": {
+        "instances": 16,
+        "algorithms": {
+          "ball": {
+            "work": {
+              "prefix_nodes": 47456,
+              "norm_terms": 47456,
+              "matrix_terms": 94912,
+              "row_reductions": 94912,
+              "leaves": 40528,
+              "emitted_proofs": 155
+            },
+            "proofs": 155,
+            "sum_instance_median_wall_ns": 43609400
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 1936,
+              "right_proposals": 1936,
+              "norm_terms": 7744,
+              "sign_terms": 1972,
+              "matrix_terms": 9728,
+              "row_reductions": 4864,
+              "table_entries": 816,
+              "table_buckets": 747,
+              "lookups": 1616,
+              "join_pairs": 298,
+              "emitted_proofs": 155
+            },
+            "proofs": 155,
+            "sum_instance_median_wall_ns": 5370400
+          }
+        }
+      },
+      "budgets": [
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 6,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 6019350.0,
+              "max_elapsed_ns": 7003600,
+              "max_peak_traced_bytes": 34145
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 12,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 5464450.0,
+              "max_elapsed_ns": 5798600,
+              "max_peak_traced_bytes": 34162
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 12,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 5402150.0,
+              "max_elapsed_ns": 5599100,
+              "max_peak_traced_bytes": 34186
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 54,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3749200.0,
+              "max_elapsed_ns": 3932800,
+              "max_peak_traced_bytes": 34097
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 18,
+              "matrix_expansions": 24,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 4608400.0,
+              "max_elapsed_ns": 4683600,
+              "max_peak_traced_bytes": 34529
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 18,
+              "matrix_expansions": 24,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 4620500.0,
+              "max_elapsed_ns": 5180000,
+              "max_peak_traced_bytes": 34601
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 6,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5954650.0,
+              "max_elapsed_ns": 6318400,
+              "max_peak_traced_bytes": 34145
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 12,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5444450.0,
+              "max_elapsed_ns": 5599300,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 12,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5351550.0,
+              "max_elapsed_ns": 5529900,
+              "max_peak_traced_bytes": 34121
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 54,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3716850.0,
+              "max_elapsed_ns": 3811400,
+              "max_peak_traced_bytes": 34097
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 18,
+              "matrix_expansions": 24,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 4539750.0,
+              "max_elapsed_ns": 4582600,
+              "max_peak_traced_bytes": 34529
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 18,
+              "matrix_expansions": 24,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 4600600.0,
+              "max_elapsed_ns": 4734400,
+              "max_peak_traced_bytes": 34601
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 77,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50043000.0,
+              "max_elapsed_ns": 50056100,
+              "max_peak_traced_bytes": 119082
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 84,
+              "matrix_expansions": 90,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50050950.0,
+              "max_elapsed_ns": 50074400,
+              "max_peak_traced_bytes": 119922
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 95,
+              "matrix_expansions": 89,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50045950.0,
+              "max_elapsed_ns": 50052700,
+              "max_peak_traced_bytes": 121882
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 21,
+              "score_hashes": 357,
+              "matrix_expansions": 60,
+              "median_hits_per_window": 3.5,
+              "median_elapsed_ns": 23059750.0,
+              "max_elapsed_ns": 23269300,
+              "max_peak_traced_bytes": 131989
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 144,
+              "matrix_expansions": 147,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 31237000.0,
+              "max_elapsed_ns": 32488000,
+              "max_peak_traced_bytes": 132475
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 138,
+              "matrix_expansions": 132,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 29032900.0,
+              "max_elapsed_ns": 29885700,
+              "max_peak_traced_bytes": 131987
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 69,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50055750.0,
+              "max_elapsed_ns": 50078300,
+              "max_peak_traced_bytes": 118737
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 84,
+              "matrix_expansions": 90,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50044450.0,
+              "max_elapsed_ns": 50051500,
+              "max_peak_traced_bytes": 119663
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 96,
+              "matrix_expansions": 90,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50039600.0,
+              "max_elapsed_ns": 50046700,
+              "max_peak_traced_bytes": 121913
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 393,
+              "matrix_expansions": 51,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 23100000.0,
+              "max_elapsed_ns": 24989500,
+              "max_peak_traced_bytes": 131929
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 144,
+              "matrix_expansions": 147,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 30895750.0,
+              "max_elapsed_ns": 32052300,
+              "max_peak_traced_bytes": 132393
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 138,
+              "matrix_expansions": 132,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 27978400.0,
+              "max_elapsed_ns": 29032200,
+              "max_peak_traced_bytes": 131929
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 5,
+              "score_hashes": 77,
+              "matrix_expansions": 17,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50049600.0,
+              "max_elapsed_ns": 50079600,
+              "max_peak_traced_bytes": 119082
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 84,
+              "matrix_expansions": 90,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50050700.0,
+              "max_elapsed_ns": 50058500,
+              "max_peak_traced_bytes": 119922
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 94,
+              "matrix_expansions": 88,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50048600.0,
+              "max_elapsed_ns": 50056200,
+              "max_peak_traced_bytes": 121882
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 36,
+              "score_hashes": 850,
+              "matrix_expansions": 120,
+              "median_hits_per_window": 6.0,
+              "median_elapsed_ns": 50063150.0,
+              "max_elapsed_ns": 50076200,
+              "max_peak_traced_bytes": 137743
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 12,
+              "score_hashes": 233,
+              "matrix_expansions": 239,
+              "median_hits_per_window": 2.0,
+              "median_elapsed_ns": 50051300.0,
+              "max_elapsed_ns": 50056400,
+              "max_peak_traced_bytes": 135675
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 15,
+              "score_hashes": 253,
+              "matrix_expansions": 234,
+              "median_hits_per_window": 2.5,
+              "median_elapsed_ns": 50053050.0,
+              "max_elapsed_ns": 50062500,
+              "max_peak_traced_bytes": 140764
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 67,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50050800.0,
+              "max_elapsed_ns": 50065700,
+              "max_peak_traced_bytes": 118737
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 85,
+              "matrix_expansions": 91,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50041550.0,
+              "max_elapsed_ns": 50054900,
+              "max_peak_traced_bytes": 119631
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 96,
+              "matrix_expansions": 90,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50044050.0,
+              "max_elapsed_ns": 50049200,
+              "max_peak_traced_bytes": 121849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 894,
+              "matrix_expansions": 111,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50049500.0,
+              "max_elapsed_ns": 50092700,
+              "max_peak_traced_bytes": 135155
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 235,
+              "matrix_expansions": 240,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50046800.0,
+              "max_elapsed_ns": 50057000,
+              "max_peak_traced_bytes": 135353
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 248,
+              "matrix_expansions": 230,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50052700.0,
+              "max_elapsed_ns": 50103600,
+              "max_peak_traced_bytes": 140289
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 6,
+        "b2": 16
+      },
+      "exact": {
+        "instances": 16,
+        "algorithms": {
+          "ball": {
+            "work": {
+              "prefix_nodes": 250464,
+              "norm_terms": 250464,
+              "matrix_terms": 500928,
+              "row_reductions": 500928,
+              "leaves": 190352,
+              "emitted_proofs": 635
+            },
+            "proofs": 635,
+            "sum_instance_median_wall_ns": 232564800
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 11664,
+              "right_proposals": 11664,
+              "norm_terms": 69984,
+              "sign_terms": 5907,
+              "matrix_terms": 37056,
+              "row_reductions": 12352,
+              "table_entries": 2064,
+              "table_buckets": 1683,
+              "lookups": 4112,
+              "join_pairs": 1842,
+              "emitted_proofs": 635
+            },
+            "proofs": 635,
+            "sum_instance_median_wall_ns": 19970600
+          }
+        }
+      },
+      "budgets": [
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5733050.0,
+              "max_elapsed_ns": 6290700,
+              "max_peak_traced_bytes": 34129
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 9,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5595500.0,
+              "max_elapsed_ns": 5674500,
+              "max_peak_traced_bytes": 34081
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 9,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5505450.0,
+              "max_elapsed_ns": 5703100,
+              "max_peak_traced_bytes": 34121
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3721300.0,
+              "max_elapsed_ns": 4555600,
+              "max_peak_traced_bytes": 33849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3694300.0,
+              "max_elapsed_ns": 4558500,
+              "max_peak_traced_bytes": 33849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3801200.0,
+              "max_elapsed_ns": 4484100,
+              "max_peak_traced_bytes": 33849
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5632650.0,
+              "max_elapsed_ns": 6920000,
+              "max_peak_traced_bytes": 34129
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 9,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5444800.0,
+              "max_elapsed_ns": 6823400,
+              "max_peak_traced_bytes": 34081
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 9,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5445900.0,
+              "max_elapsed_ns": 5673400,
+              "max_peak_traced_bytes": 34121
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3671550.0,
+              "max_elapsed_ns": 4712600,
+              "max_peak_traced_bytes": 33849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3671100.0,
+              "max_elapsed_ns": 4532900,
+              "max_peak_traced_bytes": 33849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 3684850.0,
+              "max_elapsed_ns": 4427500,
+              "max_peak_traced_bytes": 33849
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 57,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50071850.0,
+              "max_elapsed_ns": 50086600,
+              "max_peak_traced_bytes": 120283
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50054450.0,
+              "max_elapsed_ns": 50066100,
+              "max_peak_traced_bytes": 120578
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 63,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50052800.0,
+              "max_elapsed_ns": 50057700,
+              "max_peak_traced_bytes": 122481
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 24,
+              "score_hashes": 477,
+              "matrix_expansions": 30,
+              "median_hits_per_window": 4.0,
+              "median_elapsed_ns": 34723600.0,
+              "max_elapsed_ns": 38015500,
+              "max_peak_traced_bytes": 132020
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 4,
+                "memory-limit": 2
+              },
+              "hits": 0,
+              "score_hashes": 59,
+              "matrix_expansions": 65,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50057100.0,
+              "max_elapsed_ns": 50063200,
+              "max_peak_traced_bytes": 131961
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 57,
+              "matrix_expansions": 63,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 48413350.0,
+              "max_elapsed_ns": 49810200,
+              "max_peak_traced_bytes": 132025
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 64,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50070300.0,
+              "max_elapsed_ns": 50107600,
+              "max_peak_traced_bytes": 119033
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50054850.0,
+              "max_elapsed_ns": 50064800,
+              "max_peak_traced_bytes": 120433
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 63,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50053400.0,
+              "max_elapsed_ns": 50062600,
+              "max_peak_traced_bytes": 122481
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 582,
+              "matrix_expansions": 21,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 31249350.0,
+              "max_elapsed_ns": 32619400,
+              "max_peak_traced_bytes": 131555
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 5,
+                "time-limit": 1
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 49659400.0,
+              "max_elapsed_ns": 50053000,
+              "max_peak_traced_bytes": 131961
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 57,
+              "matrix_expansions": 63,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 48085650.0,
+              "max_elapsed_ns": 50034900,
+              "max_peak_traced_bytes": 132025
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 57,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50082500.0,
+              "max_elapsed_ns": 50101500,
+              "max_peak_traced_bytes": 120283
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50050050.0,
+              "max_elapsed_ns": 50067100,
+              "max_peak_traced_bytes": 120514
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 63,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50057200.0,
+              "max_elapsed_ns": 50065500,
+              "max_peak_traced_bytes": 122481
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 39,
+              "score_hashes": 635,
+              "matrix_expansions": 45,
+              "median_hits_per_window": 6.5,
+              "median_elapsed_ns": 50066450.0,
+              "max_elapsed_ns": 50095400,
+              "max_peak_traced_bytes": 158623
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50046100.0,
+              "max_elapsed_ns": 50072800,
+              "max_peak_traced_bytes": 132817
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50050950.0,
+              "max_elapsed_ns": 50090500,
+              "max_peak_traced_bytes": 134665
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 66,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50069350.0,
+              "max_elapsed_ns": 50087800,
+              "max_peak_traced_bytes": 119033
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 58,
+              "matrix_expansions": 64,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50056700.0,
+              "max_elapsed_ns": 50123900,
+              "max_peak_traced_bytes": 120433
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 63,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50052700.0,
+              "max_elapsed_ns": 50061800,
+              "max_peak_traced_bytes": 122481
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 9,
+              "score_hashes": 935,
+              "matrix_expansions": 33,
+              "median_hits_per_window": 1.5,
+              "median_elapsed_ns": 50080250.0,
+              "max_elapsed_ns": 50089000,
+              "max_peak_traced_bytes": 158404
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 59,
+              "matrix_expansions": 65,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50051700.0,
+              "max_elapsed_ns": 50057400,
+              "max_peak_traced_bytes": 133337
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 61,
+              "matrix_expansions": 67,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50053250.0,
+              "max_elapsed_ns": 50062000,
+              "max_peak_traced_bytes": 136145
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "profile": {
+        "q": 17,
+        "n": 2,
+        "m": 8,
+        "b2": 8
+      },
+      "exact": {
+        "instances": 16,
+        "algorithms": {
+          "ball": {
+            "work": {
+              "prefix_nodes": 283648,
+              "norm_terms": 283648,
+              "matrix_terms": 567296,
+              "row_reductions": 567296,
+              "leaves": 173584,
+              "emitted_proofs": 556
+            },
+            "proofs": 556,
+            "sum_instance_median_wall_ns": 262711700
+          },
+          "mitm": {
+            "work": {
+              "left_proposals": 10000,
+              "right_proposals": 10000,
+              "norm_terms": 80000,
+              "sign_terms": 7989,
+              "matrix_terms": 61696,
+              "row_reductions": 15424,
+              "table_entries": 2576,
+              "table_buckets": 2143,
+              "lookups": 5136,
+              "join_pairs": 2884,
+              "emitted_proofs": 556
+            },
+            "proofs": 556,
+            "sum_instance_median_wall_ns": 23910200
+          }
+        }
+      },
+      "budgets": [
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5771200.0,
+              "max_elapsed_ns": 5946400,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 9,
+              "matrix_expansions": 15,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5485800.0,
+              "max_elapsed_ns": 6009800,
+              "max_peak_traced_bytes": 34113
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 9,
+              "matrix_expansions": 15,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5545450.0,
+              "max_elapsed_ns": 5783900,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2665200.0,
+              "max_elapsed_ns": 2800300,
+              "max_peak_traced_bytes": 33945
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2748050.0,
+              "max_elapsed_ns": 3619400,
+              "max_peak_traced_bytes": 33945
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2622600.0,
+              "max_elapsed_ns": 2710800,
+              "max_peak_traced_bytes": 33945
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 32768,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 3,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5792950.0,
+              "max_elapsed_ns": 6470700,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 9,
+              "matrix_expansions": 15,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5439900.0,
+              "max_elapsed_ns": 5888100,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 9,
+              "matrix_expansions": 15,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 5490750.0,
+              "max_elapsed_ns": 5993500,
+              "max_peak_traced_bytes": 34105
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2613150.0,
+              "max_elapsed_ns": 2959600,
+              "max_peak_traced_bytes": 33945
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2613550.0,
+              "max_elapsed_ns": 2731800,
+              "max_peak_traced_bytes": 33945
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 0,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 2672400.0,
+              "max_elapsed_ns": 2773000,
+              "max_peak_traced_bytes": 33945
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 8,
+              "score_hashes": 53,
+              "matrix_expansions": 14,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50063150.0,
+              "max_elapsed_ns": 50071900,
+              "max_peak_traced_bytes": 121435
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 59,
+              "matrix_expansions": 65,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50055200.0,
+              "max_elapsed_ns": 50069400,
+              "max_peak_traced_bytes": 121729
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 65,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50050750.0,
+              "max_elapsed_ns": 50060500,
+              "max_peak_traced_bytes": 124313
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 24,
+              "score_hashes": 294,
+              "matrix_expansions": 30,
+              "median_hits_per_window": 4.0,
+              "median_elapsed_ns": 30053550.0,
+              "max_elapsed_ns": 30737400,
+              "max_peak_traced_bytes": 132093
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 42,
+              "matrix_expansions": 48,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 35650950.0,
+              "max_elapsed_ns": 35724500,
+              "max_peak_traced_bytes": 132018
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 42,
+              "matrix_expansions": 48,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 35631650.0,
+              "max_elapsed_ns": 36357600,
+              "max_peak_traced_bytes": 132066
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 131072,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 48,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50080600.0,
+              "max_elapsed_ns": 50104200,
+              "max_peak_traced_bytes": 120137
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50052900.0,
+              "max_elapsed_ns": 50056500,
+              "max_peak_traced_bytes": 121729
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50057600.0,
+              "max_elapsed_ns": 50061500,
+              "max_peak_traced_bytes": 124249
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 438,
+              "matrix_expansions": 18,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 26457550.0,
+              "max_elapsed_ns": 29334600,
+              "max_peak_traced_bytes": 131849
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 42,
+              "matrix_expansions": 48,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 35841600.0,
+              "max_elapsed_ns": 39634800,
+              "max_peak_traced_bytes": 132018
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "memory-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 42,
+              "matrix_expansions": 48,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 36291700.0,
+              "max_elapsed_ns": 37420600,
+              "max_peak_traced_bytes": 132066
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-16",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 48,
+              "matrix_expansions": 12,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50063950.0,
+              "max_elapsed_ns": 50140500,
+              "max_peak_traced_bytes": 121114
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50054400.0,
+              "max_elapsed_ns": 50066800,
+              "max_peak_traced_bytes": 121673
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 59,
+              "matrix_expansions": 65,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50054950.0,
+              "max_elapsed_ns": 50075700,
+              "max_peak_traced_bytes": 124313
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 36,
+              "score_hashes": 507,
+              "matrix_expansions": 45,
+              "median_hits_per_window": 6.0,
+              "median_elapsed_ns": 50084100.0,
+              "max_elapsed_ns": 50095500,
+              "max_peak_traced_bytes": 167726
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 62,
+              "matrix_expansions": 68,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50054900.0,
+              "max_elapsed_ns": 50074000,
+              "max_peak_traced_bytes": 157226
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 62,
+              "matrix_expansions": 68,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50053650.0,
+              "max_elapsed_ns": 50063500,
+              "max_peak_traced_bytes": 159082
+            }
+          ]
+        },
+        {
+          "memory_limit_bytes": 262144,
+          "target": "one-in-256",
+          "summary": [
+            {
+              "algorithm": "ball",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 47,
+              "matrix_expansions": 6,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50089150.0,
+              "max_elapsed_ns": 50104600,
+              "max_peak_traced_bytes": 120137
+            },
+            {
+              "algorithm": "ball",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50052550.0,
+              "max_elapsed_ns": 50067600,
+              "max_peak_traced_bytes": 121729
+            },
+            {
+              "algorithm": "ball",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 0,
+              "score_hashes": 60,
+              "matrix_expansions": 66,
+              "median_hits_per_window": 0.0,
+              "median_elapsed_ns": 50053400.0,
+              "max_elapsed_ns": 50056600,
+              "max_peak_traced_bytes": 124313
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "continue",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 6,
+              "score_hashes": 882,
+              "matrix_expansions": 33,
+              "median_hits_per_window": 1.0,
+              "median_elapsed_ns": 50057300.0,
+              "max_elapsed_ns": 50059800,
+              "max_peak_traced_bytes": 164643
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "restart",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 63,
+              "matrix_expansions": 69,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50048450.0,
+              "max_elapsed_ns": 50066000,
+              "max_peak_traced_bytes": 157497
+            },
+            {
+              "algorithm": "mitm",
+              "policy": "reuse",
+              "windows": 6,
+              "stops": {
+                "time-limit": 6
+              },
+              "hits": 3,
+              "score_hashes": 63,
+              "matrix_expansions": 69,
+              "median_hits_per_window": 0.5,
+              "median_elapsed_ns": 50049200.0,
+              "max_elapsed_ns": 50062300,
+              "max_peak_traced_bytes": 159082
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "reference/sis.py": "7fd9be1c4ef9b2906fcbca49aef7640e0cd2b74ef737cc180cbcaaaef68b296a",
+    "reference/strategies.py": "ebc7e7491fb6d53978ff667fa48c952f135a06a921c242f215892317d50d6ed4",
+    "reference/mitm.py": "84d60e1729ec389d25be405bd4e147d7620d1238edd99d9dab369415fde8c997",
+    "reference/ball.py": "fed7c92fd695d33319b8cc304a3c45797eba148b5b2c9142304706985d0af072",
+    "reference/budgets.py": "b20ea77a7198dacf4f250c8cc40b7b63852155b48fdd83f57960b5e6847ae2c5",
+    "scripts/budget_survey.py": "f72f563489f4bda16caf62c347c64760ac1ff4a9f8c94abddb12b37b32ae018b",
+    "tests/test_ball_budgets.py": "bc5fc8d464e14d70723d7ab84fc0de2e47fd4fbca7638e22edfb1750c65e5815"
+  }
+}

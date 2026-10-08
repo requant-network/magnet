@@ -49,7 +49,8 @@ class _SearchIterator:
 class MitmSearch:
     """One-shot search; an interrupted/capped run is not a nonexistence proof."""
 
-    def __init__(self, profile, matrix, *, table_limit=MAX_TABLE_ENTRIES, pair_limit=MAX_JOIN_PAIRS):
+    def __init__(self, profile, matrix, *, table_limit=MAX_TABLE_ENTRIES, pair_limit=MAX_JOIN_PAIRS,
+                 checkpoint=None):
         if not isinstance(profile, Profile):
             raise ValueError("expected Profile")
         _check_shape(profile, matrix, [0] * profile.m)
@@ -66,6 +67,9 @@ class MitmSearch:
         self.table_limit, self.pair_limit = table_limit, pair_limit
         self.work = MitmWork()
         self.reason = "not-started"
+        if checkpoint is not None and not callable(checkpoint):
+            raise ValueError("checkpoint must be callable")
+        self.checkpoint = checkpoint
 
     def _sign(self, vector):
         for value in vector:
@@ -77,6 +81,8 @@ class MitmSearch:
     def _halves(self, start, stop):
         width = stop - start
         for vector in itertools.product(range(-self.radius, self.radius + 1), repeat=width):
+            if self.checkpoint is not None:
+                self.checkpoint()
             if start == 0 and stop == self.split:
                 self.work.left_proposals += 1
             else:
@@ -110,10 +116,14 @@ class MitmSearch:
                 table.setdefault(syndrome, []).append((left, norm))
                 self.work.table_entries += 1
                 self.work.table_buckets = len(table)
+                if self.checkpoint is not None:
+                    self.checkpoint()
             for right, norm, syndrome in self._halves(self.split, self.profile.m):
                 self.work.lookups += 1
                 opposite = tuple(-s % self.profile.q for s in syndrome)
                 for left, left_norm in table.get(opposite, ()):
+                    if self.checkpoint is not None:
+                        self.checkpoint()
                     if self.work.join_pairs == self.pair_limit:
                         self.reason = "pair-limit"
                         return

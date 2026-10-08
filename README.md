@@ -16,6 +16,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Reproducible studies of solution availability, reuse and sparse screening.
 - Bounded search policies with initial-acquisition and component accounting.
 - Exact bounded meet-in-the-middle search and local time/allocation comparisons.
+- Incremental norm-ball search and common cooperative time/allocation budgets.
 
 Only standard libraries are used. Cargo builds offline without third-party crates.
 GitHub Actions are intentionally absent; checks and experiments run locally.
@@ -31,6 +32,7 @@ python scripts/toy_survey.py
 python scripts/reuse_survey.py
 python scripts/strategy_survey.py
 python scripts/mitm_survey.py
+python scripts/budget_survey.py
 ~~~
 
 The first command runs formatting/lint checks, tests and a deterministic
@@ -45,6 +47,7 @@ benchmark production mining. Reports are written to ignored artifacts/.
 - [Solution reuse study](docs/research/solution-reuse-v1.md).
 - [Search strategies and component accounting](docs/research/search-strategies-v1.md).
 - [Meet-in-the-middle search and local measurements](docs/research/meet-in-the-middle-v1.md).
+- [Norm-ball search and common local budgets](docs/research/ball-and-budgets-v1.md).
 - [Research boundary decision](docs/decisions/0001-research-boundary.md).
 - [Threat model](docs/THREAT-MODEL.md).
 - [Language policy](docs/LANGUAGE.md).

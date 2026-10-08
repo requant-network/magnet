@@ -14,6 +14,8 @@ wallet keys, user balances or real funds in this laboratory.
 | Known solutions → reuse probe | Excessive derivation work | At most two seeds, bounded coefficients and candidate budgets |
 | Policy → local search | Unbounded attempts or proof retention | Instance-space cap, proposal cap and explicit stop reason |
 | MITM table → joins | Memory growth, lost collisions, excessive pair traversal | Half-box/entry/pair caps; collision lists; explicit partial-result status |
+| Prefix → ball search | Combinatorial growth or retained recursive state | Prefix-node cap; noncyclic recursion; closed iterator lifecycle |
+| Solver → budget harness | Stalled checks, overshoot, leaked global tracing | Cooperative checkpoints; explicit failure reason; unconditional trace cleanup |
 
 Caller-controlled A makes this format unsuitable for network PoW. A future
 header-to-instance binding is a separate security boundary with separate tests.
@@ -36,6 +38,13 @@ is not an exact byte budget; output retention also consumes memory. A capped or
 interrupted search cannot certify nonexistence. Timing and selected traced
 allocation peaks measure these local Python implementations, not intrinsic SIS
 cost, process RSS or a network admission policy.
+
+Budget ceilings apply to traced Python allocations and cooperative elapsed time.
+Atomic work and cleanup can overshoot; these are not OS resource limits. Repeated
+windows reuse public seed schedules, so their aggregate hits are not globally
+distinct proofs. Scored vectors are verified inside the measured budget. Tracer
+and clock overhead, Python allocation caches and unfinished work remain part of
+the experimental cost; a native miner can behave differently.
 
 These controls do not establish SIS hardness, secure PoW work accounting, ASIC
 resistance or quantum security. Independent cryptographic review remains necessary.
