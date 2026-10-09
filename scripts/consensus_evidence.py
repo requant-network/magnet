@@ -25,14 +25,20 @@ def begin_report(name):
     return destination,raw,source_hashes()
 
 
-def finish_report(paths,report,manifest,*,raw=None,executable=None):
+def finish_report(paths,report,manifest,*,raw=None,executable=None,
+                  expected_executable_sha256=None,build_profile='debug'):
     if manifest!=source_hashes(): raise RuntimeError("sources changed during consensus study")
     report.update(status='passed',source_sha256=manifest,source_unchanged=True,
                   python=platform.python_version(),platform=platform.platform(),
                   rustc=subprocess.check_output(['rustc','--version'],text=True,timeout=5).strip())
+    if expected_executable_sha256 is not None and executable is None:
+        raise ValueError('expected binary hash requires executable')
     if executable:
-        report['executable_sha256']=hashlib.sha256(executable.read_bytes()).hexdigest()
-        report['native_build_profile']='debug'
+        fingerprint=hashlib.sha256(executable.read_bytes()).hexdigest()
+        if expected_executable_sha256 is not None and fingerprint!=expected_executable_sha256:
+            raise RuntimeError('native binary changed before evidence publication')
+        report['executable_sha256']=fingerprint
+        report['native_build_profile']=build_profile
     report['timing_scope']='deterministic correctness/hypothesis experiment, not isolated hardware performance'
     paths[1].write_text(json.dumps(raw if raw is not None else report,indent=2)+'\n',encoding='utf-8',newline='\n')
     paths[0].write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8',newline='\n')

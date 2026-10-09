@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: paid adaptive retention and local GPU preparation.
+Date: 2026-10-09. Phase: executed exact GPU verification and paid-search preparation.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -301,6 +301,20 @@ See [report](research/chain-forks-and-retarget-v1.md) and
 
 ## Verification
 
+### Latest GPU milestone
+
+[Exact CUDA verification](research/gpu-verification-v1.md) ran on the local CMP
+50HX using existing PyTorch/CUDA. All 731 pipeline verdicts agree with Python
+and independent native Rust: 470 CUDA arithmetic cases (228 accepted, 242 modularly
+rejected) and 261 host rejections. The oversized native frame is separately
+rejected. Corpus, source, native release binary and runtime metadata are preserved.
+Evidence publication refuses a changed binary after metadata collection.
+
+This is supplied-matrix verification, not GPU acquisition, scoring or block
+admission. No hashrate or isolated hardware advantage is claimed. The miner
+container was stopped with owner authorization, preserved, and later observed
+running after the break. The next GPU stage is paid bounded candidate screening.
+
 ### Latest adaptive milestone
 
 [Paid adaptive retention](research/adaptive-retention-v1.md) compares four campaign
@@ -341,7 +355,7 @@ chainwork or retarget. Failed setup windows do not certify unsolvability.
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 205 Python tests and 19 Rust tests;
+- 214 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof

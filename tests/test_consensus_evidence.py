@@ -1,3 +1,4 @@
+import hashlib
 import subprocess
 import sys
 from pathlib import Path
@@ -11,6 +12,26 @@ from scripts import consensus_evidence
 
 
 class ConsensusEvidenceTests(unittest.TestCase):
+    def test_binary_changed_during_metadata_collection_refuses_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            binary = root/'native'
+            binary.write_bytes(b'original')
+            fingerprint = hashlib.sha256(binary.read_bytes()).hexdigest()
+            paths = (root/'compact.json', root/'raw.json')
+            for p in paths:
+                p.write_text('{"status":"running-or-incomplete"}')
+            def metadata(*args, **kwargs):
+                binary.write_bytes(b'replacement')
+                return 'rustc test'
+            with patch.object(consensus_evidence, 'source_hashes', return_value={}), \
+                    patch.object(consensus_evidence.subprocess, 'check_output', side_effect=metadata):
+                with self.assertRaisesRegex(RuntimeError, 'binary changed'):
+                    consensus_evidence.finish_report(paths, {}, {}, executable=binary,
+                        expected_executable_sha256=fingerprint, build_profile='release')
+            for p in paths:
+                self.assertIn('running-or-incomplete', p.read_text())
+
     def test_source_freeze_covers_solver_implementations_and_optional_lock(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

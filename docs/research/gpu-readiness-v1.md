@@ -2,6 +2,10 @@
 
 Date: 2026-10-09. Planning and read-only inventory; no GPU miner implemented.
 
+Update: [stage 1 has now executed on CMP 50HX](gpu-verification-v1.md), with
+exact host/CUDA/Rust agreement. The inventory below records the earlier discovery;
+candidate search and performance stages remain future work.
+
 ## Verified host capability
 
 An existing authorized SSH connection to the local Linux research host was
