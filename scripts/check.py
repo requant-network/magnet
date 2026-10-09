@@ -19,6 +19,7 @@ from scripts.admission_checks import differential_admission
 from scripts.block_checks import differential_blocks
 from scripts.chain_checks import differential_chain
 from scripts.column_native_checks import differential_columns
+from scripts.native_coefficient_checks import differential_coefficients
 
 
 def run(command, capture_output=False):
@@ -133,10 +134,17 @@ def main():
         raise RuntimeError("Cargo did not identify exactly one sis-column executable")
     columns = differential_columns(Path(column_paths[0]))
     print(f"Column differential: {columns}", flush=True)
+    coefficient_paths = [item['executable'] for item in artifacts
+                         if item.get('reason') == 'compiler-artifact' and item.get('executable')
+                         and item['target']['name'] == 'sis-coeff' and 'bin' in item['target']['kind']]
+    if len(coefficient_paths) != 1:
+        raise RuntimeError('Cargo did not identify exactly one sis-coeff executable')
+    coefficients = differential_coefficients(Path(coefficient_paths[0]))
+    print(f"Coefficient differential: {coefficients}", flush=True)
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native,
               "header_binding": binding, "admission": admission, "blocks": blocks, "chain": chain,
-              "columns": columns, "status": "passed"}
+              "columns": columns, "coefficients": coefficients, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock", ROOT / "benchmarks/flint-win.lock"]
     for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
                             ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md"), ("cuda", "*.cu")]:

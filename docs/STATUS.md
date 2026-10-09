@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: cooperative acquisition budgets and retention comparison.
+Date: 2026-10-09. Phase: independent native small-coefficient baseline and new-seed refresh.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,25 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Cooperative acquisition: current five-task milestone
+### Native small coefficients: current five-task milestone
+
+Five tasks are complete: bounded native protocol, independent Rust search,
+strict Python adapter, differential/late-witness audits and frozen local timing/
+fresh-control schedules. All768 comparisons,48 independent tiny-box audits,
+312 timed comparisons and192 refresh acquisitions pass. The maximum-shape search
+exhausts18912 candidates and returns all six expected late-column proofs.
+The local gate passes309 Python tests,23 Rust tests and all earlier corpora.
+
+Timing scopes remain separate; host reconciliation re-runs Python outside the
+process-roundtrip timer. No end-to-end or portable acceleration claim follows.
+Fresh carry succeeds54/515 versus486/486 repeated controls under paid capped
+acquisition; observations and scalar copies are correlated. Release binaries,
+source manifest and exact raw digest are frozen. No consensus/dependency/GPU,
+server miner, paid cloud or GitHub Actions changes. See the
+[report](research/native-small-coefficients-v1.md), [contract](../spec/23-native-small-coefficients.md)
+and [decision](decisions/0019-native-small-coefficients.md).
+
+### Cooperative acquisition: preceding five-task milestone
 
 Five tasks are complete: a common component meter, streamed sparse bound1/2,
 owned ball/MITM integration, paid exact/direction retention and a frozen budget

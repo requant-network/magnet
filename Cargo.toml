@@ -27,6 +27,10 @@ path = "crates/sis-verifier/src/chain_main.rs"
 name = "sis-column"
 path = "crates/sis-verifier/src/column_main.rs"
 
+[[bin]]
+name = "sis-coeff"
+path = "crates/sis-verifier/src/coeff_main.rs"
+
 [profile.release]
 overflow-checks = true
 

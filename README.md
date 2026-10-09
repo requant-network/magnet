@@ -46,6 +46,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Matched in-process scalar CPU/GPU search through unit triples with per-weight prefix and failure accounting.
 - Bounded non-unit sparse search, independent complete-ledger audits and paid fresh-matrix refresh with direction accounting.
 - Cooperative component budgets across sparse/ball/MITM acquisition, paid direction retention and frozen budget-response campaigns.
+- Independent native small-coefficient search, strict framed reconciliation, late-witness audits and fresh-seed comparisons.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -59,6 +60,7 @@ Other platforms must repeat the checks before claiming support.
 
 ~~~sh
 python scripts/check.py
+python scripts/native_coefficient_survey.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py
 python scripts/strategy_survey.py
@@ -99,6 +101,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Independent native small-coefficient search: five-task block](docs/research/native-small-coefficients-v1.md).
+- [Native small-coefficient exchange contract](spec/23-native-small-coefficients.md).
+- [Native small-coefficient baseline decision](docs/decisions/0019-native-small-coefficients.md).
 - [Cooperative acquisition and retention: five-task block](docs/research/cooperative-acquisition-v1.md).
 - [Cooperative component-budget contract](spec/22-cooperative-acquisition.md).
 - [Cooperative budgets and retention decision](docs/decisions/0018-cooperative-component-budgets.md).

@@ -287,3 +287,20 @@ retention histograms, totals and contradictory stopping metadata. Full/subset
 oracle checks distinguish algorithm domains; legacy engine counters are not an
 independent instruction-cost oracle. Correlated inventories, excluded bookkeeping
 and finite profiles leave portable security/economic work pricing unselected.
+
+## Native small-coefficient laboratory
+
+Spec23 adds a separate safe Rust bounded search, not a production peer surface.
+Profile/residue/cap validation precedes matrix allocation. The client bounds
+input, lazy batch consumption, response and diagnostics; rejects child exit,
+timeouts, partial/extra framing and complete semantic ledger/order mismatches.
+Full host reference reconciliation is paid validation, not a faster client.
+The local child binary/toolchain is trusted; this is not a hostile executable
+sandbox. Logical counters and positive timers do not establish portable work.
+
+Independent tiny-box sets/ledgers and actual maximum-shape late-witness search
+test both accepted proof validity and family completeness under declared caps.
+Fresh/control campaigns retain empty/censored outcomes and paid carry/acquired
+checks; scalar copies and sequential pools remain correlated. Source/release/raw
+digests freeze experiment provenance without asserting toolchain trust or
+economic hardness. Failed evidence preserves unknown unfinished work.
