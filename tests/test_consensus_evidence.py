@@ -35,7 +35,7 @@ class ConsensusEvidenceTests(unittest.TestCase):
     def test_source_freeze_covers_solver_implementations_and_optional_lock(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            for name in ('Cargo.toml', 'Cargo.lock', 'benchmarks/flint-win.lock', 'solvers/portfolio.py'):
+            for name in ('Cargo.toml', 'Cargo.lock', 'benchmarks/flint-win.lock', 'solvers/portfolio.py', 'cuda/test.cu'):
                 path = root/name
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text('initial')
@@ -43,8 +43,40 @@ class ConsensusEvidenceTests(unittest.TestCase):
                 before = consensus_evidence.source_hashes()
                 self.assertIn('solvers/portfolio.py', before)
                 self.assertIn('benchmarks/flint-win.lock', before)
+                self.assertIn('cuda/test.cu', before)
                 (root/'solvers/portfolio.py').write_text('changed')
                 self.assertNotEqual(before, consensus_evidence.source_hashes())
+
+    def test_additional_artifact_changed_refuses_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            binary = root/'kernel.so'
+            binary.write_bytes(b'original')
+            frozen = {binary: hashlib.sha256(binary.read_bytes()).hexdigest()}
+            paths = (root/'compact.json', root/'raw.json')
+            for path in paths:
+                path.write_text('{"status":"running-or-incomplete"}')
+            def metadata(*args, **kwargs):
+                binary.write_bytes(b'replacement')
+                return 'rustc test'
+            with patch.object(consensus_evidence, 'source_hashes', return_value={}), \
+                    patch.object(consensus_evidence.subprocess, 'check_output', side_effect=metadata):
+                with self.assertRaisesRegex(RuntimeError, 'artifact changed'):
+                    consensus_evidence.finish_report(paths, {}, {}, expected_artifacts=frozen)
+            for path in paths:
+                self.assertIn('running-or-incomplete', path.read_text())
+
+    def test_source_changed_during_metadata_refuses_publication(self):
+        with tempfile.TemporaryDirectory() as directory:
+            paths = (Path(directory)/'compact.json', Path(directory)/'raw.json')
+            for path in paths:
+                path.write_text('{"status":"running-or-incomplete"}')
+            with patch.object(consensus_evidence, 'source_hashes', side_effect=[{}, {'changed': 'hash'}]), \
+                    patch.object(consensus_evidence.subprocess, 'check_output', return_value='rustc test'):
+                with self.assertRaisesRegex(RuntimeError, 'sources changed before'):
+                    consensus_evidence.finish_report(paths, {}, {})
+            for path in paths:
+                self.assertIn('running-or-incomplete', path.read_text())
 
     def test_resource_probe_refuses_false_rate_evidence(self):
         with patch('scripts.resource_survey.ForkTree.submit',return_value=Transition('malformed')):

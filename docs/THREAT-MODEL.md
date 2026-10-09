@@ -223,3 +223,24 @@ explicit hypothetical supply multipliers; neither they nor inverse target
 calibrate SIS work. Timestamp-based availability failures are retained as negative
 results. Dynamic targets are not installed in real block admission, and no
 production fork/retarget safety claim follows from finite toy convergence.
+
+## Native and CUDA column-search laboratory boundaries
+
+CPS1 requests are local framed data, capped at 32800 bytes. Profile, matrix
+residues, exact lengths and search limits are checked before search allocations.
+CSR1 decoding bounds outputs and rejects inconsistent work/flags, noncanonical
+witnesses, out-of-prefix proofs and reversed order. Malformed input exits the
+native process without returning usable partial evidence.
+
+The CUDA C ABI is trusted local FFI: supplied pointers must reference valid
+spans, and each owned session handle must be used serially and closed once.
+It is not a pointer sandbox, network handler or peer security boundary. Python
+validates types/bounds before ctypes narrowing; C rechecks dimensions, span
+lengths, residues and chunk bounds before allocation/launch. Checked synchronous
+mask copies detect kernel completion failures. Failed calls propagate, close
+resources and invalidate study results; no CPU fallback manufactures success.
+
+Compile and load only the explicitly selected research library. Source, compiler
+and binary fingerprints protect reproducibility, not against a malicious local
+administrator or a compromised compiler. Buffers are logically bounded; runtime
+resource isolation, energy pricing and memory-hardness properties are not claimed.

@@ -42,6 +42,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Optional exact CUDA SIS verification, tested against Python/Rust on a local CMP 50HX.
 - Bounded on-device unit-sparse candidate acquisition with paid chunk ledgers and independent CPU/native audits.
 - Exact sparse-column CPU/CUDA acquisition with boolean-only readback and larger bounded chunks.
+- Independent native Rust column search and fused CUDA kernels with paid chunks, owned sessions and matched-domain audits.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -95,6 +96,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Native Rust and fused CUDA measured baselines](docs/research/native-fused-column-v1.md).
+- [Native/fused contract and timing scopes](spec/19-native-fused-column-search.md).
+- [Baseline decision and open production-work gate](docs/decisions/0015-native-fused-baselines.md).
 - [Column arithmetic optimization and CPU/GPU comparison](docs/research/gpu-column-search-v1.md).
 - [Optimized column-search contract](spec/18-column-search-optimization-v1.md).
 - [Paid GPU unit-sparse acquisition](docs/research/gpu-unit-sparse-search-v1.md).

@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: exact column-search optimization and native CPU preparation.
+Date: 2026-10-09. Phase: measured native CPU and fused CUDA column-search baselines.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -35,6 +35,28 @@ experiments use isolated, hash-pinned python-flint 0.9.0. No paid CI or cloud GP
 CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
+
+### Native and fused column search: current milestone
+
+Three tasks are complete: safe native Rust CPS1/CSR1 search, a locally compiled
+fused CUDA mask kernel, and a 50-case/three-repeat comparison of four backends.
+All 600 attempts agree; 4416 returned proof occurrences pass an independent
+native verifier. Full support audits cover 88076 ordinals; full mask boundary
+audits cover another 16804 candidates and 14 actual C ABI rejection cases.
+The new Rust/Python corpus has 373 cases and zero disagreement.
+
+The current local gate passes 244 Python tests, 21 Rust tests, rustfmt/clippy
+and all prior differential corpora. Fused CUDA reduces same-run PyTorch wrapper
+time, while optimized native computation is very short. Different native engine,
+bulk transport and GPU wrapper scopes are explicitly separated; no portable
+GPU advantage or production work calibration is claimed. See the
+[report](research/native-fused-column-v1.md), [contract](../spec/19-native-fused-column-search.md)
+and [decision](decisions/0015-native-fused-baselines.md).
+
+Every GPU search pays its own allocation/transfer/cleanup. Source/compiler/
+library/native hashes are frozen through evidence publication. Existing local
+nvcc/PyTorch suffice; no cloud GPU, new dependencies or GitHub Actions are used.
+Earlier milestone counts and timings below are historical snapshots.
 
 ### Initial availability survey
 

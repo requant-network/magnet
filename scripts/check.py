@@ -18,6 +18,7 @@ from scripts.binding_checks import differential_binding
 from scripts.admission_checks import differential_admission
 from scripts.block_checks import differential_blocks
 from scripts.chain_checks import differential_chain
+from scripts.column_native_checks import differential_columns
 
 
 def run(command, capture_output=False):
@@ -125,12 +126,20 @@ def main():
         raise RuntimeError("Cargo did not identify exactly one magnet-chain executable")
     chain = differential_chain(Path(chain_paths[0]))
     print(f"Full-chain differential: {chain}", flush=True)
+    column_paths = [item["executable"] for item in artifacts
+                    if item.get("reason") == "compiler-artifact" and item.get("executable")
+                    and item["target"]["name"] == "sis-column" and "bin" in item["target"]["kind"]]
+    if len(column_paths) != 1:
+        raise RuntimeError("Cargo did not identify exactly one sis-column executable")
+    columns = differential_columns(Path(column_paths[0]))
+    print(f"Column differential: {columns}", flush=True)
     report = {"python": platform.python_version(), "platform": platform.platform(),
               "differential": differential(executable), "native_search": native,
-              "header_binding": binding, "admission": admission, "blocks": blocks, "chain": chain, "status": "passed"}
+              "header_binding": binding, "admission": admission, "blocks": blocks, "chain": chain,
+              "columns": columns, "status": "passed"}
     paths = [ROOT / "Cargo.toml", ROOT / "Cargo.lock", ROOT / "benchmarks/flint-win.lock"]
     for folder, pattern in [("reference", "*.py"), ("solvers", "*.py"), ("scripts", "*.py"), ("tests", "*.py"),
-                            ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md")]:
+                            ("tests/vectors", "*.json"), ("crates", "*.rs"), ("spec", "*.md"), ("cuda", "*.cu")]:
         paths.extend((ROOT / folder).rglob(pattern))
     report["source_sha256"] = {path.relative_to(ROOT).as_posix(): hashlib.sha256(path.read_bytes()).hexdigest()
                                for path in sorted(paths)}
