@@ -43,6 +43,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Bounded on-device unit-sparse candidate acquisition with paid chunk ledgers and independent CPU/native audits.
 - Exact sparse-column CPU/CUDA acquisition with boolean-only readback and larger bounded chunks.
 - Independent native Rust column search and fused CUDA kernels with paid chunks, owned sessions and matched-domain audits.
+- Matched in-process scalar CPU/GPU search through unit triples with per-weight prefix and failure accounting.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -96,6 +97,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Matched CPU/GPU search and unit-triple evidence](docs/research/matched-sparse-v1.md).
+- [Matched search contract](spec/20-matched-sparse-search.md).
+- [Matched scope and unit-triple decision](docs/decisions/0016-matched-scope-and-unit-triples.md).
 - [Native Rust and fused CUDA measured baselines](docs/research/native-fused-column-v1.md).
 - [Native/fused contract and timing scopes](spec/19-native-fused-column-search.md).
 - [Baseline decision and open production-work gate](docs/decisions/0015-native-fused-baselines.md).

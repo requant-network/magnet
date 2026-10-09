@@ -244,3 +244,18 @@ Compile and load only the explicitly selected research library. Source, compiler
 and binary fingerprints protect reproducibility, not against a malicious local
 administrator or a compromised compiler. Buffers are logically bounded; runtime
 resource isolation, energy pricing and memory-hardness properties are not claimed.
+
+## Matched sparse-search extension
+
+Spec 20 retains trusted local owned FFI sessions and validates dimensions,
+matrix residues, candidate/chunk/output caps and exact buffer lengths before
+allocation or launch. It does not sandbox invalid pointers or concurrent handle
+misuse. Shared CPU/GPU helpers require independent ordering, arithmetic and proof
+audits. The unit-triple extension enlarges the solution family; a bounded biased
+prefix cannot establish full-domain yield or calibrate consensus work.
+
+Failure evidence separates completed successful FFI chunks from validated mask
+progress. Corrupted-chunk acceptance and killed-child progress can be unknown;
+neither is fabricated as zero. Failed evidence carries no timing ratios. Frozen
+pre-build sources, captured native artifacts, CUDA artifacts and exact raw-report
+digests support provenance, not resistance to a malicious local toolchain.

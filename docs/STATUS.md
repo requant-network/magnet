@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: measured native CPU and fused CUDA column-search baselines.
+Date: 2026-10-09. Phase: matched CPU/GPU integration and unit-triple acquisition.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,33 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Native and fused column search: current milestone
+### Matched sparse search and unit triples: current milestone
+
+Three tasks are complete: a shared in-process CPU/GPU integration contract,
+unit-triple candidate acquisition, and a frozen audited measurement schedule.
+All 504 attempts across 84 cases and three repetitions match the independent
+Python reference; 7584 emitted proof occurrences pass Rust verification.
+Exhaustive support audits cover 1423296 ordinals per backend, including the
+complete maximum domain. Boundary audits exercise 650 C ABI rejections, 106
+full-mask cases and 34518 backend ordinals. Existing Rust pair search also
+agrees on 46 applicable cases.
+
+The current gate passes 266 Python tests, 21 Rust tests, rustfmt/clippy and prior
+differential corpora. CPU group totals are lower in this schedule; large-chunk
+triple totals are close, and GPU latency spikes remain in evidence. The new
+65536-candidate prefix covers only 3.60% of maximum-dimension triples and is
+biased toward early coordinates. Repeated challenges are correlated. This is
+neither calibrated consensus work nor a portable CPU/GPU ranking.
+
+Sources, native binaries captured before CUDA compilation, library and build
+snapshot remain frozen through publication. The compact report binds exact raw
+bytes. Failures preserve completed versus validated progress and unknown counts,
+and suppress timing ratios. No packages, cloud GPU or GitHub Actions were added.
+No consensus or admission rule changed. See the
+[report](research/matched-sparse-v1.md), [contract](../spec/20-matched-sparse-search.md)
+and [decision](decisions/0016-matched-scope-and-unit-triples.md).
+
+### Native and fused column search: preceding milestone
 
 Three tasks are complete: safe native Rust CPS1/CSR1 search, a locally compiled
 fused CUDA mask kernel, and a 50-case/three-repeat comparison of four backends.
