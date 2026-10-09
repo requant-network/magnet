@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: small-coefficient acquisition and paid matrix refresh.
+Date: 2026-10-09. Phase: cooperative acquisition budgets and retention comparison.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,11 +36,29 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Small coefficients and paid refresh: current milestone
+### Cooperative acquisition: current five-task milestone
+
+Five tasks are complete: a common component meter, streamed sparse bound1/2,
+owned ball/MITM integration, paid exact/direction retention and a frozen budget
+response study. All 576 steps, 12 complete-domain audits and 3661 independent native
+verdict checks pass. The local gate passes 295 Python tests, 21 Rust tests and prior
+differential corpora. Preparation, materialization, dense checks and retention
+are paid; incomplete carry is excluded and proof transactions remain committed.
+
+Budgets 750/5000/50000 produce 364/1044/1044 acquired occurrences in this schedule.
+Maximum observed excess is 67 model units. Source/domain differences, repeated
+controls, scalar copies and arbitrary equal weights prevent portable performance
+or consensus-work inference. Raw phases, 48 response series, all empty outcomes
+and conservative legacy exhaustion flags remain in evidence. No dependency,
+GPU/miner, cloud or GitHub Actions changes. See the
+[report](research/cooperative-acquisition-v1.md), [contract](../spec/22-cooperative-acquisition.md)
+and [decision](decisions/0018-cooperative-component-budgets.md).
+
+### Small coefficients and paid refresh: preceding milestone
 
 Three tasks are complete: bounded non-unit support search, independent ordered
 domain/full-ledger audits, and a fixed paid refresh campaign across fresh/control
-matrices. Six fully exhausted tiny cases add143 legal vectors and122 normalized
+matrices. Six fully exhausted tiny cases add143 legal vectors and 122 normalized
 directions. Scalar copies remain valid SIS1 proofs but are explicitly correlated.
 Ninety-six acquisition searches and612 carry checks retain all empty/censored
 outcomes. Fresh carry succeeds32/297, same-instance control315/315; these are
@@ -48,7 +66,7 @@ correlated observations, not independent probability or work-saving estimates.
 
 Rust independently checks23450 positive/negative verdicts. Eighty Cartesian
 cases, six exhausted filtered-ball comparisons and all18912 maximum-shape
-candidate verdicts agree. The local gate passes279 Python tests,21 Rust tests,
+candidate verdicts agree. The local gate passes279 Python tests, 21 Rust tests,
 rustfmt/clippy and prior differential corpora. Source/native/raw hashes are
 bound through publication. Forty-seven bound2 searches leave an unchecked
 suffix; family prefix intersections are reported and full yield claims are

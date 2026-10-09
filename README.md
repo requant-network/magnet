@@ -45,6 +45,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Independent native Rust column search and fused CUDA kernels with paid chunks, owned sessions and matched-domain audits.
 - Matched in-process scalar CPU/GPU search through unit triples with per-weight prefix and failure accounting.
 - Bounded non-unit sparse search, independent complete-ledger audits and paid fresh-matrix refresh with direction accounting.
+- Cooperative component budgets across sparse/ball/MITM acquisition, paid direction retention and frozen budget-response campaigns.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -98,6 +99,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Cooperative acquisition and retention: five-task block](docs/research/cooperative-acquisition-v1.md).
+- [Cooperative component-budget contract](spec/22-cooperative-acquisition.md).
+- [Cooperative budgets and retention decision](docs/decisions/0018-cooperative-component-budgets.md).
 - [Small coefficients and paid matrix refresh](docs/research/small-coefficient-v1.md).
 - [Small-coefficient contract](spec/21-small-coefficient-search.md).
 - [Small coefficients and refresh decision](docs/decisions/0017-small-coefficients-and-refresh.md).

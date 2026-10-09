@@ -273,3 +273,17 @@ sign, support and norm before stable retention. Separate counted checks and
 full independent ledger audits prevent free carry work or fabricated exhaustion.
 Failed studies invalidate prior success and retain unknown in-progress work.
 No production peer input, consensus work rule or monetary/security claim is added.
+
+## Cooperative component comparison
+
+Spec22 credits are an explicit arbitrary model, not adversarial work or a hard
+resource bound. Atomic monotonic snapshots preserve completed counters and
+cooperative excess. Iterator closure flushes final work; proof/carry transactions
+commit before stopping, while unverified carry cannot enter the new pool.
+Direction retention uses normalized keys without synthesizing unverified proofs.
+
+Independent audits reject altered preparation/materialization, paid validation,
+retention histograms, totals and contradictory stopping metadata. Full/subset
+oracle checks distinguish algorithm domains; legacy engine counters are not an
+independent instruction-cost oracle. Correlated inventories, excluded bookkeeping
+and finite profiles leave portable security/economic work pricing unselected.
