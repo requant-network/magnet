@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: independent native small-coefficient baseline and new-seed refresh.
+Date: 2026-10-09. Phase: bounded matched CPU/CUDA D5 pilot; work-weight decision remains open.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,27 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Native small coefficients: current five-task milestone
+### Matched small coefficients: current five-task milestone
+
+Five tasks are complete: domain/chunk contract, scalar CPU/CUDA engine, owned
+Python wrapper, complete-order/mask/native audits and frozen paired timings.
+All240 paired cases and1440 backend attempts agree. Complete audits decode606832
+ordinals and check45890 masks across CPU/GPU; Rust verifies22945 candidate
+verdicts and4978 returned proofs. Independent sequential Rust reconciles240
+prefixes, explicitly accounting12542 additional paid chunk candidates.
+The local gate passes330 Python tests,23 Rust tests and all previous corpora.
+
+CPU has lower elapsed time in716/720 pairs; every seeded group has median
+paired CPU/GPU ratio<1. No GPU advantage is shown for this small-family,
+fresh-session workload. The matched timer includes both host paths; audits and
+durable progress journaling are outside. Source/build/raw fingerprints agree.
+This D5 pilot measures neither energy nor memory scaling, and cannot resolve
+A-vs-B or portable work. Next formalize D2 weights and D3 screening falsifiers;
+do not expand hardware/monetary surfaces without decision value. See
+[findings](FINDINGS.md), [open questions](OPEN-QUESTIONS.md),
+[report](research/matched-coefficients-v1.md) and [contract](../spec/24-matched-small-coefficients.md).
+
+### Native small coefficients: preceding five-task milestone
 
 Five tasks are complete: bounded native protocol, independent Rust search,
 strict Python adapter, differential/late-witness audits and frozen local timing/
@@ -583,10 +603,10 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next test stronger adaptive acquisition/retention policies and exact GPU
-execution, then confront portable adversarial work/profile comparability, optimized/GPU
-baselines and independent review; add persistence/pruning and real synchronization
-after the simulator. Production difficulty and accumulated chainwork remain
-unselected. Common local
+Next make the A-vs-B work-weight question explicit and freeze its screening/
+amortization falsifiers with the smallest relevant profiles. Hardware expansion,
+persistence, peer synchronization and monetary rules remain parked until they
+advance that decision and external review. Production difficulty and accumulated
+chainwork remain unselected. Common local
 budgets are experimental resource allowances; local time is not a consensus
 oracle and observed allocation is not a memory-hardness proof.

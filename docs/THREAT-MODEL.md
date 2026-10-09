@@ -304,3 +304,19 @@ Fresh/control campaigns retain empty/censored outcomes and paid carry/acquired
 checks; scalar copies and sequential pools remain correlated. Source/release/raw
 digests freeze experiment provenance without asserting toolchain trust or
 economic hardness. Failed evidence preserves unknown unfinished work.
+
+## Matched small-coefficient CPU/CUDA pilot
+
+Spec24 uses owned live process-local FFI handles, not a malicious-C-call sandbox.
+Integer/profile/residue/length/range guards precede allocation and narrowing;
+Python rejects closed handles and boolean settings. Shared C++ CPU/CUDA helpers
+require independent full support order, negative/positive mask and Rust audits.
+Paid output tails and sequential/chunk prefix differences remain explicit.
+
+Completion tags preserve successful native chunks through host allocation or
+validation failures. Durable progress outside measurements permits bounded
+interruption recovery; version/source checks and pre-build journal invalidation
+prevent stale same-source outputs. Post-checkpoint work remains unknown and
+recovered outputs never imply completed audits or publishable success ratios.
+Matched timer samples do not supply energy, memory-hardness, portable economic
+work or a secure monotone consensus weight. The D5 pilot is supporting evidence.

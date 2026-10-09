@@ -47,6 +47,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Bounded non-unit sparse search, independent complete-ledger audits and paid fresh-matrix refresh with direction accounting.
 - Cooperative component budgets across sparse/ball/MITM acquisition, paid direction retention and frozen budget-response campaigns.
 - Independent native small-coefficient search, strict framed reconciliation, late-witness audits and fresh-seed comparisons.
+- Matched in-process small-coefficient CPU/CUDA chunks, complete negative-mask audits and durable interruption evidence.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -101,6 +102,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Findings so far](docs/FINDINGS.md) and [open work-weight questions](docs/OPEN-QUESTIONS.md).
+- [Matched small-coefficient CPU/CUDA: bounded D5 pilot](docs/research/matched-coefficients-v1.md).
+- [Matched small-coefficient contract](spec/24-matched-small-coefficients.md).
 - [Independent native small-coefficient search: five-task block](docs/research/native-small-coefficients-v1.md).
 - [Native small-coefficient exchange contract](spec/23-native-small-coefficients.md).
 - [Native small-coefficient baseline decision](docs/decisions/0019-native-small-coefficients.md).
@@ -187,7 +191,8 @@ Dynamic-target experiments use a separate synthetic model.
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: portable adversarial work argument, secure profile/retarget selection,
-persistence/pruning and peer synchronization, larger optimized/hardware baselines and
-external cryptographic review. A valid SIS solution is not proof of
+Next: explicit A-vs-B work weights and screening/amortization falsifiers,
+followed by external cryptographic review. Hardware expansion, persistence,
+peer synchronization and monetary rules stay parked unless they advance that
+decision. A valid SIS solution is not proof of
 network service delivery or of a particular amount of computation.

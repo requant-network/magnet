@@ -21,7 +21,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--nvcc', type=Path, default=Path('/usr/local/cuda/bin/nvcc'))
     parser.add_argument('--arch', default='sm_75')
-    parser.add_argument('--kernel', choices=('unit_sparse', 'matched_sparse'), default='unit_sparse')
+    parser.add_argument('--kernel', choices=('unit_sparse', 'matched_sparse', 'matched_coefficients'), default='unit_sparse')
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     if not re.fullmatch(r'sm_[0-9]{2,3}', args.arch):
