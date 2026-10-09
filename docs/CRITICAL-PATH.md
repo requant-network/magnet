@@ -1,0 +1,230 @@
+# Critical path to understanding
+
+Date: 2026-10-09. Status: working directive for implementation work. This file
+narrows the whole programme to the single open decision and the minimum set of
+experiments that resolve it. Read it before starting any task; every task must
+map to it or be explicitly parked.
+
+## 1. The one open question
+
+**Does SIS admit a deterministic, monotone, portable and reuse-resistant work
+function for permissionless proof of work?**
+
+Everything else is secondary. If such a function exists (construction A, or a
+defensible reformulation B/C), the project can proceed to a chain. If it does
+not, the correct outcome is an **explicit, published negative result** — that is
+a valid completion, not a failure.
+
+The scientific risk is concentrated here. Verifiers, native backends, CUDA
+kernels, chain/fork/retarget simulations and supply models are *supporting*
+machinery; none of them answers this question by itself.
+
+## 2. Rules
+
+1. **One critical path.** Keep `docs/CRITICAL-PATH.md` (this file) as the single
+   list of the open decision and the decisive experiments. Every proposed task
+   states which experiment below it advances. Tasks that do not map are parked in
+   §6, not started.
+2. **Decision value, not volume.** Before any milestone ask: *does the result
+   change the answer to A vs B?* If no, do not build it (more solver variants,
+   more single-scope timings, more specs are not progress).
+3. **Falsification first.** Experiments must try to **break** candidate work
+   functions (find cheap inflated weight, reuse, screening, preprocessing), not
+   to confirm them.
+4. **Timebox and kill.** Every experiment gets a budget and an explicit stop
+   criterion. On failure: record it, stop, do not chain the next.
+5. **Negative result in parallel.** Write the negative-result note (ePrint-style)
+   while running, not afterwards.
+6. **External review early.** Get one independent cryptographer to review the
+   framing and the candidate work functions **before** large investment.
+7. **Scale only where it matters.** Move to the **smallest** profiles where the
+   solver/verifier asymmetry and the memory/preprocessing effects actually
+   appear; state explicitly where "toy" ends and why.
+8. **No monetary/consensus surface** until the work function passes review.
+   Prototypes stay minimal.
+9. **Reduce document sprawl.** Keep one "Findings so far" page and one "Open
+   questions" page; add a decision record only for a real fork in the path.
+
+## 3. Candidate work functions and their falsifiers
+
+State each candidate explicitly and the concrete cheap attack that would kill it.
+
+- **A. Pure SIS with a norm threshold.**
+  - Falsifiers: instance screening (miner picks easy A/header/nonce); solution
+    combination (sign/multiples/gcd/linear combinations); basis/list reuse within
+    and across jobs; preprocessing amortisation; superlinear memory scaling;
+    self-reported work.
+- **B. Fixed SIS profile + outer hash target (score).**
+  - Falsifiers: one vector or reduced basis yields many admissible inputs;
+    nonce changes score but not the challenge; unique encoding does not imply a
+    unique solution; score trials ≠ SIS solves.
+- **C. Generalized birthday with lattice constraints (Equihash-like).**
+  - Caveat: does **not** inherit SIS hardness; needs its own argument. Only
+    pursued after A/B are decided.
+
+For every candidate, the weight must be defined **by component** (generation,
+preprocessing, acquisition, failed attempts) and shown **monotone** in the
+difficulty knob and **non-transferable** across parents/chains.
+
+## 4. Decisive experiment sequence
+
+Run these in order. Each has a kill criterion: if it fires, record the negative
+result for that construction and move to the next candidate (or stop).
+
+- **D1 — Write the path.** Produce this file's concrete experiment list with
+  profiles, scopes and thresholds. (done when agreed)
+- **D2 — Candidate work functions + falsifiers.** Write §3 formally, with the
+  exact cheap attacks and the inputs each one varies.
+- **D3 — Screening attack.** On a slightly larger profile, measure whether a
+  miner gains **> 2x** from *selecting* headers/matrices/nonces. If yes, a
+  standalone SIS work model is very likely unsound.
+- **D4 — Preprocessing / amortisation attack.** Measure cost(first) / cost(subsequent)
+  for LLL/BKZ/sieve under a shared budget. If reuse breaks monotonicity, A fails.
+- **D5 — Memory / time trade-off, matched scope.** One CPU and one GPU at a
+  **matched domain, caps, output and timer scope**: is the weight (energy x time)
+  portable, or does a memory-rich device win superlinearly?
+- **D6 — Formalise and prove.** Only if D3–D5 do not kill A: define the
+  work-weight function and prove monotonicity (paper + external review); then E4
+  (retarget/fork simulator).
+
+## 5. Success metric
+
+A written, defensible answer to the A-vs-B question, backed by reproducible
+evidence and an external review note. **Not** a larger codebase, more tests, or a
+miner counter.
+
+## 6. Parked until the path resolves
+
+Do **not** start these before §4 is decided:
+
+- more solver variants / additional survey families that only refine measurement;
+- broader GPU kernels or a portable miner beyond what D3–D5 need;
+- chain/consensus/retarget features beyond the minimal D6 simulator;
+- wallets, pools, payments, or any monetary framing;
+- new document families (spec/NNN, ADR/00NN) unless they resolve a fork in §4.
+
+## 7. Relationship to existing documents
+
+- Research plan and gates: `01-SIS-POW-RESEARCH-PLAN.md` (§11 E0–E7, §13 stop/revise).
+- Open work-weight gate: `docs/decisions/0007`, `docs/decisions/0012`,
+  `docs/decisions/0013`.
+- Current implemented state: `docs/STATUS.md`.
+- Language: use "experimental SIS-PoW"; make no security claims.
+
+## 8. D2 definitions and frozen D3 experiment (2026-10-09)
+
+This section makes the next falsifier concrete. Existing demonstration consensus
+is unchanged. No production work function is selected.
+
+### D2: acceptance, nominal credit and hidden cost
+
+Let c=(network,parent,height,profile) be externally trusted. The permitted miner
+surface for this experiment is nonce only; payload,time,c and target are fixed.
+MGH1 commits nonce into the matrix seed, so a changed nonce changes both challenge
+and score input. This experiment does NOT assume score-only nonce grinding.
+A(header,z): canonical nonzero signed vector, ||z||²<=B2 and A(header)z=0 mod q.
+B(header,z,T): A AND SHA256(SCORE_DOMAIN||encode_proof(header,z))<T,
+with trusted fixed profile and 0<T<=2^256. T=0 admits nothing and has no finite
+inverse-target weight. Repeated identical input repeats the same digest.
+
+Candidate credits to falsify (not implemented chainwork):
+
+- A-unit: W=1 per accepted header. Observable, but does not certify equal cost.
+- A-density: W=q^n/N(m,B2), where N is the number of canonical nonzero integer
+  vectors in the complete norm ball, NOT the support<=3 family. Under uniform
+  independent matrix rows, every fixed legal vector has acceptance probability
+  q^-n (B2<q² excludes all-zero residues). Hence E[number of solutions]=N/q^n.
+  Its reciprocal is not E[cost to find a solution], and correlated vectors do not
+  give independent events. Exact N is a mathematical definition, not a cheap
+  production verifier implementation. Decreasing B2 cannot increase N, but MGH1 also
+  changes the derived matrix; this is no pathwise monotonic-cost proof.
+- B-score: W=2^256/T. Under a random-oracle assumption for distinct previously unqueried eligible
+  messages, success probability is T/2^256. Geometric mean trials W additionally
+  requires an unlimited supply; finite supply may exhaust without success. It does not
+  price acquiring those inputs. Multiplying it by a fixed alleged SIS-solve cost
+  does not make shared acquisition/multiples/reuse disappear.
+- Miner-reported counters/time: rejected as a trusted verifier-computable weight.
+
+For A-density and B-score the displayed knob gives algebraic monotonicity of the
+nominal credit, not adversarial compute/energy monotonicity. A witness exposes
+validity, not the chosen algorithm's hidden execution. Required component vector:
+header/matrix generation, domain setup, discarded-header probes, selected search,
+failed proposals, dense proof validation, scoring and all incomplete work.
+These are local evidence counters; no weighted sum is installed as consensus.
+
+### D3: paid screening versus strong controls
+
+Version d3-screening-v1. Profiles (q,n,m,B2): (7,1,4,8) calibration,
+(17,3,16,12),(7,4,16,12),(257,2,16,12) primary. The first two primary profiles
+increase equation count over earlier soluble cohorts; all remain toy-sized.
+Existing spec21 bound2 support<=3 order is reused, candidate cap4096 per selected
+header; no new solver, GPU kernel or claim of complete SIS search.
+
+Three labels2026100926/2026100927/2026100928 define fixed common header streams:
+ASCII `d3-screening-v1/q/n/m/B2/label`, with SHA256(label+'/network', '/parent',
+'/payload') commitments, height1,time20261009, nonce0..255. Construction A and
+B share the stream; B target2^254. Each run starts cold, no carried proof/basis.
+
+Policies: plain sequential search; single-header probe control; random batch4
+control; screened batch4 choosing maximum first-row survivors. Probe the first64
+existing candidates against row0 only. Cached flags are paid once and reused
+only for the selected header, screening remaining rows before eligibility. All
+batch generation, setup, probes, selection/tie comparisons and rejected headers
+are paid. Random choice uses a paid hash independent of proxy outcomes. Ties
+choose the earliest header. No future complete availability oracle is used.
+
+Use the existing cooperative component model: additive nonnegative logical
+counters, informational matrix SHAKE byte count zero-weight. Budget100000 units
+per campaign, at most256 generated headers. Charge completed proof transactions
+before checking budget; preserve overshoot and use ACTUAL charged units in rate
+calculations. Each policy stops when budget/header bound is reached; it can emit
+at most one credited result per selected header. Dense checks and scores are paid.
+
+Three repetitions deterministically rotate policy order by group/repetition.
+Logical transcripts must reproduce exactly; repetitions are timing observations,
+NOT more independent challenges. Total4 profiles*3 labels*2 constructions*4
+policies*3 repetitions=288 runs. Global study deadline120 seconds, no tuning or
+extension after seeing outcomes. Interrupted/empty/censored runs stay in evidence.
+
+Primary diagnostic: successes/actual logical units. For each primary profile
+and construction, aggregate only repetition0 over the three labelled streams.
+Screened rate must exceed EACH of plain, probe and random controls by strictly
+more than2x, with at least5 successes for every compared policy. Otherwise report
+not-triggered or insufficient-successes, never divide by zero or discard misses.
+Use exact rational comparisons. Component units are arbitrary: a trigger rejects
+uniform-credit cost inference in this tested model, NOT all pure SIS constructions.
+Secondary matched cold policy wall times remain descriptive, separate from units.
+
+The run order is profiles,construction(A then B),repetition,label; within each
+label rotate [plain,probe-control,random4,screened4] left by (label_index+repetition)
+mod4. Evaluate after the complete profile/construction group, not mid-campaign.
+All repetition0 campaigns and native/ledger audits must complete their declared
+logical stop before a trigger can stand. Deadline/exception/audit failure retains
+partial evidence but suppresses all successful comparative conclusions.
+
+| Policy | Probe coverage | Chosen header | Cached flags |
+| --- | --- | --- | --- |
+| plain | none | next single header | none |
+| probe-control | first64,row0 | same single header | reused |
+| random4 | first64,row0 on all4 | paid SHA256 selector | reused on selected only |
+| screened4 | first64,row0 on all4 | maximum survivors, earliest tie | reused on selected only |
+
+Every selected search traverses the same first4096 candidates sequentially.
+B continues after an eligible score miss until a hit, candidate cap or paid
+budget stop; A stops on the first valid proof. No previously missed eligible
+message is scored twice. Check budget after each completed generation/probe/
+selection/candidate transaction. Completed dense validation/score/hit is committed
+before its stop check; rejected headers are never searched retrospectively.
+Random selector is SHA256(b'D3/random-selection\0'+base.encode()+batch_start.to_bytes(8,'little')),
+using its first8 digest bytes as little-endian integer modulo batch length;
+count hash/input bytes. Both batch4 paths inspect all probes before choosing.
+
+
+Build/freeze current Cargo-selected sis-lab before runs. Independently reconcile
+ALL generated headers/seeds/matrices (including rejected ones), returned A/B
+proofs and eligible score misses through native Rust outside timed campaigns.
+Rebuild selected prefix/carry-free ledgers independently in Python. Bind exact
+contract/config/source/native/raw digests before and after publication; invalidate
+old success before build. Store completed records and unknown current work on
+failure. If a declared D3 trigger fires, record the negative finding and stop this
+batch; do not automatically proceed to D4/D6 or expand a construction.

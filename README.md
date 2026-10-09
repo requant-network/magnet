@@ -48,6 +48,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Cooperative component budgets across sparse/ball/MITM acquisition, paid direction retention and frozen budget-response campaigns.
 - Independent native small-coefficient search, strict framed reconciliation, late-witness audits and fresh-seed comparisons.
 - Matched in-process small-coefficient CPU/CUDA chunks, complete negative-mask audits and durable interruption evidence.
+- Explicit nominal A/B work definitions and frozen paid nonce-screening attacks with strong controls, independent ledger/native audits and insufficient-evidence reporting.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -61,6 +62,7 @@ Other platforms must repeat the checks before claiming support.
 
 ~~~sh
 python scripts/check.py
+python scripts/screening_survey.py
 python scripts/native_coefficient_survey.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py
@@ -102,6 +104,7 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Critical path and frozen D2/D3 protocol](docs/CRITICAL-PATH.md).
 - [Findings so far](docs/FINDINGS.md) and [open work-weight questions](docs/OPEN-QUESTIONS.md).
 - [Matched small-coefficient CPU/CUDA: bounded D5 pilot](docs/research/matched-coefficients-v1.md).
 - [Matched small-coefficient contract](spec/24-matched-small-coefficients.md).

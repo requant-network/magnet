@@ -1,5 +1,10 @@
 # Magnet Network working rules
 
+- Read `docs/CRITICAL-PATH.md` first. It names the single open decision (a
+  portable, monotone, reuse-resistant work function) and the decisive experiment
+  sequence. Every task must map to it or be explicitly parked; do not expand the
+  lab (more solver variants, more single-scope timings, more specs) unless it
+  changes the A-vs-B answer.
 - English is primary for code, documentation, issues and commits. Russian is
   secondary under docs/ru/; label translations and historical snapshots.
 - This is a research laboratory, not a production PoW or monetary blockchain.

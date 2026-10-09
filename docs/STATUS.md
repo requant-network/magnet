@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: bounded matched CPU/CUDA D5 pilot; work-weight decision remains open.
+Date: 2026-10-09. Phase: D2 definitions and frozen D3 screening; insufficient primary evidence, work-weight decision remains open.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,25 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Matched small coefficients: current five-task milestone
+### D2/D3: work definitions and paid screening
+
+The critical path now defines three nominal A/B credits and their limitations.
+The paid screening campaign completes 288 runs with independent Python ledger
+replay and 4,255 native requests; logical transcripts reproduce across all three
+timing repetitions. Screening shows about 2.75x on the first primary A profile,
+but its controls have four successes each versus the precommitted minimum five.
+No kill criterion fires; five of six primary comparisons are insufficient and
+one is not triggered. A safe work function is not established.
+
+The local gate passes 343 Python tests, 23 Rust tests and all differential corpora.
+Native/source/critical-contract/config/raw identities are checked, including
+publication readback. Interrupted runs preserve partial evidence and suppress
+comparisons. No solver family, consensus, GPU/server/miner or CI change.
+Next precommit an independent fresh-stream replication before advancing D3/D4.
+See [critical path](CRITICAL-PATH.md), [findings](FINDINGS.md),
+[open questions](OPEN-QUESTIONS.md) and [evidence](research/results/d3-screening-v1.json).
+
+### Matched small coefficients: preceding five-task milestone
 
 Five tasks are complete: domain/chunk contract, scalar CPU/CUDA engine, owned
 Python wrapper, complete-order/mask/native audits and frozen paired timings.
@@ -51,7 +69,7 @@ paired CPU/GPU ratio<1. No GPU advantage is shown for this small-family,
 fresh-session workload. The matched timer includes both host paths; audits and
 durable progress journaling are outside. Source/build/raw fingerprints agree.
 This D5 pilot measures neither energy nor memory scaling, and cannot resolve
-A-vs-B or portable work. Next formalize D2 weights and D3 screening falsifiers;
+A-vs-B or portable work. This pilot motivated D2 weights and D3 screening falsifiers;
 do not expand hardware/monetary surfaces without decision value. See
 [findings](FINDINGS.md), [open questions](OPEN-QUESTIONS.md),
 [report](research/matched-coefficients-v1.md) and [contract](../spec/24-matched-small-coefficients.md).
