@@ -40,6 +40,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Exact precommitted-pool correlation laws, complete matrix audits and paid fresh-header supply studies.
 - Paid bounded adaptive retention, replayed JSON checkpoints and independent native hit admission.
 - Optional exact CUDA SIS verification, tested against Python/Rust on a local CMP 50HX.
+- Bounded on-device unit-sparse candidate acquisition with paid chunk ledgers and independent CPU/native audits.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -93,6 +94,8 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Paid GPU unit-sparse acquisition](docs/research/gpu-unit-sparse-search-v1.md).
+- [CPU/CUDA candidate-search contract](spec/17-unit-sparse-gpu-search-v1.md).
 - [Executed CUDA verification and next GPU stage](docs/research/gpu-verification-v1.md).
 - [Exact GPU verification contract](spec/16-gpu-verification-lab-v1.md).
 - [Research and consensus plan](01-SIS-POW-RESEARCH-PLAN.md).

@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: executed exact GPU verification and paid-search preparation.
+Date: 2026-10-09. Phase: paid unit-sparse CUDA acquisition and optimization preparation.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -301,6 +301,24 @@ See [report](research/chain-forks-and-retarget-v1.md) and
 
 ## Verification
 
+### Latest GPU acquisition milestone
+
+[Unit-sparse CPU/CUDA search](research/gpu-unit-sparse-search-v1.md) now acquires
+its own candidates on the device. All 42 paired cases (84 attempts) complete
+with equal outputs/common ledgers; 71424 candidates per backend produce 368
+returned occurrences, including repeated settings and boundary fixtures.
+736 independent native proof checks and 53260 separately audited GPU candidate
+ordinals have zero disagreements. Ten fresh seeded challenges are distinguished
+from degenerate fixtures. Proof-cap chunk tails remain fully charged.
+
+The dense first prototype is not faster in this descriptive run: 7.30 seconds
+CUDA versus 3.22 seconds reference Python. Other resident GPU activity and mixed
+setup make this an unisolated correctness experiment. Next replace dense products
+with sparse column arithmetic and reduce synchronization, before optimized native
+CPU comparisons or broader search. The miner was stopped for the GPU runs and
+observed exited immediately afterward, then running at a later inspection;
+no production consensus rule changes.
+
 ### Latest GPU milestone
 
 [Exact CUDA verification](research/gpu-verification-v1.md) ran on the local CMP
@@ -355,7 +373,7 @@ chainwork or retarget. Failed setup windows do not certify unsolvability.
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 214 Python tests and 19 Rust tests;
+- 223 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof
