@@ -44,6 +44,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Exact sparse-column CPU/CUDA acquisition with boolean-only readback and larger bounded chunks.
 - Independent native Rust column search and fused CUDA kernels with paid chunks, owned sessions and matched-domain audits.
 - Matched in-process scalar CPU/GPU search through unit triples with per-weight prefix and failure accounting.
+- Bounded non-unit sparse search, independent complete-ledger audits and paid fresh-matrix refresh with direction accounting.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -97,6 +98,9 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Small coefficients and paid matrix refresh](docs/research/small-coefficient-v1.md).
+- [Small-coefficient contract](spec/21-small-coefficient-search.md).
+- [Small coefficients and refresh decision](docs/decisions/0017-small-coefficients-and-refresh.md).
 - [Matched CPU/GPU search and unit-triple evidence](docs/research/matched-sparse-v1.md).
 - [Matched search contract](spec/20-matched-sparse-search.md).
 - [Matched scope and unit-triple decision](docs/decisions/0016-matched-scope-and-unit-triples.md).

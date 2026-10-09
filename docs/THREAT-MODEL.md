@@ -259,3 +259,17 @@ progress. Corrupted-chunk acceptance and killed-child progress can be unknown;
 neither is fabricated as zero. Failed evidence carries no timing ratios. Frozen
 pre-build sources, captured native artifacts, CUDA artifacts and exact raw-report
 digests support provenance, not resistance to a malicious local toolchain.
+
+## Small-coefficient and matrix-refresh laboratory
+
+Spec21 is a bounded local Python family, not general SIS completeness. Legal
+nonprimitive vectors can share a primitive direction and the same acceptance
+event. Normalized directions can also be linearly dependent; neither legal
+proof counts nor direction counts establish priced independent work. Capped
+families test different prefixes and same-instance controls are correlated.
+
+Refresh revalidates all carried/acquired vectors and bounds pool size, shapes,
+sign, support and norm before stable retention. Separate counted checks and
+full independent ledger audits prevent free carry work or fabricated exhaustion.
+Failed studies invalidate prior success and retain unknown in-progress work.
+No production peer input, consensus work rule or monetary/security claim is added.

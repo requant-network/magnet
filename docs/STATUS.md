@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: matched CPU/GPU integration and unit-triple acquisition.
+Date: 2026-10-09. Phase: small-coefficient acquisition and paid matrix refresh.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,28 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### Matched sparse search and unit triples: current milestone
+### Small coefficients and paid refresh: current milestone
+
+Three tasks are complete: bounded non-unit support search, independent ordered
+domain/full-ledger audits, and a fixed paid refresh campaign across fresh/control
+matrices. Six fully exhausted tiny cases add143 legal vectors and122 normalized
+directions. Scalar copies remain valid SIS1 proofs but are explicitly correlated.
+Ninety-six acquisition searches and612 carry checks retain all empty/censored
+outcomes. Fresh carry succeeds32/297, same-instance control315/315; these are
+correlated observations, not independent probability or work-saving estimates.
+
+Rust independently checks23450 positive/negative verdicts. Eighty Cartesian
+cases, six exhausted filtered-ball comparisons and all18912 maximum-shape
+candidate verdicts agree. The local gate passes279 Python tests,21 Rust tests,
+rustfmt/clippy and prior differential corpora. Source/native/raw hashes are
+bound through publication. Forty-seven bound2 searches leave an unchecked
+suffix; family prefix intersections are reported and full yield claims are
+restricted to exhausted tiny cases. No consensus/GPU API change, new dependency,
+GPU allocation, cloud job or GitHub Actions. See the
+[report](research/small-coefficient-v1.md), [contract](../spec/21-small-coefficient-search.md)
+and [decision](decisions/0017-small-coefficients-and-refresh.md).
+
+### Matched sparse search and unit triples: preceding milestone
 
 Three tasks are complete: a shared in-process CPU/GPU integration contract,
 unit-triple candidate acquisition, and a frozen audited measurement schedule.
