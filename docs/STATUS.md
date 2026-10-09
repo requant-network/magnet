@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: paid unit-sparse CUDA acquisition and optimization preparation.
+Date: 2026-10-09. Phase: exact column-search optimization and native CPU preparation.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -301,6 +301,21 @@ See [report](research/chain-forks-and-retarget-v1.md) and
 
 ## Verification
 
+### Latest column optimization milestone
+
+[Column search](research/gpu-column-search-v1.md) avoids dense candidate tensors
+and reads one boolean mask per GPU chunk. Fifty comparison cases contain 184
+attempts, with zero output/accounting disagreements; 1472 independent native
+proof audits and 88076 separately audited candidate ordinals agree. Existing
+dense engines remain intact. Larger column chunks are bounded at 4096.
+
+On current-run legacy cases, CUDA columns record 0.216 seconds versus 0.536
+for dense CUDA, but Python columns record 0.037 seconds. Larger no-hit chunk
+cases record 15.86ms CUDA versus 32.57ms Python columns. These are descriptive
+timings, not isolated/native-CPU advantage or economic work. Next add optimized
+native CPU competition. The GPU miner was stopped and observed exited after
+the run; resident ComfyUI was not reconfigured. Consensus remains unchanged.
+
 ### Latest GPU acquisition milestone
 
 [Unit-sparse CPU/CUDA search](research/gpu-unit-sparse-search-v1.md) now acquires
@@ -373,7 +388,7 @@ chainwork or retarget. Failed setup windows do not certify unsolvability.
 python scripts/check.py currently passes:
 
 - rustfmt and clippy without warnings;
-- 223 Python tests and 19 Rust tests;
+- 231 Python tests and 19 Rust tests;
 - 10009 differential Python/Rust cases, 2665 accepted, no mismatches;
 - three malformed-frame checks and two empty-input/frame checks.
 - 103 native-search differential instances (309 searches, 2910 verified proof

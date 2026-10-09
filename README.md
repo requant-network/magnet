@@ -41,6 +41,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Paid bounded adaptive retention, replayed JSON checkpoints and independent native hit admission.
 - Optional exact CUDA SIS verification, tested against Python/Rust on a local CMP 50HX.
 - Bounded on-device unit-sparse candidate acquisition with paid chunk ledgers and independent CPU/native audits.
+- Exact sparse-column CPU/CUDA acquisition with boolean-only readback and larger bounded chunks.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -94,6 +95,8 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Column arithmetic optimization and CPU/GPU comparison](docs/research/gpu-column-search-v1.md).
+- [Optimized column-search contract](spec/18-column-search-optimization-v1.md).
 - [Paid GPU unit-sparse acquisition](docs/research/gpu-unit-sparse-search-v1.md).
 - [CPU/CUDA candidate-search contract](spec/17-unit-sparse-gpu-search-v1.md).
 - [Executed CUDA verification and next GPU stage](docs/research/gpu-verification-v1.md).
