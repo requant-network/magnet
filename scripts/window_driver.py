@@ -11,9 +11,10 @@ from scripts.window_worker import MAX_INPUT, MAX_OUTPUT
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def read_snapshot(folder):
+def read_snapshot(folder, *, campaign_only=False):
     """Recover the latest complete bounded snapshot, never a partial write."""
-    for name in ("error.json", "response.json", *(f"checkpoint-{i}.json" for i in range(8, 0, -1))):
+    names = ("response.json", *(f"checkpoint-{i}.json" for i in range(8, 0, -1)))
+    for name in names if campaign_only else ("error.json", *names):
         path = folder / name
         marker_path = path.with_suffix(path.suffix + ".ready")
         if not marker_path.exists() or not path.exists():
@@ -36,7 +37,7 @@ def read_snapshot(folder):
 def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None, worker="window_worker.py"):
     payload = json.dumps(request, separators=(",", ":")).encode()
     if (len(payload) > MAX_INPUT or diagnostic not in (None, "sleep", "allocate")
-            or worker not in ("window_worker.py", "portfolio_worker.py", "adaptive_worker.py")
+            or worker not in ("window_worker.py", "portfolio_worker.py", "adaptive_worker.py", "preparation_worker.py")
             or worker != "window_worker.py" and diagnostic is not None):
         raise ValueError("window driver input/diagnostic")
     (ROOT / "artifacts").mkdir(exist_ok=True)
@@ -51,18 +52,35 @@ def run_window(python, request, *, wall_ms, memory_mib, diagnostic=None, worker=
     command = [str(python), str(ROOT / "scripts" / worker), str(source), str(destination)]
     if diagnostic is not None:
         command.append(diagnostic)
-    resource = run_job(command, cwd=ROOT, wall_ms=wall_ms, memory_mib=memory_mib)
+    try:
+        resource = run_job(command, cwd=ROOT, wall_ms=wall_ms, memory_mib=memory_mib)
+    except BaseException as error:
+        if worker == "preparation_worker.py":
+            # The Job driver closes/terminates its handle in finally. Preserve
+            # the owned attempt even when it cannot return resource readings.
+            error.window_evidence = {"outcome": "driver-interrupted-or-failed", "resource": None,
+                                     "snapshot": read_snapshot(folder, campaign_only=True),
+                                     "artifact_directory": folder.relative_to(ROOT).as_posix(),
+                                     "logical_work_known": False}
+        raise
     snapshot = read_snapshot(folder)
-    if snapshot is not None and snapshot.get("status") == "worker-error":
-        raise RuntimeError(f"window worker error: {snapshot['error_type']}: {snapshot['message']}")
+    terminal_error = snapshot if snapshot is not None and snapshot.get("status") in ("worker-error", "memory-error") else None
+    if terminal_error is not None and worker == "preparation_worker.py":
+        # D4 must retain paid completed prefixes AND terminal/resource evidence.
+        snapshot = read_snapshot(folder, campaign_only=True)
+    if terminal_error is not None and terminal_error.get("status") == "worker-error" and worker != "preparation_worker.py":
+        raise RuntimeError(f"window worker error: {terminal_error['error_type']}: {terminal_error['message']}")
     if resource["status"] == "wall-timeout":
         outcome = "wall-timeout"
-    elif resource["exit_code"] == 77 and snapshot == {"status": "memory-error"}:
+    elif resource["exit_code"] == 77 and terminal_error == {"status": "memory-error"}:
         outcome = "worker-memory-error"
+    elif terminal_error is not None:
+        outcome = "worker-failed-unclassified"
     elif resource["exit_code"] == 0 and snapshot is not None and snapshot.get("status") in ("completed", "diagnostic-complete"):
         outcome = "completed"
     else:
         outcome = "worker-failed-unclassified"
     return {"outcome": outcome, "resource": resource, "snapshot": snapshot,
+            **({"terminal_error": terminal_error} if worker == "preparation_worker.py" else {}),
             "artifact_directory": folder.relative_to(ROOT).as_posix(),
             "logical_work_known": outcome == "completed"}

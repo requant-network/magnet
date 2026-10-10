@@ -1,12 +1,12 @@
 """Paid optional solver portfolio, intended only inside a resource-limited worker."""
 
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 import math
 import random
 import time
 
 from reference.reuse import canonical
-from reference.sis import verify
+from reference.sis import Profile, verify
 from scripts.native_driver import encode_request, run_requests
 from solvers.blockwise import bkz_tours
 from solvers.flint_worker import backend_metadata
@@ -15,6 +15,17 @@ from solvers.lattice_audit import audit_certificate
 from solvers.sphere import enumerate_kernel
 
 BACKENDS = ("mitm", "sparse-first", "lll75", "lll99", "bkz4", "bkz8", "sieve")
+
+
+@dataclass(frozen=True)
+class PreparedLattice:
+    """Owned local preparation; its immutable matrix key is not a proof cache."""
+    profile: Profile
+    matrix: tuple
+    reduction: Reduction
+    work: dict
+    timers: dict
+    certificate: dict
 
 
 class Portfolio:
@@ -47,41 +58,60 @@ class Portfolio:
             timers = {"native_inner_ns": sample["elapsed_ns"][0]}
             certificate = None
         else:
-            import flint
-            start = time.perf_counter_ns()
-            initial, rank = kernel_basis(profile, matrix)
-            construction_ns = time.perf_counter_ns()-start
-
-            def lll(basis):
-                b, t = flint.fmpz_mat(basis).lll(transform=True, delta=0.75 if self.backend == "lll75" else 0.99,
-                                              eta=0.5, rep="zbasis", gram="exact")
-                return tuple(tuple(int(x) for x in row) for row in b.tolist()), tuple(tuple(int(x) for x in row) for row in t.tolist())
-            start = time.perf_counter_ns()
-            basis, transform = lll(initial)
-            extra = {"bkz_nodes": 0}
-            if self.backend in ("bkz4", "bkz8") and nodes >= 2:
-                basis, transform, extra = bkz_tours(basis, transform, lll, block_size=int(self.backend[-1]),
-                                                   node_limit=max(1, nodes//2))
-            reduction_ns = time.perf_counter_ns()-start
-            reduction = Reduction(initial, basis, transform, rank, "lll-reduced", LatticeWork())
-            start = time.perf_counter_ns()
-            certificate = audit_certificate(profile, matrix, reduction)
-            audit_ns = time.perf_counter_ns()-start
+            prepared = self.prepare(profile, matrix, nodes)
+            extra = prepared.work
             remaining = nodes-extra["bkz_nodes"]
-            if self.backend == "sieve":
-                sample = gauss_sieve(profile, matrix, basis, remaining, proofs, self.seed+self.calls)
-            else:
-                sample = enumerate_kernel(profile, matrix, reduction, node_limit=remaining, proof_limit=proofs)
+            sample = self.search_prepared(prepared, remaining, proofs, seed=self.seed+self.calls)
             vectors, reason = sample["proofs"], sample["reason"]
             work = {"nodes": sample["work"]["nodes"]+extra["bkz_nodes"],
                     "search": sample["work"], **extra}
-            timers = {"construction_ns": construction_ns, "reduction_ns": reduction_ns, "audit_ns": audit_ns}
+            timers, certificate = prepared.timers, prepared.certificate
         unique = tuple(dict.fromkeys(map(tuple, vectors)))
         if len(unique) != len(vectors) or not all(verify(profile, matrix, x) for x in unique):
             raise RuntimeError("portfolio returned invalid/duplicate proof")
         return {"proofs": unique, "reason": reason, "work": work, "timers": timers,
                 "certificate": certificate, "elapsed_ns": time.perf_counter_ns()-begin,
                 "profile": asdict(profile)}
+
+    def prepare(self, profile, matrix, nodes):
+        """Separate existing lattice preparation for the D4 paid-reuse experiment."""
+        if self.backend in ("mitm", "sparse-first") or type(nodes) is not int or not 1 <= nodes <= 1_000_000:
+            raise ValueError("lattice preparation backend/nodes")
+        import flint
+        start = time.perf_counter_ns()
+        initial, rank = kernel_basis(profile, matrix)
+        construction_ns = time.perf_counter_ns()-start
+
+        def lll(basis):
+            b, t = flint.fmpz_mat(basis).lll(transform=True, delta=0.75 if self.backend == "lll75" else 0.99,
+                                          eta=0.5, rep="zbasis", gram="exact")
+            return tuple(tuple(int(x) for x in row) for row in b.tolist()), tuple(tuple(int(x) for x in row) for row in t.tolist())
+        start = time.perf_counter_ns()
+        basis, transform = lll(initial)
+        extra = {"bkz_nodes": 0}
+        if self.backend in ("bkz4", "bkz8") and nodes >= 2:
+            basis, transform, extra = bkz_tours(basis, transform, lll, block_size=int(self.backend[-1]),
+                                               node_limit=max(1, nodes//2))
+        reduction_ns = time.perf_counter_ns()-start
+        reduction = Reduction(initial, basis, transform, rank, "lll-reduced", LatticeWork())
+        start = time.perf_counter_ns()
+        certificate = audit_certificate(profile, matrix, reduction)
+        audit_ns = time.perf_counter_ns()-start
+        return PreparedLattice(profile, tuple(map(tuple, matrix)), reduction, extra,
+                               {"construction_ns": construction_ns, "reduction_ns": reduction_ns, "audit_ns": audit_ns}, certificate)
+
+    def search_prepared(self, prepared, nodes, proofs, *, seed):
+        """Search only; caller pays preparation and enforces the current matrix key."""
+        if (not isinstance(prepared, PreparedLattice) or type(nodes) is not int or not 1 <= nodes <= 1_000_000
+                or type(proofs) is not int or not 1 <= proofs <= 100_000
+                or type(seed) is not int or seed < 0):
+            raise ValueError("prepared search bounds")
+        if self.backend == "sieve":
+            return gauss_sieve(prepared.profile, prepared.matrix, prepared.reduction.basis, nodes, proofs, seed)
+        if self.backend not in ("lll75", "lll99", "bkz4", "bkz8"):
+            raise ValueError("prepared search backend")
+        return enumerate_kernel(prepared.profile, prepared.matrix, prepared.reduction,
+                                node_limit=nodes, proof_limit=proofs)
 
 
 def gauss_sieve(profile, matrix, basis, node_limit, proof_limit, seed):

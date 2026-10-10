@@ -265,3 +265,59 @@ The historical default runner and v1 evidence remain separate. Run
 Commit the protocol and implementation before executing this fresh schedule.
 Record findings on the central findings/open-questions pages. This batch does
 not automatically advance to D4, add GPU kernels or change consensus.
+
+## 10. Frozen D4 exact full-kernel transfer diagnostic (2026-10-10)
+
+Question: can a paid complete reduced kernel basis be reused for a different
+MGH1 matrix? Byte equality is too narrow: distinct matrices can have equal
+rowspaces. Use the canonical RREF-derived integer kernel as the FIFO cache key,
+including the entire profile and rank. Pay receiving matrix generation and
+kernel fingerprint construction even on a hit. Audit the complete certificate
+against the receiving matrix, including rank/index; membership alone is invalid.
+On a miss the current implementation pays kernel construction twice (fingerprint
+and preparation). Preserve this overhead rather than infer a speedup from it.
+
+First exhaustively check all donor/receiver pairs for q3,m2,n1 and n2,
+including rank0. For fixed rank-r donor rowspace and independent uniform receiving
+rows, containment probability is q^[-n(m-r)]. Equal-rowspace probability is
+product(i=0..r-1, q^n-q^i)/q^(n*m). For an adaptive cache of capacity C and H fresh
+opportunities, a union bound is min(1,C*H*q^[-n(m-min(n,m))]). These are conditional
+finite-field statements, NOT a proof that the actual header generator is random,
+NOT SIS hardness or portable work pricing. A fixed legal donor vector has fresh
+matrix acceptance probability q^-n, just like the free vector e1; a cold-LLL
+comparison alone would therefore be an inadequate donor-vector baseline.
+
+Run only a small correctness integration, namespace `d4-kernel-transfer-v1`.
+Profiles are (3,1,2,2) calibration and (17,2,8,8) primary boundary. Labels are
+2026101031 and2026101032. For each profile/label, root is the ASCII namespace,
+slash, comma-joined profile integers, slash, decimal label. Network and payload
+are SHA256(root+'/network') and SHA256(root+'/payload'). Header i=0..7 uses
+parent SHA256(root+'/parent/'+decimal i), height i+1, timestamp20261010+i, nonce i.
+All headers differ; changes to parent/height/nonce must be reflected in native
+proof verification and fresh scores. This is a predetermined header stream,
+not adaptive nonce grinding. Cache starts empty in every worker.
+
+Compare `cold` and `kernel-cache`, rotating that order by label index. Schedule:
+profile, label, rotated policy, eight workers total. Each worker has shared
+search node cap10000, at most8 reductions, per-header search cap2000, FIFO cache
+capacity8, proof cap1 per header; preparation/search backend is pinned FLINT
+LLL delta0.75 with exact Gram arithmetic. Wall cap15000ms, Windows Job memory
+cap192MiB. Global deadline180 seconds includes native/replay audits, excludes
+native build. No extensions or additional statistical timing repetitions.
+
+Audit every generated matrix/seed natively, every full certificate against its
+recipient, FIFO donor ownership, exact search prefix/stop/ledger, all returned
+proofs and new context-bound scores. Complete cold/cache pairs must return the
+same proofs and scores. Search replay shares the enumeration implementation;
+native verification independently checks validity, not search completeness.
+Persist interrupted/censored worker snapshots and unknown in-flight work. Any
+failure suppresses successful paired conclusions. Bind contract/config/source/
+binary/raw hashes, invalidate old success before build, commit before running.
+
+The exhaustive finite-field result plus this bounded integration can park ONLY
+exact complete-kernel collisions under the conditional fresh-uniform model.
+Zero primary hits cannot statistically validate a tiny theoretical probability;
+an unexpected primary hit is first a generator/cache/audit alarm. Timers are
+descriptive, not a hardware speed comparison. Partial bases, geometric reuse,
+adaptive header selection and general D4 amortization remain open. No A/B
+promotion, GPU integration or consensus change follows automatically.
