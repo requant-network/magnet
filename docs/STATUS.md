@@ -28,7 +28,7 @@ Independent bounded Rust SHA-256/score/target/admission now matches Python.
 Persistent one-vector campaigns share budgets across stages and compare shuffled
 seeded repeats in externally bounded workers.
 
-The private repository is danifest751/magnet. The workspace is
+The private repository is requant-network/magnet (moved from danifest751/magnet on 2026-10-10). The workspace is
 C:/Projects/MagnetNetwork. Cargo.lock contains only the sis-verifier package;
 the ordinary check gate has no third-party dependencies. Explicit practical LLL
 experiments use isolated, hash-pinned python-flint 0.9.0. No paid CI or cloud GPUs were used.
