@@ -228,3 +228,40 @@ contract/config/source/native/raw digests before and after publication; invalida
 old success before build. Store completed records and unknown current work on
 failure. If a declared D3 trigger fires, record the negative finding and stop this
 batch; do not automatically proceed to D4/D6 or expand a construction.
+
+## 9. Frozen D3 fresh-stream replication (2026-10-10)
+
+This is a prospective replication of the signal on `(17,3,16,12)`, not an
+extension of the old sample after observing more results. Run only this profile,
+with A then B and all four unchanged policies. Use the namespace
+`d3-screening-replication-v1` and labels2026101001 through2026101024 inclusive.
+The namespace replaces the old namespace in the SHA256 commitment derivations
+in section8; height1, time20261009 and nonce0..255 stay unchanged. No old stream
+is pooled into the new comparison. Confirm distinct encoded headers versus v1
+before the run. The profile is deliberately selected from the earlier signal;
+this is not an unbiased search over all SIS profiles.
+
+Keep budget100000, header_limit256, candidate_limit4096, probe_limit64 and
+B target2^254. The increased number of independent streams (24 rather than3)
+addresses the earlier sparse-success floor without tuning the solver, proxy or
+per-stream work allowance. Three rotated repetitions remain timing observations;
+only repetition0 is diagnostic. Planned maximum: 1*2*24*4*3=576 campaigns.
+The global deadline, including replay/native audits but excluding native build,
+is240 seconds. Do not extend this deadline or add streams on failure.
+
+Preserve the original exact rule: at least5 successes for EVERY policy and a
+screened success/actual-unit rate strictly greater than2x EACH control. Audit
+every repetition0 campaign and its native header/proof/score messages before
+evaluating the full construction group. On a primary trigger, stop immediately
+after that audited group; B may remain unrun after an A trigger. Retain the
+planned/completed counts and this explicit stop. Deadline/interruption/source
+change/audit failure suppresses all successful comparisons and keeps partial
+evidence. Fresh-stream insufficient/not-triggered outcomes are reported as such;
+absence of a trigger is not proof of a safe work function. No statistical
+confidence claim or general SIS impossibility claim follows from this rule.
+
+The historical default runner and v1 evidence remain separate. Run
+`python scripts/screening_replication.py` after the local check and source review.
+Commit the protocol and implementation before executing this fresh schedule.
+Record findings on the central findings/open-questions pages. This batch does
+not automatically advance to D4, add GPU kernels or change consensus.

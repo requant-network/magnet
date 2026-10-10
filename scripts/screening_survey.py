@@ -25,8 +25,8 @@ DEADLINE_SECONDS = 120
 CONTRACT = ROOT/'docs/CRITICAL-PATH.md'
 
 
-def header(profile, label):
-    text = NAME+'/'+('/'.join(map(str, profile)))+'/'+str(label)
+def header(profile, label, *, namespace=NAME):
+    text = namespace+'/'+('/'.join(map(str, profile)))+'/'+str(label)
     fields = [hashlib.sha256((text+'/'+suffix).encode('ascii')).digest() for suffix in ('network', 'parent', 'payload')]
     return LabHeader(*fields, 1, 20261009, 0, Profile(*profile))
 
@@ -76,35 +76,37 @@ def verify_publication(paths, report, executable, contract_hash):
         raise RuntimeError('D3 frozen inputs changed after publication')
 
 
-def main():
-    destination, raw_path, sources = begin_report(NAME)
+def main(*, name=NAME, profiles=PROFILES, labels=LABELS, repetitions=REPETITIONS,
+         deadline_seconds=DEADLINE_SECONDS, primary_profiles=PROFILES[1:]):
+    """Run a precommitted schedule without changing the historical v1 defaults."""
+    destination, raw_path, sources = begin_report(name)
     contract_hash = hashlib.sha256(CONTRACT.read_bytes()).hexdigest()
-    config = dict(version=NAME, profiles=PROFILES, labels=LABELS, caps=CAPS,
-                  repetitions=REPETITIONS, policies=POLICIES, deadline_seconds=DEADLINE_SECONDS,
+    config = dict(version=name, profiles=profiles, labels=labels, caps=CAPS,
+                  repetitions=repetitions, policies=POLICIES, deadline_seconds=deadline_seconds,
                   order='profile/construction/repetition/label/rotated-policy',
-                  primary_profiles=PROFILES[1:])
+                  primary_profiles=primary_profiles)
     config_hash = hashlib.sha256(json.dumps(config, sort_keys=True).encode()).hexdigest()
     completed, findings, current, native_counts, replay_counts = [], [], None, [], []
     executable, native_hash = None, None
     try:
         executable = build_lab()
         native_hash = hashlib.sha256(executable.read_bytes()).hexdigest()
-        deadline = time.monotonic()+DEADLINE_SECONDS
+        deadline = time.monotonic()+deadline_seconds
 
         def check_deadline():
             if time.monotonic() >= deadline:
                 raise RuntimeError('D3 global study deadline, comparisons suppressed')
 
         stop = False
-        for profile in PROFILES:
+        for profile in profiles:
             for construction in ('A', 'B'):
                 group = []
                 signatures = {}
-                for repetition in range(REPETITIONS):
-                    for label_index, label in enumerate(LABELS):
+                for repetition in range(repetitions):
+                    for label_index, label in enumerate(labels):
                         shift = (label_index+repetition) % len(POLICIES)
                         order = POLICIES[shift:]+POLICIES[:shift]
-                        base = header(profile, label)
+                        base = header(profile, label, namespace=name)
                         for policy in order:
                             check_deadline()
                             current = dict(profile=profile, construction=construction, label=label,
@@ -126,7 +128,7 @@ def main():
                 check_deadline()
                 comparison = compare(group)
                 comparison.update(profile=profile, construction=construction,
-                                  primary=profile != PROFILES[0], campaigns=len(group), audits_passed=True)
+                                  primary=profile in primary_profiles, campaigns=len(group), audits_passed=True)
                 findings.append(comparison)
                 print(f'{profile} {construction}: {comparison["outcome"]}', flush=True)
                 if comparison['primary'] and comparison['outcome'] == 'triggered':
@@ -141,7 +143,8 @@ def main():
                    status='passed', stopped_on_primary_trigger=stop)
         raw_bytes = (json.dumps(raw, indent=2)+'\n').encode('utf-8')
         report = dict(config=config, config_sha256=config_hash, contract_sha256=contract_hash,
-            planned_campaigns=288, completed_campaigns=len(completed), stopped_on_primary_trigger=stop,
+            planned_campaigns=len(profiles)*2*len(labels)*len(POLICIES)*repetitions,
+            completed_campaigns=len(completed), stopped_on_primary_trigger=stop,
             comparisons=findings, native_audits=native_counts, replay_audits=replay_counts,
             campaigns=[summarize(e) for e in completed], raw_sha256=hashlib.sha256(raw_bytes).hexdigest(),
             scope='toy sparse-family logical cost; no secure SIS profile or hardware/energy inference',

@@ -20,6 +20,54 @@ class ScreeningTests(unittest.TestCase):
         self.base = header((7, 1, 4, 8), 2026100926)
         self.caps = dict(budget=100000, header_limit=8, candidate_limit=100, probe_limit=16, target=2**254)
 
+    def test_replication_headers_are_fresh_and_historical_defaults_are_stable(self):
+        from scripts.screening_replication import LABELS as fresh_labels, NAME, PROFILES as fresh_profiles
+        profile = fresh_profiles[0]
+        fresh = {header(profile, label, namespace=NAME).encode() for label in fresh_labels}
+        original = {header(profile, label).encode() for label in LABELS}
+        self.assertEqual(len(fresh), 24)
+        self.assertTrue(fresh.isdisjoint(original))
+        self.assertEqual(hashlib.sha256(header(profile, 2026100926).encode()).hexdigest(),
+                         'c3b4118c4c58977d73beee9a5612d7f1c88c1c4b55f46be074e4078cd1bb66a3')
+        for label in fresh_labels:
+            self.assertNotEqual(header(profile, label).encode(), header(profile, label, namespace=NAME).encode())
+
+    def test_custom_schedule_keeps_config_counts_and_native_failure_is_not_a_pass(self):
+        from scripts.consensus_evidence import source_hashes
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            paths = (root/'compact.json', root/'raw.json')
+            contract, binary = root/'contract.md', root/'lab.exe'
+            contract.write_bytes(b'frozen')
+            binary.write_bytes(b'fixture')
+            options = dict(name='fresh-test', profiles=((7, 1, 4, 8),), labels=(1, 2),
+                           repetitions=2, deadline_seconds=30, primary_profiles=((7, 1, 4, 8),))
+            with patch('scripts.screening_survey.begin_report', return_value=(*paths, source_hashes())) as begin, \
+                    patch('scripts.screening_survey.CONTRACT', contract), \
+                    patch('scripts.screening_survey.CAPS', self.caps), \
+                    patch('scripts.screening_survey.build_lab', return_value=binary), \
+                    patch('scripts.screening_survey.audit_native', return_value={'fixture': True}):
+                main(**options)
+                begin.assert_called_once_with('fresh-test')
+            saved = json.loads(paths[1].read_text())
+            compact = json.loads(paths[0].read_text())
+            self.assertEqual(compact['planned_campaigns'], 32)
+            self.assertEqual(compact['completed_campaigns'], 32)
+            self.assertTrue(all(c['primary'] for c in compact['comparisons']))
+            self.assertEqual(saved['config']['primary_profiles'], [[7, 1, 4, 8]])
+            for entry in saved['completed']:
+                base = header(entry['profile'], entry['label'], namespace='fresh-test')
+                audit_campaign(base, entry['record'], **self.caps)
+            with patch('scripts.screening_survey.begin_report', return_value=(*paths, source_hashes())), \
+                    patch('scripts.screening_survey.CONTRACT', contract), \
+                    patch('scripts.screening_survey.CAPS', self.caps), \
+                    patch('scripts.screening_survey.build_lab', return_value=binary), \
+                    patch('scripts.screening_survey.audit_native', side_effect=RuntimeError('native mismatch')):
+                with self.assertRaisesRegex(RuntimeError, 'native mismatch'):
+                    main(**options)
+            self.assertTrue(json.loads(paths[1].read_text())['comparisons_suppressed'])
+            self.assertEqual(json.loads(paths[0].read_text())['status'], 'failed-or-incomplete')
+
     def test_all_policies_and_constructions_replay(self):
         for policy in POLICIES:
             for construction in ('A', 'B'):
