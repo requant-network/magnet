@@ -1,5 +1,11 @@
 # Magnet Network — SIS-PoW laboratory
 
+**Status: closed on 2026-10-10 with a negative result.** No acceptable SIS work
+function was found for the tested constructions; see the
+[closing note](docs/NEGATIVE-RESULT.md) and
+[ADR 0020](docs/decisions/0020-close-sis-pow-programme.md). The code and evidence
+below stay as a research record; no further experiments are planned.
+
 Private research into lattice-based Proof of Work for a future Magnet Network.
 This repository currently verifies Short Integer Solutions and studies candidate
 PoW constructions. It now includes an experimental linear-chain prototype;
@@ -110,6 +116,7 @@ benchmark production mining. Reports are written to ignored artifacts/.
 
 ## Documentation
 
+- [Closing note: negative result](docs/NEGATIVE-RESULT.md) and [closure decision](docs/decisions/0020-close-sis-pow-programme.md).
 - [Critical path and frozen D2/D3 protocol](docs/CRITICAL-PATH.md).
 - [Findings so far](docs/FINDINGS.md) and [open work-weight questions](docs/OPEN-QUESTIONS.md).
 - [Matched small-coefficient CPU/CUDA: bounded D5 pilot](docs/research/matched-coefficients-v1.md).
@@ -200,8 +207,7 @@ Dynamic-target experiments use a separate synthetic model.
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: explicit A-vs-B work weights and partial-preparation/same-header amortization falsifiers,
-followed by external cryptographic review. Hardware expansion, persistence,
-peer synchronization and monetary rules stay parked unless they advance that
-decision. A valid SIS solution is not proof of
-network service delivery or of a particular amount of computation.
+Closed: the [negative-result note](docs/NEGATIVE-RESULT.md) states the conclusion, its limits
+and the conditions for reopening. External cryptographic review of that note is the one
+outstanding request. A valid SIS solution is not proof of network service delivery or of a
+particular amount of computation.

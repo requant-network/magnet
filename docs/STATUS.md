@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-10. Phase: new B-H candidate's public-gate bypass demonstrated; general D4 amortization and the work-weight decision remain open.
+Date: 2026-10-10. Phase: **closed with a negative result** ([closing note](NEGATIVE-RESULT.md), [ADR 0020](decisions/0020-close-sis-pow-programme.md)). The implemented state below is final; no further experiments are planned.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 

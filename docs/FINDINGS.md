@@ -262,10 +262,10 @@ a separate acquisition/filter expense. Neither has a proved portable SIS work
 price. Do not reinterpret this result as a secure hash/SIS hybrid or select
 monetary rules. Partial-basis and same-header acquisition arguments remain open.
 
-## Current conclusion
+## Conclusion (programme closed 2026-10-10)
 
-No deterministic monotone portable reuse-resistant weight is established.
-Existing naive vector/score-count weights have counterexamples. A-vs-B remains
-open under the critical path; implementation volume does not close it.
-Continue with [open questions](OPEN-QUESTIONS.md), falsifying proposed weights
-before choosing monetary rules or expanding hardware interfaces.
+No deterministic, monotone, portable and reuse-resistant weight is established, and the programme
+is closed. Naive vector and score counts have counterexamples. B-H makes SIS a skippable filter.
+B is undermined by the cheap supply of eligible vectors from lattice algorithms. A has no
+verifiable monotone cost. See the [closing note](NEGATIVE-RESULT.md) for the argument, its limits
+and the conditions for reopening, and [ADR 0020](decisions/0020-close-sis-pow-programme.md).

@@ -1,9 +1,9 @@
 # Critical path to understanding
 
-Date: 2026-10-09. Status: working directive for implementation work. This file
-narrows the whole programme to the single open decision and the minimum set of
-experiments that resolve it. Read it before starting any task; every task must
-map to it or be explicitly parked.
+Date: 2026-10-09. **Status: closed on 2026-10-10.** The question below is answered negatively for
+the tested constructions in [NEGATIVE-RESULT.md](NEGATIVE-RESULT.md) ([ADR 0020](decisions/0020-close-sis-pow-programme.md)).
+D3, D4 (exact full-kernel transfer) and the B-H repair were run. Partial-basis D4, D5 energy/memory
+and D6 will not be run. The text below is kept as the record of the protocol that was followed.
 
 ## 1. The one open question
 

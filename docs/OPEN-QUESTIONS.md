@@ -1,7 +1,9 @@
 # Open questions
 
-Date: 2026-10-10. This page complements the working task ordering in
-`docs/CRITICAL-PATH.md`; it is not another parallel roadmap.
+Date: 2026-10-10. **The programme is closed** ([NEGATIVE-RESULT.md](NEGATIVE-RESULT.md),
+[ADR 0020](decisions/0020-close-sis-pow-programme.md)). The questions below stay unresolved in the
+general sense but will not be pursued. The only outstanding request is an external review of the
+closing note. The list is kept as it stood at closure.
 
 1. **D2: Can any explicitly defined credit price adversarial work?** The
    [critical path §8](CRITICAL-PATH.md)
