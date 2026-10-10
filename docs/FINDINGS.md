@@ -191,6 +191,77 @@ driver interruption, explicitly leaving in-flight work and unavailable Job
 measurements unknown. No CPPminer, GPU server/miner or CI was used. Any future
 CPPminer implementation must branch from the owner's `release/fork` branch.
 
+## B-H repair: proof-independent scores permit acquisition bypass
+
+This is a new D2 candidate fork prompted by D4 same-header supply, not completion
+of the remaining partial-basis experiment. Existing B binds its outer score to
+header+vector: distinct eligible vectors can create new trials. Candidate B-H
+instead binds the score only to MGH1 header, while still requiring a canonical
+context-bound SIS proof. Its proposed B-H-SIS premise is that nominal
+`K_SIS*2^256/T` credit multiplies a fixed alleged SIS acquisition expense by
+outer difficulty. No value for K_SIS is proved or installed as consensus weight.
+
+**Negative result for that premise:** the header score is public before matrix
+generation or solving. A gate-first miner can hash/reject headers without SIS,
+and acquire a proof only for a passing header. Proof-independent scoring removes
+same-header score multiplicity but cannot require a fresh SIS solve per hash
+trial. This does not reject `2^256/T` as an ideal hash-trial credit, target
+monotonicity or A/B generally; it rejects the acquisition obligation of this
+particular attempted repair. Existing B/MGH1/MGB1/chain rules are unchanged.
+
+The [section11 protocol](CRITICAL-PATH.md) and source were committed at
+`bdf0e1f` before execution. Two profiles, four fresh labels and two policies give
+16 complete fixed batches. Each batch contains five nonce-distinct headers;
+the full2000-node per-header allowance fits the shared10000-node cap in either
+arm. Twelve workers run; four empty passing cohorts explicitly skip the solver.
+The control deliberately solves every header, ignoring already-known scores.
+This proves an avoidable preparation obligation, not a win over an optimal
+baseline or a time-to-first-block speed ratio.
+
+| Primary profile `(17,2,8,8)` label | Passing/rejected headers | Common admitted proofs | Frozen outcome |
+| --- | --- | --- | --- |
+| 2026101041 | 3 / 2 | 3 | Observed bypass |
+| 2026101042 | 1 / 4 | 1 | Observed bypass |
+| 2026101043 | 0 / 5 | 0 | Structural only |
+| 2026101044 | 0 / 5 | 0 | Structural only |
+
+All passing-header proof/search-prefix/stop outputs match between arms. Across
+both profiles the same8 distinct admitted outputs are retained; control has40
+paid preparations, gate-first8. Four additional admitted calibration outputs
+are included in that8, not treated as primary evidence. All48 attempted SIS
+searches return a proof in this small cohort; this does not establish general
+solvability or success probability. Empty cohorts are not zero-cost successes.
+All rejected header hashes remain paid and independently audited. Native Rust
+checks80 header-hash occurrences plus144 seed/matrix/proof/auxiliary-score
+requests; replay reconciles884 search nodes. Existing worker proof-bound hashes
+are auxiliary overhead, retained and audited but unused by B-H admission.
+See [compact evidence](research/results/d4-header-gate-v1.json); raw transcripts
+are local under ignored artifacts. Publication readback and frozen
+source/config/contract/native/raw identities pass.
+
+The conditional iid renewal law makes the limitation explicit. Let header
+gate probability be p, target-independent SIS success probability s>0, mean
+attempt cost C and gate cost G>0. Scores must be independent of the entire SIS
+attempt transcript; cost and success within an attempt may correlate. Solve-all
+then costs `(G+C)/(p*s)` per accepted block; gate-first costs `G/(p*s)+C/s`.
+The SIS contribution does not scale with the outer target under this model.
+At p1/4,C=G,s1 the illustrative totals are8 versus5, not measured timings.
+The integration does not estimate G,C,s, prove uniformity or bound optimized
+miners. Finite batches do not inherit an unlimited renewal process.
+
+The local gate passes364 Python tests,23 Rust tests and all differential corpora.
+Tests cover strict hash boundaries, zero/invalid probability handling, correlated
+success/cost cycle enumeration, matched caps, empty/missed output classification,
+tampered search work and failure/interruption retention. Fresh source review
+found no remaining blockers. GPU/server/miner/CPPminer were not used; the owner's
+GPU reservation is recorded. English remains primary with a secondary RU summary.
+
+The candidate fork is now explicit: proof-bound B retains a supply/amortization
+question; B-H moves the difficulty mechanism toward header hashing with SIS as
+a separate acquisition/filter expense. Neither has a proved portable SIS work
+price. Do not reinterpret this result as a secure hash/SIS hybrid or select
+monetary rules. Partial-basis and same-header acquisition arguments remain open.
+
 ## Current conclusion
 
 No deterministic monotone portable reuse-resistant weight is established.

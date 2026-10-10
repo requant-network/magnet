@@ -51,6 +51,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Explicit nominal A/B work definitions and frozen paid nonce-screening attacks with strong controls, independent ledger/native audits and insufficient-evidence reporting.
 - Precommitted fresh-stream D3 replication: 576 audited campaigns, sufficient controls and no declared screening trigger; next D4 amortisation.
 - Conditional exact full-kernel transfer laws, exhaustive finite-field checks and eight audited D4 integration workers; general reuse resistance remains open.
+- Research-only B-H header-score repair: a public gate avoids rejected challenges' SIS preparation; 16 audited batches reject fresh-SIS-per-hash amplification for this candidate.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -67,6 +68,7 @@ python scripts/check.py
 python scripts/screening_survey.py
 python scripts/screening_replication.py
 python scripts/preparation_survey.py
+python scripts/header_gate_survey.py
 python scripts/native_coefficient_survey.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py

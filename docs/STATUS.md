@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-10. Phase: D4 exact complete-kernel transfer diagnostic complete; general amortization and the work-weight decision remain open.
+Date: 2026-10-10. Phase: new B-H candidate's public-gate bypass demonstrated; general D4 amortization and the work-weight decision remain open.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,25 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### D4 exact complete-kernel transfer: current milestone
+### B-H public-gate candidate: current milestone
+
+Protocol/source were committed at `bdf0e1f` before execution. All16 fixed batches
+complete;12 solver workers run and4 empty passing cohorts explicitly skip the
+solver. Across both profiles, gate-first keeps the same8 admitted outputs with8
+preparations instead of the solve-all control's40. Two nonempty primary pairs
+meet the frozen bypass criterion; two empty primary pairs remain structural-only.
+Native Rust audits224 hash/solver requests; replay reconciles884 search nodes.
+This rejects fresh-SIS-per-hash preparation for the proof-independent B-H repair,
+not target monotonicity or general A/B viability. No wall speed ratio is inferred.
+
+The conditional renewal law is explicit and separately unit-tested; it is not
+fitted to these batches. The gate passes364 Python tests,23 Rust tests and all
+differential corpora. Evidence hashes/publication readback pass. See
+[findings](FINDINGS.md), [evidence](research/results/d4-header-gate-v1.json) and
+[protocol §11](CRITICAL-PATH.md). Existing B/chain rules remain unchanged.
+The GPU is reserved by the owner; no server/GPU/miner/CPPminer/CI was used.
+
+### D4 exact complete-kernel transfer: preceding milestone
 
 Protocol and implementation were committed at `da6bda9` before execution.
 Exhaustive checks cover6,642 donor/receiver pairs including rank0. All8 bounded

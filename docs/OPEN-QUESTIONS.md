@@ -22,10 +22,10 @@ Date: 2026-10-10. This page complements the working task ordering in
    audited8-worker integration; this route is parked under that assumption.
    Partial bases, donor geometry, same-header solution supply and adaptively
    selected headers remain unresolved. See [findings](FINDINGS.md).
-   Prospectively, the proof-independent B-H repair has its own D2 candidate test
-   in [critical path §11](CRITICAL-PATH.md): a public score gate may avoid rejected
-   challenges' SIS preparation. This tests the new B-H-SIS amplification premise,
-   and does not complete the remaining D4 partial-preparation obligation.
+   The proof-independent B-H repair's [section11 test](CRITICAL-PATH.md) is now
+   complete: two nonempty primary pairs demonstrate public-gate bypass with
+   identical admitted outputs. Its fresh-SIS-per-hash amplification premise is
+   rejected; this does not complete D4 partial preparation or reject hash credit.
 4. **D5: What must the hardware comparison establish?** The current matched
    small-family pilot fixes timer/domain ambiguity. Energy, memory trade-offs,
    stronger CPU baselines and a smallest relevant non-toy profile remain absent.
@@ -36,9 +36,14 @@ Date: 2026-10-10. This page complements the working task ordering in
 
 Next D4 experiment must name a revised weight and one concrete partial-preparation
 or same-header amortization attack whose result can falsify its monotonicity.
+Do not rerun the B-H gate demonstration: making the score proof-independent
+does not price SIS at every hash trial. A new candidate must state whether SIS
+supplies the difficulty itself or is a separate filter of a hash-PoW mechanism.
 The full-kernel collision diagnostic should not grow into a low-power timing
 survey: its conditional mathematical law already answers that narrow question.
 The [CPPminer/Tensor Core option](research/gpu-readiness-v1.md) is parked for D5
 until it advances a specified work hypothesis. Keep negative findings in the central
 [findings page](FINDINGS.md). Wallets, payments and production retarget remain
 parked while the work-weight question is unresolved.
+The owner has reserved the GPU for other work; do not use it or stop its miner
+until explicitly released. Current work is local CPU-only.
