@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-09. Phase: D2 definitions and frozen D3 screening; insufficient primary evidence, work-weight decision remains open.
+Date: 2026-10-10. Phase: targeted fresh-stream D3 replication complete, no declared trigger; next precommit D4, work-weight decision remains open.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,26 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### D2/D3: work definitions and paid screening
+### D3 fresh-stream replication: current milestone
+
+Protocol and implementation were committed at `c932176` before execution.
+All576 campaigns on24 fresh streams of `(17,3,16,12)` complete with unchanged
+policies/caps/threshold. A successes are73/73/61/70 and B successes26/26/15/20
+(plain/probe/random4/screened4). Every policy exceeds the floor5; neither >2x
+diagnostic triggers. The earlier2.75x signal does not reproduce. This resolves
+the selected replication, not the whole SIS work/security question.
+
+Python independently replays3,009,712 visits and603 eligible occurrences;
+Rust audits1,581 deduplicated requests. Logical repetitions and frozen
+source/contract/config/native/persisted evidence identities agree. The local
+gate passes345 Python tests,23 Rust tests and all differential corpora.
+See [findings](FINDINGS.md), [evidence](research/results/d3-screening-replication-v1.json)
+and [protocol](CRITICAL-PATH.md). Next precommit D4 shared-budget amortisation.
+The owner's CPPminer and INT8 Tensor Core integration option is documented in
+the [GPU plan](research/gpu-readiness-v1.md); no integration or GPU speed claim
+was implemented in this batch. No server/miner/CI/consensus change.
+
+### D2/D3: preceding work definitions and paid screening
 
 The critical path now defines three nominal A/B credits and their limitations.
 The paid screening campaign completes 288 runs with independent Python ledger
@@ -50,7 +69,8 @@ The local gate passes 343 Python tests, 23 Rust tests and all differential corpo
 Native/source/critical-contract/config/raw identities are checked, including
 publication readback. Interrupted runs preserve partial evidence and suppress
 comparisons. No solver family, consensus, GPU/server/miner or CI change.
-Next precommit an independent fresh-stream replication before advancing D3/D4.
+The subsequent fresh-stream replication is reported above; this section retains
+the original result and its limitations.
 See [critical path](CRITICAL-PATH.md), [findings](FINDINGS.md),
 [open questions](OPEN-QUESTIONS.md) and [evidence](research/results/d3-screening-v1.json).
 
@@ -528,7 +548,8 @@ do not imply joint acceptance independence. [ADR 0013](decisions/0013-precommitt
 adopts this finite model without assigning portable SIS work, production
 chainwork or retarget. Failed setup windows do not certify unsolvability.
 
-python scripts/check.py currently passes:
+The earlier adaptive-era `python scripts/check.py` snapshot passed (current
+counts are recorded in the latest milestone above):
 
 - rustfmt and clippy without warnings;
 - 231 Python tests and 19 Rust tests;
@@ -621,8 +642,9 @@ reuse. [ADR 0009](decisions/0009-external-windows-and-trusted-surface.md) adds
 external resource enforcement, fresh schedules, immutable evidence and trusted
 lab admission. [ADR 0010](decisions/0010-independent-acceptance-and-campaigns.md)
 adds independent native acceptance and shared-budget persistent campaigns.
-Next make the A-vs-B work-weight question explicit and freeze its screening/
-amortization falsifiers with the smallest relevant profiles. Hardware expansion,
+The A/B nominal definitions and targeted D3 replication are now recorded above.
+Next precommit the D4 amortisation falsifier with shared budgets and explicitly
+bound first/subsequent acquisition scopes. Hardware expansion,
 persistence, peer synchronization and monetary rules remain parked until they
 advance that decision and external review. Production difficulty and accumulated
 chainwork remain unselected. Common local

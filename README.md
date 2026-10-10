@@ -49,6 +49,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Independent native small-coefficient search, strict framed reconciliation, late-witness audits and fresh-seed comparisons.
 - Matched in-process small-coefficient CPU/CUDA chunks, complete negative-mask audits and durable interruption evidence.
 - Explicit nominal A/B work definitions and frozen paid nonce-screening attacks with strong controls, independent ledger/native audits and insufficient-evidence reporting.
+- Precommitted fresh-stream D3 replication: 576 audited campaigns, sufficient controls and no declared screening trigger; next D4 amortisation.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -63,6 +64,7 @@ Other platforms must repeat the checks before claiming support.
 ~~~sh
 python scripts/check.py
 python scripts/screening_survey.py
+python scripts/screening_replication.py
 python scripts/native_coefficient_survey.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py

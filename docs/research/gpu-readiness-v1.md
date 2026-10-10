@@ -2,9 +2,12 @@
 
 Date: 2026-10-09. Planning and read-only inventory; no GPU miner implemented.
 
-Update: [stage 1 has now executed on CMP 50HX](gpu-verification-v1.md), with
-exact host/CUDA/Rust agreement. The inventory below records the earlier discovery;
-candidate search and performance stages remain future work.
+Update: verification, acquisition and matched small-coefficient CPU/CUDA pilots
+have now executed; see [verification](gpu-verification-v1.md),
+[acquisition](gpu-unit-sparse-search-v1.md) and
+[matched comparison](matched-coefficients-v1.md). The stage descriptions below
+retain the original plan. The matched pilot shows no GPU advantage for its
+small sparse family. The inventory records the earlier discovery.
 
 ## Verified host capability
 
@@ -85,3 +88,57 @@ This work broadens research options. It selects no GPU requirement for users,
 no ASIC-resistance claim, no production consensus and no token economics.
 Repository tests and experiments remain local, without GitHub Actions or paid
 GPU services. The existing MagnetGate deployment is unaffected.
+
+## CPPminer reuse and integer Tensor Core hypothesis (2026-10-10)
+
+This is a parked D5 implementation option requested by the owner, not a new
+solver, completed integration or a change to the decisive D3/D4 ordering.
+The [owner's CPPminer fork](https://github.com/danifest751/CPPminer) already
+documents packed INT8 Tensor Core paths for Turing and newer NVIDIA devices.
+The locally indexed checkout `C:/Projects/ArmCompute/pearl/CPPminer` on
+`feat/abacus-backend` was inspected at `e6d3492`; it contains
+`cp_turing_period_batch`, `cp_turing_pack` and architecture dispatch. It also has
+untracked ongoing work; this research batch did not modify that checkout.
+
+Reuse the device/runtime handling, packing/tiling experience and test harness
+patterns. Do not call the complete Pearl kernel as a SIS engine: its K dimension,
+cumulative milestones, hash tiles and jackpot predicate belong to Pearl. An
+opt-in offline SIS benchmark executable in a separate checkout is the preferred
+first integration. It accepts frozen jobs and caps, generates its own candidate
+stream, returns canonical vectors/masks and component counts, and sends no pool
+shares. Recheck outputs with the existing independent Rust admission/derivation
+tools. Final miner dispatch/network integration waits for a selected work rule.
+
+The accelerated expression would be `Y = A * Z`, with candidates as columns of
+Z; the predicate is every required residue `Y[row,column] mod q == 0`. Turing
+supports INT8 products with INT32 accumulation, as described by
+[NVIDIA](https://docs.nvidia.com/cuda/turing-tuning-guide/index.html#tensor-core-operations).
+This gives a plausible exact integer path; it does not accelerate SIS solution
+acquisition automatically. A small sparse candidate may need only1..3 column
+products and early row rejection, so dense tile padding/packing can cost more
+than ordinary CUDA integer arithmetic. Compare against the existing native CPU
+and sparse CUDA engines, not only Python. Keep LLL/BKZ preprocessing separate.
+
+For the current q17, coefficients +/-1/+/-2, m16 profile, both inputs fit signed
+INT8 and the dense sum bound16*16*2=512 excludes INT32 overflow. Larger existing
+profiles do not fit one such multiply. One exact exploratory decomposition is
+base128: unsigned residue a in0..65520 uses three digits in0..127; the magnitude
+of x in0..65520 uses three such digits, with its sign applied to every digit.
+Compute up to nine signed-INT8 dot products and reconstruct in INT64 before
+modular reduction. With m<=128, each partial dot has absolute value at most
+128*127^2=2064512, below INT32 limits; the reconstruction also stays within INT64
+under these profile bounds. This arithmetic argument does not test device
+instructions, prove speedup or cover malformed inputs before host validation.
+Small coefficients need fewer digit passes; modular wrap and all boundary cases
+still require independent checks. Do not silently round inputs or switch the
+consensus profile to fit INT8. Approximate FP16/TF32 is not a default verifier.
+
+Before a D5 implementation, freeze the same candidate order, caps, proof output,
+matrix generation, rejected/partial work and timer scope across native CPU,
+CUDA integer and Tensor Core engines. Include packing/transfers, tail tiles,
+device synchronization and job changes in a declared host scope; report cold
+startup separately from steady-state. Measure energy only with disclosed actual
+telemetry. An INT8 device self-test and proof recheck precede every comparative
+claim. Adopt the Tensor path only if the complete matched workload benefits;
+otherwise retain the sparse kernel. No hashrate estimate is inferred from
+CPPminer's Pearl TMAC/s figures.

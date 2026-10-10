@@ -1,6 +1,6 @@
 # Findings so far
 
-Date: 2026-10-09. Primary question and ordering follow the working
+Date: 2026-10-10. Primary question and ordering follow the working
 `docs/CRITICAL-PATH.md`. These findings concern tested constructions,
 not a general impossibility theorem for lattice-based PoW.
 
@@ -91,13 +91,53 @@ is safe or that B repairs it; the screening question remains open.
 
 This is a reproducible signal, not a statistical confidence claim or a general
 negative result for SIS-PoW. Do not tune this campaign retrospectively. The next
-decision-bearing step is a separately precommitted replication on fresh common
-streams, with adequate controls and budget, before declaring D3 resolved or
-moving to D4. External cryptographic review remains outstanding. Ctrl+C/deadline/
+decision-bearing step at that milestone was a separately precommitted replication
+on fresh common streams, reported below. External cryptographic review remains
+outstanding. Ctrl+C/deadline/
 audit failures preserve completed and unknown current work, suppress comparisons
 and retain the frozen native identity. Publication reads back raw/config/report
 bytes and rechecks contract/source/native hashes; a rejected publication is
 retained locally rather than counted as successful evidence.
+
+## D3 replication: the selected signal did not reproduce
+
+The prospective [section9 protocol](CRITICAL-PATH.md) and implementation were
+committed at `c932176` before execution. On the selected `(17,3,16,12)` profile,
+24 fresh common streams replace the original three; no historical outcomes are
+pooled. All576 campaigns complete, including three deterministic timing repeats.
+Only repetition0 contributes to the exact diagnostic. The solver, proxy,
+per-stream budget and >2x threshold are unchanged.
+
+| Construction | Successes: plain / probe / random4 / screened4 | Screened/plain | Screened/random4 | Frozen diagnostic |
+| --- | --- | --- | --- | --- |
+| A | 73 / 73 / 61 / 70 | 0.959x | 1.148x | Not triggered |
+| B | 26 / 26 / 15 / 20 | 0.769x | 1.333x | Not triggered |
+
+Both groups now exceed the floor of5 successes for every policy. Ratios account
+for actual charged units and overshoot; the table rounds exact fractions from
+the [compact evidence](research/results/d3-screening-replication-v1.json).
+The original 2.75x A observation does not reproduce in this fresh cohort. This
+does not establish statistical equivalence, a secure SIS work function or the
+absence of other screening attacks. The profile was selected because of that
+earlier signal, so this is a targeted replication, not a population estimate.
+
+Independent Python replay reconciles3,009,712 candidate visits,2,474 generated
+header occurrences and603 eligible proof occurrences. Native Rust checks1,581
+deduplicated header/proof/admission requests;1,467 rejected/unsearched header
+occurrences stay paid. All timing repetitions reproduce full logical transcripts.
+Sources, contract, config, native executable and persisted raw/compact bytes are
+fingerprinted and checked. Total cold campaign time is38.29 seconds, descriptive
+only. Raw transcripts are local under `artifacts/`; compact evidence is tracked.
+The local gate passes345 Python tests,23 Rust tests and all differential corpora.
+Source review covers preserved v1 headers/defaults, fresh namespaces, schedule
+counts, explicit primary classification and failed-audit comparison suppression.
+
+The next decisive experiment is a precommitted D4 first/subsequent acquisition
+comparison under shared budgets. Do not rerun D3 with tuned proxies until a
+distinct, explicitly justified falsifier changes the decision. CPPminer offline
+integration and exact INT8 Tensor Core decomposition are [parked D5 options](research/gpu-readiness-v1.md),
+not implemented miner support or evidence of GPU advantage. No GPU/miner/server,
+consensus, wallet or GitHub Actions configuration changed in this batch.
 
 ## Current conclusion
 
