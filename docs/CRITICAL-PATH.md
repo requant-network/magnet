@@ -321,3 +321,74 @@ an unexpected primary hit is first a generator/cache/audit alarm. Timers are
 descriptive, not a hardware speed comparison. Partial bases, geometric reuse,
 adaptive header selection and general D4 amortization remain open. No A/B
 promotion, GPU integration or consensus change follows automatically.
+
+## 11. Frozen B-H repair and public-gate bypass (2026-10-10)
+
+This is a candidate fork prompted by D4 same-header witness supply, not a claim
+to close partial-basis reuse. Existing B hashes header+proof, so multiple eligible
+vectors create distinct score inputs. Research candidate B-H instead requires
+the same canonical/context-bound SIS proof AND SHA256(D_H||header)<T, where D_H
+is ASCII `MagnetNetwork/SIS-LAB/header-gate/v1` followed by one NUL byte. One
+score per header eliminates proof-dependent score multiplicity. MGH1, existing
+B/MGB1/chain admission and production rules are unchanged.
+
+The explicit nominal hypothesis B-H-SIS is W=K_SIS*2^256/T at a fixed profile,
+where K_SIS is an alleged fixed acquisition expense, NOT a selected weight.
+Its acquisition premise is that each outer-score attempt must pay a fresh SIS
+preparation, so lowering T multiplies the SIS contribution. Falsifier: a public
+score-first miner discards target-failing headers before matrix expansion or
+reduction, retaining the same accepted outputs. This rejects that premise for
+this repair; it does NOT reject ordinary hash credit or target monotonicity,
+prove a lower bound for K_SIS, kill A/B generally or promote B-H as secure.
+
+Conditional iid renewal model: header scores are uniform and independent of the
+entire target-independent SIS attempt transcript; attempts succeed with s>0 and
+have mean cost C, gate generation/hash cost G>0. A solve-all control spends
+(G+C)/(p*s) per accepted block; gate-first spends G/(p*s)+C/s, where p=T/2^256.
+Cost and success within an attempt may correlate. Under those assumptions,
+the SIS contribution is independent of p for gate-first. At p1/4,C>=G, the
+control/attack ratio is at least8/5; this is illustrative algebra, not a fitted
+timing result, security theorem, operational hashrate or optimized lower bound.
+At s0 or T0 there is no finite accepted-block expectation. Finite bounded batches
+do not estimate this renewal model or assume every challenge is solvable.
+
+Minimal integration namespace `d4-header-gate-v1`. Profiles are (3,1,2,2)
+calibration and (17,2,8,8) primary; labels2026101041..2026101044. Derivation uses
+the comma-joined root formula of section10 with this namespace/labels. Network,
+parent and payload are SHA256(root+'/network'), SHA256(root+'/parent'), and
+SHA256(root+'/payload'); height1,time20261010,nonce i=0..4. Only nonce varies
+inside a five-header batch. Freeze T=2^254. Score all five headers and retain
+rejects for both arms: `solve-all` invokes cold preparation on every header;
+`gate-first` invokes it only on passing headers. The control's early-known hashes
+are deliberately not used for filtering: this is a fixed complete-batch
+preparation-obligation diagnostic, not a claim about an optimal baseline or
+time-to-first-block. Empty passing batches explicitly skip the worker and remain
+in evidence with zero admitted results, not zero-cost successes.
+
+Reuse the existing WDP1 cold LLL0.75 worker and recipient/FIFO/ledger audit:
+nodes10000,reductions8,search cap2000,proof cap1 per attempted header. Five times
+2000<=10000 ensures identical full per-header search allowances in both arms;
+removing rejected predecessors cannot change the selected attempts' caps.
+Worker wall15000ms,memory192MiB; maximum16 workers, no timing repetitions.
+Global deadline270 seconds includes all replay/native audits, excludes build.
+Schedule profile,label,policies rotated by label index modulo2. Do not extend.
+
+Native mode4 checks EVERY header score, including rejected/skipped challenges.
+Native modes2/3 independently check generated seeds/matrices and returned SIS
+proofs. The worker's existing proof-bound scores are auxiliary overhead, retained
+and audited but unused in B-H; no unmeasured gate timer or weighted speed claim.
+Every declared attempted-header sequence must complete; search-cap misses are
+retained as bounded failures, never proof of mathematical absence. Passing
+header proof/search-work/stop outputs must match exactly. A primary pair reports
+`observed-bypass` only with at least one common native-valid passing proof AND
+at least one rejected header whose control preparation was paid and avoided by
+gate-first. Zero-output or no-rejection pairs are structural-only. Aggregate
+counts retain every pair; no successful conclusion survives any run/audit/
+publication failure. There is no inference about how much cheaper one preparation
+is than another. Keep cold setup, auxiliary scoring and failed work visible.
+
+Commit source/protocol before execution. Invalidate old success before build;
+bind source/contract/config/native/raw hashes and read back published bytes.
+Preserve censored snapshots, owned attempt paths and unknown in-flight work.
+Publish the positive or negative candidate limitation on the central findings
+page. This batch does not automatically proceed to C, GPUs or monetary rules.

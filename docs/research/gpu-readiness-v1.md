@@ -84,6 +84,10 @@ baselines are needed before discussing hardware advantage or work calibration.
 
 ## Scope
 
+Owner update (2026-10-10): the GPU is reserved for other work. Do not use it,
+stop its miner or run GPU experiments until the owner explicitly releases it.
+Current B-H candidate checks run locally on CPU without contacting that server.
+
 This work broadens research options. It selects no GPU requirement for users,
 no ASIC-resistance claim, no production consensus and no token economics.
 Repository tests and experiments remain local, without GitHub Actions or paid

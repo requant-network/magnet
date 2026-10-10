@@ -22,6 +22,10 @@ Date: 2026-10-10. This page complements the working task ordering in
    audited8-worker integration; this route is parked under that assumption.
    Partial bases, donor geometry, same-header solution supply and adaptively
    selected headers remain unresolved. See [findings](FINDINGS.md).
+   Prospectively, the proof-independent B-H repair has its own D2 candidate test
+   in [critical path §11](CRITICAL-PATH.md): a public score gate may avoid rejected
+   challenges' SIS preparation. This tests the new B-H-SIS amplification premise,
+   and does not complete the remaining D4 partial-preparation obligation.
 4. **D5: What must the hardware comparison establish?** The current matched
    small-family pilot fixes timer/domain ambiguity. Energy, memory trade-offs,
    stronger CPU baselines and a smallest relevant non-toy profile remain absent.
