@@ -1,6 +1,6 @@
 # Research status
 
-Date: 2026-10-10. Phase: targeted fresh-stream D3 replication complete, no declared trigger; next precommit D4, work-weight decision remains open.
+Date: 2026-10-10. Phase: D4 exact complete-kernel transfer diagnostic complete; general amortization and the work-weight decision remain open.
 English is primary. The [Russian initial-phase snapshot](ru/docs/STATUS.md)
 records the earlier milestone and is not the current status.
 
@@ -36,7 +36,26 @@ CodeGraph and local artifacts are ignored by Git.
 
 ## Experiments
 
-### D3 fresh-stream replication: current milestone
+### D4 exact complete-kernel transfer: current milestone
+
+Protocol and implementation were committed at `da6bda9` before execution.
+Exhaustive checks cover6,642 donor/receiver pairs including rank0. All8 bounded
+MGH1 integration workers complete, with identical cold/cache proofs and scores.
+The q3 calibration reuses preparation7 times, including2 transfers between
+different matrices. The primary `(17,2,8,8)` cache has0 hits in16 headers.
+Native Rust checks192 header/proof/score requests; replay reconciles1,086 search
+nodes. The conditional fresh-uniform law parks only exact complete-kernel
+collisions; zero observations do not prove a tiny probability or general reuse
+resistance. Partial preparation and same-header supply remain open.
+
+The local gate passes358 Python tests,23 Rust tests and all differential corpora;
+the affected FLINT portfolio check passes168 searches with no mismatch.
+Checkpoint/error/interruption retention is covered by regression tests. Evidence
+identities and publication readback pass. See [findings](FINDINGS.md),
+[evidence](research/results/d4-kernel-transfer-v1.json) and
+[protocol §10](CRITICAL-PATH.md). No CPPminer/server/miner/GPU/CI change.
+
+### D3 fresh-stream replication: preceding milestone
 
 Protocol and implementation were committed at `c932176` before execution.
 All576 campaigns on24 fresh streams of `(17,3,16,12)` complete with unchanged

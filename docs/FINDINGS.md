@@ -139,6 +139,58 @@ integration and exact INT8 Tensor Core decomposition are [parked D5 options](res
 not implemented miner support or evidence of GPU advantage. No GPU/miner/server,
 consensus, wallet or GitHub Actions configuration changed in this batch.
 
+## D4: exact complete-kernel transfer has a narrow conditional bound
+
+The prospective [section10 protocol](CRITICAL-PATH.md) and implementation were
+committed at `da6bda9` before execution. This tests full paid preparation transfer
+to fresh MGH1 challenges, rather than repeating a cold-LLL donor-vector comparison.
+Distinct matrices can define the same modular-kernel lattice, so the cache uses
+the complete canonical RREF kernel, profile and rank. Recipient membership alone
+is insufficient: the independent certificate audit also checks rank/index and
+the exact transformation. A lower-rank receiver can accept old basis vectors
+without the old basis spanning its complete kernel.
+
+For a fixed rank-r donor rowspace and fresh independent uniform n-by-m matrix,
+all donor-kernel vectors transfer with probability `q^[-n(m-r)]`; equal kernels
+have probability `product(i=0..r-1, q^n-q^i)/q^(n*m)`. These laws are exhaustively
+checked over all6,642 donor/receiver pairs for q3,m2,n1/n2, including rank0.
+For a cache adapted to past observations, capacity C and H fresh opportunities,
+the union bound is `min(1,C*H*q^[-n(m-min(n,m))])`. At `(17,2,8,8)`, C8,H256,
+this is `2048/17^12`, approximately3.515e-12. The bound conditions on each new
+matrix being uniform and independent given history; it does not establish that
+SHAKE-generated or adaptively selected headers satisfy that assumption.
+A fixed legal nonzero donor vector alone has acceptance probability q^-n,
+identical to a free fixed candidate such as e1. Beating cold LLL would therefore
+not establish valuable preprocessing of that candidate.
+
+All8 externally bounded integration workers complete: two profiles, two fresh
+labels, cold and kernel-cache, eight distinct headers each. Calibration q3 has
+4 and3 cache hits, two involving different matrix bytes. Primary `(17,2,8,8)`
+has0 hits across16 cached receiving headers. All four paired proof/score
+transcripts agree. Across both policies,64 generated headers and64 returned
+proof occurrences produce192 independent Rust header/validity/score requests.
+Replay reconciles1,086 sphere-search nodes. Search replay shares the enumeration
+implementation; Rust independently checks validity and score thresholds, not
+search completeness. The [compact evidence](research/results/d4-kernel-transfer-v1.json)
+binds source/contract/config/native/raw identities and publication readback.
+
+Cold performs32 reductions; cache performs25 reductions plus32 paid kernel
+fingerprints. Misses duplicate kernel construction before preparation, and hits
+pay recipient certificate audit. Timers and named counters are descriptive;
+no weighted speed/energy advantage is inferred. Zero primary hits cannot validate
+a tiny probability statistically. The mathematical conditional model parks only
+the exact complete-kernel collision route, not preprocessing/reuse generally.
+Partial bases, geometry learned from donors, multiple same-header proofs and
+adaptive header selection remain open. Neither A nor B is promoted.
+
+The gate passes358 Python tests,23 Rust tests and all differential corpora.
+The affected actual FLINT/portfolio check passes168 searches on24 tiny matrices
+with no mismatch. Regression tests reject recipient/donor/ledger/score tampering
+and retain owned attempts/checkpoints through worker errors, memory errors and
+driver interruption, explicitly leaving in-flight work and unavailable Job
+measurements unknown. No CPPminer, GPU server/miner or CI was used. Any future
+CPPminer implementation must branch from the owner's `release/fork` branch.
+
 ## Current conclusion
 
 No deterministic monotone portable reuse-resistant weight is established.

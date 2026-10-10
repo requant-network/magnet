@@ -100,6 +100,11 @@ The locally indexed checkout `C:/Projects/ArmCompute/pearl/CPPminer` on
 `cp_turing_period_batch`, `cp_turing_pack` and architecture dispatch. It also has
 untracked ongoing work; this research batch did not modify that checkout.
 
+Owner instruction: any CPPminer implementation for this project starts in a
+separate checkout on a new branch based on `release/fork` from the owner's fork.
+Do not use `feat/abacus-backend` as the implementation base or alter its pending
+work. Record the exact base commit before adding an opt-in offline SIS target.
+
 Reuse the device/runtime handling, packing/tiling experience and test harness
 patterns. Do not call the complete Pearl kernel as a SIS engine: its K dimension,
 cumulative milestones, hash tiles and jackpot predicate belong to Pearl. An

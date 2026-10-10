@@ -50,6 +50,7 @@ see the [Russian documentation index](docs/ru/README.md).
 - Matched in-process small-coefficient CPU/CUDA chunks, complete negative-mask audits and durable interruption evidence.
 - Explicit nominal A/B work definitions and frozen paid nonce-screening attacks with strong controls, independent ledger/native audits and insufficient-evidence reporting.
 - Precommitted fresh-stream D3 replication: 576 audited campaigns, sufficient controls and no declared screening trigger; next D4 amortisation.
+- Conditional exact full-kernel transfer laws, exhaustive finite-field checks and eight audited D4 integration workers; general reuse resistance remains open.
 
 The ordinary check gate uses standard libraries. Cargo builds offline without
 third-party crates. Explicit practical-LLL surveys additionally use an isolated
@@ -65,6 +66,7 @@ Other platforms must repeat the checks before claiming support.
 python scripts/check.py
 python scripts/screening_survey.py
 python scripts/screening_replication.py
+python scripts/preparation_survey.py
 python scripts/native_coefficient_survey.py
 python scripts/toy_survey.py
 python scripts/reuse_survey.py
@@ -196,7 +198,7 @@ Dynamic-target experiments use a separate synthetic model.
 Small-instance results do not establish GPU advantage, ASIC
 resistance, post-quantum security or mainnet parameters. MagnetGate is unchanged.
 
-Next: explicit A-vs-B work weights and screening/amortization falsifiers,
+Next: explicit A-vs-B work weights and partial-preparation/same-header amortization falsifiers,
 followed by external cryptographic review. Hardware expansion, persistence,
 peer synchronization and monetary rules stay parked unless they advance that
 decision. A valid SIS solution is not proof of

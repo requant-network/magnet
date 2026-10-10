@@ -17,7 +17,11 @@ Date: 2026-10-10. This page complements the working task ordering in
 3. **D4: Does preprocessing/reuse break monotonicity?** Charge first and later
    acquisitions under the same budget. Existing reuse counterexamples already
    rule out fresh-solve counting. A revised weight needs a sharper falsifier;
-   more accepted proof occurrences cannot substitute for this argument.
+   more accepted proof occurrences cannot substitute for this argument. Exact
+   complete-kernel transfer now has a conditional fresh-uniform bound and an
+   audited8-worker integration; this route is parked under that assumption.
+   Partial bases, donor geometry, same-header solution supply and adaptively
+   selected headers remain unresolved. See [findings](FINDINGS.md).
 4. **D5: What must the hardware comparison establish?** The current matched
    small-family pilot fixes timer/domain ambiguity. Energy, memory trade-offs,
    stronger CPU baselines and a smallest relevant non-toy profile remain absent.
@@ -26,8 +30,10 @@ Date: 2026-10-10. This page complements the working task ordering in
    of the framing/weight is still needed. Local source review checks implementation
    and evidence, not economic or cryptographic security.
 
-Next implementation batch should precommit the D4 first/subsequent acquisition
-comparison, defining the externally bound instance and paid setup/reuse scopes.
+Next D4 experiment must name a revised weight and one concrete partial-preparation
+or same-header amortization attack whose result can falsify its monotonicity.
+The full-kernel collision diagnostic should not grow into a low-power timing
+survey: its conditional mathematical law already answers that narrow question.
 The [CPPminer/Tensor Core option](research/gpu-readiness-v1.md) is parked for D5
 until it advances a specified work hypothesis. Keep negative findings in the central
 [findings page](FINDINGS.md). Wallets, payments and production retarget remain
