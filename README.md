@@ -211,3 +211,7 @@ Closed: the [negative-result note](docs/NEGATIVE-RESULT.md) states the conclusio
 and the conditions for reopening. External cryptographic review of that note is the one
 outstanding request. A valid SIS solution is not proof of network service delivery or of a
 particular amount of computation.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
